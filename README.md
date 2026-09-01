@@ -27,5 +27,8 @@ Everything below is a placeholder. Each one is marked with a `TODO` comment in `
 ## Notes
 
 - Fonts load from Google Fonts (Fraunces for display, Inter for body). Self host them if the site needs to work offline.
-- The walkthrough uses `scroll-snap-type: y proximity` on the root. Switch it to `y mandatory` in `styles.css` if you want each panel to click into place harder. Snapping and the numeral rail both switch off below 900px.
-- `prefers-reduced-motion` disables every animation, the snapping and the typing effect.
+- **Accent colour** is one green in two stops: `--accent-dk` (#3F6B4B) for the ivory sections, `--accent-lt` (#C3DBB8) for the dark ones. Sections override `--accent`, so changing those two values at the top of `styles.css` re-tints the whole page.
+- **Scrolling** is a weighted glide written in `script.js`: the wheel feeds a target, the page eases toward it, and when the wheel goes quiet it drifts onto the nearest walkthrough panel. It only runs with a fine pointer, above 900px wide, and with motion allowed. Everywhere else the browser scrolls natively and the CSS `scroll-snap-type: y proximity` fallback takes over. `lerp` controls the weight, `reach` in `settle()` controls how close a panel has to be to pull.
+- **The custom cursor** is a dot that grows and names the action. Add `data-cursor="Word"` to anything that should carry a label. It flips light or dark based on what sits under it, and it is off entirely on touch devices and under reduced motion.
+- **The window mocks** each run as a looping clip on one `--loop` clock (9s, set in `styles.css`). Everything inside a frame is paused until its panel is on screen, the thin bar along the bottom of each window is the playhead, and the numbers re-count on every pass. Anything that has to happen in sequence uses absolute keyframe percentages rather than `animation-delay`, so all the parts of one window stay on the same take.
+- `prefers-reduced-motion` disables the glide, the cursor, the looping clips and every transition.
