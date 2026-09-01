@@ -440,7 +440,7 @@ html.has-cursor .cursor{opacity:1}
   display:flex;align-items:center;gap:6px;font-size:11px;color:var(--fai);
   border:1px solid var(--line);background:var(--w);border-radius:5px;padding:4px 8px;
 }
-.app__body{padding:11px 14px 9px;flex:1;min-height:0;display:flex;flex-direction:column}
+.app__body{padding:11px 14px 7px;flex:1;min-height:0;display:flex;flex-direction:column}
 .app__meta{
   display:flex;justify-content:space-between;font-size:10px;color:var(--fai);
   padding-bottom:7px;
@@ -485,7 +485,7 @@ html.has-cursor .cursor{opacity:1}
 @keyframes t3{0%,41.9%{opacity:0}42%,47.9%{opacity:1}48%,100%{opacity:0}}
 @keyframes t4{0%,47.9%{opacity:0}48%,97%{opacity:1}100%{opacity:0}}
 .hits li{
-  display:flex;align-items:center;gap:8px;padding:6px 7px;border-radius:5px;
+  display:flex;align-items:center;gap:8px;padding:5px 7px;border-radius:5px;
   background:var(--w);border:1px solid var(--line);margin-bottom:4px;
   opacity:0;animation:var(--loop) var(--ease) infinite;
 }
@@ -507,7 +507,7 @@ html.has-cursor .cursor{opacity:1}
   margin-left:auto;font-size:9.5px;font-weight:500;color:var(--grn);
   background:var(--grn-s);border-radius:4px;padding:1px 5px;
 }
-.seg__more{font-size:10px;color:var(--fai);padding:2px 7px;opacity:0;animation:hIn5 var(--loop) var(--ease) infinite}
+.seg__more{font-size:10px;color:var(--fai);padding:1px 7px;opacity:0;animation:hIn5 var(--loop) var(--ease) infinite}
 
 /* ---------- II. people table ---------- */
 .tbl{border:1px solid var(--line);border-radius:6px;background:var(--w);overflow:hidden}
