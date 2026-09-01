@@ -697,6 +697,7 @@ html.has-cursor .cursor{opacity:1}
 .tip b{display:block;font-weight:500;color:#C3DBB8;font-size:9.5px}
 @keyframes tipShow{0%,38%{opacity:0;transform:translateY(3px)}41%,72%{opacity:1;transform:none}75%,100%{opacity:0;transform:translateY(3px)}}
 .xax{display:flex;justify-content:space-between;font-size:9px;color:var(--fai);padding:4px 2px 0}
+.xax--w span{flex:1;text-align:center}
 .tbl--dom table{font-size:10.5px}
 .tbl--dom .ok{color:var(--grn)}
 
@@ -756,7 +757,7 @@ html.has-cursor .cursor{opacity:1}
 .menu .on{background:var(--grn-s);color:var(--grn);font-weight:500}
 @keyframes menu{0%,13%{opacity:0;transform:translateY(-3px)}16%,27%{opacity:1;transform:none}30%,100%{opacity:0;transform:translateY(-3px)}}
 .rep .kpi b{font-size:19px}
-.bars{display:flex;align-items:flex-end;gap:6px;height:74px;padding-top:14px}
+.bars{display:flex;align-items:flex-end;gap:6px;height:78px;padding-top:14px;border-bottom:1px solid var(--line)}
 .bars li{
   flex:1;height:0;background:#E2E7E1;border-radius:3px 3px 0 0;position:relative;
   animation:barUp var(--loop) var(--ease) infinite;animation-delay:var(--d,0s);
