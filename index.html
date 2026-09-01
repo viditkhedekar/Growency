@@ -19,6 +19,7 @@
 <body>
 
 <div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span class="cursor__dot"><span class="cursor__label"></span></span></div>
 
 <a class="skip" href="#main">Skip to content</a>
 
@@ -33,7 +34,7 @@
       <a href="#results">Results</a>
       <a href="#contact">Contact</a>
       <!-- TODO: replace # with your booking link -->
-      <a class="btn btn--ghost" href="#">Book a Call</a>
+      <a class="btn btn--ghost" href="#" data-cursor="Book">Book a Call</a>
     </nav>
   </div>
 </header>
@@ -54,14 +55,14 @@
       <p class="lede reveal" data-delay="2">We build cold email and LinkedIn systems for B2B teams who'd rather send 50 emails that land than 5,000 that don't.</p>
       <div class="hero__actions reveal" data-delay="3">
         <!-- TODO: replace # with your audit form or booking link -->
-        <a class="btn btn--brass" href="#">Request an Audit</a>
-        <a class="linkline" href="#results">See our work</a>
+        <a class="btn btn--fill" href="#" data-cursor="Request">Request an Audit</a>
+        <a class="linkline" href="#results" data-cursor="View">See our work</a>
       </div>
     </div>
 
     <div class="hero__art reveal" data-delay="2" aria-hidden="true">
       <svg viewBox="0 0 420 340" class="signal" role="presentation" focusable="false">
-        <g class="signal__draw" fill="none" stroke="var(--brass)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <g class="signal__draw" fill="none" stroke="var(--accent)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
           <rect class="d1" x="70" y="118" width="230" height="150" rx="2"></rect>
           <path class="d2" d="M70 118 L185 208 L300 118"></path>
           <path class="d3" d="M70 268 L152 190"></path>
@@ -70,8 +71,8 @@
           <path class="d6" d="M300 74 q46 -48 92 0"></path>
           <path class="d7" d="M300 52 q58 -62 116 0"></path>
         </g>
-        <circle class="signal__pulse" cx="300" cy="118" r="3.5" fill="var(--brass)"></circle>
-        <line class="signal__hair" x1="24" y1="300" x2="396" y2="300" stroke="var(--brass)" stroke-width="1" opacity=".35"></line>
+        <circle class="signal__pulse" cx="300" cy="118" r="3.5" fill="var(--accent)"></circle>
+        <line class="signal__hair" x1="24" y1="300" x2="396" y2="300" stroke="var(--accent)" stroke-width="1" opacity=".35"></line>
       </svg>
     </div>
   </div>
@@ -83,12 +84,12 @@
   <div class="wrap">
     <p class="smallcaps trust__label reveal">Trusted by teams at</p>
     <ul class="trust__row reveal" data-delay="1">
-      <li class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="#0E2B1F" stroke-width="1.4"/><path d="M4 13 L10 5 L16 13" fill="none" stroke="#C9A24B" stroke-width="1.4"/></svg><span>Northbound</span></li>
-      <li class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" fill="none" stroke="#0E2B1F" stroke-width="1.4"/><rect x="7.5" y="7.5" width="5" height="5" fill="#C9A24B"/></svg><span>Meridian Labs</span></li>
-      <li class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 L18 10 L10 18 L2 10 Z" fill="none" stroke="#0E2B1F" stroke-width="1.4"/><circle cx="10" cy="10" r="2.4" fill="#C9A24B"/></svg><span>Cadence</span></li>
-      <li class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 16 L10 4 L17 16" fill="none" stroke="#0E2B1F" stroke-width="1.4"/><line x1="6" y1="12" x2="14" y2="12" stroke="#C9A24B" stroke-width="1.4"/></svg><span>Halston &amp; Co.</span></li>
-      <li class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="7" cy="10" r="5" fill="none" stroke="#0E2B1F" stroke-width="1.4"/><circle cx="13" cy="10" r="5" fill="none" stroke="#C9A24B" stroke-width="1.4"/></svg><span>Fieldnote</span></li>
-      <li class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="3" x2="10" y2="17" stroke="#0E2B1F" stroke-width="1.4"/><path d="M10 9 L16 5 M10 12 L4 8" stroke="#C9A24B" stroke-width="1.4"/></svg><span>Arbor Group</span></li>
+      <li class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="none" stroke="#0E2B1F" stroke-width="1.4"/><path d="M4 13 L10 5 L16 13" fill="none" stroke="#3F6B4B" stroke-width="1.4"/></svg><span>Northbound</span></li>
+      <li class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" fill="none" stroke="#0E2B1F" stroke-width="1.4"/><rect x="7.5" y="7.5" width="5" height="5" fill="#3F6B4B"/></svg><span>Meridian Labs</span></li>
+      <li class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 L18 10 L10 18 L2 10 Z" fill="none" stroke="#0E2B1F" stroke-width="1.4"/><circle cx="10" cy="10" r="2.4" fill="#3F6B4B"/></svg><span>Cadence</span></li>
+      <li class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 16 L10 4 L17 16" fill="none" stroke="#0E2B1F" stroke-width="1.4"/><line x1="6" y1="12" x2="14" y2="12" stroke="#3F6B4B" stroke-width="1.4"/></svg><span>Halston &amp; Co.</span></li>
+      <li class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="7" cy="10" r="5" fill="none" stroke="#0E2B1F" stroke-width="1.4"/><circle cx="13" cy="10" r="5" fill="none" stroke="#3F6B4B" stroke-width="1.4"/></svg><span>Fieldnote</span></li>
+      <li class="logo"><svg viewBox="0 0 20 20" aria-hidden="true"><line x1="10" y1="3" x2="10" y2="17" stroke="#0E2B1F" stroke-width="1.4"/><path d="M10 9 L16 5 M10 12 L4 8" stroke="#3F6B4B" stroke-width="1.4"/></svg><span>Arbor Group</span></li>
     </ul>
   </div>
 </section>
@@ -116,17 +117,17 @@
 
   <nav class="rail" id="rail" aria-label="Walkthrough steps">
     <span class="rail__line" aria-hidden="true"></span>
-    <button class="rail__item" data-step="1"><span aria-hidden="true">I</span><em class="vh">Discovery and ICP</em></button>
-    <button class="rail__item" data-step="2"><span aria-hidden="true">II</span><em class="vh">Research and list building</em></button>
-    <button class="rail__item" data-step="3"><span aria-hidden="true">III</span><em class="vh">Message architecture</em></button>
-    <button class="rail__item" data-step="4"><span aria-hidden="true">IV</span><em class="vh">Infrastructure and deliverability</em></button>
-    <button class="rail__item" data-step="5"><span aria-hidden="true">V</span><em class="vh">Launch and live monitoring</em></button>
-    <button class="rail__item" data-step="6"><span aria-hidden="true">VI</span><em class="vh">Reporting and iteration</em></button>
+    <button class="rail__item" data-step="1" data-cursor="Go"><span aria-hidden="true">I</span><em class="vh">Discovery and ICP</em></button>
+    <button class="rail__item" data-step="2" data-cursor="Go"><span aria-hidden="true">II</span><em class="vh">Research and list building</em></button>
+    <button class="rail__item" data-step="3" data-cursor="Go"><span aria-hidden="true">III</span><em class="vh">Message architecture</em></button>
+    <button class="rail__item" data-step="4" data-cursor="Go"><span aria-hidden="true">IV</span><em class="vh">Infrastructure and deliverability</em></button>
+    <button class="rail__item" data-step="5" data-cursor="Go"><span aria-hidden="true">V</span><em class="vh">Launch and live monitoring</em></button>
+    <button class="rail__item" data-step="6" data-cursor="Go"><span aria-hidden="true">VI</span><em class="vh">Reporting and iteration</em></button>
   </nav>
 
   <div class="panels" id="panels">
 
-    <!-- I -->
+    <!-- I ------------------------------------------------------------ -->
     <article class="panel" id="step-1" data-step="1">
       <span class="panel__ghost" aria-hidden="true">I</span>
       <div class="panel__inner">
@@ -136,16 +137,36 @@
           <p class="panel__body">Before a single line is written, we agree on who is genuinely worth reaching. Most target lists are too broad by an order of magnitude. We cut until every name on it has a reason to be there.</p>
         </div>
         <div class="panel__viz">
-          <div class="frame">
-            <div class="frame__bar"><span></span><span></span><span></span><p>Segment</p></div>
-            <div class="viz viz--dots" id="viz-dots" aria-hidden="true"></div>
-            <p class="frame__caption"><span class="cap-a">2,940 accounts</span><span class="cap-b">→</span><span class="cap-c">118 qualified</span></p>
+          <div class="frame" aria-hidden="true">
+            <div class="win win--split">
+              <div class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><p class="win__name">Segment</p></div>
+              <div class="win__cols">
+                <aside class="win__side">
+                  <p class="win__label">Filters</p>
+                  <ul class="filters">
+                    <li>B2B SaaS</li>
+                    <li>50 to 400 staff</li>
+                    <li>EMEA</li>
+                    <li>Hiring AEs</li>
+                    <li>Not in pipeline</li>
+                  </ul>
+                </aside>
+                <div class="win__main">
+                  <p class="tally">
+                    <span class="tally__num"><b>2,940</b><b>1,106</b><b>312</b><b>118</b></span>
+                    <em>accounts</em>
+                  </p>
+                  <div class="cloud" id="viz-cloud"></div>
+                </div>
+              </div>
+            </div>
+            <span class="playbar"><i></i></span>
           </div>
         </div>
       </div>
     </article>
 
-    <!-- II -->
+    <!-- II ----------------------------------------------------------- -->
     <article class="panel" id="step-2" data-step="2">
       <span class="panel__ghost" aria-hidden="true">II</span>
       <div class="panel__inner">
@@ -155,21 +176,26 @@
           <p class="panel__body">Every contact is enriched, then verified. No scraped exports, no catch all addresses, no guessing at what a company runs internally. The list is small enough to read end to end.</p>
         </div>
         <div class="panel__viz">
-          <div class="frame">
-            <div class="frame__bar"><span></span><span></span><span></span><p>Enrichment</p></div>
-            <ul class="viz viz--rows" aria-hidden="true">
-              <li><b>A. Whitfield</b><i>Head of Sales</i><s>verified</s></li>
-              <li><b>M. Okonjo</b><i>VP Revenue</i><s>verified</s></li>
-              <li><b>R. Lindqvist</b><i>Director, GTM</i><s>verified</s></li>
-              <li><b>J. Ferreira</b><i>Founder</i><s>verified</s></li>
-              <li><b>S. Nakamura</b><i>Head of Growth</i><s>verified</s></li>
-            </ul>
+          <div class="frame" aria-hidden="true">
+            <div class="win">
+              <div class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><p class="win__name">Enrichment</p></div>
+              <div class="win__head"><span>Contact</span><span>Role</span><span>Email</span></div>
+              <ul class="rows">
+                <li><b>A. Whitfield</b><i>Head of Sales</i><s><em class="s-wait">checking</em><em class="s-ok">verified</em></s></li>
+                <li><b>M. Okonjo</b><i>VP Revenue</i><s><em class="s-wait">checking</em><em class="s-ok">verified</em></s></li>
+                <li><b>R. Lindqvist</b><i>Director, GTM</i><s><em class="s-wait">checking</em><em class="s-ok">verified</em></s></li>
+                <li><b>J. Ferreira</b><i>Founder</i><s><em class="s-wait">checking</em><em class="s-ok">verified</em></s></li>
+                <li><b>S. Nakamura</b><i>Head of Growth</i><s><em class="s-wait">checking</em><em class="s-ok">verified</em></s></li>
+                <li><b>P. Delacroix</b><i>CRO</i><s><em class="s-wait">checking</em><em class="s-ok">verified</em></s></li>
+              </ul>
+            </div>
+            <span class="playbar"><i></i></span>
           </div>
         </div>
       </div>
     </article>
 
-    <!-- III -->
+    <!-- III ---------------------------------------------------------- -->
     <article class="panel" id="step-3" data-step="3">
       <span class="panel__ghost" aria-hidden="true">III</span>
       <div class="panel__inner">
@@ -179,21 +205,42 @@
           <p class="panel__body">Drafts are generated, then edited by a person who has read the account. The structure repeats across a campaign. The specifics never do.</p>
         </div>
         <div class="panel__viz">
-          <div class="frame">
-            <div class="frame__bar"><span></span><span></span><span></span><p>Draft 3</p></div>
-            <div class="viz viz--write" aria-hidden="true">
-              <p class="w-meta">To: m.okonjo@meridianlabs.co</p>
-              <p class="w-line w-line--dim">Saw the Lisbon office opening last month.</p>
-              <p class="w-line w-line--edit">Two AEs covering EMEA is a lot of ground.</p>
-              <p class="w-line w-type" data-type="We wrote the sequence their team now uses.">We wrote the sequence their team now uses.</p>
-              <p class="w-line w-line--dim">Worth fifteen minutes?</p>
+          <div class="frame" aria-hidden="true">
+            <div class="win win--split">
+              <div class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><p class="win__name">Composer</p></div>
+              <div class="win__cols">
+                <aside class="win__side">
+                  <p class="win__label">Drafts</p>
+                  <ul class="threads">
+                    <li>Meridian Labs</li>
+                    <li class="on">Meridian Labs v3</li>
+                    <li>Arbor Group</li>
+                    <li>Cadence</li>
+                  </ul>
+                </aside>
+                <div class="win__main">
+                  <p class="field"><span>To</span> m.okonjo@meridianlabs.co</p>
+                  <p class="field"><span>Subject</span> Two AEs, all of EMEA</p>
+                  <div class="doc">
+                    <p class="doc__l l1">Saw the Lisbon office opening last month.</p>
+                    <p class="doc__l l2">
+                      <span class="swap swap--a">Two AEs covering that whole region is a lot of ground.</span>
+                      <span class="swap swap--b">Two AEs on all of EMEA is a lot of ground.</span>
+                      <span class="sweep"></span>
+                    </p>
+                    <p class="doc__l l3"><span class="typed">We wrote the sequence their team now uses.</span></p>
+                    <p class="doc__l l4">Worth fifteen minutes?</p>
+                  </div>
+                </div>
+              </div>
             </div>
+            <span class="playbar"><i></i></span>
           </div>
         </div>
       </div>
     </article>
 
-    <!-- IV -->
+    <!-- IV ----------------------------------------------------------- -->
     <article class="panel" id="step-4" data-step="4">
       <span class="panel__ghost" aria-hidden="true">IV</span>
       <div class="panel__inner">
@@ -203,24 +250,29 @@
           <p class="panel__body">Domains, warmup, authentication, sending limits. Unglamorous work that quietly decides whether any of the above is ever read.</p>
         </div>
         <div class="panel__viz">
-          <div class="frame">
-            <div class="frame__bar"><span></span><span></span><span></span><p>Inbox placement</p></div>
-            <div class="viz viz--graph">
-              <svg viewBox="0 0 320 150" aria-hidden="true" focusable="false">
-                <line x1="0" y1="120" x2="320" y2="120" stroke="currentColor" stroke-width="1" opacity=".25"/>
-                <line x1="0" y1="80" x2="320" y2="80" stroke="currentColor" stroke-width="1" opacity=".12"/>
-                <line x1="0" y1="40" x2="320" y2="40" stroke="currentColor" stroke-width="1" opacity=".12"/>
-                <path class="graph__area" d="M8 112 C60 108 74 92 110 82 C150 71 176 62 210 44 C244 27 272 24 312 18 L312 120 L8 120 Z" fill="var(--brass)" opacity="0"/>
-                <path class="graph__line" d="M8 112 C60 108 74 92 110 82 C150 71 176 62 210 44 C244 27 272 24 312 18" fill="none" stroke="var(--brass)" stroke-width="1.6" stroke-linecap="round"/>
-              </svg>
-              <p class="frame__caption"><span class="counter" data-to="96" data-suffix="%">0%</span> <i>placement, week six</i></p>
+          <div class="frame" aria-hidden="true">
+            <div class="win">
+              <div class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><p class="win__name">Deliverability</p></div>
+              <div class="win__tabs"><span class="on">Placement</span><span>Warmup</span><span>Domains</span></div>
+              <div class="dash">
+                <p class="dash__stat"><span class="counter" data-to="96" data-suffix="%">0%</span><em>inbox placement, week six</em></p>
+                <svg class="dash__chart" viewBox="0 0 320 120" focusable="false">
+                  <line x1="0" y1="96" x2="320" y2="96" stroke="currentColor" stroke-width="1" opacity=".22"/>
+                  <line x1="0" y1="60" x2="320" y2="60" stroke="currentColor" stroke-width="1" opacity=".1"/>
+                  <line x1="0" y1="24" x2="320" y2="24" stroke="currentColor" stroke-width="1" opacity=".1"/>
+                  <path class="chart__area" d="M8 90 C60 86 74 72 110 64 C150 54 176 46 210 32 C244 18 272 16 312 12 L312 96 L8 96 Z"></path>
+                  <path class="chart__line" d="M8 90 C60 86 74 72 110 64 C150 54 176 46 210 32 C244 18 272 16 312 12"></path>
+                </svg>
+                <ul class="bars"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+              </div>
             </div>
+            <span class="playbar"><i></i></span>
           </div>
         </div>
       </div>
     </article>
 
-    <!-- V -->
+    <!-- V ------------------------------------------------------------ -->
     <article class="panel" id="step-5" data-step="5">
       <span class="panel__ghost" aria-hidden="true">V</span>
       <div class="panel__inner">
@@ -230,19 +282,35 @@
           <p class="panel__body">Sequences go out in controlled volume. Replies are read the day they arrive, and the campaign changes shape as they come in.</p>
         </div>
         <div class="panel__viz">
-          <div class="frame">
-            <div class="frame__bar"><span></span><span></span><span></span><p>Replies</p></div>
-            <ul class="viz viz--replies" aria-hidden="true">
-              <li><b>R. Lindqvist</b><i>"Send me the deck, we're reviewing vendors in March."</i><s>09:14</s></li>
-              <li><b>A. Whitfield</b><i>"Not me. Copying Dan, he owns this."</i><s>11:02</s></li>
-              <li><b>J. Ferreira</b><i>"Thursday works. 30 minutes."</i><s>16:47</s></li>
-            </ul>
+          <div class="frame" aria-hidden="true">
+            <div class="win win--split">
+              <div class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><p class="win__name">Inbox</p></div>
+              <div class="win__cols">
+                <aside class="win__side">
+                  <p class="win__label">Folders</p>
+                  <ul class="threads">
+                    <li class="on">Replies <span class="badge"><b>1</b><b>2</b><b>3</b></span></li>
+                    <li>Sent</li>
+                    <li>Out of office</li>
+                    <li>Referred on</li>
+                  </ul>
+                </aside>
+                <div class="win__main">
+                  <ul class="replies">
+                    <li><span class="new"></span><b>R. Lindqvist</b><s>09:14</s><i>"Send me the deck, we're reviewing vendors in March."</i></li>
+                    <li><span class="new"></span><b>A. Whitfield</b><s>11:02</s><i>"Not me. Copying Dan, he owns this."</i></li>
+                    <li><span class="new"></span><b>J. Ferreira</b><s>16:47</s><i>"Thursday works. 30 minutes."</i></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <span class="playbar"><i></i></span>
           </div>
         </div>
       </div>
     </article>
 
-    <!-- VI -->
+    <!-- VI ----------------------------------------------------------- -->
     <article class="panel panel--last" id="step-6" data-step="6">
       <span class="panel__ghost" aria-hidden="true">VI</span>
       <div class="panel__inner">
@@ -252,20 +320,28 @@
           <p class="panel__body">One report a week. What was sent, what landed, what we are changing next, and why. Then the loop runs again.</p>
         </div>
         <div class="panel__viz">
-          <div class="frame">
-            <div class="frame__bar"><span></span><span></span><span></span><p>Week 01 vs Week 09</p></div>
-            <div class="viz viz--delta" aria-hidden="true">
-              <div class="delta__col delta__col--before">
-                <p class="delta__num">12%</p>
-                <p class="smallcaps">Week 01</p>
-              </div>
-              <span class="delta__arrow">→</span>
-              <div class="delta__col delta__col--after">
-                <p class="delta__num"><span class="counter" data-to="38" data-suffix="%">0%</span></p>
-                <p class="smallcaps">Week 09</p>
+          <div class="frame" aria-hidden="true">
+            <div class="win">
+              <div class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><p class="win__name">Weekly report</p></div>
+              <div class="report">
+                <div class="report__row">
+                  <span class="smallcaps">Week 01</span>
+                  <span class="track"><i style="--w:12%"></i></span>
+                  <b>12%</b>
+                </div>
+                <div class="report__row report__row--now">
+                  <span class="smallcaps">Week 09</span>
+                  <span class="track"><i style="--w:38%"></i></span>
+                  <b><span class="counter" data-to="38" data-suffix="%">0%</span></b>
+                </div>
+                <ul class="report__notes">
+                  <li>Subject line shortened to four words</li>
+                  <li>Second follow up removed</li>
+                  <li>Sending window moved before 10am</li>
+                </ul>
               </div>
             </div>
-            <p class="frame__caption"><i>Reply rate, same list, rewritten twice.</i></p>
+            <span class="playbar"><i></i></span>
           </div>
         </div>
       </div>
@@ -324,7 +400,7 @@
     <h2 class="display display--sm reveal">Let's write outreach<br>worth <em>opening</em>.</h2>
     <p class="final__note reveal" data-delay="1">Four seats a quarter. We will tell you plainly if we are not the right fit.</p>
     <!-- TODO: replace # with your booking link -->
-    <a class="btn btn--brass reveal" data-delay="2" href="#">Book a Call</a>
+    <a class="btn btn--fill reveal" data-delay="2" href="#" data-cursor="Book">Book a Call</a>
   </div>
 </section>
 
