@@ -379,11 +379,11 @@ html.has-cursor .cursor{opacity:1}
   font-size:.72rem;color:var(--ivory-30);padding:.32rem .5rem;margin-left:-.5rem;
   border-left:1px solid transparent;animation:chip var(--loop) infinite;animation-delay:var(--d,0s);
 }
-.filters li:nth-child(1){--d:.3s}
-.filters li:nth-child(2){--d:.8s}
-.filters li:nth-child(3){--d:1.3s}
-.filters li:nth-child(4){--d:1.8s}
-.filters li:nth-child(5){--d:2.3s}
+.filters li:nth-child(1){--d:.2s}
+.filters li:nth-child(2){--d:.45s}
+.filters li:nth-child(3){--d:.7s}
+.filters li:nth-child(4){--d:.95s}
+.filters li:nth-child(5){--d:1.2s}
 @keyframes chip{
   0%,6%{color:var(--ivory-30);border-left-color:transparent;background:transparent}
   10%,92%{color:var(--accent-lt);border-left-color:var(--accent-lt);background:rgba(195,219,184,.06)}
@@ -430,12 +430,12 @@ html.has-cursor .cursor{opacity:1}
   opacity:0;animation:rowIn var(--loop) var(--ease) infinite;animation-delay:var(--d,0s);
 }
 .rows li:last-child{border-bottom:0}
-.rows li:nth-child(1){--d:.2s}
-.rows li:nth-child(2){--d:.65s}
-.rows li:nth-child(3){--d:1.1s}
-.rows li:nth-child(4){--d:1.55s}
-.rows li:nth-child(5){--d:2s}
-.rows li:nth-child(6){--d:2.45s}
+.rows li:nth-child(1){--d:.15s}
+.rows li:nth-child(2){--d:.42s}
+.rows li:nth-child(3){--d:.69s}
+.rows li:nth-child(4){--d:.96s}
+.rows li:nth-child(5){--d:1.23s}
+.rows li:nth-child(6){--d:1.5s}
 @keyframes rowIn{
   0%{opacity:0;transform:translateY(7px)}
   8%,94%{opacity:1;transform:none}
@@ -466,12 +466,14 @@ html.has-cursor .cursor{opacity:1}
 }
 .field span{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ivory-30);margin-right:.5rem}
 .doc{padding-top:.3rem;font-size:.82rem;line-height:1.75}
-.doc__l{opacity:0;animation:lineIn var(--loop) var(--ease) infinite;animation-delay:var(--d,0s);margin-bottom:.4rem;color:var(--ivory-55)}
-.doc .l1{--d:.4s}
-.doc .l2{--d:1.1s;position:relative;color:var(--ivory)}
-.doc .l3{--d:0s;opacity:1;color:var(--ivory);animation:none}
-.doc .l4{--d:6.6s}
-@keyframes lineIn{0%{opacity:0;transform:translateY(5px)}6%,95%{opacity:1;transform:none}100%{opacity:0}}
+.doc__l{opacity:0;animation:var(--loop) var(--ease) infinite;margin-bottom:.4rem;color:var(--ivory-55)}
+.doc .l1{animation-name:docIn1}
+.doc .l2{animation-name:docIn2;position:relative;color:var(--ivory)}
+.doc .l3{opacity:1;color:var(--ivory);animation:none}
+.doc .l4{animation-name:docIn4}
+@keyframes docIn1{0%,4%{opacity:0;transform:translateY(5px)}8%,96%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes docIn2{0%,12%{opacity:0;transform:translateY(5px)}16%,96%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes docIn4{0%,76%{opacity:0;transform:translateY(5px)}80%,96%{opacity:1;transform:none}100%{opacity:0}}
 .doc .swap{display:block}
 .doc .swap--b{position:absolute;left:0;top:0;opacity:0}
 .doc .swap--a{animation:swapOut var(--loop) infinite}
@@ -546,28 +548,31 @@ html.has-cursor .cursor{opacity:1}
 .badge b:nth-child(1){animation-name:b1}
 .badge b:nth-child(2){animation-name:b2}
 .badge b:nth-child(3){animation-name:b3}
-@keyframes b1{0%,10%{opacity:0}12%,32%{opacity:1}34%,100%{opacity:0}}
-@keyframes b2{0%,34%{opacity:0}36%,56%{opacity:1}58%,100%{opacity:0}}
-@keyframes b3{0%,58%{opacity:0}60%,96%{opacity:1}100%{opacity:0}}
+@keyframes b1{0%,13%{opacity:0}15%,36%{opacity:1}38%,100%{opacity:0}}
+@keyframes b2{0%,37%{opacity:0}39%,60%{opacity:1}62%,100%{opacity:0}}
+@keyframes b3{0%,61%{opacity:0}63%,96%{opacity:1}100%{opacity:0}}
 .replies li{
   display:grid;grid-template-columns:auto 1fr auto;gap:.2rem .5rem;
   padding:.55rem 0;border-bottom:1px solid rgba(247,245,239,.06);
-  opacity:0;animation:replyIn var(--loop) var(--ease) infinite;animation-delay:var(--d,0s);
+  opacity:0;animation:var(--loop) var(--ease) infinite;
 }
 .replies li:last-child{border-bottom:0}
-.replies li:nth-child(1){--d:1.1s}
-.replies li:nth-child(2){--d:3.3s}
-.replies li:nth-child(3){--d:5.5s}
-@keyframes replyIn{
-  0%{opacity:0;transform:translateX(12px)}
-  6%,92%{opacity:1;transform:none}
-  100%{opacity:0;transform:translateX(12px)}
-}
+.replies li:nth-child(1){animation-name:rep1}
+.replies li:nth-child(2){animation-name:rep2}
+.replies li:nth-child(3){animation-name:rep3}
+@keyframes rep1{0%,10%{opacity:0;transform:translateX(12px)}14%,96%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes rep2{0%,34%{opacity:0;transform:translateX(12px)}38%,96%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes rep3{0%,58%{opacity:0;transform:translateX(12px)}62%,96%{opacity:1;transform:none}100%{opacity:0}}
 .replies .new{
   width:5px;height:5px;border-radius:50%;background:var(--accent-lt);
-  align-self:center;animation:blip var(--loop) infinite;animation-delay:var(--d,0s);
+  align-self:center;animation:var(--loop) linear infinite;
 }
-@keyframes blip{0%,4%{opacity:1;transform:scale(1.6)}12%,100%{opacity:.5;transform:scale(1)}}
+.replies li:nth-child(1) .new{animation-name:blip1}
+.replies li:nth-child(2) .new{animation-name:blip2}
+.replies li:nth-child(3) .new{animation-name:blip3}
+@keyframes blip1{0%,14%{transform:scale(1.7)}22%,100%{transform:scale(1);opacity:.55}}
+@keyframes blip2{0%,38%{transform:scale(1.7)}46%,100%{transform:scale(1);opacity:.55}}
+@keyframes blip3{0%,62%{transform:scale(1.7)}70%,100%{transform:scale(1);opacity:.55}}
 .replies b{font-weight:400;font-size:.8rem}
 .replies s{text-decoration:none;font-size:.6rem;letter-spacing:.1em;color:var(--accent-lt);opacity:.8}
 .replies i{grid-column:2/4;font-size:.76rem;color:var(--ivory-55);font-style:italic}
@@ -588,12 +593,15 @@ html.has-cursor .cursor{opacity:1}
 .report__notes{border-top:1px solid rgba(247,245,239,.07);padding-top:.7rem;margin-top:1.2rem}
 .report__notes li{
   font-size:.72rem;color:var(--ivory-30);padding:.2rem 0 .2rem .8rem;position:relative;
-  opacity:0;animation:lineIn var(--loop) var(--ease) infinite;animation-delay:var(--d,0s);
+  opacity:0;animation:var(--loop) var(--ease) infinite;
 }
 .report__notes li::before{content:"";position:absolute;left:0;top:.85em;width:4px;height:1px;background:var(--accent-lt)}
-.report__notes li:nth-child(1){--d:4.2s}
-.report__notes li:nth-child(2){--d:4.9s}
-.report__notes li:nth-child(3){--d:5.6s}
+.report__notes li:nth-child(1){animation-name:note1}
+.report__notes li:nth-child(2){animation-name:note2}
+.report__notes li:nth-child(3){animation-name:note3}
+@keyframes note1{0%,46%{opacity:0;transform:translateY(5px)}50%,96%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes note2{0%,53%{opacity:0;transform:translateY(5px)}57%,96%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes note3{0%,60%{opacity:0;transform:translateY(5px)}64%,96%{opacity:1;transform:none}100%{opacity:0}}
 
 /* =========================================================
    Results
