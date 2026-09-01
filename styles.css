@@ -103,7 +103,8 @@ html.has-cursor .cursor{opacity:1}
   transition:width 320ms var(--ease),height 320ms var(--ease),
              margin 320ms var(--ease),background-color 260ms linear;
 }
-.cursor.is-hot .cursor__dot{width:82px;height:82px;margin:-41px 0 0 -41px}
+.cursor.is-hot .cursor__dot{width:70px;height:70px;margin:-35px 0 0 -35px}
+.cursor.is-warm .cursor__dot{width:30px;height:30px;margin:-15px 0 0 -15px;opacity:.45}
 .cursor.is-down .cursor__dot{transform:scale(.86)}
 .cursor__label{
   font-family:var(--sans);font-weight:500;font-size:.62rem;
