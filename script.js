@@ -39,11 +39,14 @@
     var darkSections = document.querySelectorAll('.method, .results, .final, .footer');
     if (!('IntersectionObserver' in window)) return;
     var navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'), 10) || 76;
-    var live = 0;
+    var live = [];
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { live += e.isIntersecting ? 1 : -1; });
-      if (live < 0) live = 0;
-      nav.classList.toggle('is-dark', live > 0);
+      entries.forEach(function (e) {
+        var i = live.indexOf(e.target);
+        if (e.isIntersecting && i === -1) live.push(e.target);
+        if (!e.isIntersecting && i > -1) live.splice(i, 1);
+      });
+      nav.classList.toggle('is-dark', live.length > 0);
     }, { rootMargin: '-' + (navH - 2) + 'px 0px -100% 0px' });
     Array.prototype.forEach.call(darkSections, function (s) { io.observe(s); });
   })();
