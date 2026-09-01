@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "growency",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4319"],
+      "port": 4319
+    }
+  ]
+}
