@@ -24,7 +24,7 @@
      visitor asks for reduced motion.
      ======================================================= */
   var Scroll = (function () {
-    var on = fine && !reduced && window.innerWidth > 900;
+    var on = false;
     var target = window.scrollY;
     var current = target;
     var raf = null;
@@ -124,15 +124,37 @@
       run();
     }
 
-    if (on) {
+    function enable() {
+      if (on) return;
+      on = true;
+      target = current = window.scrollY;
       root.classList.add('js-scroll');
       window.addEventListener('wheel', onWheel, { passive: false });
       window.addEventListener('keydown', onKey);
       window.addEventListener('scroll', sync, { passive: true });
-      window.addEventListener('resize', function () { target = clamp(target); }, { passive: true });
+    }
+    function disable() {
+      if (!on) return;
+      on = false;
+      if (raf) { cancelAnimationFrame(raf); raf = null; }
+      root.classList.remove('js-scroll');
+      window.removeEventListener('wheel', onWheel, { passive: false });
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('scroll', sync, { passive: true });
     }
 
-    return { to: to, enabled: on };
+    /* the glide is a pointer-and-room-for-it feature, so it can come
+       and go as the window is resized */
+    function review() {
+      if (fine && !reduced && window.innerWidth > 900) { enable(); } else { disable(); }
+      target = clamp(target);
+    }
+
+    on = false;
+    review();
+    window.addEventListener('resize', review, { passive: true });
+
+    return { to: to, get enabled() { return on; } };
   })();
 
   /* anchors and the rail both go through the same glide */
@@ -171,8 +193,12 @@
         el.classList.toggle('is-warm', !!t && !word);
         label.textContent = word || '';
       }
+      /* the dot has to read against whatever sits under it, so a
+         solid button flips it back the other way */
       var under = document.elementFromPoint(e.clientX, e.clientY);
-      el.classList.toggle('is-dark', !!(under && under.closest && under.closest(darkSel)));
+      var dark = !!(under && under.closest && under.closest(darkSel));
+      if (t && t.classList.contains('btn--fill')) dark = !dark;
+      el.classList.toggle('is-dark', dark);
     }, { passive: true });
 
     window.addEventListener('mousedown', function () { el.classList.add('is-down'); });
