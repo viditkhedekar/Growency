@@ -5,17 +5,192 @@
 (function () {
   'use strict';
 
+  var root = document.documentElement;
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia('(pointer: fine)').matches;
   var nav = document.getElementById('nav');
   var rail = document.getElementById('rail');
   var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
   var railItems = Array.prototype.slice.call(document.querySelectorAll('.rail__item'));
+  var darkSel = '.method, .results, .final, .footer';
 
-  /* ---------- footer year ---------- */
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  /* ---------- hero line drawing ---------- */
+  /* =======================================================
+     Smooth scroll: a weighted glide that eases to a stop,
+     with a soft pull onto the nearest walkthrough panel.
+     Native scrolling stays in charge on touch and when the
+     visitor asks for reduced motion.
+     ======================================================= */
+  var Scroll = (function () {
+    var on = fine && !reduced && window.innerWidth > 900;
+    var target = window.scrollY;
+    var current = target;
+    var raf = null;
+    var wheelTimer = null;
+    var lerp = 0.115;
+
+    function limit() {
+      return Math.max(0, root.scrollHeight - window.innerHeight);
+    }
+    function clamp(v) {
+      return Math.max(0, Math.min(v, limit()));
+    }
+    function tick() {
+      var d = target - current;
+      if (Math.abs(d) < 0.4) {
+        current = target;
+        window.scrollTo(0, current);
+        raf = null;
+        return;
+      }
+      current += d * lerp;
+      window.scrollTo(0, current);
+      raf = requestAnimationFrame(tick);
+    }
+    function run() {
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+
+    /* soft snap: once the wheel goes quiet, if a panel edge is
+       close enough, drift onto it rather than resting off centre */
+    function settle() {
+      if (!panels.length) return;
+      var reach = window.innerHeight * 0.42;
+      var best = null, dist = Infinity;
+      panels.forEach(function (p) {
+        if (p.classList.contains('panel--last')) return;
+        var top = p.getBoundingClientRect().top + current;
+        var d = Math.abs(top - target);
+        if (d < dist) { dist = d; best = top; }
+      });
+      if (best !== null && dist < reach && dist > 1) {
+        target = clamp(best);
+        lerp = 0.085;
+        run();
+        setTimeout(function () { lerp = 0.115; }, 700);
+      }
+    }
+
+    function onWheel(e) {
+      if (e.ctrlKey) return;
+      var unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight * 0.9 : 1;
+      e.preventDefault();
+      target = clamp(target + e.deltaY * unit);
+      run();
+      clearTimeout(wheelTimer);
+      wheelTimer = setTimeout(settle, 170);
+    }
+
+    function onKey(e) {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.target.closest && e.target.closest('input, textarea, select, [contenteditable]')) return;
+      var vh = window.innerHeight;
+      var step = null;
+      switch (e.key) {
+        case 'ArrowDown': step = 110; break;
+        case 'ArrowUp': step = -110; break;
+        case 'PageDown': step = vh * 0.9; break;
+        case 'PageUp': step = -vh * 0.9; break;
+        case 'Home': step = -limit(); break;
+        case 'End': step = limit(); break;
+        case ' ':
+          if (e.target.closest && e.target.closest('a, button')) return;
+          step = e.shiftKey ? -vh * 0.9 : vh * 0.9;
+          break;
+        default: return;
+      }
+      e.preventDefault();
+      target = clamp(target + step);
+      run();
+      clearTimeout(wheelTimer);
+      wheelTimer = setTimeout(settle, 220);
+    }
+
+    function sync() {
+      if (raf) return;
+      target = current = window.scrollY;
+    }
+
+    function to(y) {
+      y = clamp(y);
+      if (!on) {
+        window.scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
+        return;
+      }
+      clearTimeout(wheelTimer);
+      target = y;
+      run();
+    }
+
+    if (on) {
+      root.classList.add('js-scroll');
+      window.addEventListener('wheel', onWheel, { passive: false });
+      window.addEventListener('keydown', onKey);
+      window.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', function () { target = clamp(target); }, { passive: true });
+    }
+
+    return { to: to, enabled: on };
+  })();
+
+  /* anchors and the rail both go through the same glide */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href');
+    if (id === '#' || id.length < 2) return;
+    var el = document.querySelector(id);
+    if (!el) return;
+    e.preventDefault();
+    var navH = parseInt(getComputedStyle(root).getPropertyValue('--nav-h'), 10) || 76;
+    var top = el.getBoundingClientRect().top + window.scrollY;
+    Scroll.to(el.classList.contains('panel') ? top : top - navH);
+  });
+
+  /* =======================================================
+     Custom cursor: a dot that grows and names the action
+     ======================================================= */
+  (function customCursor() {
+    var el = document.querySelector('.cursor');
+    if (!el || !fine || reduced) return;
+    var label = el.querySelector('.cursor__label');
+    var x = window.innerWidth / 2, y = window.innerHeight / 2;
+    var cx = x, cy = y, moved = false, hot = null;
+
+    root.classList.add('has-cursor');
+
+    window.addEventListener('mousemove', function (e) {
+      x = e.clientX; y = e.clientY; moved = true;
+      var t = e.target.closest ? e.target.closest('[data-cursor], a, button') : null;
+      if (t !== hot) {
+        hot = t;
+        var word = t && t.getAttribute('data-cursor');
+        el.classList.toggle('is-hot', !!word);
+        el.classList.toggle('is-warm', !!t && !word);
+        label.textContent = word || '';
+      }
+      var under = document.elementFromPoint(e.clientX, e.clientY);
+      el.classList.toggle('is-dark', !!(under && under.closest && under.closest(darkSel)));
+    }, { passive: true });
+
+    window.addEventListener('mousedown', function () { el.classList.add('is-down'); });
+    window.addEventListener('mouseup', function () { el.classList.remove('is-down'); });
+    document.addEventListener('mouseleave', function () { el.style.opacity = '0'; });
+    document.addEventListener('mouseenter', function () { el.style.opacity = ''; });
+
+    (function follow() {
+      cx += (x - cx) * 0.24;
+      cy += (y - cy) * 0.24;
+      if (moved) el.style.transform = 'translate3d(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px,0)';
+      requestAnimationFrame(follow);
+    })();
+  })();
+
+  /* =======================================================
+     Hero line drawing
+     ======================================================= */
   (function heroArt() {
     var shapes = document.querySelectorAll('.signal__draw path, .signal__draw rect');
     Array.prototype.forEach.call(shapes, function (s) {
@@ -28,17 +203,16 @@
     requestAnimationFrame(function () { document.body.classList.add('is-loaded'); });
   })();
 
-  /* ---------- nav: solid on scroll, inverted over dark sections ---------- */
+  /* =======================================================
+     Nav: solid on scroll, inverted over the dark sections
+     ======================================================= */
   (function navState() {
-    var onScroll = function () {
-      nav.classList.toggle('is-solid', window.scrollY > 24);
-    };
+    var onScroll = function () { nav.classList.toggle('is-solid', window.scrollY > 24); };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    var darkSections = document.querySelectorAll('.method, .results, .final, .footer');
     if (!('IntersectionObserver' in window)) return;
-    var navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'), 10) || 76;
+    var navH = parseInt(getComputedStyle(root).getPropertyValue('--nav-h'), 10) || 76;
     var live = [];
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -48,10 +222,12 @@
       });
       nav.classList.toggle('is-dark', live.length > 0);
     }, { rootMargin: '-' + (navH - 2) + 'px 0px -100% 0px' });
-    Array.prototype.forEach.call(darkSections, function (s) { io.observe(s); });
+    Array.prototype.forEach.call(document.querySelectorAll(darkSel), function (s) { io.observe(s); });
   })();
 
-  /* ---------- reveal on scroll ---------- */
+  /* =======================================================
+     Reveal on scroll
+     ======================================================= */
   (function reveals() {
     var items = document.querySelectorAll('.reveal');
     if (!('IntersectionObserver' in window)) {
@@ -68,21 +244,29 @@
     Array.prototype.forEach.call(items, function (el) { io.observe(el); });
   })();
 
-  /* ---------- count-up numerals ---------- */
-  function countUp(el) {
-    if (el.dataset.done) return;
+  /* =======================================================
+     Count-up numerals
+     ======================================================= */
+  function countUp(el, force) {
+    if (el.dataset.running === '1') return;
+    if (el.dataset.done === '1' && !force) return;
     el.dataset.done = '1';
+    el.dataset.running = '1';
     var to = parseFloat(el.dataset.to);
     var dec = parseInt(el.dataset.decimals || '0', 10);
     var suffix = el.dataset.suffix || '';
-    if (reduced) { el.textContent = to.toFixed(dec) + suffix; return; }
+    if (reduced) {
+      el.textContent = to.toFixed(dec) + suffix;
+      el.dataset.running = '0';
+      return;
+    }
     var dur = 1400, start = null;
     function step(ts) {
       if (start === null) start = ts;
       var p = Math.min((ts - start) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
       el.textContent = (to * eased).toFixed(dec) + suffix;
-      if (p < 1) requestAnimationFrame(step);
+      if (p < 1) { requestAnimationFrame(step); } else { el.dataset.running = '0'; }
     }
     requestAnimationFrame(step);
   }
@@ -90,7 +274,7 @@
   (function statCounters() {
     var counters = document.querySelectorAll('.results .counter');
     if (!('IntersectionObserver' in window)) {
-      Array.prototype.forEach.call(counters, countUp);
+      Array.prototype.forEach.call(counters, function (c) { countUp(c); });
       return;
     }
     var io = new IntersectionObserver(function (entries) {
@@ -103,36 +287,35 @@
     Array.prototype.forEach.call(counters, function (el) { io.observe(el); });
   })();
 
-  /* ---------- panel I: the dot field ---------- */
-  (function dotField() {
-    var host = document.getElementById('viz-dots');
+  /* the numbers inside the window mocks re-run with each loop of
+     the clip, so they stay in step with the playhead */
+  Array.prototype.forEach.call(document.querySelectorAll('.playbar i'), function (bar) {
+    var frame = bar.closest('.frame');
+    bar.addEventListener('animationiteration', function () {
+      Array.prototype.forEach.call(frame.querySelectorAll('.counter'), function (c) { countUp(c, true); });
+    });
+  });
+
+  /* =======================================================
+     Panel I: the account cloud
+     ======================================================= */
+  (function cloud() {
+    var host = document.getElementById('viz-cloud');
     if (!host) return;
     var total = 60, keep = { 7: 1, 13: 1, 24: 1, 31: 1, 38: 1, 46: 1, 53: 1 };
     var frag = document.createDocumentFragment();
     for (var i = 0; i < total; i++) {
       var d = document.createElement('i');
       if (keep[i]) d.className = 'keep';
-      d.style.transitionDelay = (keep[i] ? 420 : Math.round((i % 11) * 42)) + 'ms';
+      d.style.setProperty('--d', ((i % 11) * 0.08).toFixed(2) + 's');
       frag.appendChild(d);
     }
     host.appendChild(frag);
   })();
 
-  /* ---------- panel III: the drafted line ---------- */
-  function typeLine(el) {
-    if (el.dataset.typed) return;
-    el.dataset.typed = '1';
-    var text = el.textContent.trim();
-    if (reduced) return;
-    el.textContent = '';
-    var i = 0;
-    (function tick() {
-      el.textContent = text.slice(0, ++i);
-      if (i < text.length) setTimeout(tick, 34);
-    })();
-  }
-
-  /* ---------- panels: active state, rail sync, per-panel triggers ---------- */
+  /* =======================================================
+     Walkthrough: active panel, rail sync, clip playback
+     ======================================================= */
   (function walkthrough() {
     if (!panels.length) return;
 
@@ -145,9 +328,7 @@
         item.classList.toggle('is-past', n < step);
         item.setAttribute('aria-current', n === step ? 'true' : 'false');
       });
-      var line = panel.querySelector('.w-type');
-      if (line) typeLine(line);
-      Array.prototype.forEach.call(panel.querySelectorAll('.counter'), countUp);
+      Array.prototype.forEach.call(panel.querySelectorAll('.counter'), function (c) { countUp(c, true); });
     }
 
     if (!('IntersectionObserver' in window)) {
@@ -156,13 +337,10 @@
     }
 
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) activate(e.target);
-      });
+      entries.forEach(function (e) { if (e.isIntersecting) activate(e.target); });
     }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
     panels.forEach(function (p) { io.observe(p); });
 
-    /* rail shows only while the walkthrough owns the screen */
     var deck = document.getElementById('panels');
     if (deck && rail) {
       var railIO = new IntersectionObserver(function (entries) {
@@ -173,8 +351,8 @@
 
     railItems.forEach(function (item) {
       item.addEventListener('click', function () {
-        var target = document.getElementById('step-' + item.dataset.step);
-        if (target) target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+        var t = document.getElementById('step-' + item.dataset.step);
+        if (t) Scroll.to(t.getBoundingClientRect().top + window.scrollY);
       });
     });
   })();
