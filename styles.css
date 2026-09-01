@@ -480,10 +480,10 @@ html.has-cursor .cursor{opacity:1}
 .tally b:nth-child(2){animation-name:t2}
 .tally b:nth-child(3){animation-name:t3}
 .tally b:nth-child(4){animation-name:t4;color:var(--grn)}
-@keyframes t1{0%,33%{opacity:1}36%,100%{opacity:0}}
-@keyframes t2{0%,33%{opacity:0}36%,40%{opacity:1}43%,100%{opacity:0}}
-@keyframes t3{0%,40%{opacity:0}43%,47%{opacity:1}50%,100%{opacity:0}}
-@keyframes t4{0%,47%{opacity:0}50%,97%{opacity:1}100%{opacity:0}}
+@keyframes t1{0%,35.9%{opacity:1}36%,100%{opacity:0}}
+@keyframes t2{0%,35.9%{opacity:0}36%,41.9%{opacity:1}42%,100%{opacity:0}}
+@keyframes t3{0%,41.9%{opacity:0}42%,47.9%{opacity:1}48%,100%{opacity:0}}
+@keyframes t4{0%,47.9%{opacity:0}48%,97%{opacity:1}100%{opacity:0}}
 .hits li{
   display:flex;align-items:center;gap:8px;padding:6px 7px;border-radius:5px;
   background:var(--w);border:1px solid var(--line);margin-bottom:5px;
@@ -507,6 +507,7 @@ html.has-cursor .cursor{opacity:1}
   margin-left:auto;font-size:9.5px;font-weight:500;color:var(--grn);
   background:var(--grn-s);border-radius:4px;padding:1px 5px;
 }
+.seg__more{font-size:10px;color:var(--fai);padding:2px 7px;opacity:0;animation:hIn5 var(--loop) var(--ease) infinite}
 
 /* ---------- II. people table ---------- */
 .tbl{border:1px solid var(--line);border-radius:6px;background:var(--w);overflow:hidden}
@@ -530,6 +531,9 @@ html.has-cursor .cursor{opacity:1}
 .ppl tbody tr:nth-child(5){animation-name:pr5}
 .ppl tbody tr:nth-child(6){animation-name:pr6}
 .ppl tbody tr:nth-child(7){animation-name:pr7}
+.ppl tbody tr:nth-child(8){animation-name:pr8}
+.ppl tbody tr:nth-child(9){animation-name:pr9}
+.ppl tbody tr:nth-child(10){animation-name:pr10}
 @keyframes pr1{0%,2%{opacity:0}5%,97%{opacity:1}100%{opacity:0}}
 @keyframes pr2{0%,4%{opacity:0}7%,97%{opacity:1}100%{opacity:0}}
 @keyframes pr3{0%,6%{opacity:0}9%,97%{opacity:1}100%{opacity:0}}
@@ -537,6 +541,9 @@ html.has-cursor .cursor{opacity:1}
 @keyframes pr5{0%,10%{opacity:0}13%,97%{opacity:1}100%{opacity:0}}
 @keyframes pr6{0%,12%{opacity:0}15%,97%{opacity:1}100%{opacity:0}}
 @keyframes pr7{0%,14%{opacity:0}17%,97%{opacity:1}100%{opacity:0}}
+@keyframes pr8{0%,16%{opacity:0}19%,97%{opacity:1}100%{opacity:0}}
+@keyframes pr9{0%,18%{opacity:0}21%,97%{opacity:1}100%{opacity:0}}
+@keyframes pr10{0%,20%{opacity:0}23%,97%{opacity:1}100%{opacity:0}}
 .st{position:relative}
 .st em{
   font-style:normal;font-size:9.5px;border-radius:4px;padding:1.5px 6px;
@@ -553,6 +560,9 @@ html.has-cursor .cursor{opacity:1}
 .ppl tr:nth-child(5) .s-wait{animation-name:w5}.ppl tr:nth-child(5) .s-done{animation-name:d5}
 .ppl tr:nth-child(6) .s-wait{animation-name:w6}.ppl tr:nth-child(6) .s-done{animation-name:d6}
 .ppl tr:nth-child(7) .s-wait{animation-name:w7}.ppl tr:nth-child(7) .s-done{animation-name:d7}
+.ppl tr:nth-child(8) .s-wait{animation-name:w8}.ppl tr:nth-child(8) .s-done{animation-name:d8}
+.ppl tr:nth-child(9) .s-wait{animation-name:w9}.ppl tr:nth-child(9) .s-done{animation-name:d9}
+.ppl tr:nth-child(10) .s-wait{animation-name:w10}.ppl tr:nth-child(10) .s-done{animation-name:d10}
 @keyframes w1{0%,5%{opacity:0}6%,30%{opacity:1}32%,100%{opacity:0}}
 @keyframes d1{0%,32%{opacity:0}34%,97%{opacity:1}100%{opacity:0}}
 @keyframes w2{0%,7%{opacity:0}8%,34%{opacity:1}36%,100%{opacity:0}}
@@ -567,10 +577,40 @@ html.has-cursor .cursor{opacity:1}
 @keyframes d6{0%,52%{opacity:0}54%,97%{opacity:1}100%{opacity:0}}
 @keyframes w7{0%,17%{opacity:0}18%,54%{opacity:1}56%,100%{opacity:0}}
 @keyframes d7{0%,56%{opacity:0}58%,97%{opacity:1}100%{opacity:0}}
+@keyframes w8{0%,19%{opacity:0}20%,58%{opacity:1}60%,100%{opacity:0}}
+@keyframes d8{0%,60%{opacity:0}62%,97%{opacity:1}100%{opacity:0}}
+@keyframes w9{0%,21%{opacity:0}22%,62%{opacity:1}64%,100%{opacity:0}}
+@keyframes d9{0%,64%{opacity:0}66%,97%{opacity:1}100%{opacity:0}}
+@keyframes w10{0%,23%{opacity:0}24%,66%{opacity:1}68%,100%{opacity:0}}
+@keyframes d10{0%,68%{opacity:0}70%,97%{opacity:1}100%{opacity:0}}
 .ppl tbody tr:nth-child(7){animation-name:pr7,rowFlag}
 @keyframes rowFlag{0%,58%{background:transparent}60%,90%{background:var(--red-s)}94%,100%{background:transparent}}
 
 /* ---------- III. sequences ---------- */
+.seq__grid{display:grid;grid-template-columns:1fr 168px;gap:12px;flex:1;min-height:0}
+.seq__main{display:flex;flex-direction:column;min-width:0}
+.seq__rail{border-left:1px solid var(--line);padding-left:12px}
+.vars li{
+  display:flex;flex-direction:column;gap:1px;padding:5px 7px;margin-bottom:5px;
+  background:var(--w);border:1px solid var(--line);border-radius:5px;
+}
+.vars b{font-size:9.5px;color:var(--grn);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.vars b::before{content:"{{"}
+.vars b::after{content:"}}"}
+.vars span{font-size:10.5px;color:var(--mut)}
+.vars .gen{color:var(--fai);font-style:italic}
+.checks li{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--mut);padding:3px 0}
+.checks .ic{width:11px;height:11px;color:var(--grn)}
+.chars .tally--mini{min-width:26px;height:13px;vertical-align:-2px}
+.chars .tally--mini b{font-size:11px;color:var(--mut)}
+.chars .tally--mini b:nth-child(1){animation-name:k1}
+.chars .tally--mini b:nth-child(2){animation-name:k2}
+.chars .tally--mini b:nth-child(3){animation-name:k3}
+.chars .tally--mini b:nth-child(4){animation-name:k4}
+@keyframes k1{0%,5.9%{opacity:1}6%,100%{opacity:0}}
+@keyframes k2{0%,5.9%{opacity:0}6%,38.9%{opacity:1}39%,100%{opacity:0}}
+@keyframes k3{0%,38.9%{opacity:0}39%,69.9%{opacity:1}70%,100%{opacity:0}}
+@keyframes k4{0%,69.9%{opacity:0}70%,97%{opacity:1}100%{opacity:0}}
 .steps{display:flex;gap:6px;margin-bottom:10px}
 .steps span{
   font-size:10.5px;color:var(--mut);border:1px solid var(--line);background:var(--w);
