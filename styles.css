@@ -35,6 +35,8 @@ html{
   -webkit-text-size-adjust:100%;
   scroll-behavior:smooth;
   scroll-padding-top:var(--nav-h);
+  /* proximity pulls each walkthrough panel into place without trapping the
+     rest of the page. swap to `y mandatory` if you want it more insistent. */
   scroll-snap-type:y proximity;
   overflow-x:hidden;
 }
@@ -278,7 +280,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   display:flex;align-items:center;
   scroll-snap-align:start;
   padding:clamp(5rem,10vh,7rem) var(--gutter) clamp(4rem,8vh,6rem);
-  padding-left:clamp(4.5rem,8vw,7.5rem);
+  padding-left:clamp(5.5rem,9vw,8rem);
   position:relative;overflow:hidden;
   transition:background-color 600ms var(--ease);
 }
