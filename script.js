@@ -313,31 +313,41 @@
     Array.prototype.forEach.call(counters, function (el) { io.observe(el); });
   })();
 
-  /* the numbers inside the window mocks re-run with each loop of
-     the clip, so they stay in step with the playhead */
-  Array.prototype.forEach.call(document.querySelectorAll('.playbar i'), function (bar) {
-    var frame = bar.closest('.frame');
-    bar.addEventListener('animationiteration', function () {
-      Array.prototype.forEach.call(frame.querySelectorAll('.counter'), function (c) { countUp(c, true); });
-    });
-  });
-
   /* =======================================================
-     Panel I: the account cloud
+     The product mocks
      ======================================================= */
-  (function cloud() {
-    var host = document.getElementById('viz-cloud');
-    if (!host) return;
-    var total = 60, keep = { 7: 1, 13: 1, 24: 1, 31: 1, 38: 1, 46: 1, 53: 1 };
-    var frag = document.createDocumentFragment();
-    for (var i = 0; i < total; i++) {
-      var d = document.createElement('i');
-      if (keep[i]) d.className = 'keep';
-      d.style.setProperty('--d', ((i % 11) * 0.08).toFixed(2) + 's');
-      frag.appendChild(d);
-    }
-    host.appendChild(frag);
-  })();
+  var frames = Array.prototype.slice.call(document.querySelectorAll('.frame'));
+  var LOOP = (parseFloat(getComputedStyle(root).getPropertyValue('--loop')) || 9) * 1000;
+
+  /* each mock is built at a fixed design width and scaled to whatever
+     room the panel gives it, so the interface keeps real proportions */
+  function fitFrames() {
+    frames.forEach(function (f) {
+      var app = f.querySelector('.app');
+      if (!app) return;
+      var design = parseFloat(getComputedStyle(app).getPropertyValue('--aw')) || 760;
+      var w = f.clientWidth;
+      if (w) app.style.setProperty('--s', (w / design).toFixed(4));
+    });
+  }
+  fitFrames();
+  window.addEventListener('resize', fitFrames, { passive: true });
+  window.addEventListener('load', fitFrames);
+
+  /* numbers re-run with each pass of the clip, on the beat the
+     interface would actually produce them */
+  function runClipCounters(frame) {
+    Array.prototype.forEach.call(frame.querySelectorAll('.counter'), function (c) {
+      var at = parseFloat(c.dataset.at || '0');
+      if (!at) { countUp(c, true); return; }
+      clearTimeout(c._t);
+      c._t = setTimeout(function () { countUp(c, true); }, LOOP * at / 100);
+    });
+  }
+  frames.forEach(function (f) {
+    var bar = f.querySelector('.playbar i');
+    if (bar) bar.addEventListener('animationiteration', function () { runClipCounters(f); });
+  });
 
   /* =======================================================
      Walkthrough: active panel, rail sync, clip playback
@@ -354,7 +364,8 @@
         item.classList.toggle('is-past', n < step);
         item.setAttribute('aria-current', n === step ? 'true' : 'false');
       });
-      Array.prototype.forEach.call(panel.querySelectorAll('.counter'), function (c) { countUp(c, true); });
+      var frame = panel.querySelector('.frame');
+      if (frame) runClipCounters(frame);
     }
 
     if (!('IntersectionObserver' in window)) {
