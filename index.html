@@ -18,6 +18,19 @@
 </head>
 <body>
 
+<!-- icon sprite for the product mocks -->
+<svg class="sprite" aria-hidden="true" width="0" height="0" style="position:absolute">
+  <symbol id="ic-seg" viewBox="0 0 16 16"><path d="M2 4h12M4 8h8M6.5 12h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="ic-acc" viewBox="0 0 16 16"><rect x="2.5" y="3" width="11" height="10" rx="1.2" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M2.5 6.5h11" stroke="currentColor" stroke-width="1.3"/></symbol>
+  <symbol id="ic-ppl" viewBox="0 0 16 16"><circle cx="8" cy="5.6" r="2.6" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M3 13.2c.7-2.4 2.6-3.6 5-3.6s4.3 1.2 5 3.6" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="ic-seq" viewBox="0 0 16 16"><path d="M2.5 8h6M2.5 4.5h9M2.5 11.5h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="12.5" cy="11" r="1.6" stroke="currentColor" stroke-width="1.3" fill="none"/></symbol>
+  <symbol id="ic-inb" viewBox="0 0 16 16"><rect x="2.5" y="3.5" width="11" height="9" rx="1.2" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M2.5 5l5.5 4 5.5-4" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-rep" viewBox="0 0 16 16"><path d="M3 13V9M7 13V4M11 13v-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="ic-search" viewBox="0 0 16 16"><circle cx="7.2" cy="7.2" r="3.8" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M10.2 10.2 13 13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 16 16"><path d="M3.5 8.4 6.5 11.4 12.5 5" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-arrow" viewBox="0 0 12 16"><path d="M1 1.4v11.4l2.9-2.9 1.8 4.2 1.9-.8-1.8-4.1H10z" fill="currentColor" stroke="#fff" stroke-width=".9" stroke-linejoin="round"/></symbol>
+</svg>
+
 <div class="grain" aria-hidden="true"></div>
 <div class="cursor" aria-hidden="true"><span class="cursor__dot"><span class="cursor__label"></span></span></div>
 
@@ -137,29 +150,42 @@
           <p class="panel__body">Before a single line is written, we agree on who is genuinely worth reaching. Most target lists are too broad by an order of magnitude. We cut until every name on it has a reason to be there.</p>
         </div>
         <div class="panel__viz">
-          <div class="frame" aria-hidden="true">
-            <div class="win win--split">
-              <div class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><p class="win__name">Segment</p></div>
-              <div class="win__cols">
-                <aside class="win__side">
-                  <p class="win__label">Filters</p>
-                  <ul class="filters">
-                    <li>B2B SaaS</li>
-                    <li>50 to 400 staff</li>
-                    <li>EMEA</li>
-                    <li>Hiring AEs</li>
-                    <li>Not in pipeline</li>
-                  </ul>
-                </aside>
-                <div class="win__main">
-                  <p class="tally">
-                    <span class="tally__num"><b>2,940</b><b>1,106</b><b>312</b><b>118</b></span>
-                    <em>accounts</em>
-                  </p>
-                  <div class="cloud" id="viz-cloud"></div>
+          <div class="frame" data-clip="1" aria-hidden="true">
+            <div class="app" data-nav="segments">
+              <aside class="app__side">
+            <div class="app__brand"><span class="app__logo"></span><b>Growency</b></div>
+            <div class="app__ws"><span class="av av--ws">ML</span><span>Meridian Labs</span><em>▾</em></div>
+            <div class="app__search"><svg class="ic"><use href="#ic-search"/></svg><span>Search</span><kbd>⌘K</kbd></div>
+            <p class="app__navlabel">Workspace</p>
+            <ul class="app__nav">
+              <li><svg class="ic"><use href="#ic-seg"/></svg>Segments</li>
+              <li><svg class="ic"><use href="#ic-acc"/></svg>Accounts</li>
+              <li><svg class="ic"><use href="#ic-ppl"/></svg>People</li>
+              <li><svg class="ic"><use href="#ic-seq"/></svg>Sequences</li>
+              <li><svg class="ic"><use href="#ic-inb"/></svg>Inbox<span class="pill">3</span></li>
+              <li><svg class="ic"><use href="#ic-rep"/></svg>Reports</li>
+            </ul>
+            <div class="app__user"><span class="av">VS</span><span><b>Vidit S.</b><i>Operator</i></span></div>
+          </aside>
+              <div class="app__main">
+                <header class="app__bar">
+                  <p class="crumb">Segments <s>/</s> <b>EMEA mid-market</b></p>
+                  <span class="app__acts"><button class="bt">Save view</button><button class="bt bt--go">Run</button></span>
+                </header>
+                <div class="app__body seg">
+                  <section class="seg__build">
+                    <p class="lbl">Match all of the following</p>
+                    <ul class="cond"><li class="c1"><b>Industry</b><em>is</em><span class="val">B2B SaaS</span><s>×</s></li><li class="c2"><b>Headcount</b><em>between</em><span class="val">50 – 400</span><s>×</s></li><li class="c3"><b>Region</b><em>is</em><span class="val">EMEA</span><s>×</s></li><li class="c4"><b>Signal</b><em>includes</em><span class="val">Hiring AEs</span><s>×</s></li><li class="c5"><b>Pipeline</b><em>is not</em><span class="val">Open</span><s>×</s></li></ul>
+                    <button class="bt bt--add">+ Add condition</button>
+                  </section>
+                  <section class="seg__out">
+                    <p class="seg__count"><b class="tally"><b>2,940</b><b>1,106</b><b>312</b><b>118</b></b><span>accounts match</span></p>
+                    <ul class="hits"><li><span class="av">ML</span><span class="hit__n"><b>Meridian Labs</b><i>Lisbon · 210 staff</i></span><span class="grade">S</span></li><li><span class="av">AG</span><span class="hit__n"><b>Arbor Group</b><i>Berlin · 90 staff</i></span><span class="grade">S</span></li><li><span class="av">CD</span><span class="hit__n"><b>Cadence</b><i>Dublin · 140 staff</i></span><span class="grade">A</span></li><li><span class="av">FN</span><span class="hit__n"><b>Fieldnote</b><i>Malmö · 60 staff</i></span><span class="grade">A</span></li><li><span class="av">HC</span><span class="hit__n"><b>Halston &amp; Co.</b><i>London · 320 staff</i></span><span class="grade">A</span></li></ul>
+                  </section>
                 </div>
               </div>
             </div>
+            <span class="ptr"><svg viewBox="0 0 12 16"><use href="#ic-arrow"/></svg></span>
             <span class="playbar"><i></i></span>
           </div>
         </div>
@@ -176,19 +202,40 @@
           <p class="panel__body">Every contact is enriched, then verified. No scraped exports, no catch all addresses, no guessing at what a company runs internally. The list is small enough to read end to end.</p>
         </div>
         <div class="panel__viz">
-          <div class="frame" aria-hidden="true">
-            <div class="win">
-              <div class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><p class="win__name">Enrichment</p></div>
-              <div class="win__head"><span>Contact</span><span>Role</span><span>Email</span></div>
-              <ul class="rows">
-                <li><b>A. Whitfield</b><i>Head of Sales</i><s><em class="s-wait">checking</em><em class="s-ok">verified</em></s></li>
-                <li><b>M. Okonjo</b><i>VP Revenue</i><s><em class="s-wait">checking</em><em class="s-ok">verified</em></s></li>
-                <li><b>R. Lindqvist</b><i>Director, GTM</i><s><em class="s-wait">checking</em><em class="s-ok">verified</em></s></li>
-                <li><b>J. Ferreira</b><i>Founder</i><s><em class="s-wait">checking</em><em class="s-ok">verified</em></s></li>
-                <li><b>S. Nakamura</b><i>Head of Growth</i><s><em class="s-wait">checking</em><em class="s-ok">verified</em></s></li>
-                <li><b>P. Delacroix</b><i>CRO</i><s><em class="s-wait">checking</em><em class="s-ok">verified</em></s></li>
-              </ul>
+          <div class="frame" data-clip="2" aria-hidden="true">
+            <div class="app" data-nav="people">
+              <aside class="app__side">
+            <div class="app__brand"><span class="app__logo"></span><b>Growency</b></div>
+            <div class="app__ws"><span class="av av--ws">ML</span><span>Meridian Labs</span><em>▾</em></div>
+            <div class="app__search"><svg class="ic"><use href="#ic-search"/></svg><span>Search</span><kbd>⌘K</kbd></div>
+            <p class="app__navlabel">Workspace</p>
+            <ul class="app__nav">
+              <li><svg class="ic"><use href="#ic-seg"/></svg>Segments</li>
+              <li><svg class="ic"><use href="#ic-acc"/></svg>Accounts</li>
+              <li><svg class="ic"><use href="#ic-ppl"/></svg>People</li>
+              <li><svg class="ic"><use href="#ic-seq"/></svg>Sequences</li>
+              <li><svg class="ic"><use href="#ic-inb"/></svg>Inbox<span class="pill">3</span></li>
+              <li><svg class="ic"><use href="#ic-rep"/></svg>Reports</li>
+            </ul>
+            <div class="app__user"><span class="av">VS</span><span><b>Vidit S.</b><i>Operator</i></span></div>
+          </aside>
+              <div class="app__main">
+                <header class="app__bar">
+                  <p class="crumb">People</p>
+                  <span class="app__acts"><span class="fld"><svg class="ic"><use href="#ic-search"/></svg>Search people…</span><button class="bt">Filter</button><button class="bt">Export</button><button class="bt bt--go">Verify all</button></span>
+                </header>
+                <div class="app__body ppl">
+                  <p class="app__meta"><span><b>118</b> records · 6 columns</span><span>Page 1 of 17</span></p>
+                  <div class="tbl">
+                    <table>
+                      <thead><tr><th class="num">#</th><th>Name</th><th>Title</th><th>Company</th><th>Email</th><th class="fit">Fit</th><th>Status</th></tr></thead>
+                      <tbody><tr><td class="num">1</td><td class="who"><span class="av">AW</span>A. Whitfield</td><td class="mut">Head of Sales</td><td>Meridian Labs</td><td class="mut">a.whitfield@meridianlabs.co</td><td class="fit">96</td><td class="st"><em class="s-wait">checking…</em><em class="s-done s-ok">verified</em></td></tr><tr><td class="num">2</td><td class="who"><span class="av">MO</span>M. Okonjo</td><td class="mut">VP Revenue</td><td>Meridian Labs</td><td class="mut">m.okonjo@meridianlabs.co</td><td class="fit">94</td><td class="st"><em class="s-wait">checking…</em><em class="s-done s-ok">verified</em></td></tr><tr><td class="num">3</td><td class="who"><span class="av">RL</span>R. Lindqvist</td><td class="mut">Director, GTM</td><td>Arbor Group</td><td class="mut">r.lindqvist@arbor.group</td><td class="fit">91</td><td class="st"><em class="s-wait">checking…</em><em class="s-done s-ok">verified</em></td></tr><tr><td class="num">4</td><td class="who"><span class="av">JF</span>J. Ferreira</td><td class="mut">Founder</td><td>Fieldnote</td><td class="mut">joana@fieldnote.io</td><td class="fit">89</td><td class="st"><em class="s-wait">checking…</em><em class="s-done s-ok">verified</em></td></tr><tr><td class="num">5</td><td class="who"><span class="av">SN</span>S. Nakamura</td><td class="mut">Head of Growth</td><td>Cadence</td><td class="mut">s.nakamura@cadence.dev</td><td class="fit">87</td><td class="st"><em class="s-wait">checking…</em><em class="s-done s-ok">verified</em></td></tr><tr><td class="num">6</td><td class="who"><span class="av">PD</span>P. Delacroix</td><td class="mut">CRO</td><td>Halston &amp; Co.</td><td class="mut">p.delacroix@halston.co</td><td class="fit">85</td><td class="st"><em class="s-wait">checking…</em><em class="s-done s-ok">verified</em></td></tr><tr><td class="num">7</td><td class="who"><span class="av">TB</span>T. Brennan</td><td class="mut">VP Sales</td><td>Northbound</td><td class="mut">t.brennan@northbound.io</td><td class="fit">82</td><td class="st"><em class="s-wait">checking…</em><em class="s-done s-bounced">no mailbox</em></td></tr></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
+            <span class="ptr"><svg viewBox="0 0 12 16"><use href="#ic-arrow"/></svg></span>
             <span class="playbar"><i></i></span>
           </div>
         </div>
@@ -205,35 +252,48 @@
           <p class="panel__body">Drafts are generated, then edited by a person who has read the account. The structure repeats across a campaign. The specifics never do.</p>
         </div>
         <div class="panel__viz">
-          <div class="frame" aria-hidden="true">
-            <div class="win win--split">
-              <div class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><p class="win__name">Composer</p></div>
-              <div class="win__cols">
-                <aside class="win__side">
-                  <p class="win__label">Drafts</p>
-                  <ul class="threads">
-                    <li>Meridian Labs</li>
-                    <li class="on">Meridian Labs v3</li>
-                    <li>Arbor Group</li>
-                    <li>Cadence</li>
-                  </ul>
-                </aside>
-                <div class="win__main">
-                  <p class="field"><span>To</span> m.okonjo@meridianlabs.co</p>
-                  <p class="field"><span>Subject</span> Two AEs, all of EMEA</p>
+          <div class="frame" data-clip="3" aria-hidden="true">
+            <div class="app" data-nav="sequences">
+              <aside class="app__side">
+            <div class="app__brand"><span class="app__logo"></span><b>Growency</b></div>
+            <div class="app__ws"><span class="av av--ws">ML</span><span>Meridian Labs</span><em>▾</em></div>
+            <div class="app__search"><svg class="ic"><use href="#ic-search"/></svg><span>Search</span><kbd>⌘K</kbd></div>
+            <p class="app__navlabel">Workspace</p>
+            <ul class="app__nav">
+              <li><svg class="ic"><use href="#ic-seg"/></svg>Segments</li>
+              <li><svg class="ic"><use href="#ic-acc"/></svg>Accounts</li>
+              <li><svg class="ic"><use href="#ic-ppl"/></svg>People</li>
+              <li><svg class="ic"><use href="#ic-seq"/></svg>Sequences</li>
+              <li><svg class="ic"><use href="#ic-inb"/></svg>Inbox<span class="pill">3</span></li>
+              <li><svg class="ic"><use href="#ic-rep"/></svg>Reports</li>
+            </ul>
+            <div class="app__user"><span class="av">VS</span><span><b>Vidit S.</b><i>Operator</i></span></div>
+          </aside>
+              <div class="app__main">
+                <header class="app__bar">
+                  <p class="crumb">Sequences <s>/</s> <b>Meridian Labs</b></p>
+                  <span class="app__acts"><button class="bt">Preview</button><button class="bt bt--go">Schedule</button></span>
+                </header>
+                <div class="app__body seq">
+                  <div class="steps"><span class="on">Step 1 · Day 0</span><span>Step 2 · Day 3</span><span>Step 3 · Day 8</span></div>
+                  <p class="fld fld--ro"><span>To</span> m.okonjo@meridianlabs.co</p>
+                  <p class="fld fld--ro"><span>Subject</span> Two AEs, all of EMEA</p>
                   <div class="doc">
                     <p class="doc__l l1">Saw the Lisbon office opening last month.</p>
                     <p class="doc__l l2">
                       <span class="swap swap--a">Two AEs covering that whole region is a lot of ground.</span>
                       <span class="swap swap--b">Two AEs on all of EMEA is a lot of ground.</span>
-                      <span class="sweep"></span>
+                      <span class="sel"></span>
+                      <span class="tipbar"><em>Rewrite</em><em>Shorten</em><em>Tone</em></span>
                     </p>
                     <p class="doc__l l3"><span class="typed">We wrote the sequence their team now uses.</span></p>
                     <p class="doc__l l4">Worth fifteen minutes?</p>
                   </div>
+                  <p class="app__meta app__meta--b"><span>Draft saved just now</span><span class="chars"><b>0</b> / 600 characters</span></p>
                 </div>
               </div>
             </div>
+            <span class="ptr"><svg viewBox="0 0 12 16"><use href="#ic-arrow"/></svg></span>
             <span class="playbar"><i></i></span>
           </div>
         </div>
@@ -250,22 +310,61 @@
           <p class="panel__body">Domains, warmup, authentication, sending limits. Unglamorous work that quietly decides whether any of the above is ever read.</p>
         </div>
         <div class="panel__viz">
-          <div class="frame" aria-hidden="true">
-            <div class="win">
-              <div class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><p class="win__name">Deliverability</p></div>
-              <div class="win__tabs"><span class="on">Placement</span><span>Warmup</span><span>Domains</span></div>
-              <div class="dash">
-                <p class="dash__stat"><span class="counter" data-to="96" data-suffix="%">0%</span><em>inbox placement, week six</em></p>
-                <svg class="dash__chart" viewBox="0 0 320 120" focusable="false">
-                  <line x1="0" y1="96" x2="320" y2="96" stroke="currentColor" stroke-width="1" opacity=".22"/>
-                  <line x1="0" y1="60" x2="320" y2="60" stroke="currentColor" stroke-width="1" opacity=".1"/>
-                  <line x1="0" y1="24" x2="320" y2="24" stroke="currentColor" stroke-width="1" opacity=".1"/>
-                  <path class="chart__area" d="M8 90 C60 86 74 72 110 64 C150 54 176 46 210 32 C244 18 272 16 312 12 L312 96 L8 96 Z"></path>
-                  <path class="chart__line" d="M8 90 C60 86 74 72 110 64 C150 54 176 46 210 32 C244 18 272 16 312 12"></path>
-                </svg>
-                <ul class="bars"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+          <div class="frame" data-clip="4" aria-hidden="true">
+            <div class="app" data-nav="deliverability">
+              <aside class="app__side">
+            <div class="app__brand"><span class="app__logo"></span><b>Growency</b></div>
+            <div class="app__ws"><span class="av av--ws">ML</span><span>Meridian Labs</span><em>▾</em></div>
+            <div class="app__search"><svg class="ic"><use href="#ic-search"/></svg><span>Search</span><kbd>⌘K</kbd></div>
+            <p class="app__navlabel">Workspace</p>
+            <ul class="app__nav">
+              <li><svg class="ic"><use href="#ic-seg"/></svg>Segments</li>
+              <li><svg class="ic"><use href="#ic-acc"/></svg>Accounts</li>
+              <li><svg class="ic"><use href="#ic-ppl"/></svg>People</li>
+              <li><svg class="ic"><use href="#ic-seq"/></svg>Sequences</li>
+              <li><svg class="ic"><use href="#ic-inb"/></svg>Inbox<span class="pill">3</span></li>
+              <li><svg class="ic"><use href="#ic-rep"/></svg>Reports</li>
+            </ul>
+            <div class="app__user"><span class="av">VS</span><span><b>Vidit S.</b><i>Operator</i></span></div>
+          </aside>
+              <div class="app__main">
+                <header class="app__bar">
+                  <p class="crumb">Deliverability</p>
+                  <span class="app__acts"><button class="bt">Last 6 weeks</button><button class="bt">Export</button></span>
+                </header>
+                <div class="app__body dlv">
+                  <div class="tabs"><span class="on">Placement</span><span>Warmup</span><span>Domains</span><span>DNS</span></div>
+                  <div class="kpis">
+                    <div class="kpi"><i>Inbox placement</i><b><span class="counter" data-to="96" data-suffix="%">0%</span></b><s class="up">+11 pts</s></div>
+                    <div class="kpi"><i>Spam rate</i><b>0.4%</b><s class="down">−1.9 pts</s></div>
+                    <div class="kpi"><i>Domains healthy</i><b>8/8</b><s>all passing</s></div>
+                  </div>
+                  <div class="chart">
+                    <svg viewBox="0 0 420 130" focusable="false">
+                      <line x1="0" y1="104" x2="420" y2="104" class="ax"/>
+                      <line x1="0" y1="68" x2="420" y2="68" class="ax ax--f"/>
+                      <line x1="0" y1="32" x2="420" y2="32" class="ax ax--f"/>
+                      <path class="chart__area" d="M10 96 C70 92 96 78 142 68 C196 56 232 46 276 30 C320 15 356 12 410 8 L410 104 L10 104 Z"></path>
+                      <path class="chart__line" d="M10 96 C70 92 96 78 142 68 C196 56 232 46 276 30 C320 15 356 12 410 8"></path>
+                      <circle class="chart__pt" cx="410" cy="8" r="3.2"></circle>
+                    </svg>
+                    <span class="tip"><b>Week 6</b>96% placement</span>
+                    <p class="xax"><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span></p>
+                  </div>
+                  <div class="tbl tbl--dom">
+                    <table>
+                      <thead><tr><th>Sending domain</th><th>SPF</th><th>DKIM</th><th>DMARC</th><th>Volume</th></tr></thead>
+                      <tbody>
+                        <tr><td>go.growency-mail.com</td><td class="ok">Pass</td><td class="ok">Pass</td><td class="ok">Pass</td><td class="mut">140 / day</td></tr>
+                        <tr><td>hey.growency-mail.com</td><td class="ok">Pass</td><td class="ok">Pass</td><td class="ok">Pass</td><td class="mut">140 / day</td></tr>
+                        <tr><td>mail.growency-co.com</td><td class="ok">Pass</td><td class="ok">Pass</td><td class="ok">Pass</td><td class="mut">132 / day</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
+            <span class="ptr"><svg viewBox="0 0 12 16"><use href="#ic-arrow"/></svg></span>
             <span class="playbar"><i></i></span>
           </div>
         </div>
@@ -282,28 +381,47 @@
           <p class="panel__body">Sequences go out in controlled volume. Replies are read the day they arrive, and the campaign changes shape as they come in.</p>
         </div>
         <div class="panel__viz">
-          <div class="frame" aria-hidden="true">
-            <div class="win win--split">
-              <div class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><p class="win__name">Inbox</p></div>
-              <div class="win__cols">
-                <aside class="win__side">
-                  <p class="win__label">Folders</p>
-                  <ul class="threads">
-                    <li class="on">Replies <span class="badge"><b>1</b><b>2</b><b>3</b></span></li>
-                    <li>Sent</li>
-                    <li>Out of office</li>
-                    <li>Referred on</li>
+          <div class="frame" data-clip="5" aria-hidden="true">
+            <div class="app" data-nav="inbox">
+              <aside class="app__side">
+            <div class="app__brand"><span class="app__logo"></span><b>Growency</b></div>
+            <div class="app__ws"><span class="av av--ws">ML</span><span>Meridian Labs</span><em>▾</em></div>
+            <div class="app__search"><svg class="ic"><use href="#ic-search"/></svg><span>Search</span><kbd>⌘K</kbd></div>
+            <p class="app__navlabel">Workspace</p>
+            <ul class="app__nav">
+              <li><svg class="ic"><use href="#ic-seg"/></svg>Segments</li>
+              <li><svg class="ic"><use href="#ic-acc"/></svg>Accounts</li>
+              <li><svg class="ic"><use href="#ic-ppl"/></svg>People</li>
+              <li><svg class="ic"><use href="#ic-seq"/></svg>Sequences</li>
+              <li><svg class="ic"><use href="#ic-inb"/></svg>Inbox<span class="pill">3</span></li>
+              <li><svg class="ic"><use href="#ic-rep"/></svg>Reports</li>
+            </ul>
+            <div class="app__user"><span class="av">VS</span><span><b>Vidit S.</b><i>Operator</i></span></div>
+          </aside>
+              <div class="app__main">
+                <header class="app__bar">
+                  <p class="crumb">Inbox</p>
+                  <span class="app__acts"><span class="chips"><em class="on">All</em><em>Positive</em><em>Out of office</em><em>Referral</em></span></span>
+                </header>
+                <div class="app__body inb">
+                  <ul class="mail">
+                    <li class="m1"><span class="dot"></span><span class="av">RL</span><span class="m__t"><b>R. Lindqvist</b><i>Re: Two AEs, all of EMEA</i><u>Send me the deck, we're reviewing vendors in March.</u></span><s>09:14</s></li>
+                    <li class="m2"><span class="dot"></span><span class="av">AW</span><span class="m__t"><b>A. Whitfield</b><i>Re: Two AEs, all of EMEA</i><u>Not me. Copying Dan, he owns this.</u></span><s>11:02</s></li>
+                    <li class="m3"><span class="dot"></span><span class="av">JF</span><span class="m__t"><b>J. Ferreira</b><i>Re: the Lisbon note</i><u>Thursday works. 30 minutes.</u></span><s>16:47</s></li>
                   </ul>
-                </aside>
-                <div class="win__main">
-                  <ul class="replies">
-                    <li><span class="new"></span><b>R. Lindqvist</b><s>09:14</s><i>"Send me the deck, we're reviewing vendors in March."</i></li>
-                    <li><span class="new"></span><b>A. Whitfield</b><s>11:02</s><i>"Not me. Copying Dan, he owns this."</i></li>
-                    <li><span class="new"></span><b>J. Ferreira</b><s>16:47</s><i>"Thursday works. 30 minutes."</i></li>
-                  </ul>
+                  <div class="read">
+                    <p class="read__h"><span class="av">RL</span><span><b>R. Lindqvist</b><i>r.lindqvist@arbor.group</i></span><s>09:14</s></p>
+                    <div class="read__b">
+                      <p>Send me the deck, we're reviewing vendors in March.</p>
+                      <p>We looked at two others last quarter and neither could show placement numbers, so lead with that if you have them.</p>
+                      <p class="sig">Rasmus</p>
+                    </div>
+                    <p class="read__a"><button class="bt bt--go">Book meeting</button><button class="bt">Mark handled</button><span class="tagged">Tagged <b>positive</b></span></p>
+                  </div>
                 </div>
               </div>
             </div>
+            <span class="ptr"><svg viewBox="0 0 12 16"><use href="#ic-arrow"/></svg></span>
             <span class="playbar"><i></i></span>
           </div>
         </div>
@@ -320,27 +438,53 @@
           <p class="panel__body">One report a week. What was sent, what landed, what we are changing next, and why. Then the loop runs again.</p>
         </div>
         <div class="panel__viz">
-          <div class="frame" aria-hidden="true">
-            <div class="win">
-              <div class="win__bar"><span class="win__dots"><i></i><i></i><i></i></span><p class="win__name">Weekly report</p></div>
-              <div class="report">
-                <div class="report__row">
-                  <span class="smallcaps">Week 01</span>
-                  <span class="track"><i style="--w:12%"></i></span>
-                  <b>12%</b>
+          <div class="frame" data-clip="6" aria-hidden="true">
+            <div class="app" data-nav="reports">
+              <aside class="app__side">
+            <div class="app__brand"><span class="app__logo"></span><b>Growency</b></div>
+            <div class="app__ws"><span class="av av--ws">ML</span><span>Meridian Labs</span><em>▾</em></div>
+            <div class="app__search"><svg class="ic"><use href="#ic-search"/></svg><span>Search</span><kbd>⌘K</kbd></div>
+            <p class="app__navlabel">Workspace</p>
+            <ul class="app__nav">
+              <li><svg class="ic"><use href="#ic-seg"/></svg>Segments</li>
+              <li><svg class="ic"><use href="#ic-acc"/></svg>Accounts</li>
+              <li><svg class="ic"><use href="#ic-ppl"/></svg>People</li>
+              <li><svg class="ic"><use href="#ic-seq"/></svg>Sequences</li>
+              <li><svg class="ic"><use href="#ic-inb"/></svg>Inbox<span class="pill">3</span></li>
+              <li><svg class="ic"><use href="#ic-rep"/></svg>Reports</li>
+            </ul>
+            <div class="app__user"><span class="av">VS</span><span><b>Vidit S.</b><i>Operator</i></span></div>
+          </aside>
+              <div class="app__main">
+                <header class="app__bar">
+                  <p class="crumb">Reports <s>/</s> <b>Weekly</b></p>
+                  <span class="app__acts"><span class="sel-week">Week 09 <em>▾</em><span class="menu"><em>Week 07</em><em>Week 08</em><em class="on">Week 09</em></span></span><button class="bt">Export PDF</button></span>
+                </header>
+                <div class="app__body rep">
+                  <div class="kpis">
+                    <div class="kpi"><i>Sent</i><b><span class="counter" data-to="412">0</span></b><s>−38 vs W08</s></div>
+                    <div class="kpi"><i>Replies</i><b><span class="counter" data-to="156">0</span></b><s class="up">+41</s></div>
+                    <div class="kpi"><i>Reply rate</i><b><span class="counter" data-to="38" data-suffix="%">0%</span></b><s class="up">+9 pts</s></div>
+                    <div class="kpi"><i>Meetings</i><b><span class="counter" data-to="11">0</span></b><s class="up">+4</s></div>
+                  </div>
+                  <p class="lbl lbl--sp">Reply rate by week</p>
+                  <ul class="bars">
+                    <li style="--h:12%"><span>12</span></li><li style="--h:17%"><span>17</span></li>
+                    <li style="--h:16%"><span>16</span></li><li style="--h:23%"><span>23</span></li>
+                    <li style="--h:26%"><span>26</span></li><li style="--h:24%"><span>24</span></li>
+                    <li style="--h:31%"><span>31</span></li><li style="--h:34%"><span>34</span></li>
+                    <li class="on" style="--h:38%"><span>38</span></li>
+                  </ul>
+                  <p class="lbl lbl--sp">Changes shipped this week</p>
+                  <ul class="notes">
+                    <li><svg class="ic"><use href="#ic-check"/></svg>Subject line cut to four words</li>
+                    <li><svg class="ic"><use href="#ic-check"/></svg>Second follow up removed entirely</li>
+                    <li><svg class="ic"><use href="#ic-check"/></svg>Sending window moved before 10am</li>
+                  </ul>
                 </div>
-                <div class="report__row report__row--now">
-                  <span class="smallcaps">Week 09</span>
-                  <span class="track"><i style="--w:38%"></i></span>
-                  <b><span class="counter" data-to="38" data-suffix="%">0%</span></b>
-                </div>
-                <ul class="report__notes">
-                  <li>Subject line shortened to four words</li>
-                  <li>Second follow up removed</li>
-                  <li>Sending window moved before 10am</li>
-                </ul>
               </div>
             </div>
+            <span class="ptr"><svg viewBox="0 0 12 16"><use href="#ic-arrow"/></svg></span>
             <span class="playbar"><i></i></span>
           </div>
         </div>
