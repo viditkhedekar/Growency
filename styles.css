@@ -286,6 +286,9 @@ html.has-cursor .cursor{opacity:1}
 }
 @keyframes caret{0%,50%{opacity:1}51%,100%{opacity:0}}
 
+/* the card dips out between passes so the reset is a beat, not a blink */
+.letter.is-fading .letter__body,.letter.is-fading .letter__subject{opacity:.12;transition:opacity 400ms var(--ease)}
+
 .letter__bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(14,43,31,.07)}
 .letter__bar i{display:block;height:100%;width:0;background:var(--accent-dk);opacity:.55}
 .letter__cap{margin-top:1rem;text-align:right;color:var(--forest-40)}
