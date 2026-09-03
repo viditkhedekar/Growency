@@ -323,9 +323,18 @@
         t += 700;
       });
 
-      t += 2800;                 /* hold on the finished letter */
+      /* the finished, specific letter is the whole point, so it gets the
+         longest beat of the cycle. then the card dips out rather than
+         snapping to blank, and the next pass starts underneath. */
+      t += 4200;
+      at(t, function () { letter.classList.add('is-fading'); });
+      t += 420;
       CYCLE = t;
-      at(t, pass);               /* and round again */
+      at(t, function () {
+        letter.classList.remove('is-fading');
+        timers = [];             /* the pass is over; nothing left to cancel */
+        pass();
+      });
 
       if (bar) {
         bar.style.transition = 'none';
