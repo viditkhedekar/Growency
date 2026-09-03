@@ -215,18 +215,151 @@
   })();
 
   /* =======================================================
-     Hero line drawing
+     The hero letter
+     A template types itself in, then three phrases are struck
+     out and replaced with specifics. The specific text is what
+     sits in the markup, so with JS off, or under reduced
+     motion, the finished letter is what shows.
      ======================================================= */
-  (function heroArt() {
-    var shapes = document.querySelectorAll('.signal__draw path, .signal__draw rect');
-    Array.prototype.forEach.call(shapes, function (s) {
-      var len = 700;
-      try { len = Math.ceil(s.getTotalLength()); } catch (e) {}
-      s.style.setProperty('--len', len);
-      s.style.strokeDasharray = len;
-      s.style.strokeDashoffset = reduced ? 0 : len;
-    });
+  (function heroLetter() {
     requestAnimationFrame(function () { document.body.classList.add('is-loaded'); });
+
+    var letter = document.getElementById('letter');
+    if (!letter || reduced) return;
+
+    var subject = letter.querySelector('.letter__subject');
+    var lines = Array.prototype.slice.call(letter.querySelectorAll('.ln'));
+    var bar = letter.querySelector('.letter__bar i');
+    if (!lines.length) return;
+
+    /* split every line into its two faces. a data-hold line has no
+       template version, so both faces carry the same words and it is
+       never struck out. */
+    var parts = lines.map(function (ln) {
+      var spec = ln.dataset.specific || ln.textContent.trim();
+      var gen = ln.dataset.generic || spec;
+      ln.textContent = '';
+      var g = document.createElement('span');
+      g.className = 'gen';
+      var sp = document.createElement('span');
+      sp.className = 'spec';
+      sp.textContent = spec;
+      ln.appendChild(g);
+      ln.appendChild(sp);
+      return { el: ln, gen: g, generic: gen, rewrites: !ln.dataset.hold };
+    });
+
+    var subjGen = subject ? (subject.dataset.generic || '') : '';
+    var subjSpec = subject ? (subject.dataset.specific || subject.textContent.trim()) : '';
+    if (subject) subject.textContent = '';
+
+    var TYPE = 17;      /* ms per character */
+    var CYCLE = 0;      /* filled in once we know how long a pass takes */
+    var token = 0;      /* bumped to abandon an in-flight pass */
+    var timers = [];
+    var playing = false;
+
+    function clear() {
+      timers.forEach(clearTimeout);
+      timers = [];
+    }
+    function at(ms, fn) {
+      var t = token;
+      timers.push(setTimeout(function () { if (t === token) fn(); }, ms));
+    }
+
+    /* type a string into a node one character at a time, and report
+       back how long it will take so the next beat can be scheduled */
+    function type(node, text, from) {
+      var i = 0;
+      node.parentNode.classList.add('is-typing');
+      for (i = 0; i <= text.length; i++) {
+        (function (n) {
+          at(from + n * TYPE, function () {
+            node.textContent = text.slice(0, n);
+            if (n === text.length) node.parentNode.classList.remove('is-typing');
+          });
+        })(i);
+      }
+      return from + text.length * TYPE;
+    }
+
+    function reset() {
+      parts.forEach(function (p) {
+        p.el.classList.remove('is-cut', 'is-new', 'is-typing');
+        p.gen.textContent = '';
+      });
+      if (subject) {
+        subject.classList.remove('is-typing');
+        subject.textContent = '';
+      }
+    }
+
+    function pass() {
+      reset();
+      var t = 260;
+
+      if (subject) t = type(subject, subjGen, t) + 180;
+      parts.forEach(function (p) {
+        t = type(p.gen, p.generic, t) + 120;
+      });
+
+      /* the template is now complete and generic. let it sit for a
+         beat so the reader registers it before it comes apart. */
+      t += 900;
+
+      if (subject) {
+        (function (start) {
+          at(start, function () { if (subject) subject.textContent = subjSpec; });
+        })(t);
+      }
+
+      parts.filter(function (p) { return p.rewrites; }).forEach(function (p) {
+        (function (start) {
+          at(start, function () { p.el.classList.add('is-cut'); });
+          at(start + 420, function () { p.el.classList.add('is-new'); });
+        })(t);
+        t += 700;
+      });
+
+      t += 2800;                 /* hold on the finished letter */
+      CYCLE = t;
+      at(t, pass);               /* and round again */
+
+      if (bar) {
+        bar.style.transition = 'none';
+        bar.style.width = '0%';
+        at(40, function () {
+          bar.style.transition = 'width ' + (CYCLE - 40) + 'ms linear';
+          bar.style.width = '100%';
+        });
+      }
+    }
+
+    function play() {
+      if (playing) return;
+      playing = true;
+      token++;
+      pass();
+    }
+    function stop() {
+      if (!playing) return;
+      playing = false;
+      token++;
+      clear();
+    }
+
+    /* it only runs while somebody can see it */
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries[0].isIntersecting ? play() : stop();
+      }, { threshold: 0.25 }).observe(letter);
+    } else {
+      play();
+    }
+    document.addEventListener('visibilitychange', function () {
+      document.hidden ? stop() : play();
+    });
   })();
 
   /* =======================================================
@@ -393,4 +526,135 @@
       });
     });
   })();
+  /* =======================================================
+     The funnel in the margin
+     One number that falls a stage at a time as the reader
+     moves through the six steps, so the list is being cut
+     while the page explains how the cutting works.
+     ======================================================= */
+  (function funnel() {
+    var box = document.getElementById('funnel');
+    var num = document.getElementById('funnelNum');
+    var stage = document.getElementById('funnelStage');
+    if (!box || !num || !stage || !('IntersectionObserver' in window)) return;
+
+    /* index 0 is the raw list; 1 to 6 line up with the walkthrough steps */
+    var STAGES = [
+      [2940, 'Raw list'],
+      [1420, 'Fits the ICP'],
+      [610, 'Verified'],
+      [340, 'Written for'],
+      [236, 'Sending clean'],
+      [118, 'In sequence'],
+      [118, 'Measured']
+    ];
+    var shown = -1;
+
+    function set(i) {
+      i = Math.max(0, Math.min(i, STAGES.length - 1));
+      if (i === shown) return;
+      shown = i;
+      num.textContent = STAGES[i][0].toLocaleString('en-US');
+      stage.textContent = STAGES[i][1];
+      box.classList.remove('is-drop');
+      /* restart the drop animation rather than waiting it out */
+      void box.offsetWidth;
+      box.classList.add('is-drop');
+    }
+    set(0);
+
+    /* it appears once the hero is behind us and leaves before the footer */
+    var hero = document.getElementById('top');
+    var final = document.getElementById('contact');
+    function review() {
+      var past = hero ? hero.getBoundingClientRect().bottom < window.innerHeight * 0.4 : true;
+      var done = final ? final.getBoundingClientRect().top < window.innerHeight * 0.7 : false;
+      box.classList.toggle('is-live', past && !done);
+    }
+    review();
+    window.addEventListener('scroll', review, { passive: true });
+    window.addEventListener('resize', review, { passive: true });
+
+    /* each panel that reaches the middle of the screen advances a stage */
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) set(parseInt(e.target.dataset.step, 10));
+      });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+    panels.forEach(function (p) { io.observe(p); });
+
+    /* the number sits over ivory and forest by turns, so it has to flip */
+    var darks = Array.prototype.slice.call(document.querySelectorAll(darkSel));
+    function tint() {
+      var r = box.getBoundingClientRect();
+      var y = r.top + r.height / 2;
+      var over = darks.some(function (d) {
+        var b = d.getBoundingClientRect();
+        return b.top < y && b.bottom > y;
+      });
+      box.classList.toggle('on-dark', over);
+    }
+    tint();
+    window.addEventListener('scroll', tint, { passive: true });
+    window.addEventListener('resize', tint, { passive: true });
+  })();
+
+  /* =======================================================
+     The ink
+     The accent floods out of the wordmark dot as the method
+     section arrives. The origin is measured from the real
+     mark so the two are actually connected.
+     ======================================================= */
+  (function ink() {
+    var method = document.querySelector('.method');
+    if (!method || reduced || !('IntersectionObserver' in window)) return;
+
+    function origin() {
+      var dot = document.querySelector('.nav .wordmark__dot');
+      if (!dot) return;
+      var d = dot.getBoundingClientRect();
+      var m = method.getBoundingClientRect();
+      if (!m.height) return;
+      method.style.setProperty('--ink-x', (((d.left + d.width / 2) - m.left) / m.width * 100).toFixed(2) + '%');
+      method.style.setProperty('--ink-y', (((d.top + d.height / 2) - m.top) / m.height * 100).toFixed(2) + '%');
+    }
+
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        origin();
+        method.classList.add('is-inked');
+      });
+    }, { rootMargin: '0px 0px -25% 0px', threshold: 0 }).observe(method);
+  })();
+
+  /* =======================================================
+     The deck spine
+     A single line down all six steps, filling with progress,
+     so the walkthrough reads as one continuous run rather
+     than six separate screens.
+     ======================================================= */
+  (function spine() {
+    var fill = document.getElementById('deckFill');
+    var deck = document.getElementById('panels');
+    if (!fill || !deck) return;
+
+    var queued = false;
+    function draw() {
+      queued = false;
+      var r = deck.getBoundingClientRect();
+      var mid = window.innerHeight * 0.5;
+      var p = (mid - r.top) / r.height;
+      fill.style.height = (Math.max(0, Math.min(p, 1)) * 100).toFixed(2) + '%';
+    }
+    function onScroll() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(draw);
+    }
+    draw();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+  })();
+
 })();
