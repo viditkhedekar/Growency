@@ -224,21 +224,71 @@ html.has-cursor .cursor{opacity:1}
 .hero__grid{position:relative;z-index:1;display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .hero__copy h1{margin-bottom:1.9rem}
 .hero__actions{display:flex;align-items:center;gap:2rem;margin-top:2.6rem;flex-wrap:wrap}
-.hero__art{justify-self:end;width:min(100%,460px);opacity:.95}
+.hero__art{justify-self:end;width:min(100%,480px)}
 
-.signal__draw path,.signal__draw rect{stroke-dasharray:var(--len,700);stroke-dashoffset:var(--len,700)}
-.is-loaded .signal__draw path,.is-loaded .signal__draw rect{animation:draw 2.4s var(--ease) forwards}
-.is-loaded .signal__draw .d1{animation-delay:.15s}
-.is-loaded .signal__draw .d2{animation-delay:.55s}
-.is-loaded .signal__draw .d3{animation-delay:.85s}
-.is-loaded .signal__draw .d4{animation-delay:.95s}
-.is-loaded .signal__draw .d5{animation-delay:1.25s}
-.is-loaded .signal__draw .d6{animation-delay:1.45s}
-.is-loaded .signal__draw .d7{animation-delay:1.65s}
-@keyframes draw{to{stroke-dashoffset:0}}
-.signal__pulse{opacity:0}
-.is-loaded .signal__pulse{animation:pulse 3.6s 2.2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:0;r:3}50%{opacity:1;r:4}}
+/* ---------- the hero letter ----------
+   A template rewrites itself into a specific one. The generic phrase is
+   struck through and the specific line grows in under it. Both states are
+   in the markup; script.js only toggles classes, so with JS off the
+   finished letter is what shows. */
+.letter{
+  background:#FCFBF7;
+  border:1px solid var(--hair-dim);
+  border-radius:3px;
+  box-shadow:0 30px 60px -40px rgba(14,43,31,.45);
+  padding:1.5rem 1.6rem 1.7rem;
+  position:relative;overflow:hidden;
+  font-size:.9rem;line-height:1.62;
+}
+.letter__head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+  padding-bottom:.85rem;margin-bottom:1.05rem;
+  border-bottom:1px solid var(--hair-dim);
+}
+.letter__from{font-family:var(--serif);font-size:1.02rem;color:var(--forest)}
+.letter__meta{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--forest-40)}
+.letter__subject{
+  font-weight:500;color:var(--forest);margin-bottom:1rem;
+  font-size:.9rem;letter-spacing:-.005em;min-height:1.62em;
+}
+.letter__body{display:flex;flex-direction:column;gap:.85rem}
+
+/* a line has two faces: the template and the real thing */
+.ln{color:var(--forest-60);position:relative;min-height:1.62em}
+.ln .gen{
+  display:block;color:var(--forest-40);
+  transition:opacity 420ms var(--ease),color 420ms var(--ease);
+}
+.ln .spec{
+  display:block;color:var(--forest);
+  max-height:0;opacity:0;overflow:hidden;
+  transition:max-height 520ms var(--ease),opacity 380ms var(--ease) 120ms;
+}
+/* the strike is drawn, not switched on */
+.ln .gen::after{
+  content:"";position:absolute;left:0;top:.78em;height:1px;width:0;
+  background:var(--accent-dk);opacity:.7;
+  transition:width 340ms var(--ease);
+}
+.ln.is-cut .gen::after{width:100%}
+.ln.is-cut .gen{opacity:.34}
+.ln.is-new .spec{max-height:7em;opacity:1}
+.ln.is-new .gen{
+  max-height:0;opacity:0;overflow:hidden;
+  transition:max-height 380ms var(--ease) 220ms,opacity 200ms linear;
+}
+
+/* the caret only exists while something is being typed */
+.ln.is-typing::after,.letter__subject.is-typing::after{
+  content:"";display:inline-block;width:1px;height:1em;
+  background:var(--accent-dk);vertical-align:-.15em;margin-left:1px;
+  animation:caret 1s steps(1,end) infinite;
+}
+@keyframes caret{0%,50%{opacity:1}51%,100%{opacity:0}}
+
+.letter__bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(14,43,31,.07)}
+.letter__bar i{display:block;height:100%;width:0;background:var(--accent-dk);opacity:.55}
+.letter__cap{margin-top:1rem;text-align:right;color:var(--forest-40)}
 
 /* =========================================================
    Trust bar
@@ -300,12 +350,12 @@ html.has-cursor .cursor{opacity:1}
   position:relative;overflow:hidden;
 }
 .panel--last{scroll-snap-align:none}
-.panel[data-step="1"]{background:#0E2B1F}
-.panel[data-step="2"]{background:#122F22}
-.panel[data-step="3"]{background:#0A2419}
-.panel[data-step="4"]{background:#103021}
-.panel[data-step="5"]{background:#0C271B}
-.panel[data-step="6"]{background:#142F24}
+/* One surface, not six. The deck used to give each step its own green,
+   which banded at every panel edge and read as a slide carousel. The
+   ground is now continuous and the only thing that changes step to step
+   is the ghost numeral and what is on screen. */
+.panels{background:linear-gradient(180deg,#0E2B1F 0%,#0A2419 48%,#102E21 100%)}
+.panel{background:transparent}
 
 .panel__ghost{
   position:absolute;left:clamp(2rem,5vw,5rem);top:50%;transform:translateY(-50%);
@@ -991,6 +1041,94 @@ html.has-cursor .cursor{opacity:1}
   .app__side{display:none}
 }
 
+
+/* =========================================================
+   The turn
+   One line, full bleed, cropped by the viewport on both
+   sides. Nothing else in the section on purpose.
+   ========================================================= */
+.turn{
+  padding:clamp(3rem,9vh,7rem) 0 clamp(4rem,11vh,8rem);
+  overflow:hidden;
+}
+.turn__line{
+  font-family:var(--serif);font-weight:400;
+  font-size:18vw;line-height:.86;letter-spacing:-.045em;
+  white-space:nowrap;text-align:center;
+  color:var(--forest);
+  /* wider than the viewport on purpose, so it reads as cropped */
+  margin-inline:-6vw;
+}
+.turn__line em{font-style:italic;font-weight:300;color:var(--accent-dk)}
+.turn__line span{opacity:.22}
+
+/* =========================================================
+   The funnel, pinned in the margin
+   ========================================================= */
+.funnel{
+  position:fixed;left:var(--gutter);bottom:clamp(1.2rem,4vh,2.2rem);z-index:790;
+  pointer-events:none;
+  opacity:0;transform:translateY(8px);
+  transition:opacity 420ms var(--ease),transform 420ms var(--ease),color 320ms var(--ease);
+  color:var(--forest);
+}
+.funnel.is-live{opacity:1;transform:none}
+.funnel.on-dark{color:var(--ivory)}
+.funnel__label{color:inherit;opacity:.42;margin-bottom:.35rem}
+.funnel__num{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.9rem,3.4vw,2.9rem);line-height:1;letter-spacing:-.025em;
+  font-variant-numeric:tabular-nums;
+}
+.funnel__num b{font-weight:400}
+.funnel.on-dark .funnel__num{color:var(--accent-lt)}
+.funnel__stage{
+  font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+  opacity:.5;margin-top:.4rem;
+}
+/* the number has just changed */
+.funnel.is-drop .funnel__num{animation:drop 520ms var(--ease)}
+@keyframes drop{
+  0%{transform:translateY(-5px);opacity:.35}
+  100%{transform:none;opacity:1}
+}
+@media (max-width:900px){.funnel{display:none}}
+
+/* =========================================================
+   The ink
+   The accent floods out of the wordmark dot as the method
+   arrives. script.js sets --ink-x / --ink-y from the mark.
+   ========================================================= */
+.method__ink{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(circle at var(--ink-x,50%) var(--ink-y,0%),
+             rgba(195,219,184,.30) 0%,
+             rgba(195,219,184,.13) 26%,
+             rgba(195,219,184,0) 62%);
+  clip-path:circle(0% at var(--ink-x,50%) var(--ink-y,0%));
+  transition:clip-path 2200ms cubic-bezier(.22,.61,.36,1);
+}
+.method.is-inked .method__ink{clip-path:circle(150% at var(--ink-x,50%) var(--ink-y,0%))}
+.method__intro,.rail,.panels{position:relative;z-index:1}
+
+/* =========================================================
+   The deck spine
+   One line down all six steps with a fill that tracks
+   progress, so the panels read as one machine rather than
+   six slides.
+   ========================================================= */
+.deck__spine{
+  position:absolute;z-index:2;pointer-events:none;
+  left:clamp(2.6rem,4.4vw,4rem);top:0;bottom:0;width:1px;
+  background:rgba(195,219,184,.16);
+}
+.deck__spine i{
+  display:block;width:100%;height:0;
+  background:linear-gradient(180deg,rgba(195,219,184,.25),var(--accent-lt));
+  transition:height 120ms linear;
+}
+@media (max-width:900px){.deck__spine{display:none}}
+
 /* =========================================================
    Reduced motion
    ========================================================= */
@@ -998,7 +1136,12 @@ html.has-cursor .cursor{opacity:1}
   html{scroll-behavior:auto;scroll-snap-type:none}
   *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
   .reveal,.panel__copy,.panel__viz{opacity:1;transform:none}
-  .signal__draw path,.signal__draw rect{stroke-dashoffset:0}
+  /* the letter shows its finished, specific state and never types */
+  .ln .gen{display:none}
+  .ln .spec{max-height:none;opacity:1;overflow:visible}
+  .letter__bar,.funnel{display:none}
+  .method__ink{clip-path:none;opacity:.5}
+  .deck__spine i{transition:none}
   .mesh{animation:none}
   .cursor,.ptr,.playbar,.menu,.tipbar,.tip,.sel{display:none}
   /* the clips resolve to their finished frame instead of playing */
