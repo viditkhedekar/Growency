@@ -1114,7 +1114,10 @@ html.has-cursor .cursor{opacity:1}
   transition:clip-path 2200ms cubic-bezier(.22,.61,.36,1);
 }
 .method.is-inked .method__ink{clip-path:circle(150% at var(--ink-x,50%) var(--ink-y,0%))}
-.method__intro,.rail,.panels{position:relative;z-index:1}
+/* everything in the method sits above the ink. the rail keeps its own
+   fixed positioning, so it only takes the z-index. */
+.method__intro,.panels{position:relative;z-index:1}
+.rail{z-index:700}
 
 /* =========================================================
    The deck spine
