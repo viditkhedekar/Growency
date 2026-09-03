@@ -34,6 +34,15 @@
 <div class="grain" aria-hidden="true"></div>
 <div class="cursor" aria-hidden="true"><span class="cursor__dot"><span class="cursor__label"></span></span></div>
 
+<!-- The funnel, running in the margin. It appears once the hero is past and
+     counts down one stage per walkthrough step, so the reader watches 2,940
+     become 118 while they read how it happens. script.js owns the values. -->
+<aside class="tally" id="tally" aria-live="polite" aria-label="Contacts remaining">
+  <p class="tally__label smallcaps">Contacts in play</p>
+  <p class="tally__num"><b id="tallyNum">2,940</b></p>
+  <p class="tally__stage" id="tallyStage">Raw list</p>
+</aside>
+
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- ============================ NAV ============================ -->
@@ -73,20 +82,27 @@
       </div>
     </div>
 
-    <div class="hero__art reveal" data-delay="2" aria-hidden="true">
-      <svg viewBox="0 0 420 340" class="signal" role="presentation" focusable="false">
-        <g class="signal__draw" fill="none" stroke="var(--accent)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-          <rect class="d1" x="70" y="118" width="230" height="150" rx="2"></rect>
-          <path class="d2" d="M70 118 L185 208 L300 118"></path>
-          <path class="d3" d="M70 268 L152 190"></path>
-          <path class="d4" d="M300 268 L218 190"></path>
-          <path class="d5" d="M300 96 q34 -34 68 0"></path>
-          <path class="d6" d="M300 74 q46 -48 92 0"></path>
-          <path class="d7" d="M300 52 q58 -62 116 0"></path>
-        </g>
-        <circle class="signal__pulse" cx="300" cy="118" r="3.5" fill="var(--accent)"></circle>
-        <line class="signal__hair" x1="24" y1="300" x2="396" y2="300" stroke="var(--accent)" stroke-width="1" opacity=".35"></line>
-      </svg>
+    <div class="hero__art reveal" data-delay="2">
+      <!-- The letter rewrites itself: a generic template types in, then three
+           phrases are struck out and replaced with specifics. script.js drives
+           it; this markup is the finished state, which is what shows under
+           prefers-reduced-motion and with JS off. -->
+      <figure class="letter" id="letter">
+        <figcaption class="letter__head">
+          <span class="letter__from">Growency</span>
+          <span class="letter__meta">to dana@meridianlabs.io</span>
+        </figcaption>
+        <div class="letter__subject" data-generic="Quick question" data-specific="March, SSO, and your Q3 questionnaire pile">March, SSO, and your Q3 questionnaire pile</div>
+        <div class="letter__body">
+          <p class="ln" data-hold="1">Hi Dana,</p>
+          <p class="ln" data-generic="I hope this email finds you well." data-specific="Saw Meridian shipped SSO to the self-serve tier in March.">Saw Meridian shipped SSO to the self-serve tier in March.</p>
+          <p class="ln" data-generic="We help companies like yours scale their outbound." data-specific="That usually hands your AEs a security questionnaire problem about two quarters later.">That usually hands your AEs a security questionnaire problem about two quarters later.</p>
+          <p class="ln" data-generic="Do you have 15 minutes this week?" data-specific="Worth ten minutes before the renewal cycle starts?">Worth ten minutes before the renewal cycle starts?</p>
+          <p class="ln" data-hold="1">Vidit</p>
+        </div>
+        <span class="letter__bar" aria-hidden="true"><i></i></span>
+      </figure>
+      <p class="letter__cap smallcaps">Same structure. Different specifics.</p>
     </div>
   </div>
 </section>
@@ -121,8 +137,15 @@
   </div>
 </section>
 
+<!-- ============================ THE TURN ============================ -->
+<!-- One line, cropped by the viewport on both sides. No paragraph under it. -->
+<section class="turn" aria-label="Send fewer">
+  <p class="turn__line reveal"><span>Send</span> <em>fewer</em>.</p>
+</section>
+
 <!-- ============================ THE METHOD (scroll walkthrough) ============================ -->
 <section class="method" id="method">
+  <span class="method__ink" aria-hidden="true"></span>
   <div class="wrap method__intro">
     <p class="smallcaps reveal">The Method</p>
     <h2 class="display display--sm reveal" data-delay="1">Six steps, in order,<br>every time.</h2>
@@ -139,6 +162,7 @@
   </nav>
 
   <div class="panels" id="panels">
+    <span class="deck__spine" aria-hidden="true"><i id="deckFill"></i></span>
 
     <!-- I ------------------------------------------------------------ -->
     <article class="panel" id="step-1" data-step="1">
