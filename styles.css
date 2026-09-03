@@ -1056,11 +1056,11 @@ html.has-cursor .cursor{opacity:1}
 }
 .turn__line{
   font-family:var(--serif);font-weight:400;
-  font-size:18vw;line-height:.86;letter-spacing:-.045em;
+  font-size:23vw;line-height:.86;letter-spacing:-.05em;
   white-space:nowrap;text-align:center;
   color:var(--forest);
   /* wider than the viewport on purpose, so it reads as cropped */
-  margin-inline:-6vw;
+  margin-inline:-12vw;
 }
 .turn__line em{font-style:italic;font-weight:300;color:var(--accent-dk)}
 .turn__line span{opacity:.22}
