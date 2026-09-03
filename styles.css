@@ -332,7 +332,9 @@ html.has-cursor .cursor{opacity:1}
   transition:opacity 320ms var(--ease),visibility 320ms var(--ease);
 }
 .rail.is-visible{opacity:1;visibility:visible}
-.rail__line{position:absolute;left:0;top:2px;bottom:2px;width:1px;background:rgba(195,219,184,.3)}
+/* the deck spine draws this line now, full height and with a progress
+   fill, so the rail numerals sit directly on it */
+.rail__line{display:none}
 .rail__item{
   font-family:var(--serif);font-size:.86rem;letter-spacing:.06em;
   color:rgba(220,228,216,.34);line-height:1;padding:.15rem .3rem .15rem 0;
@@ -1122,8 +1124,8 @@ html.has-cursor .cursor{opacity:1}
    ========================================================= */
 .deck__spine{
   position:absolute;z-index:2;pointer-events:none;
-  left:clamp(2.6rem,4.4vw,4rem);top:0;bottom:0;width:1px;
-  background:rgba(195,219,184,.16);
+  left:clamp(1rem,3vw,2.6rem);top:0;bottom:0;width:1px;
+  background:rgba(195,219,184,.18);
 }
 .deck__spine i{
   display:block;width:100%;height:0;
