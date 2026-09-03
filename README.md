@@ -22,9 +22,17 @@ Everything below is a placeholder. Each one is marked with a `TODO` comment in `
 - **Client logos.** Six invented wordmarks sit in the trust bar. Replace with real logos, ideally inline SVG so the grayscale to colour hover keeps working.
 - **Results.** The three figures (38%, 4.2x, 412) and the pull quote are invented. Do not publish them as they are. Attribution reads `[Client name], [Title], [Company]` on purpose so it cannot be mistaken for a real testimonial.
 - **Founder photo.** `.founders__photo` holds a gradient block. Drop an `<img>` in its place and the green duotone filter applies automatically.
+- **The hero letter.** Dana, Meridian Labs, the SSO detail and the questionnaire line are invented. Replace them with a real anonymised example before this goes live, keeping the `data-generic` / `data-specific` pair on each `.ln`.
+- **The funnel numbers.** 2,940 down to 118 across six stages is illustrative. The values live in `STAGES` at the top of the funnel module in `script.js`.
 - **Walkthrough mockups.** The names, addresses and reply text inside the six panels are fictional set dressing.
 
 ## Notes
+
+- **The hero letter** rewrites itself. Each `.ln` carries `data-generic` (the template) and `data-specific` (the real thing); the specific version is what sits in the markup, so with JS off, or under `prefers-reduced-motion`, the finished letter is what shows. `script.js` types the template in, draws a strike through three phrases, then grows the specifics in underneath. One pass is roughly nine seconds and it only runs while the letter is on screen. Timings are the `TYPE`, hold and `t +=` values inside `pass()`.
+- **The funnel** is the fixed block in the bottom left. It appears once the hero is behind you, counts down one stage per walkthrough step, flips pale on the dark sections, and hides below 900px. Stages are the `STAGES` array in `script.js`.
+- **The turn** is the single cropped line between the problem and the method. `font-size: 23vw` with `white-space: nowrap` and a negative inline margin, so it always bleeds past both edges.
+- **The ink** is the accent wash that floods into the method section. `script.js` measures the wordmark dot in the nav and writes `--ink-x` / `--ink-y` onto `.method`, then a `clip-path: circle()` opens from that point. Change the origin by moving the dot, not the CSS.
+- **The deck spine** is one line down all six steps with a fill that tracks scroll progress. It sits at the same x as the step rail and has replaced the rail's own short line, so the numerals sit directly on it. The six panels also share one continuous background gradient now rather than a different green each, which is what made them read as separate slides.
 
 - Fonts load from Google Fonts (Fraunces for display, Inter for body). Self host them if the site needs to work offline.
 - **Accent colour** is one green in two stops: `--accent-dk` (#3F6B4B) for the ivory sections, `--accent-lt` (#C3DBB8) for the dark ones. Sections override `--accent`, so changing those two values at the top of `styles.css` re-tints the whole page.
