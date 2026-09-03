@@ -268,16 +268,17 @@
       timers.push(setTimeout(function () { if (t === token) fn(); }, ms));
     }
 
-    /* type a string into a node one character at a time, and report
-       back how long it will take so the next beat can be scheduled */
-    function type(node, text, from) {
-      var i = 0;
-      node.parentNode.classList.add('is-typing');
-      for (i = 0; i <= text.length; i++) {
+    /* type a string into a node one character at a time, and report back
+       how long it will take so the next beat can be scheduled. `host` is
+       what carries the caret, which is the line for a body line and the
+       element itself for the subject. */
+    function type(node, host, text, from) {
+      at(from, function () { host.classList.add('is-typing'); });
+      for (var i = 1; i <= text.length; i++) {
         (function (n) {
           at(from + n * TYPE, function () {
             node.textContent = text.slice(0, n);
-            if (n === text.length) node.parentNode.classList.remove('is-typing');
+            if (n === text.length) host.classList.remove('is-typing');
           });
         })(i);
       }
@@ -299,9 +300,9 @@
       reset();
       var t = 260;
 
-      if (subject) t = type(subject, subjGen, t) + 180;
+      if (subject) t = type(subject, subject, subjGen, t) + 180;
       parts.forEach(function (p) {
-        t = type(p.gen, p.generic, t) + 120;
+        t = type(p.gen, p.el, p.generic, t) + 120;
       });
 
       /* the template is now complete and generic. let it sit for a
