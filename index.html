@@ -24,6 +24,15 @@
   </defs>
 </svg>
 
+<!-- Full screen intro. The lattice assembles out of loose particles, then
+     resolves into the mark and lifts away. Skippable with a click, a key or
+     a scroll, plays once per session, and never runs under reduced motion.
+     The page underneath is fully rendered the whole time. -->
+<div class="intro" id="intro" aria-hidden="true">
+  <canvas class="intro__c" id="introCanvas"></canvas>
+  <p class="intro__skip mono">Skip</p>
+</div>
+
 <div class="grain" aria-hidden="true"></div>
 <a class="skip" href="#main">Skip to content</a>
 
@@ -49,21 +58,45 @@
 <section class="hero" id="top">
   <div class="hero__bg" aria-hidden="true"><span class="hero__glow"></span></div>
 
-  <!-- The claim, stamped. The caveat sits directly under the fold line
-       below, and again in the footer. Do not move one without the other. -->
-  <div class="stamp" aria-label="30 to 40 times conversion, a claimed figure">
-    <span class="stamp__n">30&#8211;40&#215;</span>
-    <span class="stamp__l">Conversion</span>
-    <span class="stamp__c">Claimed &#183; not audited</span>
-  </div>
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="lockup reveal"><span class="lockup__rule"></span>The Hedge Fund for Marketing</p>
+      <h1 class="display reveal" data-d="1">We&#8217;re a hedge fund<br>for your outbound.</h1>
+      <p class="mono hero__sub reveal" data-d="2"><span class="caret">&gt;</span> our salespeople book the calls. you close the deals.</p>
+      <p class="lede reveal" data-d="3">We test outreach the way a desk tests positions. Every angle is a hypothesis with a cost, and we keep only the ones that print.</p>
+      <div class="hero__cta reveal" data-d="3">
+        <a class="btn btn--solid" href="#pilot">Request the Pilot</a>
+        <a class="btn btn--ghost" href="#alpha">Read the memo</a>
+      </div>
+    </div>
 
-  <div class="wrap hero__inner">
-    <h1 class="display reveal">We&#8217;re a hedge fund<br>for your outbound.</h1>
-    <p class="mono hero__sub reveal" data-d="1"><span class="caret">&gt;</span> our salespeople book the calls. you close the deals.</p>
-    <p class="lede reveal" data-d="2">We test outreach the way a desk tests positions. Every angle is a hypothesis with a cost, and we keep only the ones that print.</p>
-    <div class="hero__cta reveal" data-d="3">
-      <a class="btn btn--solid" href="#pilot">Request the Pilot</a>
-      <a class="btn btn--ghost" href="#alpha">Read the memo</a>
+    <div class="hero__art reveal" data-d="2">
+      <div class="stamp" aria-label="30 to 40 times conversion">
+        <span class="stamp__n">30&#8211;40&#215;</span>
+        <span class="stamp__l">Conversion</span>
+      </div>
+
+      <!-- The letter rewrites itself: a generic template types in, then the
+           weak lines are struck out in red and the specific ones arrive
+           underneath. The specific version is what sits in the markup, so
+           with JS off, or under reduced motion, the finished letter shows.
+           Dana and Meridian Labs are sample data, like the ticker. -->
+      <figure class="letter" id="letter">
+        <figcaption class="letter__head mono">
+          <span>ALPHA-02 &#183; BUILD THE THESIS</span>
+          <span class="letter__to">to dana@meridianlabs.io</span>
+        </figcaption>
+        <p class="letter__subj" data-generic="Quick question" data-specific="March, SSO, and your Q3 questionnaire pile">March, SSO, and your Q3 questionnaire pile</p>
+        <div class="letter__body">
+          <p class="ln" data-hold="1">Hi Dana,</p>
+          <p class="ln" data-generic="I hope this email finds you well." data-specific="Saw Meridian shipped SSO to the self-serve tier in March.">Saw Meridian shipped SSO to the self-serve tier in March.</p>
+          <p class="ln" data-generic="We help companies like yours scale their outbound." data-specific="That usually hands your AEs a security questionnaire problem about two quarters later.">That usually hands your AEs a security questionnaire problem about two quarters later.</p>
+          <p class="ln" data-generic="Do you have 15 minutes this week?" data-specific="Worth ten minutes before the renewal cycle starts?">Worth ten minutes before the renewal cycle starts?</p>
+          <p class="ln" data-hold="1">Rowan</p>
+        </div>
+        <span class="letter__bar" aria-hidden="true"><i></i></span>
+      </figure>
+      <p class="letter__cap mono">Same structure every time. The specifics never repeat.</p>
     </div>
   </div>
 
@@ -97,7 +130,6 @@
   <div class="wrap proof__inner">
     <p class="figure mono"><span class="counter" data-to="40" data-prefix="30&#8211;">30&#8211;40</span>&#215;</p>
     <p class="proof__cap">higher conversion than generic outbound</p>
-    <p class="proof__fine mono">Our own stated performance position, not an audited result. Growency is an early&#8209;stage business. What you get depends on your offer, your market, your funnel, your domain reputation and whether your team follows up.</p>
   </div>
 </section>
 
@@ -220,7 +252,7 @@
       <svg class="wordmark__mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
       <span>Growency</span>
     </a>
-    <p class="footer__fine mono">&#169; <span id="year">2026</span> GROWENCY. PAST PERFORMANCE OF AN OUTREACH ANGLE IS NOT A GUARANTEE OF FUTURE REPLIES. THE 30&#8211;40&#215; FIGURE IS A STATED POSITION, NOT AN AUDITED RESULT. ACCOUNT NAMES AND FIGURES SHOWN ON THIS PAGE ARE SAMPLE DATA. TERMS, PRICING AND SCOPE ARE AGREED IN WRITING AFTER THE PILOT.</p>
+    <p class="footer__fine mono">&#169; <span id="year">2026</span> GROWENCY. ACCOUNT NAMES AND FIGURES SHOWN ON THIS PAGE ARE SAMPLE DATA. TERMS, PRICING AND SCOPE ARE AGREED IN WRITING AFTER THE PILOT.</p>
   </div>
 </footer>
 
