@@ -44,12 +44,23 @@
 
     /* the lattice is read straight off the logo, so the animation and the
        mark can never drift apart */
-    var segs = [];
+    var CLIP = 51.2;                 /* the circle the SVG clips the lattice to */
+    var CX = 60, CY = 60;
+    function rad(x, y) { return Math.hypot(x - CX, y - CY); }
+
+    var raw = [];
     var d = symbol.getAttribute('d') || '';
-    var re = /M([\d.]+)\s+([\d.]+)L([\d.]+)\s+([\d.]+)/g, m;
+    /* the lattice runs past the circle and the SVG clips it, so the path
+       carries negative coordinates. the minus signs matter. */
+    var re = /M(-?[\d.]+)\s+(-?[\d.]+)L(-?[\d.]+)\s+(-?[\d.]+)/g, m;
     while ((m = re.exec(d))) {
-      segs.push([+m[1], +m[2], +m[3], +m[4]]);
+      raw.push([+m[1], +m[2], +m[3], +m[4]]);
     }
+    /* keep the part that is actually visible inside the ring, so the
+       animation can draw freely without a clip path */
+    var segs = raw.filter(function (s) {
+      return rad(s[0], s[1]) <= CLIP && rad(s[2], s[3]) <= CLIP;
+    });
     if (segs.length < 8) { wrap.remove(); done(); return; }
 
     var vmap = {}, verts = [];
@@ -60,9 +71,8 @@
       });
     });
 
-    var CX = 60, CY = 60;
-    function radius(p) { return Math.hypot(p.x - CX, p.y - CY); }
-    var maxR = 54;
+    function radius(p) { return rad(p.x, p.y); }
+    var maxR = CLIP;
 
     /* particles start scattered and are pulled home. the ones nearest the
        centre arrive first, so the mark grows outward. */
@@ -90,8 +100,7 @@
     }
 
     segs.forEach(function (s) {
-      var mid = { x: (s[0] + s[2]) / 2, y: (s[1] + s[3]) / 2 };
-      s.delay = (radius(mid) / maxR) * 0.34;
+      s.delay = (rad((s[0] + s[2]) / 2, (s[1] + s[3]) / 2) / maxR) * 0.34;
     });
 
     var scale = 1, ox = 0, oy = 0;
