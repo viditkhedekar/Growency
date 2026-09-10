@@ -103,6 +103,10 @@
       s.delay = (rad((s[0] + s[2]) / 2, (s[1] + s[3]) / 2) / maxR) * 0.34;
     });
 
+    /* show it first: a display:none element measures 0 and the canvas
+       would be sized to nothing */
+    wrap.classList.add('is-live');
+
     var scale = 1, ox = 0, oy = 0;
     function size() {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -221,7 +225,6 @@
     }
 
     root.classList.add('intro-lock');
-    wrap.classList.add('is-live');
     raf = requestAnimationFrame(draw);
 
     ['click', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) {
