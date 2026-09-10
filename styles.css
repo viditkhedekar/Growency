@@ -199,7 +199,7 @@ ul,ol{list-style:none}
 }
 .way::after{
   content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
-  background:radial-gradient(420px circle at 0% 0%,rgba(109,59,245,.22),transparent 70%);
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(109,59,245,.26),transparent 70%);
   transition:opacity 300ms var(--ease);
 }
 .way:hover{border-color:var(--line-2);transform:translateY(-2px)}
