@@ -3,19 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Growency | The Hedge Fund for Marketing</title>
-<meta name="description" content="Growency is a go-to-market partner for B2B companies. Our salespeople book the calls. You close the deals.">
-<meta name="theme-color" content="#07070D">
+<title>Growency | A hedge fund for your outbound</title>
+<meta name="description" content="Growency tests outreach like trades and keeps only what prints. Our salespeople book the calls. You close the deals.">
+<meta name="theme-color" content="#06060E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- The mark: a rhombille lattice clipped to a circle. Recreated as vector
-     from the brand image, so it takes currentColor and scales cleanly.
-     TODO: swap for the official logo file when there is one. -->
 <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
   <defs>
     <clipPath id="markClip" clipPathUnits="userSpaceOnUse"><circle cx="60" cy="60" r="51.2"/></clipPath>
@@ -37,13 +34,12 @@
       <svg class="wordmark__mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
       <span>Growency</span>
     </a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="#premise">Approach</a>
-      <a href="#alpha">Alpha strategies</a>
-      <a href="#pilot">The pilot</a>
+    <div class="nav__right">
+      <!-- Decorative readout. Invented, like everything in the ticker. -->
+      <p class="readout" aria-hidden="true"><span>ALPHA-04</span> <b class="up">&#9650; 34%</b></p>
       <!-- TODO: point at the real booking link -->
-      <a class="btn btn--solid btn--sm" href="#contact">Book a call</a>
-    </nav>
+      <a class="btn btn--stamp" href="#pilot">Request the Pilot</a>
+    </div>
   </div>
 </header>
 
@@ -52,132 +48,166 @@
 <!-- ============================ HERO ============================ -->
 <section class="hero" id="top">
   <div class="hero__bg" aria-hidden="true"><span class="hero__glow"></span></div>
-  <svg class="hero__watermark" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
+
+  <!-- The claim, stamped. The caveat sits directly under the fold line
+       below, and again in the footer. Do not move one without the other. -->
+  <div class="stamp" aria-label="30 to 40 times conversion, a claimed figure">
+    <span class="stamp__n">30&#8211;40&#215;</span>
+    <span class="stamp__l">Conversion</span>
+    <span class="stamp__c">Claimed &#183; not audited</span>
+  </div>
 
   <div class="wrap hero__inner">
-    <p class="eyebrow reveal">The Hedge Fund for Marketing</p>
-    <h1 class="display reveal" data-d="1">Our salespeople book the calls.<br><span class="display__dim">You close the deals.</span></h1>
-    <p class="lede reveal" data-d="2">Growency is a go-to-market partner for B2B companies. We find the buyers with a reason to act, write to them like people, and hand your team conversations worth having.</p>
+    <h1 class="display reveal">We&#8217;re a hedge fund<br>for your outbound.</h1>
+    <p class="mono hero__sub reveal" data-d="1"><span class="caret">&gt;</span> our salespeople book the calls. you close the deals.</p>
+    <p class="lede reveal" data-d="2">We test outreach the way a desk tests positions. Every angle is a hypothesis with a cost, and we keep only the ones that print.</p>
     <div class="hero__cta reveal" data-d="3">
-      <a class="btn btn--solid" href="#contact">Book a call</a>
-      <a class="btn btn--ghost" href="#premise">See how it works</a>
+      <a class="btn btn--solid" href="#pilot">Request the Pilot</a>
+      <a class="btn btn--ghost" href="#alpha">Read the memo</a>
     </div>
-    <p class="hero__note reveal" data-d="4">Every engagement starts with a two&#8209;week pilot.</p>
+  </div>
+
+  <!-- Sample data. None of these accounts, signals or figures are real. -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__run"><span class="tick">MERIDIAN LABS · SIGNAL DETECTED</span><span class="tick">ALPHA-03 · THESIS BUILT</span><span class="tick">ARBOR GROUP · REPLY +12%</span><span class="tick">CADENCE · POSITION SIZED</span><span class="tick">FIELDNOTE · MARKED TO MARKET</span><span class="tick">HALSTON &amp; CO · CALL BOOKED</span><span class="tick">NORTHBOUND · POSITION CLOSED</span><span class="tick">ALPHA-01 · 214 ACCOUNTS SOURCED</span><span class="tick">MERIDIAN LABS · SIGNAL DETECTED</span><span class="tick">ALPHA-03 · THESIS BUILT</span><span class="tick">ARBOR GROUP · REPLY +12%</span><span class="tick">CADENCE · POSITION SIZED</span><span class="tick">FIELDNOTE · MARKED TO MARKET</span><span class="tick">HALSTON &amp; CO · CALL BOOKED</span><span class="tick">NORTHBOUND · POSITION CLOSED</span><span class="tick">ALPHA-01 · 214 ACCOUNTS SOURCED</span></div>
   </div>
 </section>
 
-<!-- ============================ THE PREMISE ============================ -->
-<section class="section premise" id="premise">
+<!-- ============================ THE MEMO ============================ -->
+<section class="section memo" id="alpha">
   <div class="wrap">
-    <p class="kicker reveal">The premise</p>
-    <h2 class="statement reveal" data-d="1">Tools can create volume.<br><span class="statement__dim">They do not reliably create relevance.</span></h2>
-    <div class="premise__cols">
-      <p class="reveal" data-d="2">Most outbound providers pick one of two extremes. Some hand you software and leave you to operate it. Others run enormous campaigns off broad lists and one standardised message. Both produce activity.</p>
-      <p class="reveal" data-d="3">We use the tooling to gather and organise what no person could track alone, then put a trained operator in front of every decision that reaches a buyer. That is the difference between a busy dashboard and an engine that gets sharper each campaign.</p>
-    </div>
+    <article class="paper reveal">
+      <header class="paper__head">
+        <span class="mono">INTERNAL &#183; ALPHA STRATEGIES</span>
+        <span class="mono">DECLASSIFIED</span>
+      </header>
+      <h2 class="paper__h">An Alpha strategy is<br>none of the following.</h2>
+      <ul class="redact"><li class="rd"><span class="rd__bar" aria-hidden="true"></span><span class="rd__w">a prompt</span></li><li class="rd"><span class="rd__bar" aria-hidden="true"></span><span class="rd__w">a template</span></li><li class="rd"><span class="rd__bar" aria-hidden="true"></span><span class="rd__w">a mass-send</span></li><li class="rd"><span class="rd__bar" aria-hidden="true"></span><span class="rd__w">a list you bought</span></li></ul>
+      <div class="paper__body">
+        <p>It is a researched, repeatable way to identify a buyer, read their context, choose the channel, write something credible, follow up at the right moment, and turn interest into a sales conversation. Each one takes months to build.</p>
+        <p>We run a portfolio of them rather than betting an account on a single idea. The ones that produce meetings get more capital. The ones that do not get cut in week two.</p>
+      </div>
+      <footer class="paper__foot mono">GROWENCY &#183; OPERATING NOTE 01</footer>
+    </article>
   </div>
 </section>
 
-<!-- ============================ ALPHA STRATEGIES ============================ -->
-<section class="section alpha" id="alpha">
+<!-- ============================ PROOF STRIP ============================ -->
+<section class="section proof">
+  <div class="wrap proof__inner">
+    <p class="figure mono"><span class="counter" data-to="40" data-prefix="30&#8211;">30&#8211;40</span>&#215;</p>
+    <p class="proof__cap">higher conversion than generic outbound</p>
+    <p class="proof__fine mono">Our own stated performance position, not an audited result. Growency is an early&#8209;stage business. What you get depends on your offer, your market, your funnel, your domain reputation and whether your team follows up.</p>
+  </div>
+</section>
+
+<!-- ============================ THE LIFECYCLE ============================ -->
+<section class="section flow" id="how">
   <div class="wrap">
-    <p class="kicker reveal">Alpha strategies</p>
-    <h2 class="display display--sm reveal" data-d="1">Each one takes months to build.</h2>
-    <p class="lede lede--wide reveal" data-d="2">An Alpha strategy defines how to identify a buyer, read their context, choose the channel, write something credible, follow up at the right moment, and turn interest into a sales conversation. We run a portfolio of them rather than betting the account on one template, and we keep the ones that produce meetings.</p>
-
-    <ul class="tech">
-      <li class="tech__item reveal"><h3>Omni-channel outreach</h3><p>Email, LinkedIn, a warm introduction, a call. The best opening depends on the account, so we do not commit to one lane before we know.</p></li>
-      <li class="tech__item reveal"><h3>Signal-based targeting</h3><p>We track the events that give a buyer a reason to act now, and reach them while the reason is still true.</p></li>
-      <li class="tech__item reveal"><h3>Deep account research</h3><p>Someone reads the company before anyone writes to it. What they sell, who owns the problem, what changed recently.</p></li>
-      <li class="tech__item reveal"><h3>Personalised human authenticity</h3><p>A first name is not personalisation. A reasoned point of view about why this buyer should care is.</p></li>
-      <li class="tech__item reveal"><h3>Human-reviewed messaging</h3><p>Every message that leaves has been read by a person who could defend it.</p></li>
-      <li class="tech__item reveal"><h3>Rapid testing</h3><p>Segment, signal, message, channel, timing, follow-up. Each one is a variable we can move.</p></li>
-      <li class="tech__item reveal"><h3>Fast reply handling</h3><p>A reply has a short half-life. Ours get answered by someone who can carry the conversation forward.</p></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============================ HUMAN DECISIONS ============================ -->
-<section class="section human">
-  <div class="wrap human__grid">
-    <div class="human__copy">
-      <p class="kicker reveal">Where the technology stops</p>
-      <h2 class="statement statement--sm reveal" data-d="1">The tooling gathers. A person decides.</h2>
-      <p class="reveal" data-d="2">We run Clay, Apollo and Origami to research accounts, enrich contact data, map buying teams and surface the signals worth acting on. None of it decides anything. Volume is the easy part, and it is where generic outbound breaks.</p>
+    <p class="kicker mono">The trade lifecycle</p>
+    <h2 class="display display--sm reveal">Six steps, in order,<br>every time.</h2>
+    <div class="flow__grid">
+      <div class="railwrap"><div class="rail" aria-hidden="true"><i id="railFill"></i></div></div>
+      <ol class="steps">
+      <li class="step reveal">
+        <span class="step__code">ALPHA-01</span>
+        <h3 class="step__t">Source the position</h3>
+        <p class="step__p">Account and signal research. We find the companies that fit and the people inside them with a reason to act this quarter.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__code">ALPHA-02</span>
+        <h3 class="step__t">Build the thesis</h3>
+        <p class="step__p">Message architecture, written and edited by someone who has actually read the account. The structure repeats across a campaign. The specifics never do.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__code">ALPHA-03</span>
+        <h3 class="step__t">Size the trade</h3>
+        <p class="step__p">Channel, sequence and infrastructure. How much goes where, from which domain, at what pace, and what the sending reputation can carry.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__code">ALPHA-04</span>
+        <h3 class="step__t">Execute</h3>
+        <p class="step__p">Launch. Coordinated across email, LinkedIn and introductions, so an account has more than one credible way to hear from us.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__code">ALPHA-05</span>
+        <h3 class="step__t">Mark to market</h3>
+        <p class="step__p">Live reply monitoring. Every response is read and answered by an operator who can carry the conversation, not routed to an autoresponder.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__code">ALPHA-06</span>
+        <h3 class="step__t">Close the position</h3>
+        <p class="step__p">Weekly reporting and the iteration loop. Keep the angles that printed, cut the ones that did not, and put the budget behind what worked.</p>
+      </li>
+      </ol>
     </div>
-    <ol class="decisions reveal" data-d="2">
-        <li>Which accounts are worth pursuing</li>
-        <li>Which buyer is most likely to care</li>
-        <li>What the timing signals actually say</li>
-        <li>Which problem deserves to be raised</li>
-        <li>What tone will sound credible</li>
-        <li>When to follow up, change the angle, or stop</li>
-    </ol>
   </div>
 </section>
 
-<!-- ============================ SIX WAYS ============================ -->
-<section class="section ways">
+<!-- ============================ WHAT WE DON'T DO ============================ -->
+<section class="section wont">
   <div class="wrap">
-    <p class="kicker reveal">How the work turns into money</p>
-    <h2 class="display display--sm reveal" data-d="1">Six things we are actually paid for.</h2>
-    <div class="ways__grid">
-      <article class="way reveal"><span class="way__n">01</span><h3>Targeting people with a reason to buy</h3><p>More prospects do not mean more pipeline. We start with fit, find the person who owns the problem, and use timing signals so the message arrives while it still matters.</p></article>
-      <article class="way reveal"><span class="way__n">02</span><h3>Messages built on real context</h3><p>Personalisation is not a funding announcement or a compliment lifted off LinkedIn. It is an argument for why this buyer should care now, and it takes research to make.</p></article>
-      <article class="way reveal"><span class="way__n">03</span><h3>Coordinated outreach, handled by people</h3><p>Multiple credible paths into an account, written and run by operators. Follow-ups are considered rather than scheduled, and replies get a real answer.</p></article>
-      <article class="way reveal"><span class="way__n">04</span><h3>Every angle tested like a thesis</h3><p>Each outreach angle is a hypothesis with a cost. We keep what produces qualified conversations and cut what does not, quickly.</p></article>
-      <article class="way reveal"><span class="way__n">05</span><h3>Your brand, protected</h3><p>A campaign can create activity and still damage the company behind it. Every message represents you, so there is no spam, no invented familiarity, no inflated claim.</p></article>
-      <article class="way reveal"><span class="way__n">06</span><h3>Measured on revenue</h3><p>A send is not an outcome. Neither is an open, and often neither is a reply. The question is whether the work produced qualified meetings and closed deals.</p></article>
-    </div>
+    <p class="kicker mono">Positions we will not take</p>
+    <ul class="wont__list">
+        <li class="strike reveal"><span>Run spam campaigns</span></li>
+        <li class="strike reveal"><span>Rely on fake personalisation</span></li>
+        <li class="strike reveal"><span>Send one message to everyone and call it strategy</span></li>
+        <li class="strike reveal"><span>Use AI to remove human judgement</span></li>
+        <li class="strike reveal"><span>Hide weak performance behind vanity metrics</span></li>
+        <li class="strike reveal"><span>Treat your brand or your data casually</span></li>
+      </ul>
   </div>
 </section>
 
-<!-- ============================ THE PILOT ============================ -->
+<!-- ============================ THE TERM SHEET ============================ -->
 <section class="section pilot" id="pilot">
-  <div class="wrap pilot__inner">
-    <p class="kicker reveal">How it starts</p>
-    <h2 class="display display--sm reveal" data-d="1">Two weeks, then you decide.</h2>
-    <p class="lede lede--wide reveal" data-d="2">The pilot maps your funnel, your offer, your market and the point where the current motion loses momentum, then tests the most promising angles against it. It has one objective: find out whether our Alpha strategies move your numbers. If they do, you pay and we continue. If the fit is not there, both sides learn that quickly instead of signing a year to find out.</p>
-    <a class="btn btn--solid reveal" data-d="3" href="#contact">Book a call</a>
+  <div class="wrap pilot__grid">
+    <div class="pilot__copy">
+      <p class="kicker mono">How it starts</p>
+      <h2 class="display display--sm reveal">Two weeks,<br>then you decide.</h2>
+      <p class="lede reveal" data-d="1">The pilot maps your funnel, your offer, your market and the point where the current motion loses momentum, then tests the most promising angles against it. If they move your numbers, you pay and we continue. If the fit is not there, both sides learn that in a fortnight instead of a year.</p>
+    </div>
+    <article class="tsheet reveal" data-d="1">
+      <header class="tsheet__head mono">TERM SHEET &#183; PILOT</header>
+      <ul class="tsheet__body">
+        <li><span class="tsheet__k">DURATION</span><span class="tsheet__v">2 WEEKS</span></li>
+        <li><span class="tsheet__k">OBJECTIVE</span><span class="tsheet__v">MEASURABLE ALPHA</span></li>
+        <li><span class="tsheet__k">SCOPE</span><span class="tsheet__v">FUNNEL · OFFER · MARKET · LIVE ANGLES</span></li>
+        <li><span class="tsheet__k">COMMITMENT</span><span class="tsheet__v">NONE UNTIL PROVEN</span></li>
+        <li><span class="tsheet__k">TERMS</span><span class="tsheet__v">AGREED IN WRITING AFTER THE PILOT</span></li>
+      </ul>
+      <a class="tsheet__sign" href="#contact">
+        <span class="mono">SIGN HERE</span>
+        <svg viewBox="0 0 120 24" aria-hidden="true"><path d="M4 18 C22 4, 34 22, 52 12 S86 2, 116 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </a>
+    </article>
   </div>
 </section>
 
-<!-- ============================ FIT ============================ -->
-<section class="section fit">
-  <div class="wrap fit__grid">
-    <div class="fit__col reveal">
-      <h2 class="fit__h">Who we work with</h2>
-      <ul class="ticks">
-        <li>More qualified sales calls every week</li>
-        <li>More real opportunities in the pipeline</li>
-        <li>More closed deals from the offer you already sell</li>
-        <li>A smarter path than generic outreach</li>
-        <li>A partner that can test, learn and move quickly</li>
+<!-- ============================ SUITABILITY ============================ -->
+<section class="section suit">
+  <div class="wrap suit__inner">
+    <header class="suit__head">
+      <h2 class="suit__h">Suitability</h2>
+      <p class="mono">FIVE OF FIVE REQUIRED</p>
+    </header>
+    <ul class="suit__list reveal">
+        <li>You sell B2B and the offer already closes when it reaches the right person</li>
+        <li>You want more qualified calls each week, not more sends</li>
+        <li>You have a team that can close what we book</li>
+        <li>You will let us kill an angle that is not working, quickly</li>
+        <li>You care what your brand sounds like in a stranger's inbox</li>
       </ul>
-    </div>
-    <div class="fit__col fit__col--no reveal" data-d="1">
-      <h2 class="fit__h">What we will not do</h2>
-      <ul class="crosses">
-        <li>Run spam campaigns</li>
-        <li>Rely on fake personalisation</li>
-        <li>Send one message to everyone and call it strategy</li>
-        <li>Use AI to remove human judgement</li>
-        <li>Hide weak performance behind vanity metrics</li>
-        <li>Treat your brand or your data casually</li>
-      </ul>
-    </div>
   </div>
 </section>
 
-<!-- ============================ FINAL CTA ============================ -->
+<!-- ============================ FINAL ============================ -->
 <section class="final" id="contact">
   <div class="final__bg" aria-hidden="true"><span class="hero__glow"></span></div>
   <div class="wrap final__inner">
-    <svg class="final__mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
-    <h2 class="display display--sm reveal">Distribution is too important<br>to hand to generic automation.</h2>
+    <h2 class="display reveal">Let&#8217;s find the alpha<br>in your funnel.</h2>
     <!-- TODO: point at the real booking link -->
-    <a class="btn btn--light reveal" data-d="1" href="#">Book a call</a>
-    <p class="final__note reveal" data-d="2">Two&#8209;week pilot first. Terms, pricing and scope are agreed in writing after it.</p>
+    <a class="btn btn--solid btn--lg reveal" data-d="1" href="#">Request the Pilot</a>
   </div>
 </section>
 
@@ -190,7 +220,7 @@
       <svg class="wordmark__mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
       <span>Growency</span>
     </a>
-    <p class="footer__legal">&copy; <span id="year">2026</span> Growency. Growency is an early&#8209;stage business. Results vary with your offer, market, funnel, domain reputation and sales follow&#8209;through.</p>
+    <p class="footer__fine mono">&#169; <span id="year">2026</span> GROWENCY. PAST PERFORMANCE OF AN OUTREACH ANGLE IS NOT A GUARANTEE OF FUTURE REPLIES. THE 30&#8211;40&#215; FIGURE IS A STATED POSITION, NOT AN AUDITED RESULT. ACCOUNT NAMES AND FIGURES SHOWN ON THIS PAGE ARE SAMPLE DATA. TERMS, PRICING AND SCOPE ARE AGREED IN WRITING AFTER THE PILOT.</p>
   </div>
 </footer>
 
