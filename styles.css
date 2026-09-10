@@ -144,7 +144,7 @@ ul,ol{list-style:none}
   position:relative;padding-bottom:clamp(4rem,11vh,7rem);
   display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;
 }
-.hero__copy h1{max-width:14ch}
+.hero__copy h1{max-width:14ch;font-size:clamp(2.3rem,4.9vw,4.1rem)}
 .hero__art{position:relative}
 
 /* the lockup from the brand mark, set as a rule plus label */
@@ -243,6 +243,7 @@ html.intro-lock,html.intro-lock body{overflow:hidden;height:100%}
 }
 .letter__head{
   display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  padding-right:clamp(5rem,7vw,6.5rem);
   font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
   color:var(--electric);padding-bottom:.9rem;margin-bottom:1.1rem;
   border-bottom:1px solid rgba(255,255,255,.14);
