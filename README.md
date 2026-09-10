@@ -3,7 +3,7 @@
 Static one page site. No build step, no dependencies. Open `index.html` in a browser, or serve the folder:
 
 ```bash
-python3 -m http.server 4327
+python3 -m http.server 4331
 ```
 
 ## Files
@@ -11,28 +11,44 @@ python3 -m http.server 4327
 | File | What it holds |
 | --- | --- |
 | `index.html` | All page content and copy, plus the logo mark as an inline SVG symbol |
-| `styles.css` | Palette, type, layout, the gradient panels |
-| `script.js` | Nav state, scroll reveals, the pointer glow on the six cards |
-| `archive/` | The previous version of the site, kept whole |
+| `styles.css` | Palette, the three type families, every section |
+| `script.js` | Nav state, reveals, the redactions, the strike-outs, the figure, the rail |
+| `archive/` | Two previous versions of the site, each kept whole |
 
 ## Before this goes live
 
-- **Booking links.** Three buttons say "Book a call". The nav and the pilot section scroll to the closing section; that closing button is `href="#"` and needs the real destination. Marked with a `TODO` in `index.html`.
-- **The logo.** `#mark` in `index.html` is a hand-rebuilt vector of the brand image, not the official file. It is a rhombille lattice clipped to a circle, drawn in `currentColor` so it inherits whatever colour sits around it. Swap in the real asset when there is one and the four `<use href="#mark">` instances pick it up.
-- **The font.** Plus Jakarta Sans stands in for the geometric sans in the brand image. Changing `--sans` at the top of `styles.css` re-sets the whole page.
+- **Booking links.** The nav and hero buttons scroll to the term sheet and the closing section. The closing "Request the Pilot" is `href="#"` and needs the real destination. Marked with a `TODO` in `index.html`.
+- **The ticker is sample data.** Every fragment in the hero ticker is invented: Meridian Labs, Arbor Group, Cadence, Fieldnote, Halston & Co, Northbound, and every figure attached to them. The nav readout (`ALPHA-04 ▲ 34%`) is invented too. None of it is real activity. Flagged in the markup, and the footer says so in print.
+- **The logo.** `#mark` is a hand-rebuilt vector of the brand image, not the official file. Swap in the real asset and both `<use href="#mark">` instances pick it up.
+
+## The 30–40× figure
+
+It appears twice: stamped in the hero, and as the large numeral in the proof strip. It is the company's own stated performance position and it is **not an audited result**, so the caveat travels with it in three places:
+
+1. Inside the stamp itself, in small type: `CLAIMED · NOT AUDITED`
+2. Under the numeral, as fine print naming what the outcome actually depends on
+3. In the footer boilerplate
+
+Do not move or delete the figure without moving the caveat with it. If a real measured number ever exists, replace both together.
 
 ## Notes
 
-- **No proof on this page by choice.** There are no statistics, client logos or testimonials anywhere, so nothing invented can go live by accident. The 30 to 40 times conversion figure from the company profile is deliberately not on the page. It is a performance claim about an early-stage business and it needs a source before it is published. The footer carries the honest version: results vary with your offer, market, funnel, domain reputation and sales follow-through.
-- **The gradient is spent twice.** Only the hero and the closing call use it. Everything between them sits on `--void`, a near black. A long page of saturated gradient becomes unreadable, and holding it back makes the two places it does appear land harder. It is one token, `--grad`, if you want it elsewhere.
-- **The mark is drawn, not drawn on.** A small script generated the lattice geometry: flat-top hexagons on a triangular grid, each with three spokes to alternating vertices, which is what produces the tumbling-cube read. Six vertices carry filled nodes. The whole thing is clipped to a circle slightly inside the outer ring so no line touches the edge.
-- **Grain.** A fixed noise overlay at 5% sits above everything. Without it the gradient panels read as flat CSS.
-- **The seven Alpha technique cards** never divide evenly into a grid, so the last one spans the full row rather than leaving holes. That rule is `.tech__item:last-child` and it works at any column count.
-- **The six revenue cards** have a violet glow that follows the pointer, driven by `--mx` and `--my` set in `script.js`. It is off on coarse pointers and under reduced motion.
-- **Copy comes from the company profile**, rewritten for the page rather than pasted. Alpha strategies, the two-week pilot, the tooling (Clay, Apollo, Origami), the six revenue points and both fit lists all trace back to it.
-- `prefers-reduced-motion` shows every revealed element immediately and disables the pointer glow and all transitions.
-- The page is readable with `script.js` missing. Reveals fall back to visible rather than leaving a page of invisible text.
+- **The concept is a trading desk, not an agency site.** Heavy serif for conviction, monospace for anything that reads as machine output, near black ground, and the blue to violet gradient held back for the hero and the closing call so those two land hard.
+- **Three type families, each with one job.** Fraunces at 700 and 900 for display and conviction lines. JetBrains Mono for codes, labels, term sheet fields, tickers and fine print. Plus Jakarta Sans for the wordmark and body copy. The wordmark stays sans because that is what the brand image shows.
+- **No green.** The original concept called for acid green as the terminal accent. The palette here is blue and violet, so `--electric` (`#6E8BFF`) does that job instead: codes, cursors, checkmarks, hover states, the rail fill. Used sparingly and nowhere as a background.
+- **Signal red** (`#D14343`) appears only on things being struck out. Two places, both deliberate.
+- **The stamp lands.** It scales down from a larger rotation on load, with a slight overshoot, so it reads as pressed rather than faded in. Disabled on mobile, where it flows under the headline instead of overlapping it.
+- **The redactions.** Black bars retract right to left, one every 260ms, then a red rule draws through the word underneath. The markup contains the words in plain text, so with JavaScript off or under reduced motion the list is simply readable.
+- **The strike-outs** on the dark panel use the same idea in serif at display size, triggered per line as each crosses the viewport.
+- **The rail** beside the six lifecycle steps fills as they pass the middle of the screen. It is sticky, one pixel wide, and hidden below 680px where the steps stack.
+- **The six steps** use trade lifecycle names with a plain-English line under each, so a buyer who does not work in finance can still follow what happens.
+- **The pilot is a term sheet**, on the same ivory paper stock as the memo. Field labels in mono, dashed rules, and a signature line at the bottom that is the call to action.
+- `prefers-reduced-motion` stops the ticker, cancels the stamp, opens every redaction, completes every strike-out and shows all revealed content immediately.
+- The page is readable with `script.js` missing. Reveals fall back to visible and redactions fall back to open rather than leaving a page of invisible or permanently hidden text.
 
 ## The archive
 
-`archive/2026-09-10-editorial/` holds the previous site whole: the ivory and forest editorial version with Fraunces display type, the weighted glide scroller, the six panel product walkthrough and the self-writing hero letter. It has its own README explaining how each piece worked. Nothing in it is wired into this build.
+- `archive/2026-09-10-editorial/` is the ivory and forest editorial version: Fraunces display type, paper grain, a custom cursor, the weighted glide scroller, a six panel product walkthrough and a self-writing hero letter.
+- `archive/2026-09-10-gradient/` is the blue and violet geometric sans version. Its palette carried forward into this build. Its layout and copy did not.
+
+Each has its own README. Neither is wired into this build.
