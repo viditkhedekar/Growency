@@ -140,8 +140,20 @@ ul,ol{list-style:none}
   position:absolute;left:10%;top:-34%;width:72vw;height:72vw;pointer-events:none;
   background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.2),rgba(255,255,255,0) 62%);
 }
-.hero__inner{position:relative;padding-bottom:clamp(4rem,11vh,7rem)}
-.hero__inner h1{max-width:15ch}
+.hero__grid{
+  position:relative;padding-bottom:clamp(4rem,11vh,7rem);
+  display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;
+}
+.hero__copy h1{max-width:14ch}
+.hero__art{position:relative}
+
+/* the lockup from the brand mark, set as a rule plus label */
+.lockup{
+  display:flex;align-items:center;gap:.8rem;margin-bottom:1.7rem;
+  font-family:var(--mono);font-size:.72rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.86);
+}
+.lockup__rule{display:block;width:2.2rem;height:1px;background:rgba(255,255,255,.5);flex:none}
 .hero__sub{
   margin-top:1.6rem;font-size:clamp(.92rem,1.3vw,1.05rem);
   color:rgba(255,255,255,.92);letter-spacing:-.01em;
@@ -152,15 +164,16 @@ ul,ol{list-style:none}
 
 /* ---------- the stamp ---------- */
 .stamp{
-  position:absolute;z-index:2;top:clamp(6rem,15vh,9.5rem);right:clamp(1.25rem,5vw,5rem);
+  position:absolute;z-index:3;top:clamp(-2.2rem,-3vw,-1.4rem);right:clamp(-1.4rem,-2vw,-.6rem);
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.15rem;
-  width:clamp(150px,17vw,208px);aspect-ratio:1;border-radius:50%;
-  border:2.5px solid rgba(255,255,255,.85);color:#fff;text-align:center;
+  width:clamp(112px,12vw,142px);aspect-ratio:1;border-radius:50%;
+  border:2px solid rgba(255,255,255,.9);color:#fff;text-align:center;
+  background:rgba(10,10,22,.55);backdrop-filter:blur(4px);
   transform:rotate(-9deg);
   box-shadow:0 0 0 5px rgba(255,255,255,.13) inset;
 }
-.stamp__n{font-family:var(--serif);font-weight:900;font-size:clamp(1.5rem,2.5vw,2.1rem);line-height:1}
-.stamp__l{font-family:var(--mono);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;opacity:.92}
+.stamp__n{font-family:var(--serif);font-weight:900;font-size:clamp(1.15rem,1.8vw,1.5rem);line-height:1}
+.stamp__l{font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;opacity:.9;margin-top:.2rem}
 .stamp__c{
   font-family:var(--mono);font-size:.53rem;letter-spacing:.12em;text-transform:uppercase;
   opacity:.7;margin-top:.35rem;max-width:82%;line-height:1.35;
@@ -185,6 +198,85 @@ ul,ol{list-style:none}
 }
 .tick::after{content:"//";margin:0 1.7rem;color:rgba(255,255,255,.28)}
 @keyframes run{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+
+
+/* =========================================================
+   The intro
+   A full screen assembly of the mark, drawn on canvas. It
+   sits above a page that is already rendered underneath, so
+   nothing here gates the content.
+   ========================================================= */
+.intro{
+  position:fixed;inset:0;z-index:1000;background:var(--void);
+  display:grid;place-items:center;
+  transition:opacity 900ms var(--ease),visibility 900ms var(--ease);
+}
+.intro.is-gone{opacity:0;visibility:hidden;pointer-events:none}
+.intro__c{width:100%;height:100%;display:block}
+.intro__skip{
+  position:absolute;bottom:clamp(1.5rem,5vh,3rem);left:50%;transform:translateX(-50%);
+  font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);
+  opacity:0;transition:opacity 400ms var(--ease) 900ms;cursor:pointer;
+}
+.intro.is-live .intro__skip{opacity:1}
+.intro__skip:hover{color:var(--electric)}
+/* while the intro is up the page must not scroll behind it */
+html.intro-lock,html.intro-lock body{overflow:hidden;height:100%}
+
+/* =========================================================
+   The hero letter
+   A composer panel, not paper. The template types in, the
+   weak lines are struck in the same red used elsewhere on
+   the page, and the specifics arrive underneath.
+   ========================================================= */
+.letter{
+  position:relative;overflow:hidden;
+  background:rgba(8,8,18,.52);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.16);border-radius:3px;
+  padding:1.4rem 1.5rem 1.6rem;
+  box-shadow:0 40px 90px -50px rgba(0,0,0,.95);
+  font-size:.93rem;line-height:1.6;
+}
+.letter__head{
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--electric);padding-bottom:.9rem;margin-bottom:1.1rem;
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+.letter__to{color:rgba(255,255,255,.42)}
+.letter__subj{font-weight:500;color:#fff;margin-bottom:1rem;min-height:1.6em;letter-spacing:-.01em}
+.letter__body{display:flex;flex-direction:column;gap:.8rem}
+
+.ln{position:relative;min-height:1.6em;color:rgba(255,255,255,.7)}
+.ln .gen{display:block;color:rgba(255,255,255,.46);transition:opacity 420ms var(--ease)}
+.ln .spec{
+  display:block;color:#fff;max-height:0;opacity:0;overflow:hidden;
+  transition:max-height 520ms var(--ease),opacity 380ms var(--ease) 120ms;
+}
+/* the strike is the same red used on the positions we will not take */
+.ln .gen::after{
+  content:"";position:absolute;left:0;top:.72em;height:2px;width:0;
+  background:var(--red);transition:width 340ms var(--ease);
+}
+.ln.is-cut .gen::after{width:100%}
+.ln.is-cut .gen{opacity:.4}
+.ln.is-new .spec{max-height:8em;opacity:1}
+.ln.is-new .gen{max-height:0;opacity:0;overflow:hidden;transition:max-height 380ms var(--ease) 220ms,opacity 200ms linear}
+
+.ln.is-typing::after,.letter__subj.is-typing::after{
+  content:"";display:inline-block;width:7px;height:1em;
+  background:var(--electric);vertical-align:-.16em;margin-left:2px;
+  animation:caret 1s steps(1,end) infinite;
+}
+@keyframes caret{0%,50%{opacity:1}51%,100%{opacity:0}}
+
+.letter.is-fading .letter__body,.letter.is-fading .letter__subj{opacity:.12;transition:opacity 400ms var(--ease)}
+.letter__bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.09)}
+.letter__bar i{display:block;height:100%;width:0;background:var(--electric);opacity:.75}
+.letter__cap{
+  margin-top:.9rem;text-align:right;font-size:.6rem;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(255,255,255,.42);
+}
 
 /* =========================================================
    Sections
@@ -356,16 +448,19 @@ ul,ol{list-style:none}
    Responsive
    ========================================================= */
 @media (max-width:960px){
-  .pilot__grid{grid-template-columns:1fr}
-  .stamp{width:clamp(120px,20vw,150px);top:auto;bottom:auto;right:clamp(1rem,4vw,2rem)}
+  .pilot__grid,.hero__grid{grid-template-columns:1fr}
+  .hero__grid{gap:3rem}
+  .hero__copy h1{max-width:none}
+  .stamp{width:clamp(100px,16vw,124px)}
 }
 @media (max-width:680px){
   body{font-size:16px}
   .readout{display:none}
   .hero__inner h1{max-width:none}
-  /* the stamp stops competing with the headline and sits under it */
-  .stamp{position:relative;top:auto;right:auto;margin:0 0 2rem;transform:rotate(-6deg)}
+  /* the stamp stops overlapping the letter and sits above it */
+  .stamp{position:relative;top:auto;right:auto;margin:0 auto 1.4rem;transform:rotate(-6deg)}
   .is-loaded .stamp{animation:none}
+  .letter{padding:1.2rem 1.2rem 1.4rem;font-size:.88rem}
   .flow__grid{grid-template-columns:1fr}
   .railwrap{display:none}
   .footer__inner{flex-direction:column}
@@ -376,6 +471,10 @@ ul,ol{list-style:none}
   *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
   .reveal{opacity:1;transform:none}
   .ticker__run{animation:none}
+  .intro{display:none}
+  .ln .gen{display:none}
+  .ln .spec{max-height:none;opacity:1;overflow:visible}
+  .letter__bar{display:none}
   .rd__bar{transform:scaleX(0)}
   .rd__w::after,.strike span::after{width:100%}
   .is-loaded .stamp{animation:none}
