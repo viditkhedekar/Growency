@@ -248,11 +248,11 @@
       if (!W || !H) return;
       c.width = W * dpr; c.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      S = Math.min(W, H) * 0.4;
+      S = Math.min(W, H) * 0.34;
     }
 
     var spin = 0.6, tiltX = -0.32, tiltY = 0, aimX = -0.32, aimY = 0;
-    var D = 3.4;
+    var D = 5;   /* gentle perspective: the near side should not balloon over the copy */
     function project(p) {
       var cy = Math.cos(spin + tiltY), sy = Math.sin(spin + tiltY);
       var x = p[0] * cy + p[2] * sy;
@@ -274,8 +274,8 @@
         ctx.strokeStyle = 'rgba(' + rgb + ',' + (alpha * (0.1 + 0.9 * Math.pow(depth, 1.6))).toFixed(3) + ')';
         ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
       }
-      ctx.lineWidth = 1.6;
-      ctx.strokeStyle = 'rgba(' + rgb + ',' + (alpha * 0.95).toFixed(3) + ')';
+      ctx.lineWidth = 1.4;
+      ctx.strokeStyle = 'rgba(' + rgb + ',' + (alpha * 0.8).toFixed(3) + ')';
       ctx.beginPath();
       ring.forEach(function (p, j) {
         var q = project(p);
