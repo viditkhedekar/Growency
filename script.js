@@ -293,6 +293,9 @@
     }
 
     size();
+    /* paint the first frame now rather than waiting for the loop, so the
+       globe is there even where animation frames are throttled */
+    draw();
     c.classList.add('is-on');
     window.addEventListener('resize', function () { size(); draw(); }, { passive: true });
     var scheme = window.matchMedia('(prefers-color-scheme: dark)');
