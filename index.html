@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Growency | The Hedge Fund for Marketing</title>
+<meta name="description" content="Our salespeople book the calls. You close the deals. Growency tests outreach like trades and keeps only what books meetings.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#06060C">
+<!-- `js` is added here, `fx` by script.js when motion is welcome. Every
+     pinned scene and scrubbed state hangs off `fx`, so with JS off or under
+     reduced motion the page reads top to bottom with every word visible. -->
+<script>document.documentElement.classList.add('js')</script>
+<!-- TODO: self-host Geist and Geist Mono with @font-face before launch -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<!-- three.js for the WebGL scene, pinned to one release. TODO: self-host. -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.min.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="markClip" clipPathUnits="userSpaceOnUse"><circle cx="60" cy="60" r="51.2"/></clipPath>
+    <symbol id="mark" viewBox="0 0 120 120">
+      <g clip-path="url(#markClip)" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".8"><path d="M-14.40 27.78L-5.10 11.68 M-14.40 27.78L-5.10 43.89 M-14.40 27.78L4.20 27.78 M-14.40 60.00L-5.10 43.89 M-14.40 60.00L-5.10 76.11 M-14.40 60.00L4.20 60.00 M-14.40 92.22L-5.10 76.11 M-14.40 92.22L-5.10 108.32 M-14.40 92.22L4.20 92.22 M-5.10 11.68L13.50 11.68 M-5.10 43.89L13.50 43.89 M-5.10 76.11L13.50 76.11 M-5.10 108.32L13.50 108.32 M4.20 27.78L13.50 11.68 M4.20 27.78L13.50 43.89 M4.20 60.00L13.50 43.89 M4.20 60.00L13.50 76.11 M4.20 92.22L13.50 76.11 M4.20 92.22L13.50 108.32 M13.50 11.68L22.80 -4.43 M13.50 11.68L22.80 27.78 M13.50 11.68L32.10 11.68 M13.50 43.89L22.80 27.78 M13.50 43.89L22.80 60.00 M13.50 43.89L32.10 43.89 M13.50 76.11L22.80 60.00 M13.50 76.11L22.80 92.22 M13.50 76.11L32.10 76.11 M13.50 108.32L22.80 92.22 M13.50 108.32L22.80 124.43 M13.50 108.32L32.10 108.32 M22.80 -4.43L41.40 -4.43 M22.80 27.78L41.40 27.78 M22.80 60.00L41.40 60.00 M22.80 92.22L41.40 92.22 M22.80 124.43L41.40 124.43 M32.10 11.68L41.40 -4.43 M32.10 11.68L41.40 27.78 M32.10 43.89L41.40 27.78 M32.10 43.89L41.40 60.00 M32.10 76.11L41.40 60.00 M32.10 76.11L41.40 92.22 M32.10 108.32L41.40 92.22 M32.10 108.32L41.40 124.43 M41.40 -4.43L50.70 -20.54 M41.40 -4.43L50.70 11.68 M41.40 -4.43L60.00 -4.43 M41.40 27.78L50.70 11.68 M41.40 27.78L50.70 43.89 M41.40 27.78L60.00 27.78 M41.40 60.00L50.70 43.89 M41.40 60.00L50.70 76.11 M41.40 60.00L60.00 60.00 M41.40 92.22L50.70 76.11 M41.40 92.22L50.70 108.32 M41.40 92.22L60.00 92.22 M41.40 124.43L50.70 108.32 M41.40 124.43L50.70 140.54 M41.40 124.43L60.00 124.43 M50.70 -20.54L69.30 -20.54 M50.70 11.68L69.30 11.68 M50.70 43.89L69.30 43.89 M50.70 76.11L69.30 76.11 M50.70 108.32L69.30 108.32 M50.70 140.54L69.30 140.54 M60.00 -4.43L69.30 -20.54 M60.00 -4.43L69.30 11.68 M60.00 27.78L69.30 11.68 M60.00 27.78L69.30 43.89 M60.00 60.00L69.30 43.89 M60.00 60.00L69.30 76.11 M60.00 92.22L69.30 76.11 M60.00 92.22L69.30 108.32 M60.00 124.43L69.30 108.32 M60.00 124.43L69.30 140.54 M69.30 -20.54L78.60 -4.43 M69.30 11.68L78.60 -4.43 M69.30 11.68L78.60 27.78 M69.30 11.68L87.90 11.68 M69.30 43.89L78.60 27.78 M69.30 43.89L78.60 60.00 M69.30 43.89L87.90 43.89 M69.30 76.11L78.60 60.00 M69.30 76.11L78.60 92.22 M69.30 76.11L87.90 76.11 M69.30 108.32L78.60 92.22 M69.30 108.32L78.60 124.43 M69.30 108.32L87.90 108.32 M69.30 140.54L78.60 124.43 M78.60 -4.43L97.20 -4.43 M78.60 27.78L97.20 27.78 M78.60 60.00L97.20 60.00 M78.60 92.22L97.20 92.22 M78.60 124.43L97.20 124.43 M87.90 11.68L97.20 -4.43 M87.90 11.68L97.20 27.78 M87.90 43.89L97.20 27.78 M87.90 43.89L97.20 60.00 M87.90 76.11L97.20 60.00 M87.90 76.11L97.20 92.22 M87.90 108.32L97.20 92.22 M87.90 108.32L97.20 124.43 M97.20 -4.43L106.50 11.68 M97.20 27.78L106.50 11.68 M97.20 27.78L106.50 43.89 M97.20 27.78L115.80 27.78 M97.20 60.00L106.50 43.89 M97.20 60.00L106.50 76.11 M97.20 60.00L115.80 60.00 M97.20 92.22L106.50 76.11 M97.20 92.22L106.50 108.32 M97.20 92.22L115.80 92.22 M97.20 124.43L106.50 108.32 M106.50 11.68L125.10 11.68 M106.50 43.89L125.10 43.89 M106.50 76.11L125.10 76.11 M106.50 108.32L125.10 108.32 M115.80 27.78L125.10 11.68 M115.80 27.78L125.10 43.89 M115.80 60.00L125.10 43.89 M115.80 60.00L125.10 76.11 M115.80 92.22L125.10 76.11 M115.80 92.22L125.10 108.32 M125.10 11.68L134.40 27.78 M125.10 43.89L134.40 27.78 M125.10 43.89L134.40 60.00 M125.10 76.11L134.40 60.00 M125.10 76.11L134.40 92.22 M125.10 108.32L134.40 92.22"/></g>
+      <g clip-path="url(#markClip)" fill="currentColor"><circle cx="41.40" cy="27.78" r="3.1"/><circle cx="78.60" cy="27.78" r="3.1"/><circle cx="22.80" cy="60.00" r="3.1"/><circle cx="78.60" cy="60.00" r="3.1"/><circle cx="50.70" cy="76.11" r="3.1"/><circle cx="78.60" cy="92.22" r="3.1"/></g>
+      <circle cx="60" cy="60" r="53" fill="none" stroke="currentColor" stroke-width="3"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- One fixed WebGL canvas behind the whole page, drawn by scene.js -->
+<canvas class="gl" id="gl" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Counts to 100 while the scene loads, then the particles snap into the
+     lattice. Once per session, skippable, never under reduced motion, and
+     display:none until script.js opts in. -->
+<div class="loader" id="loader" aria-hidden="true">
+  <p class="loader__n" id="loaderN">000</p>
+  <p class="loader__skip">Skip</p>
+</div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <a class="wordmark" href="#top" aria-label="Growency home">
+    <svg class="wordmark__mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
+    <span>Growency</span>
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#alpha">Alpha strategies</a>
+    <a href="#how">How it works</a>
+    <a href="#pilot">The pilot</a>
+  </nav>
+  <a class="btn btn--solid btn--sm" href="#pilot" data-magnet>Request the pilot</a>
+</header>
+
+<!-- Film-style chapter marker, fed by script.js -->
+<div class="hud" id="hud" aria-hidden="true">
+  <span class="hud__ch" id="hudCh">Ch 01 / 07</span>
+  <span class="hud__t" id="hudT">The fund</span>
+  <span class="hud__bar"><i id="hudBar"></i></span>
+</div>
+
+<main id="main">
+
+<!-- ======================= CH 01 + 02: THE FILM ======================= -->
+<section class="film" id="top" data-ch="1" data-title="The fund" data-scene="film">
+  <span class="ch-mark" data-ch="2" data-title="The signal" aria-hidden="true"></span>
+  <div class="film__stage" id="filmStage">
+
+    <!-- The wordmark as cut-out letters over the WebGL scene. Built by
+         script.js from .word's own layout once the scene is running. -->
+    <svg class="knock" id="knock" aria-hidden="true"></svg>
+
+    <div class="hero" id="hero">
+      <p class="word" id="word" aria-hidden="true"><span>G</span><span>R</span><span>O</span><span>W</span><span>E</span><span>N</span><span>C</span><span>Y</span><i class="word__bl"></i></p>
+      <div class="hero__txt" id="heroTxt">
+        <h1 class="hero__h">The Hedge Fund for <span class="grad">Marketing.</span></h1>
+        <p class="hero__sub">Our salespeople book the calls. You close the deals. We test every angle like a trade.</p>
+        <div class="hero__cta">
+          <a class="btn btn--solid" href="#pilot" data-magnet>Request the pilot</a>
+          <a class="btn btn--ghost" href="#alpha" data-magnet>Read the memo</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- The noise: generic subject lines, filled in by script.js. One of
+         them lights up and becomes the subject of the letter below. -->
+    <div class="noise" id="noise" aria-hidden="true">
+      <p class="noise__one" id="noiseOne">March, SSO, and your Q3 questionnaire pile</p>
+    </div>
+
+    <div class="pane" id="pane">
+      <p class="badge"><b>30-40x</b> conversion</p>
+      <!-- A working component: the generic lines type in, get struck, and
+           the specific ones grow in underneath. Copy puts the finished email
+           on the clipboard. Dana and Meridian Labs are sample data. -->
+      <figure class="letter" id="letter">
+        <figcaption class="letter__head"><span class="letter__k">To</span>dana@meridianlabs.io</figcaption>
+        <p class="letter__subj" id="letterSubj"><span>March, SSO, and your Q3 questionnaire pile</span></p>
+        <div class="letter__body">
+          <p class="ln" data-hold="1">Hi Dana,</p>
+          <p class="ln" data-generic="I hope this email finds you well." data-specific="Saw Meridian shipped SSO to the self-serve tier in March.">Saw Meridian shipped SSO to the self-serve tier in March.</p>
+          <p class="ln" data-generic="We help companies like yours scale their outbound." data-specific="That usually hands your AEs a security questionnaire problem about two quarters later.">That usually hands your AEs a security questionnaire problem about two quarters later.</p>
+          <p class="ln" data-generic="Do you have 15 minutes this week?" data-specific="Worth ten minutes before the renewal cycle starts?">Worth ten minutes before the renewal cycle starts?</p>
+          <p class="ln" data-hold="1">Rowan</p>
+        </div>
+        <div class="letter__foot">
+          <button class="letter__copy" id="letterCopy" type="button" hidden>Copy email</button>
+        </div>
+        <span class="letter__bar" aria-hidden="true"><i></i></span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CH 03: THE STRATEGY ======================= -->
+<section class="act strat" id="alpha" data-ch="3" data-title="The strategy" data-scene="strat">
+  <div class="act__stage">
+    <div class="wrap strat__grid">
+      <div class="strat__copy">
+        <div class="strat__a">
+          <h2 class="h2" data-shift>An Alpha strategy is none of the following.</h2>
+          <ul class="redact">
+            <li class="rd"><span class="rd__w">a prompt</span><span class="rd__bar" aria-hidden="true"></span></li>
+            <li class="rd"><span class="rd__w">a template</span><span class="rd__bar" aria-hidden="true"></span></li>
+            <li class="rd"><span class="rd__w">a mass-send</span><span class="rd__bar" aria-hidden="true"></span></li>
+            <li class="rd"><span class="rd__w">a list you bought</span><span class="rd__bar" aria-hidden="true"></span></li>
+          </ul>
+        </div>
+        <p class="fill" id="fill"><span class="part">It is a researched, repeatable way to</span> <span class="part" data-part="0">identify a buyer,</span> <span class="part" data-part="1">read their context,</span> <span class="part" data-part="2">choose the channel,</span> <span class="part" data-part="3">write something credible,</span> <span class="part" data-part="4">follow up at the right moment,</span> <span class="part" data-part="5">and turn interest into a sales conversation.</span> <span class="part">Each one takes months to build.</span></p>
+      </div>
+
+      <!-- The mark taken apart: six plates, one per part of the sentence,
+           built by script.js from the logo's own lattice. -->
+      <div class="explode" id="explode" aria-hidden="true">
+        <div class="explode__stack" id="stack">
+          <svg class="explode__fallback" viewBox="0 0 120 120"><use href="#mark"/></svg>
+        </div>
+        <svg class="explode__leads" id="leads"></svg>
+        <ol class="explode__labels" id="labels">
+          <li><b>01</b>Identify a buyer</li>
+          <li><b>02</b>Read their context</li>
+          <li><b>03</b>Choose the channel</li>
+          <li><b>04</b>Write something credible</li>
+          <li><b>05</b>Follow up at the right moment</li>
+          <li><b>06</b>Turn interest into a conversation</li>
+        </ol>
+        <p class="explode__now" id="explodeNow"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CH 04: THE PORTFOLIO ======================= -->
+<section class="act port" id="portfolio" data-ch="4" data-title="The portfolio" data-scene="port">
+  <div class="act__stage">
+    <div class="wrap port__grid" id="portGrid">
+      <!-- The six dots of the mark as six live angles. Weeks 0 to 2 play out
+           on scroll: the weak ones are cut and their capital flows to the
+           ones booking meetings. Angle names and weights are sample data. -->
+      <div class="port__art">
+        <svg class="port__svg" id="portSvg" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
+        <ul class="port__angles" id="portAngles" aria-label="Sample angles after two weeks">
+          <li data-node="0" data-alloc="17,24,38"><span>SSO shipped</span> <b>38%</b></li>
+          <li data-node="1" data-alloc="17,12,0" data-to="3" class="is-cut"><span>New CISO</span> <b>0%</b></li>
+          <li data-node="2" data-alloc="16,10,0" data-to="4" class="is-cut"><span>Pricing page changed</span> <b>0%</b></li>
+          <li data-node="3" data-alloc="17,22,33"><span>Hiring four AEs</span> <b>33%</b></li>
+          <li data-node="4" data-alloc="16,21,29"><span>Competitor sunset</span> <b>29%</b></li>
+          <li data-node="5" data-alloc="17,11,0" data-to="3" class="is-cut"><span>Series B closed</span> <b>0%</b></li>
+        </ul>
+        <p class="port__week" id="portWeek" aria-hidden="true">Week 2</p>
+      </div>
+      <div class="port__copy">
+        <p class="port__lead">We run a portfolio of them rather than betting an account on a single idea.</p>
+        <p class="port__beat" data-beat="1">The ones that produce meetings get more capital.</p>
+        <p class="port__beat" data-beat="2">The ones that do not get cut in week two.</p>
+        <p class="port__note">Sample angles</p>
+      </div>
+    </div>
+    <div class="proof" id="proof">
+      <p class="figure"><span class="counter" id="counter">30-40</span><span class="figure__x">x</span></p>
+      <p class="proof__cap">higher conversion than generic outbound</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CH 05: THE TRADE ======================= -->
+<section class="act trade" id="how" data-ch="5" data-title="The trade" data-scene="life">
+  <div class="act__stage">
+    <i class="trade__orb" id="tradeOrb" aria-hidden="true"></i>
+    <div class="wrap trade__grid">
+      <div class="trade__side">
+        <p class="kicker">The trade lifecycle</p>
+        <h2 class="h2 trade__h" data-shift>Six steps, in order, every time.</h2>
+        <p class="trade__code" aria-hidden="true">ALPHA-0<span class="odo"><span class="odo__col" id="odo"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span></span></p>
+        <ol class="steps" id="steps">
+          <li class="step" data-i="0">
+            <span class="step__code">ALPHA-01</span>
+            <h3 class="step__t">Source the position</h3>
+            <p class="step__p">Account and signal research. We find the companies that fit and the people inside them with a reason to act this quarter.</p>
+          </li>
+          <li class="step" data-i="1">
+            <span class="step__code">ALPHA-02</span>
+            <h3 class="step__t">Build the thesis</h3>
+            <p class="step__p">Message architecture, written and edited by someone who has actually read the account. The structure repeats across a campaign. The specifics never do.</p>
+          </li>
+          <li class="step" data-i="2">
+            <span class="step__code">ALPHA-03</span>
+            <h3 class="step__t">Size the trade</h3>
+            <p class="step__p">Channel, sequence and infrastructure. How much goes where, from which domain, at what pace, and what the sending reputation can carry.</p>
+          </li>
+          <li class="step" data-i="3">
+            <span class="step__code">ALPHA-04</span>
+            <h3 class="step__t">Execute</h3>
+            <p class="step__p">Launch, coordinated across email, LinkedIn and introductions, so an account has more than one credible way to hear from us.</p>
+          </li>
+          <li class="step" data-i="4">
+            <span class="step__code">ALPHA-05</span>
+            <h3 class="step__t">Mark to market</h3>
+            <p class="step__p">Live reply monitoring. Every response is read and answered by an operator who can carry the conversation forward.</p>
+          </li>
+          <li class="step" data-i="5">
+            <span class="step__code">ALPHA-06</span>
+            <h3 class="step__t">Close the position</h3>
+            <p class="step__p">Weekly reporting and the iteration loop. Keep the angles that worked, cut the ones that did not, and put the budget behind the winners.</p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- The desk: one panel per step, lit as the lifecycle advances.
+           Every name and number in it is sample data. -->
+      <div class="desk" id="desk" role="img" aria-label="A sample Growency desk showing accounts, message thesis, channel sizing, sends, replies and results">
+        <div class="desk__head">
+          <span class="desk__name"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>Growency desk</span>
+          <span>Sample data</span>
+        </div>
+        <div class="desk__grid">
+          <div class="panel" data-i="0">
+            <p class="panel__t">Book</p>
+            <ul class="rows">
+              <li class="row"><b>Meridian Labs</b><span>SSO on the self-serve tier, March</span></li>
+              <li class="row"><b>Harlow Freight</b><span>New VP Sales, six weeks in</span></li>
+              <li class="row"><b>Quarry Health</b><span>Series B, SOC 2 next</span></li>
+              <li class="row"><b>Tessellate</b><span>Hiring four AEs</span></li>
+            </ul>
+          </div>
+          <div class="panel" data-i="1">
+            <p class="panel__t">Thesis</p>
+            <dl class="thesis">
+              <div><dt>Trigger</dt><dd>SSO shipped to self-serve</dd></div>
+              <div><dt>Consequence</dt><dd>Security questionnaires land on the AEs</dd></div>
+              <div><dt>Ask</dt><dd>Ten minutes before renewals</dd></div>
+            </dl>
+          </div>
+          <div class="panel" data-i="2">
+            <p class="panel__t">Sizing</p>
+            <ul class="bars">
+              <li style="--v:.56"><span>Email</span><i></i><b data-pct="56">56%</b></li>
+              <li style="--v:.29"><span>LinkedIn</span><i></i><b data-pct="29">29%</b></li>
+              <li style="--v:.15"><span>Introductions</span><i></i><b data-pct="15">15%</b></li>
+            </ul>
+            <p class="panel__meta">3 sending domains, 40 a day per inbox</p>
+          </div>
+          <div class="panel" data-i="3">
+            <p class="panel__t">Executions</p>
+            <div class="stats">
+              <p><b data-to="1184">1,184</b><span>touches sent</span></p>
+              <p><b data-to="212">212</b><span>accounts live</span></p>
+              <p><b data-to="3">3</b><span>channels</span></p>
+            </div>
+          </div>
+          <div class="panel" data-i="4">
+            <p class="panel__t">Replies</p>
+            <ul class="rows">
+              <li class="row"><b>Meridian Labs</b><span>&#8220;Thursday works.&#8221;</span><em>Positive</em></li>
+              <li class="row"><b>Harlow Freight</b><span>&#8220;Talk to Priya on RevOps.&#8221;</span><em>Referral</em></li>
+              <li class="row"><b>Quarry Health</b><span>&#8220;Ping me after the audit.&#8221;</span><em>Later</em></li>
+              <li class="row"><b>Tessellate</b><span>&#8220;Send over some times.&#8221;</span><em>Positive</em></li>
+            </ul>
+          </div>
+          <div class="panel" data-i="5">
+            <p class="panel__t">P&amp;L</p>
+            <svg class="spark" viewBox="0 0 200 64" aria-hidden="true"><path id="spark" d="M4 58 C 30 56 44 52 62 47 S 96 40 112 31 S 146 20 164 14 S 188 6 196 5"/></svg>
+            <ul class="book">
+              <li><span>SSO shipped</span><em class="keep">Keep</em></li>
+              <li><span>Hiring four AEs</span><em class="keep">Keep</em></li>
+              <li><span>Pricing page changed</span><em class="cut">Cut</em></li>
+            </ul>
+            <p class="panel__meta">Meetings booked per week</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CH 06: THE OPERATORS ======================= -->
+<section class="ops" id="operators" data-ch="6" data-title="The operators" data-scene="ops">
+  <div class="wrap">
+    <h2 class="h2 rv rv--blur" data-shift>Every campaign is run by a trained operator.</h2>
+    <p class="lede rv">The tools gather the research. A person decides who hears from you and what they read.</p>
+    <div class="ops__grid">
+      <!-- TODO: real photo of the team at work, about 2400 x 1400. No stock.
+           Until then the slot is a live character mosaic of the lattice. -->
+      <div class="slot slot--wide rv"><pre class="ascii" data-kind="globe" aria-hidden="true"></pre></div>
+      <!-- TODO: real photo, a research or workspace detail, about 1200 x 1400. -->
+      <div class="slot rv"><pre class="ascii" data-kind="mark" aria-hidden="true"></pre></div>
+    </div>
+  </div>
+</section>
+
+<section class="act wont" id="wont" data-scene="wont">
+  <div class="act__stage">
+    <div class="wont__band" id="wontBand" aria-hidden="true"></div>
+    <div class="wrap wont__inner">
+      <h2 class="h2" data-shift>Positions we won&#8217;t take.</h2>
+      <ul class="fan" id="fan">
+        <li class="card"><p class="card__p"><span class="card__t">Run spam campaigns</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
+        <li class="card"><p class="card__p"><span class="card__t">Rely on fake personalisation</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
+        <li class="card"><p class="card__p"><span class="card__t">Send one message to everyone and call it strategy</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
+        <li class="card"><p class="card__p"><span class="card__t">Use AI to remove human judgement</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
+        <li class="card"><p class="card__p"><span class="card__t">Hide weak performance behind vanity metrics</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
+        <li class="card"><p class="card__p"><span class="card__t">Treat your brand or your data casually</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CH 07: THE TERMS ======================= -->
+<section class="pilot" id="pilot" data-ch="7" data-title="The terms" data-scene="pilot">
+  <div class="wrap">
+    <div class="pilot__intro">
+      <h2 class="h2 rv rv--blur" data-shift>Two weeks, then you decide.</h2>
+      <p class="lede rv">We map your funnel and offer, test the strongest angles, and show you what moved. If it works, we keep going.</p>
+    </div>
+    <div class="pilot__grid">
+      <article class="sheet" id="sheet" aria-label="Pilot term sheet">
+        <header class="sheet__head"><span>Term sheet</span><span>Pilot</span></header>
+        <dl class="sheet__grid">
+          <div><dt>Duration</dt><dd>2 weeks</dd></div>
+          <div><dt>Objective</dt><dd>Measurable alpha</dd></div>
+          <div><dt>Scope</dt><dd>Funnel, offer, market and live angles</dd></div>
+          <div><dt>Commitment</dt><dd>None until proven</dd></div>
+          <div class="sheet__wide"><dt>Terms</dt><dd>Agreed in writing after the pilot</dd></div>
+        </dl>
+        <!-- Scrolling signs it. The pen stroke is drawn by scroll position
+             and the button arrives where the stroke ends. -->
+        <div class="sheet__sign" id="sign">
+          <svg class="sig" viewBox="0 0 420 110" aria-hidden="true"><path id="sig" d="M26 74 C 12 52 22 20 52 16 C 76 13 84 34 68 43 C 57 49 44 45 49 36 M49 36 C 40 60 30 84 16 78 C 4 72 26 50 56 54 C 72 56 70 76 84 71 C 97 66 94 48 105 50 C 115 52 107 72 119 70 C 130 68 129 51 139 53 C 149 55 143 72 155 70 C 167 68 166 50 177 52 C 187 54 181 72 195 70 C 207 68 207 51 217 53 C 227 55 221 74 233 72 C 245 70 250 45 263 47 C 276 49 264 88 251 97 C 240 105 234 92 252 84 C 282 70 324 66 362 70 C 382 72 398 76 412 73"/></svg>
+          <span class="sheet__line" aria-hidden="true"></span>
+          <p class="sheet__by">For Growency</p>
+          <div class="sheet__cta" id="signCta"><a class="btn btn--solid" href="#contact" data-magnet>Request the pilot</a></div>
+        </div>
+      </article>
+
+      <div class="suit">
+        <h3 class="suit__h">Who it&#8217;s for</h3>
+        <ul class="ticks" id="ticks">
+          <li>You sell B2B and the offer already closes when it reaches the right person</li>
+          <li>You want more qualified calls each week, not more sends</li>
+          <li>You have a team that can close what we book</li>
+          <li>You will let us kill an angle that is not working, quickly</li>
+          <li>You care what your brand sounds like in a stranger&#8217;s inbox</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FINAL ============================ -->
+<section class="final" id="contact" data-scene="final">
+  <div class="wrap final__grid">
+    <div class="final__copy">
+      <h2 class="final__h rv rv--blur" data-shift>Let&#8217;s find the alpha in your funnel.</h2>
+      <!-- TODO: point at the real booking link -->
+      <div class="rv"><a class="btn btn--solid btn--lg" href="#" data-magnet>Request the pilot</a></div>
+    </div>
+    <!-- The lattice condenses into a glass medallion here, drawn by the
+         scene. Without WebGL the flat mark stands in. -->
+    <div class="final__slot" id="medallion" aria-hidden="true">
+      <svg class="final__mark" viewBox="0 0 120 120"><use href="#mark"/></svg>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <a class="wordmark wordmark--sm" href="#top">
+      <svg class="wordmark__mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
+      <span>Growency</span>
+    </a>
+    <p class="footer__fine">&#169; <span id="year">2026</span> Growency. Account names, angles and figures shown on this page are sample data. Terms, pricing and scope are agreed in writing after the pilot.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<!-- The scene loads as a module after everything above. If the module or
+     three.js cannot load, the page falls back to the flat marks. -->
+<script type="module">
+  var G = window.GROWENCY;
+  if (G && !G.nogl) import('./scene.js').catch(function (e) { G.sceneFailed(e); });
+</script>
+</body>
+</html>
