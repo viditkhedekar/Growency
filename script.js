@@ -384,10 +384,13 @@
       var spec = ln.dataset.specific || ln.textContent.trim();
       var gen = ln.dataset.generic || spec;
       ln.textContent = '';
+      /* .gen is the block that collapses; .gen__t is the inline text inside
+         it, which carries the strike so it follows the words across wraps */
       var g = document.createElement('span'); g.className = 'gen';
+      var gt = document.createElement('span'); gt.className = 'gen__t'; g.appendChild(gt);
       var sp = document.createElement('span'); sp.className = 'spec'; sp.textContent = spec;
       ln.appendChild(g); ln.appendChild(sp);
-      return { el: ln, gen: g, generic: gen, rewrites: !ln.dataset.hold };
+      return { el: ln, gen: gt, generic: gen, rewrites: !ln.dataset.hold };
     });
     var subjGen = subject ? (subject.dataset.generic || '') : '';
     var subjSpec = subject ? (subject.dataset.specific || subject.textContent.trim()) : '';
