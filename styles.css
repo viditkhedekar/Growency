@@ -28,7 +28,7 @@
   --nav-bg:rgba(247,247,251,.8);
 
   --lattice-rgb:40,50,130;
-  --lattice-alpha:.42;
+  --lattice-alpha:.24;
   --lattice-strong:#14142B;
 
   --btn-bg:#0D0D1C;
@@ -71,7 +71,7 @@
     --nav-bg:rgba(7,7,15,.76);
 
     --lattice-rgb:150,168,255;
-    --lattice-alpha:.5;
+    --lattice-alpha:.3;
     --lattice-strong:#F2F3FA;
 
     --btn-bg:#F2F3FA;
@@ -181,8 +181,8 @@ ul,ol{list-style:none}
 }
 .hero__lattice{
   position:absolute;z-index:-1;pointer-events:none;
-  left:clamp(-15rem,-11vw,-4rem);top:50%;
-  width:min(58rem,80vw);aspect-ratio:1;transform:translateY(-50%);
+  left:clamp(-7rem,-5vw,-1.5rem);top:50%;
+  width:min(42rem,62vw);aspect-ratio:1;transform:translateY(-50%);
   opacity:0;transition:opacity 1.6s var(--ease);
 }
 .hero__lattice.is-on{opacity:1}
