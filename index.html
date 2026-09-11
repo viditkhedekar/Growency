@@ -3,12 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Growency | A hedge fund for your outbound</title>
-<meta name="description" content="Growency tests outreach like trades and keeps only what prints. Our salespeople book the calls. You close the deals.">
-<meta name="theme-color" content="#06060E">
+<title>Growency | The Hedge Fund for Marketing</title>
+<meta name="description" content="Our salespeople book the calls. You close the deals. Growency tests outreach like trades and keeps only what books meetings.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F7FB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#07070F" media="(prefers-color-scheme: dark)">
+<!-- Hidden-until-revealed states only apply once this runs, so with JS off
+     every word on the page is visible. -->
+<script>document.documentElement.classList.add('js')</script>
+<!-- TODO: self-host both families with @font-face before launch -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,13 +30,14 @@
   </defs>
 </svg>
 
+<span class="sentinel" id="sentinel" aria-hidden="true"></span>
+
 <!-- Full screen intro. The lattice assembles out of loose particles, then
-     resolves into the mark and lifts away. Skippable with a click, a key or
-     a scroll, plays once per session, and never runs under reduced motion.
-     The page underneath is fully rendered the whole time. -->
+     lifts away. Skippable, once per session, never under reduced motion,
+     and display:none until script.js opts in. -->
 <div class="intro" id="intro" aria-hidden="true">
   <canvas class="intro__c" id="introCanvas"></canvas>
-  <p class="intro__skip mono">Skip</p>
+  <p class="intro__skip">Skip intro</p>
 </div>
 
 <div class="grain" aria-hidden="true"></div>
@@ -43,12 +50,12 @@
       <svg class="wordmark__mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
       <span>Growency</span>
     </a>
-    <div class="nav__right">
-      <!-- Decorative readout. Invented, like everything in the ticker. -->
-      <p class="readout" aria-hidden="true"><span>ALPHA-04</span> <b class="up">&#9650; 34%</b></p>
-      <!-- TODO: point at the real booking link -->
-      <a class="btn btn--stamp" href="#pilot">Request the Pilot</a>
-    </div>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#alpha">Alpha strategies</a>
+      <a href="#how">How it works</a>
+      <a href="#pilot">The pilot</a>
+    </nav>
+    <a class="btn btn--solid btn--sm" href="#pilot">Request the pilot</a>
   </div>
 </header>
 
@@ -56,36 +63,30 @@
 
 <!-- ============================ HERO ============================ -->
 <section class="hero" id="top">
-  <div class="hero__bg" aria-hidden="true"><span class="hero__glow"></span></div>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <!-- The mark as a live 3D wireframe, built from the same lattice as the
+       logo. Drawn by script.js; with JS off the hero simply has none. -->
+  <canvas class="hero__lattice" id="heroLattice" aria-hidden="true"></canvas>
 
   <div class="wrap hero__grid">
     <div class="hero__copy">
-      <p class="lockup reveal"><span class="lockup__rule"></span>The Hedge Fund for Marketing</p>
-      <h1 class="display reveal" data-d="1">We&#8217;re a hedge fund<br>for your outbound.</h1>
-      <p class="mono hero__sub reveal" data-d="2"><span class="caret">&gt;</span> our salespeople book the calls. you close the deals.</p>
-      <p class="lede reveal" data-d="3">We test outreach the way a desk tests positions. Every angle is a hypothesis with a cost, and we keep only the ones that print.</p>
-      <div class="hero__cta reveal" data-d="3">
-        <a class="btn btn--solid" href="#pilot">Request the Pilot</a>
+      <h1 class="hero__h reveal">The Hedge Fund<br>for <span class="grad">Marketing.</span></h1>
+      <p class="hero__sub reveal" data-d="1">Our salespeople book the calls. You close the deals. We test every angle like a trade.</p>
+      <div class="hero__cta reveal" data-d="2">
+        <a class="btn btn--solid" href="#pilot">Request the pilot</a>
         <a class="btn btn--ghost" href="#alpha">Read the memo</a>
       </div>
     </div>
 
     <div class="hero__art reveal" data-d="2">
-      <div class="stamp" aria-label="30 to 40 times conversion">
-        <span class="stamp__n">30&#8211;40&#215;</span>
-        <span class="stamp__l">Conversion</span>
-      </div>
-
-      <!-- The letter rewrites itself: a generic template types in, then the
-           weak lines are struck out in red and the specific ones arrive
-           underneath. The specific version is what sits in the markup, so
-           with JS off, or under reduced motion, the finished letter shows.
-           Dana and Meridian Labs are sample data, like the ticker. -->
+      <p class="badge"><b>30-40x</b> conversion</p>
+      <!-- A working component, not a picture of one: the template types in,
+           the weak lines are struck out, the specifics arrive underneath,
+           and Copy puts the finished email on the clipboard. The specific
+           version is what sits in the markup. Dana and Meridian Labs are
+           sample data. -->
       <figure class="letter" id="letter">
-        <figcaption class="letter__head mono">
-          <span>ALPHA-02 &#183; BUILD THE THESIS</span>
-          <span class="letter__to">to dana@meridianlabs.io</span>
-        </figcaption>
+        <figcaption class="letter__head"><span class="letter__k">To</span>dana@meridianlabs.io</figcaption>
         <p class="letter__subj" data-generic="Quick question" data-specific="March, SSO, and your Q3 questionnaire pile">March, SSO, and your Q3 questionnaire pile</p>
         <div class="letter__body">
           <p class="ln" data-hold="1">Hi Dana,</p>
@@ -94,152 +95,164 @@
           <p class="ln" data-generic="Do you have 15 minutes this week?" data-specific="Worth ten minutes before the renewal cycle starts?">Worth ten minutes before the renewal cycle starts?</p>
           <p class="ln" data-hold="1">Rowan</p>
         </div>
+        <div class="letter__foot">
+          <button class="letter__copy" id="letterCopy" type="button" hidden>Copy email</button>
+        </div>
         <span class="letter__bar" aria-hidden="true"><i></i></span>
       </figure>
-      <p class="letter__cap mono">Same structure every time. The specifics never repeat.</p>
     </div>
-  </div>
-
-  <!-- Sample data. None of these accounts, signals or figures are real. -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker__run"><span class="tick">MERIDIAN LABS · SIGNAL DETECTED</span><span class="tick">ALPHA-03 · THESIS BUILT</span><span class="tick">ARBOR GROUP · REPLY +12%</span><span class="tick">CADENCE · POSITION SIZED</span><span class="tick">FIELDNOTE · MARKED TO MARKET</span><span class="tick">HALSTON &amp; CO · CALL BOOKED</span><span class="tick">NORTHBOUND · POSITION CLOSED</span><span class="tick">ALPHA-01 · 214 ACCOUNTS SOURCED</span><span class="tick">MERIDIAN LABS · SIGNAL DETECTED</span><span class="tick">ALPHA-03 · THESIS BUILT</span><span class="tick">ARBOR GROUP · REPLY +12%</span><span class="tick">CADENCE · POSITION SIZED</span><span class="tick">FIELDNOTE · MARKED TO MARKET</span><span class="tick">HALSTON &amp; CO · CALL BOOKED</span><span class="tick">NORTHBOUND · POSITION CLOSED</span><span class="tick">ALPHA-01 · 214 ACCOUNTS SOURCED</span></div>
   </div>
 </section>
 
 <!-- ============================ THE MEMO ============================ -->
 <section class="section memo" id="alpha">
   <div class="wrap">
-    <article class="paper reveal">
-      <header class="paper__head">
-        <span class="mono">INTERNAL &#183; ALPHA STRATEGIES</span>
-        <span class="mono">DECLASSIFIED</span>
-      </header>
-      <h2 class="paper__h">An Alpha strategy is<br>none of the following.</h2>
+    <article class="doc reveal">
+      <header class="doc__head"><span>Operating note</span><span>Alpha strategies</span></header>
+      <h2 class="h2">An Alpha strategy is none of the following.</h2>
       <ul class="redact"><li class="rd"><span class="rd__bar" aria-hidden="true"></span><span class="rd__w">a prompt</span></li><li class="rd"><span class="rd__bar" aria-hidden="true"></span><span class="rd__w">a template</span></li><li class="rd"><span class="rd__bar" aria-hidden="true"></span><span class="rd__w">a mass-send</span></li><li class="rd"><span class="rd__bar" aria-hidden="true"></span><span class="rd__w">a list you bought</span></li></ul>
-      <div class="paper__body">
+      <div class="doc__body">
         <p>It is a researched, repeatable way to identify a buyer, read their context, choose the channel, write something credible, follow up at the right moment, and turn interest into a sales conversation. Each one takes months to build.</p>
         <p>We run a portfolio of them rather than betting an account on a single idea. The ones that produce meetings get more capital. The ones that do not get cut in week two.</p>
       </div>
-      <footer class="paper__foot mono">GROWENCY &#183; OPERATING NOTE 01</footer>
     </article>
   </div>
 </section>
 
-<!-- ============================ PROOF STRIP ============================ -->
+<!-- ============================ PROOF ============================ -->
 <section class="section proof">
   <div class="wrap proof__inner">
-    <p class="figure mono"><span class="counter" data-to="40" data-prefix="30&#8211;">30&#8211;40</span>&#215;</p>
+    <p class="figure"><span class="counter" data-to="40" data-prefix="30-">30-40</span>x</p>
     <p class="proof__cap">higher conversion than generic outbound</p>
   </div>
 </section>
 
 <!-- ============================ THE LIFECYCLE ============================ -->
 <section class="section flow" id="how">
-  <div class="wrap">
-    <p class="kicker mono">The trade lifecycle</p>
-    <h2 class="display display--sm reveal">Six steps, in order,<br>every time.</h2>
-    <div class="flow__grid">
-      <div class="railwrap"><div class="rail" aria-hidden="true"><i id="railFill"></i></div></div>
-      <ol class="steps">
-      <li class="step reveal">
+  <div class="wrap flow__grid">
+    <div class="flow__side">
+      <p class="kicker">The trade lifecycle</p>
+      <h2 class="h2 reveal">Six steps, in order, every time.</h2>
+      <div class="codes-wrap" aria-hidden="true">
+        <span class="codes__fill" id="codesFill"></span>
+        <ol class="codes">
+          <li data-i="0">ALPHA-01</li>
+          <li data-i="1">ALPHA-02</li>
+          <li data-i="2">ALPHA-03</li>
+          <li data-i="3">ALPHA-04</li>
+          <li data-i="4">ALPHA-05</li>
+          <li data-i="5">ALPHA-06</li>
+        </ol>
+      </div>
+    </div>
+    <ol class="steps">
+      <li class="step reveal" data-i="0">
         <span class="step__code">ALPHA-01</span>
         <h3 class="step__t">Source the position</h3>
         <p class="step__p">Account and signal research. We find the companies that fit and the people inside them with a reason to act this quarter.</p>
       </li>
-      <li class="step reveal">
+      <li class="step reveal" data-i="1">
         <span class="step__code">ALPHA-02</span>
         <h3 class="step__t">Build the thesis</h3>
         <p class="step__p">Message architecture, written and edited by someone who has actually read the account. The structure repeats across a campaign. The specifics never do.</p>
       </li>
-      <li class="step reveal">
+      <li class="step reveal" data-i="2">
         <span class="step__code">ALPHA-03</span>
         <h3 class="step__t">Size the trade</h3>
         <p class="step__p">Channel, sequence and infrastructure. How much goes where, from which domain, at what pace, and what the sending reputation can carry.</p>
       </li>
-      <li class="step reveal">
+      <li class="step reveal" data-i="3">
         <span class="step__code">ALPHA-04</span>
         <h3 class="step__t">Execute</h3>
-        <p class="step__p">Launch. Coordinated across email, LinkedIn and introductions, so an account has more than one credible way to hear from us.</p>
+        <p class="step__p">Launch, coordinated across email, LinkedIn and introductions, so an account has more than one credible way to hear from us.</p>
       </li>
-      <li class="step reveal">
+      <li class="step reveal" data-i="4">
         <span class="step__code">ALPHA-05</span>
         <h3 class="step__t">Mark to market</h3>
-        <p class="step__p">Live reply monitoring. Every response is read and answered by an operator who can carry the conversation, not routed to an autoresponder.</p>
+        <p class="step__p">Live reply monitoring. Every response is read and answered by an operator who can carry the conversation forward.</p>
       </li>
-      <li class="step reveal">
+      <li class="step reveal" data-i="5">
         <span class="step__code">ALPHA-06</span>
         <h3 class="step__t">Close the position</h3>
-        <p class="step__p">Weekly reporting and the iteration loop. Keep the angles that printed, cut the ones that did not, and put the budget behind what worked.</p>
+        <p class="step__p">Weekly reporting and the iteration loop. Keep the angles that worked, cut the ones that did not, and put the budget behind the winners.</p>
       </li>
-      </ol>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ OPERATORS ============================ -->
+<section class="section ops">
+  <div class="wrap">
+    <h2 class="h2 reveal">Every campaign is run by a trained operator.</h2>
+    <p class="lede reveal" data-d="1">The tools gather the research. A person decides who hears from you and what they read.</p>
+    <div class="ops__grid">
+      <!-- TODO: real photo of the team at work, about 2400 x 1400. No stock. -->
+      <figure class="slot slot--wide reveal"><span class="slot__label">Image slot: team at work, 2400 &#215; 1400</span></figure>
+      <!-- TODO: real photo, a research or workspace detail, about 1200 x 1400. -->
+      <figure class="slot reveal" data-d="1"><span class="slot__label">Image slot: research detail, 1200 &#215; 1400</span></figure>
     </div>
   </div>
 </section>
 
-<!-- ============================ WHAT WE DON'T DO ============================ -->
+<!-- ============================ WHAT WE WON'T DO ============================ -->
 <section class="section wont">
   <div class="wrap">
-    <p class="kicker mono">Positions we will not take</p>
-    <ul class="wont__list">
-        <li class="strike reveal"><span>Run spam campaigns</span></li>
-        <li class="strike reveal"><span>Rely on fake personalisation</span></li>
-        <li class="strike reveal"><span>Send one message to everyone and call it strategy</span></li>
-        <li class="strike reveal"><span>Use AI to remove human judgement</span></li>
-        <li class="strike reveal"><span>Hide weak performance behind vanity metrics</span></li>
-        <li class="strike reveal"><span>Treat your brand or your data casually</span></li>
-      </ul>
+    <h2 class="h2 reveal">Positions we won&#8217;t take.</h2>
+    <ul class="wont__grid">
+      <li class="strike reveal"><span>Run spam campaigns</span></li>
+      <li class="strike reveal"><span>Rely on fake personalisation</span></li>
+      <li class="strike reveal"><span>Send one message to everyone and call it strategy</span></li>
+      <li class="strike reveal"><span>Use AI to remove human judgement</span></li>
+      <li class="strike reveal"><span>Hide weak performance behind vanity metrics</span></li>
+      <li class="strike reveal"><span>Treat your brand or your data casually</span></li>
+    </ul>
   </div>
 </section>
 
-<!-- ============================ THE TERM SHEET ============================ -->
+<!-- ============================ THE PILOT ============================ -->
 <section class="section pilot" id="pilot">
-  <div class="wrap pilot__grid">
-    <div class="pilot__copy">
-      <p class="kicker mono">How it starts</p>
-      <h2 class="display display--sm reveal">Two weeks,<br>then you decide.</h2>
-      <p class="lede reveal" data-d="1">The pilot maps your funnel, your offer, your market and the point where the current motion loses momentum, then tests the most promising angles against it. If they move your numbers, you pay and we continue. If the fit is not there, both sides learn that in a fortnight instead of a year.</p>
+  <div class="wrap">
+    <div class="pilot__intro">
+      <h2 class="h2 reveal">Two weeks, then you decide.</h2>
+      <p class="lede reveal" data-d="1">We map your funnel and offer, test the strongest angles, and show you what moved. If it works, we keep going.</p>
     </div>
-    <article class="tsheet reveal" data-d="1">
-      <header class="tsheet__head mono">TERM SHEET &#183; PILOT</header>
-      <ul class="tsheet__body">
-        <li><span class="tsheet__k">DURATION</span><span class="tsheet__v">2 WEEKS</span></li>
-        <li><span class="tsheet__k">OBJECTIVE</span><span class="tsheet__v">MEASURABLE ALPHA</span></li>
-        <li><span class="tsheet__k">SCOPE</span><span class="tsheet__v">FUNNEL · OFFER · MARKET · LIVE ANGLES</span></li>
-        <li><span class="tsheet__k">COMMITMENT</span><span class="tsheet__v">NONE UNTIL PROVEN</span></li>
-        <li><span class="tsheet__k">TERMS</span><span class="tsheet__v">AGREED IN WRITING AFTER THE PILOT</span></li>
-      </ul>
-      <a class="tsheet__sign" href="#contact">
-        <span class="mono">SIGN HERE</span>
-        <svg viewBox="0 0 120 24" aria-hidden="true"><path d="M4 18 C22 4, 34 22, 52 12 S86 2, 116 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </a>
+    <article class="sheet reveal" data-d="1" aria-label="Pilot term sheet">
+      <header class="sheet__head"><span>Term sheet</span><span>Pilot</span></header>
+      <dl class="sheet__grid">
+        <div><dt>Duration</dt><dd>2 weeks</dd></div>
+        <div><dt>Objective</dt><dd>Measurable alpha</dd></div>
+        <div><dt>Scope</dt><dd>Funnel, offer, market and live angles</dd></div>
+        <div><dt>Commitment</dt><dd>None until proven</dd></div>
+        <div><dt>Terms</dt><dd>Agreed in writing after the pilot</dd></div>
+      </dl>
+      <div class="sheet__sign">
+        <span class="sheet__line" aria-hidden="true"></span>
+        <a class="btn btn--solid" href="#contact">Request the pilot</a>
+      </div>
     </article>
   </div>
 </section>
 
-<!-- ============================ SUITABILITY ============================ -->
+<!-- ============================ WHO IT'S FOR ============================ -->
 <section class="section suit">
   <div class="wrap suit__inner">
-    <header class="suit__head">
-      <h2 class="suit__h">Suitability</h2>
-      <p class="mono">FIVE OF FIVE REQUIRED</p>
-    </header>
-    <ul class="suit__list reveal">
-        <li>You sell B2B and the offer already closes when it reaches the right person</li>
-        <li>You want more qualified calls each week, not more sends</li>
-        <li>You have a team that can close what we book</li>
-        <li>You will let us kill an angle that is not working, quickly</li>
-        <li>You care what your brand sounds like in a stranger's inbox</li>
-      </ul>
+    <h2 class="h2 reveal">Who it&#8217;s for</h2>
+    <ul class="ticks reveal" data-d="1">
+      <li>You sell B2B and the offer already closes when it reaches the right person</li>
+      <li>You want more qualified calls each week, not more sends</li>
+      <li>You have a team that can close what we book</li>
+      <li>You will let us kill an angle that is not working, quickly</li>
+      <li>You care what your brand sounds like in a stranger&#8217;s inbox</li>
+    </ul>
   </div>
 </section>
 
 <!-- ============================ FINAL ============================ -->
 <section class="final" id="contact">
-  <div class="final__bg" aria-hidden="true"><span class="hero__glow"></span></div>
   <div class="wrap final__inner">
-    <h2 class="display reveal">Let&#8217;s find the alpha<br>in your funnel.</h2>
+    <h2 class="final__h reveal">Let&#8217;s find the alpha in your funnel.</h2>
     <!-- TODO: point at the real booking link -->
-    <a class="btn btn--solid btn--lg reveal" data-d="1" href="#">Request the Pilot</a>
+    <a class="btn btn--light btn--lg reveal" data-d="1" href="#">Request the pilot</a>
   </div>
 </section>
 
@@ -252,7 +265,7 @@
       <svg class="wordmark__mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
       <span>Growency</span>
     </a>
-    <p class="footer__fine mono">&#169; <span id="year">2026</span> GROWENCY. ACCOUNT NAMES AND FIGURES SHOWN ON THIS PAGE ARE SAMPLE DATA. TERMS, PRICING AND SCOPE ARE AGREED IN WRITING AFTER THE PILOT.</p>
+    <p class="footer__fine">&#169; <span id="year">2026</span> Growency. Account names and figures shown on this page are sample data. Terms, pricing and scope are agreed in writing after the pilot.</p>
   </div>
 </footer>
 
