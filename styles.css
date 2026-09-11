@@ -223,11 +223,11 @@ ul,ol{list-style:none}
   display:block;color:var(--ink);max-height:0;opacity:0;overflow:hidden;
   transition:max-height 560ms var(--ease),opacity 400ms var(--ease) 120ms;
 }
-.ln .gen::after{
-  content:"";position:absolute;left:0;top:.76em;height:1.5px;width:0;
-  background:var(--text-3);transition:width 360ms var(--ease);
+.ln .gen__t{
+  background:linear-gradient(var(--text-3),var(--text-3)) no-repeat 0 60% / 0% 1.5px;
+  transition:background-size 420ms var(--ease);
 }
-.ln.is-cut .gen::after{width:100%}
+.ln.is-cut .gen__t{background-size:100% 1.5px}
 .ln.is-cut .gen{opacity:.55}
 .ln.is-new .spec{max-height:8em;opacity:1}
 .ln.is-new .gen{max-height:0;opacity:0;overflow:hidden;transition:max-height 380ms var(--ease) 220ms,opacity 200ms linear}
@@ -346,13 +346,11 @@ html.js .rd__bar{
 /* ---------- won't ---------- */
 .wont__grid{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(1.5rem,4vw,3rem);margin-top:clamp(1.8rem,4vh,2.6rem)}
 .strike{font-weight:600;font-size:clamp(1.08rem,1.7vw,1.35rem);letter-spacing:-.02em;color:var(--ink);padding:1rem 0;border-top:1px solid var(--line)}
-.strike span{position:relative;display:inline;transition:color 500ms var(--ease)}
-.strike span::after{
-  content:"";position:absolute;left:0;right:100%;top:56%;height:1.5px;background:var(--text-3);
-  transition:right 560ms var(--ease);
+.strike span{
+  background:linear-gradient(var(--text-3),var(--text-3)) no-repeat 0 58% / 0% 1.5px;
+  transition:background-size 620ms var(--ease),color 500ms var(--ease);
 }
-.strike.is-in span{color:var(--text-3)}
-.strike.is-in span::after{right:0}
+.strike.is-in span{color:var(--text-3);background-size:100% 1.5px}
 
 /* ---------- pilot ---------- */
 .pilot__intro{max-width:720px}
@@ -454,6 +452,5 @@ html.js .reveal.is-in{opacity:1;transform:none}
   html.js .rd__bar{transform:scaleX(0)}
   .rd__w{color:var(--text-3)}
   .rd__w::after{width:100%}
-  .strike span{color:var(--text-3)}
-  .strike span::after{right:0}
+  .strike span{color:var(--text-3);background-size:100% 1.5px}
 }
