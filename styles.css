@@ -637,7 +637,7 @@ html:not(.js) .slot::after{
 .legal__body a:hover{text-decoration-color:var(--accent)}
 .legal__body strong{color:var(--ink);font-weight:600}
 /* a detail only Growency can supply, left visible until it is filled */
-.fill{color:var(--accent);background:rgba(124,147,255,.1);border-radius:4px;padding:0 .3em;font-weight:500}
+.blank{color:var(--accent);background:rgba(124,147,255,.1);border-radius:4px;padding:0 .3em;font-weight:500}
 
 /* ---------- footer ---------- */
 .footer{border-top:1px solid var(--line);padding:2.2rem 0 5rem}
