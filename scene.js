@@ -317,7 +317,7 @@ const backdrop = (() => {
     uniforms: {
       uTime: shared.uTime, uRes: { value: new THREE.Vector2(W, H) }, uI: { value: 0.6 },
       uC: { value: new THREE.Vector2(0.5, 0.5) },
-      uA: { value: new THREE.Color('#2C42C8') }, uB: { value: new THREE.Color('#5B34C4') },
+      uA: { value: new THREE.Color('#22358F') }, uB: { value: new THREE.Color('#43257F') },
       uBg: { value: COL_BG }
     },
     depthTest: false, depthWrite: false,
@@ -476,13 +476,13 @@ const nodeGlow = new Float32Array(6).fill(1);
 const nodeTarget = new Float32Array(6).fill(1);
 
 const PRESETS = {
-  strat: { alpha: 0, particles: 0.42, bg: 0.5, bgx: 0.74, bgy: 0.45, bloom: 0.55, glass: 0 },
-  port: { alpha: 0, particles: 0.38, bg: 0.5, bgx: 0.3, bgy: 0.5, bloom: 0.55, glass: 0 },
-  life: { alpha: 0.55, particles: 0.32, bg: 0.45, bgx: 0.26, bgy: 0.45, bloom: 0.6, glass: 0 },
-  ops: { alpha: 0, particles: 0.28, bg: 0.32, bgx: 0.5, bgy: 0.4, bloom: 0.5, glass: 0 },
-  wont: { alpha: 0, particles: 0.24, bg: 0.3, bgx: 0.5, bgy: 0.5, bloom: 0.5, glass: 0 },
-  pilot: { alpha: 0, particles: 0.3, bg: 0.38, bgx: 0.35, bgy: 0.45, bloom: 0.5, glass: 0 },
-  final: { alpha: 1, particles: 0.45, bg: 0.75, bgx: 0.74, bgy: 0.5, bloom: 0.8, glass: 1 }
+  strat: { alpha: 0, particles: 0.42, bg: 0.34, bgx: 0.74, bgy: 0.45, bloom: 0.55, glass: 0 },
+  port: { alpha: 0, particles: 0.38, bg: 0.32, bgx: 0.3, bgy: 0.5, bloom: 0.55, glass: 0 },
+  life: { alpha: 0.55, particles: 0.32, bg: 0.3, bgx: 0.26, bgy: 0.45, bloom: 0.6, glass: 0 },
+  ops: { alpha: 0, particles: 0.28, bg: 0.24, bgx: 0.5, bgy: 0.4, bloom: 0.5, glass: 0 },
+  wont: { alpha: 0, particles: 0.24, bg: 0.22, bgx: 0.5, bgy: 0.5, bloom: 0.5, glass: 0 },
+  pilot: { alpha: 0, particles: 0.3, bg: 0.28, bgx: 0.35, bgy: 0.45, bloom: 0.5, glass: 0 },
+  final: { alpha: 1, particles: 0.45, bg: 0.58, bgx: 0.74, bgy: 0.5, bloom: 0.8, glass: 1 }
 };
 
 function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
@@ -506,7 +506,7 @@ function filmTarget(p) {
   T.flat = 0;
   T.alpha = 0.95 - 0.45 * seg(p, 0.6, 0.8);
   T.particles = 0.8 - 0.3 * seg(p, 0.62, 0.82);
-  T.bg = 0.6 + 0.25 * seg(p, 0.3, 0.5);
+  T.bg = 0.42 + 0.16 * seg(p, 0.3, 0.5);
   T.bgx = clamp(G.portal.on ? G.portal.x / W : 0.5, 0, 1);
   T.bgy = clamp(G.portal.on ? 1 - G.portal.y / H : 0.5, 0, 1);
   T.bloom = 0.85 + 0.35 * seg(p, 0.3, 0.55) - 0.3 * seg(p, 0.7, 0.9);
@@ -566,7 +566,7 @@ function step(dt, now) {
     T.morph = 0; T.flat = 0; T.camZ = REF_Z; T.glass = 0; T.roll = 0;
     T.alpha = 0.95 * clamp((converge - 0.45) / 0.45, 0, 1);
     T.particles = 0.95;
-    T.bg = 0.5; T.bgx = 0.5; T.bgy = 0.5; T.bloom = 1;
+    T.bg = 0.42; T.bgx = 0.5; T.bgy = 0.5; T.bloom = 1;
     for (let i = 0; i < 6; i++) nodeTarget[i] = 1;
   } else if (name === 'film' && G.fx) {
     filmTarget(G.film.p);
