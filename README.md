@@ -16,6 +16,7 @@ python3 -m http.server 4341
 | `styles.css` | Dark tokens, type, every section, and the pinned layouts under `.fx` |
 | `script.js` | `window.GROWENCY`, the scroll engine, and every scrubbed scene |
 | `scene.js` | The WebGL scene: lattice, corridor, particles, cursor trail, glass medallion |
+| `privacy.html` | The privacy policy, a draft for legal review |
 | `archive/` | Two previous versions of the site, each kept whole |
 
 ## The page, chapter by chapter
@@ -63,10 +64,23 @@ you are.
 - **Sample data.** All five emails, the angle names and every number on the
   desk are invented. The footer says so, and the desk carries a "sample data"
   label. Keep both if you change the numbers.
-- **The logo.** `#mark` is a hand-rebuilt vector of the brand image, not the
-  official file. Swap in the real asset and every `<use href="#mark">` picks it
-  up. The scene, the plates and the portfolio all read their geometry from that
-  same path, so check those three after a swap.
+- **The logo.** `#mark` is a hand trace of the brand image: upright cubes, with
+  the six dots joined into a rising network. It is close, but it is still a
+  trace. Swap in the official SVG when it exists and every `<use href="#mark">`
+  picks it up. The scene, the plates, the portfolio and the mosaics all read
+  their geometry from that symbol: the lattice from its first path, the network
+  from `.mark__net`, and the dots from its small circles. Keep that structure,
+  or check all four after a swap. The same symbol is copied into
+  `privacy.html`, so update it there too.
+- **Privacy policy.** `privacy.html` is a draft written under Hong Kong's
+  Personal Data (Privacy) Ordinance, covering site visitors and the people
+  contacted for clients. It needs a lawyer's review before launch. Nine
+  highlighted placeholders need real details: the legal company name,
+  business registration number, registered address, privacy email and booking
+  provider. Confirm the operational statements match how Growency works: the
+  retention periods (12 months for prospects, 24 for correspondence), and that
+  interested replies are passed to the client. Once fonts and three.js are
+  self-hosted, delete the subsection about what the browser shares on load.
 
 ## The 30-40x figure
 
