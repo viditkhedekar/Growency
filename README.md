@@ -106,9 +106,12 @@ forces the reduced motion path.
 - **The lattice.** Every point of the flat mark has three homes: on a sphere, on
   the corridor it unrolls into, and flat inside the medallion. The shader mixes
   between them, so one piece of geometry carries the whole page.
-- **The cursor.** The lattice ripples away from it, a glowing trail follows it,
-  buttons pull toward it, and headline letters shift as it passes. All of it is
-  off under reduced motion, on coarse pointers, and on phones.
+- **The cursor.** It is a small plus, and it opens into a circle over anything
+  you can act on, filling and naming the action where there is a word for it
+  (`data-cursor` in the markup). Behind that, the lattice ripples away from it,
+  a trail follows it, buttons pull toward it, and headline letters shift as it
+  passes. The native cursor is only hidden while `.has-cursor` is set, and all
+  of it is off under reduced motion, on coarse pointers, and on phones.
 - **Phones** get the same flight with fewer particles, no trail, half-resolution
   bloom, and one desk panel at a time.
 - **The loader** counts to 100 while the scene compiles, then the particles snap
