@@ -153,7 +153,7 @@
   var film = {
     sec: $('top'), stage: $('filmStage'), hero: $('hero'), txt: $('heroTxt'), word: $('word'),
     knock: $('knock'), noise: $('noise'), one: $('noiseOne'), pane: $('pane'),
-    letter: $('letter'), subj: $('letterSubj'), cue: $('cue'),
+    letter: $('letter'), subj: $('letterSubj'), cue: $('cue'), stamp: $('stamp'), stampHome: null,
     lines: [], K: null, target: { dx: 0, dy: 0, s: 1 }
   };
 
@@ -274,6 +274,30 @@
     film.target.s = span.offsetWidth / Math.max(1, film.one.offsetWidth);
   }
 
+  /* The stamp is pressed across the Y of the wordmark, so it is measured
+     from the Y's own box rather than positioned by hand. */
+  function placeStamp() {
+    var st = film.stamp;
+    if (!st || !film.word || !film.hero) return;
+    var spans = all('span', film.word);
+    var y = spans[spans.length - 1];
+    if (!y) return;
+    var hero = film.hero.getBoundingClientRect(), box = y.getBoundingClientRect();
+    if (!box.width) return;
+    var F = parseFloat(getComputedStyle(film.word).fontSize) || 100;
+    st.style.fontSize = Math.max(12, F * 0.165).toFixed(1) + 'px';
+    film.stampHome = { x: box.left + box.width / 2 - hero.left, y: box.top + box.height * 0.54 - hero.top };
+    stampAt(0, 1);
+  }
+  function stampAt(dx, o) {
+    var st = film.stamp, home = film.stampHome;
+    if (!st || !home) return;
+    css(st, 'left', home.x.toFixed(1) + 'px');
+    css(st, 'top', home.y.toFixed(1) + 'px');
+    css(st, 'transform', 'translate(-50%,-50%) translate3d(' + dx.toFixed(1) + 'px,0,0) rotate(-12deg)');
+    css(st, 'opacity', '' + r3(o));
+  }
+
   function filmUpdate(p) {
     G.film.p = p;
 
@@ -289,6 +313,7 @@
       var w = inOut(seg(p, 0.05, 0.24));
       css(film.word, 'opacity', '' + r3(1 - w));
       css(film.word, 'transform', 'scale(' + (1 + w * 0.35).toFixed(3) + ')');
+      stampAt(0, 1 - w);
     }
 
     noiseUpdate(p);
@@ -298,7 +323,7 @@
     css(film.pane, 'opacity', '' + r3(into));
     css(film.pane, 'transform', 'translate(-50%,-50%) translate3d(0,' + ((1 - into) * 6).toFixed(2) + 'vh,0) scale(' + (0.94 + 0.06 * into).toFixed(3) + ')');
 
-    if (p >= 0.86) letterCtl.play(); else if (p < 0.8) letterCtl.stop();
+    if (deck) { if (p >= 0.86) deck.play(); else if (p < 0.8) deck.stop(); }
   }
 
   function knockUpdate(p) {
@@ -318,6 +343,7 @@
       var tr = 'translate(' + dx.toFixed(1) + ' ' + (-d * vh * 0.05).toFixed(1) + ')';
       attr(L.m, 'transform', tr); attr(L.m, 'fill-opacity', r3(1 - d));
       attr(L.s, 'transform', tr); attr(L.s, 'stroke-opacity', r3(1 - d));
+      if (i === K.letters.length - 1) stampAt(dx, 1 - d);
     }
 
     var hole = p < 0.26
@@ -361,11 +387,11 @@
   }
 
   /* =======================================================
-     The letter, and its Copy button
+     The letters, and the deck of five they sit in
      ======================================================= */
-  function letterCopy() {
-    var el = $('letter'), btn = $('letterCopy');
-    if (!el || !btn) return;
+  function letterCopy(el) {
+    var btn = el.querySelector('.letter__copy');
+    if (!btn) return;
     var subj = el.querySelector('.letter__subj');
     var subject = subj ? subj.textContent.trim() : '';
     var body = all('.ln', el).map(function (ln) {
@@ -389,18 +415,18 @@
       try { document.execCommand('copy'); done(); } catch (e) {}
       ta.remove();
     }
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function (e) {
+      /* a drag that happens to end on the button is not a click */
+      if (deck && deck.dragged()) { e.preventDefault(); return; }
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(out).then(done, fallback);
       else fallback();
     });
   }
 
-  var letterCtl = (function () {
-    var el = $('letter');
-    if (!el || !fx) return { play: function () {}, stop: function () {} };
+  function makeLetter(el) {
     var lines = all('.ln', el);
     var bar = el.querySelector('.letter__bar i');
-    if (!lines.length) return { play: function () {}, stop: function () {} };
+    if (!fx || !lines.length) return { play: function () {}, stop: function () {} };
 
     var parts = lines.map(function (ln) {
       var spec = ln.dataset.specific || ln.textContent.trim();
@@ -415,7 +441,7 @@
       return { el: ln, gen: gt, generic: gen, rewrites: !ln.dataset.hold };
     });
 
-    var TYPE = 17, token = 0, timers = [], playing = false, wanted = false;
+    var TYPE = 17, token = 0, timers = [], playing = false;
     function at(ms, fn) { var t = token; timers.push(setTimeout(function () { if (t === token) fn(); }, ms)); }
     function type(node, host, str, from) {
       at(from, function () { host.classList.add('is-typing'); });
@@ -432,7 +458,7 @@
     function reset() {
       parts.forEach(function (p) { p.el.classList.remove('is-cut', 'is-new', 'is-typing'); p.gen.textContent = ''; });
     }
-    /* what the letter shows before it has been played, and after it stops */
+    /* what a letter shows before it has been played, and after it stops */
     function finished() {
       parts.forEach(function (p) {
         p.el.classList.remove('is-cut', 'is-typing');
@@ -447,9 +473,9 @@
       parts.forEach(function (p) { t = type(p.gen, p.el, p.generic, t) + 120; });
       t += 900;
       parts.filter(function (p) { return p.rewrites; }).forEach(function (p) {
-        (function (s) {
-          at(s, function () { p.el.classList.add('is-cut'); });
-          at(s + 420, function () { p.el.classList.add('is-new'); });
+        (function (start) {
+          at(start, function () { p.el.classList.add('is-cut'); });
+          at(start + 420, function () { p.el.classList.add('is-new'); });
         })(t);
         t += 700;
       });
@@ -466,21 +492,92 @@
         });
       }
     }
-    function start() { if (playing) return; playing = true; token++; pass(); }
-    function halt() {
-      if (!playing) return;
-      playing = false; token++;
-      timers.forEach(clearTimeout); timers = [];
-      el.classList.remove('is-fading');
-      finished();
-    }
     finished();
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) halt(); else if (wanted) start();
-    });
     return {
-      play: function () { wanted = true; if (!document.hidden) start(); },
-      stop: function () { wanted = false; halt(); }
+      play: function () { if (playing || document.hidden) return; playing = true; token++; pass(); },
+      stop: function () {
+        if (!playing) return;
+        playing = false; token++;
+        timers.forEach(clearTimeout); timers = [];
+        el.classList.remove('is-fading');
+        finished();
+      }
+    };
+  }
+
+  /* Drag it, use the dots, or use the arrow keys. Only the email on screen
+     plays; the rest sit in their finished state. */
+  var deck = (function () {
+    var box = $('deck'), track = $('deckTrack');
+    if (!box || !track) return null;
+    var cards = all('.letter', track), dots = all('#deckDots .dot');
+    if (!cards.length) return null;
+
+    var engines = cards.map(makeLetter);
+    var index = 0, wanted = false, w = 0;
+    var down = false, moved = false, startX = 0, dx = 0, movedAt = -9999;
+
+    function setTrack(px) { css(track, 'transform', 'translate3d(' + px.toFixed(1) + 'px,0,0)'); }
+    function show(i) {
+      i = clamp(i, 0, cards.length - 1);
+      if (i !== index) {
+        engines[index].stop();
+        index = i;
+        dots.forEach(function (d, k) {
+          if (k === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current');
+        });
+        if (wanted) engines[index].play();
+      }
+      setTrack(-index * w);
+    }
+
+    box.addEventListener('pointerdown', function (e) {
+      if (e.button) return;
+      down = true; moved = false; startX = e.clientX; dx = 0;
+      box.classList.add('is-drag');
+      try { box.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+    box.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      /* the ends pull back, so it is obvious there is nothing past them */
+      var slack = ((index === 0 && dx > 0) || (index === cards.length - 1 && dx < 0)) ? 0.35 : 1;
+      setTrack(-index * w + dx * slack);
+    });
+    function release() {
+      if (!down) return;
+      down = false;
+      box.classList.remove('is-drag');
+      if (moved) movedAt = performance.now();
+      var step = Math.abs(dx) > Math.max(52, w * 0.16) ? (dx < 0 ? 1 : -1) : 0;
+      dx = 0;
+      show(index + step);
+    }
+    box.addEventListener('pointerup', release);
+    box.addEventListener('pointercancel', release);
+    box.addEventListener('lostpointercapture', release);
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { show(index + 1); e.preventDefault(); }
+      else if (e.key === 'ArrowLeft') { show(index - 1); e.preventDefault(); }
+    });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { show(i); }); });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) engines[index].stop(); else if (wanted) engines[index].play();
+    });
+
+    return {
+      play: function () { wanted = true; engines[index].play(); },
+      stop: function () { wanted = false; engines.forEach(function (e) { e.stop(); }); },
+      dragged: function () { return performance.now() - movedAt < 260; },
+      layout: function () {
+        w = box.clientWidth;
+        box.style.height = '';
+        var h = 0;
+        cards.forEach(function (c) { h = Math.max(h, c.offsetHeight); });
+        if (h) box.style.height = (h + 2) + 'px';
+        setTrack(-index * w);
+      }
     };
   })();
 
@@ -1045,7 +1142,9 @@
       a.p = -1;
     });
     measureShift();
+    if (deck) deck.layout();
     computeTarget();
+    placeStamp();
     asciis.forEach(function (A) { sizeAscii(A); if (!fx) renderAscii(A, 0); });
     if (G.sceneOk) buildKnock();
     dirty = true;
@@ -1201,7 +1300,7 @@
   buildWont();
   buildSign();
   buildShift();
-  letterCopy();
+  all('.letter').forEach(letterCopy);
 
   filmAct = act(film.sec, { mode: 'pin', scene: 'film', update: fx ? filmUpdate : null });
   act($('alpha'), { mode: 'pin', scene: 'strat', update: fx ? stratUpdate : null });
