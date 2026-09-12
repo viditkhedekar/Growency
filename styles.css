@@ -137,25 +137,23 @@ main{overflow-x:clip}
 .cursor__dot{
   position:absolute;top:0;left:0;
   width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;
-  background:var(--accent);border:1px solid transparent;
+  background:var(--accent);
   display:flex;align-items:center;justify-content:center;
   transition:width 340ms var(--ease),height 340ms var(--ease),margin 340ms var(--ease),
-             background-color 240ms linear,border-color 240ms linear,scale 180ms var(--ease);
+             background-color 240ms linear,opacity 240ms linear,scale 180ms var(--ease);
 }
-/* anything you can act on opens it into a circle */
-.cursor.is-warm .cursor__dot{width:34px;height:34px;margin:-17px 0 0 -17px;background:transparent;border-color:var(--accent)}
-.cursor.is-hot .cursor__dot{width:66px;height:66px;margin:-33px 0 0 -33px;background:rgba(124,147,255,.14);border-color:var(--accent)}
+/* a link opens it into a soft circle; an action worth naming fills it */
+.cursor.is-warm .cursor__dot{width:32px;height:32px;margin:-16px 0 0 -16px;opacity:.42}
+.cursor.is-hot .cursor__dot{width:62px;height:62px;margin:-31px 0 0 -31px;opacity:1}
 .cursor.is-down .cursor__dot{scale:.86}
 /* over the near-white buttons it flips, so it is always readable */
-.cursor.is-light .cursor__dot{background:#08081A;border-color:#08081A}
-.cursor.is-light.is-warm .cursor__dot{background:transparent}
-.cursor.is-light.is-hot .cursor__dot{background:rgba(8,8,26,.16);border-color:#08081A}
+.cursor.is-light .cursor__dot{background:#08081A}
 .cursor__label{
-  font:500 .6rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ink);
+  font:600 .58rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#08081A;
   opacity:0;white-space:nowrap;transition:opacity 160ms linear;
 }
 .cursor.is-hot .cursor__label{opacity:1;transition-delay:90ms}
-.cursor.is-light .cursor__label{color:#08081A}
+.cursor.is-light .cursor__label{color:#F1F2F9}
 @media (pointer:fine){
   .has-cursor,.has-cursor *{cursor:none !important}
 }
