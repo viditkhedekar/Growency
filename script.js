@@ -119,6 +119,7 @@
     P.x = e.clientX; P.y = e.clientY;
     P.nx = P.x / vw * 2 - 1; P.ny = -(P.y / vh * 2 - 1);
     P.on = true; P.moved = true;
+    if (cursor) cursor.aim(e.target && e.target.closest ? e.target.closest('a,button,[data-cursor]') : null);
   }, { passive: true });
   root.addEventListener('mouseleave', function () { P.on = false; P.moved = true; }, { passive: true });
   window.addEventListener('blur', function () { P.on = false; P.moved = true; });
@@ -1036,6 +1037,38 @@
     return { el: el, cx: 0, cy: 0, w: 0, h: 0, mx: 0, my: 0 };
   }) : [];
 
+  /* A dot that follows the pointer and opens into a circle over anything you
+     can act on, naming the action where there is a word for it. Fine pointers
+     only, and never under reduced motion, which is also why the native cursor
+     is only hidden under `.has-cursor`. */
+  var cursor = (function () {
+    var el = $('cursor');
+    if (!el || !fx || !fine) return null;
+    var label = el.querySelector('.cursor__label');
+    var cx = window.innerWidth / 2, cy = window.innerHeight / 2, hot = null, shown = null;
+    root.classList.add('has-cursor');
+    window.addEventListener('pointerdown', function () { el.classList.add('is-down'); }, { passive: true });
+    window.addEventListener('pointerup', function () { el.classList.remove('is-down'); }, { passive: true });
+    return {
+      aim: function (target) {
+        if (target === hot) return;
+        hot = target;
+        var word = target && target.getAttribute ? target.getAttribute('data-cursor') : null;
+        el.classList.toggle('is-hot', !!word);
+        el.classList.toggle('is-warm', !!target && !word);
+        /* the near-white buttons need the dark version of it */
+        el.classList.toggle('is-light', !!(target && target.closest && target.closest('.btn--solid,.skip')));
+        text(label, word || '');
+      },
+      tick: function () {
+        if (P.on !== shown) { shown = P.on; css(el, 'opacity', P.on ? '1' : '0'); }
+        cx += (P.x - cx) * 0.22;
+        cy += (P.y - cy) * 0.22;
+        css(el, 'transform', 'translate3d(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px,0)');
+      }
+    };
+  })();
+
   var shifts = [];
   function buildShift() {
     if (!fx || !fine) return;
@@ -1250,6 +1283,7 @@
   }
 
   function pointerTick() {
+    if (cursor) cursor.tick();
     if (!magnets.length && !shifts.length) return;
     var i, j;
     for (i = 0; i < magnets.length; i++) {
