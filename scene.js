@@ -506,7 +506,7 @@ function filmTarget(p) {
   T.flat = 0;
   T.alpha = 0.95 - 0.45 * seg(p, 0.6, 0.8);
   T.particles = 0.8 - 0.3 * seg(p, 0.62, 0.82);
-  T.bg = 0.42 + 0.16 * seg(p, 0.3, 0.5);
+  T.bg = 0.54 + 0.14 * seg(p, 0.3, 0.5);
   T.bgx = clamp(G.portal.on ? G.portal.x / W : 0.5, 0, 1);
   T.bgy = clamp(G.portal.on ? 1 - G.portal.y / H : 0.5, 0, 1);
   T.bloom = 0.85 + 0.35 * seg(p, 0.3, 0.55) - 0.3 * seg(p, 0.7, 0.9);
