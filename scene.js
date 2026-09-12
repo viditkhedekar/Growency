@@ -341,7 +341,7 @@ const backdrop = (() => {
         vec2 c = vec2(uC.x * ar, uC.y);
         vec3 col = uBg;
         col += uA * blob(p, c + 0.06 * vec2(sin(uTime * 0.21), cos(uTime * 0.17)), 0.42) * uI;
-        col += uB * blob(p, c + vec2(0.24, -0.12) + 0.07 * vec2(cos(uTime * 0.13), sin(uTime * 0.19)), 0.52) * uI * 0.75;
+        col += uB * blob(p, c + vec2(0.26, -0.14) + 0.07 * vec2(cos(uTime * 0.13), sin(uTime * 0.19)), 0.66) * uI * 0.5;
         gl_FragColor = vec4(col, 1.0);
       }
     `
