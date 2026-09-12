@@ -820,7 +820,7 @@
         var a = project(s[0], s[1]), b = project(s[2], s[3]);
         var depth = ((a[2] + b[2]) / 2 + 1) / 2;
         x.strokeStyle = 'rgba(255,255,255,' + (0.12 + 0.88 * Math.pow(depth, 1.7)).toFixed(3) + ')';
-        x.lineWidth = 1.1;
+        x.lineWidth = 1.7;
         x.beginPath(); x.moveTo(a[0], a[1]); x.lineTo(b[0], b[1]); x.stroke();
       });
       x.fillStyle = '#fff';
@@ -837,7 +837,7 @@
         var mid = ((s[0] + s[2]) / 2 - 8) / 104;
         var band = Math.exp(-(mid - sweep) * (mid - sweep) / 0.02);
         x.strokeStyle = 'rgba(255,255,255,' + (0.3 + 0.7 * band).toFixed(3) + ')';
-        x.lineWidth = 1.1;
+        x.lineWidth = 1.7;
         x.beginPath(); x.moveTo(ax, ay); x.lineTo(bx, by); x.stroke();
       });
       x.strokeStyle = 'rgba(255,255,255,.55)'; x.lineWidth = 2;
@@ -863,11 +863,15 @@
     var out = '', last = RAMP.length - 1;
     for (var row = 0; row < A.rows; row++) {
       for (var col = 0; col < A.cols; col++) {
-        var i = ((row * 2) * W + col * 2) * 4;
-        var l = (data[i] + data[i + 8] + data[i + W * 4] + data[i + W * 4 + 8]) / 1020;
-        var ch = RAMP[Math.min(last, Math.round(Math.pow(l, 0.75) * last))];
+        /* sample the 2x2 block this cell covers, clamped so the last row and
+           column never read past the end of the canvas */
+        var x0 = col * 2, y0 = row * 2;
+        var x1 = Math.min(x0 + 1, A.c.width - 1), y1 = Math.min(y0 + 1, A.c.height - 1);
+        var l = (data[(y0 * W + x0) * 4] + data[(y0 * W + x1) * 4] +
+                 data[(y1 * W + x0) * 4] + data[(y1 * W + x1) * 4]) / 1020;
+        var ch = RAMP[Math.min(last, Math.max(0, Math.round(Math.pow(l, 0.55) * last)))];
         var s = A.seed[row * A.cols + col];
-        if (s > A.r) ch = s * 13 % 1 > 0.82 ? RAMP[((s * 977 + t * 6) | 0) % RAMP.length] : ' ';
+        if (s > A.r) ch = s * 13 % 1 > 0.82 ? RAMP[Math.abs((s * 977 + t * 6) | 0) % RAMP.length] : ' ';
         if (pc > -50 && Math.hypot(col - pc, (row - pr) * 1.8) < 5.5) ch = RAMP[(Math.random() * RAMP.length) | 0];
         out += ch;
       }
