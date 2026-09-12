@@ -31,6 +31,10 @@
 <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
   <defs>
     <clipPath id="markClip" clipPathUnits="userSpaceOnUse"><circle cx="60" cy="60" r="51.2"/></clipPath>
+    <filter id="ink" x="-15%" y="-25%" width="130%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
     <symbol id="mark" viewBox="0 0 120 120">
       <g clip-path="url(#markClip)" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".8"><path d="M-14.40 27.78L-5.10 11.68 M-14.40 27.78L-5.10 43.89 M-14.40 27.78L4.20 27.78 M-14.40 60.00L-5.10 43.89 M-14.40 60.00L-5.10 76.11 M-14.40 60.00L4.20 60.00 M-14.40 92.22L-5.10 76.11 M-14.40 92.22L-5.10 108.32 M-14.40 92.22L4.20 92.22 M-5.10 11.68L13.50 11.68 M-5.10 43.89L13.50 43.89 M-5.10 76.11L13.50 76.11 M-5.10 108.32L13.50 108.32 M4.20 27.78L13.50 11.68 M4.20 27.78L13.50 43.89 M4.20 60.00L13.50 43.89 M4.20 60.00L13.50 76.11 M4.20 92.22L13.50 76.11 M4.20 92.22L13.50 108.32 M13.50 11.68L22.80 -4.43 M13.50 11.68L22.80 27.78 M13.50 11.68L32.10 11.68 M13.50 43.89L22.80 27.78 M13.50 43.89L22.80 60.00 M13.50 43.89L32.10 43.89 M13.50 76.11L22.80 60.00 M13.50 76.11L22.80 92.22 M13.50 76.11L32.10 76.11 M13.50 108.32L22.80 92.22 M13.50 108.32L22.80 124.43 M13.50 108.32L32.10 108.32 M22.80 -4.43L41.40 -4.43 M22.80 27.78L41.40 27.78 M22.80 60.00L41.40 60.00 M22.80 92.22L41.40 92.22 M22.80 124.43L41.40 124.43 M32.10 11.68L41.40 -4.43 M32.10 11.68L41.40 27.78 M32.10 43.89L41.40 27.78 M32.10 43.89L41.40 60.00 M32.10 76.11L41.40 60.00 M32.10 76.11L41.40 92.22 M32.10 108.32L41.40 92.22 M32.10 108.32L41.40 124.43 M41.40 -4.43L50.70 -20.54 M41.40 -4.43L50.70 11.68 M41.40 -4.43L60.00 -4.43 M41.40 27.78L50.70 11.68 M41.40 27.78L50.70 43.89 M41.40 27.78L60.00 27.78 M41.40 60.00L50.70 43.89 M41.40 60.00L50.70 76.11 M41.40 60.00L60.00 60.00 M41.40 92.22L50.70 76.11 M41.40 92.22L50.70 108.32 M41.40 92.22L60.00 92.22 M41.40 124.43L50.70 108.32 M41.40 124.43L50.70 140.54 M41.40 124.43L60.00 124.43 M50.70 -20.54L69.30 -20.54 M50.70 11.68L69.30 11.68 M50.70 43.89L69.30 43.89 M50.70 76.11L69.30 76.11 M50.70 108.32L69.30 108.32 M50.70 140.54L69.30 140.54 M60.00 -4.43L69.30 -20.54 M60.00 -4.43L69.30 11.68 M60.00 27.78L69.30 11.68 M60.00 27.78L69.30 43.89 M60.00 60.00L69.30 43.89 M60.00 60.00L69.30 76.11 M60.00 92.22L69.30 76.11 M60.00 92.22L69.30 108.32 M60.00 124.43L69.30 108.32 M60.00 124.43L69.30 140.54 M69.30 -20.54L78.60 -4.43 M69.30 11.68L78.60 -4.43 M69.30 11.68L78.60 27.78 M69.30 11.68L87.90 11.68 M69.30 43.89L78.60 27.78 M69.30 43.89L78.60 60.00 M69.30 43.89L87.90 43.89 M69.30 76.11L78.60 60.00 M69.30 76.11L78.60 92.22 M69.30 76.11L87.90 76.11 M69.30 108.32L78.60 92.22 M69.30 108.32L78.60 124.43 M69.30 108.32L87.90 108.32 M69.30 140.54L78.60 124.43 M78.60 -4.43L97.20 -4.43 M78.60 27.78L97.20 27.78 M78.60 60.00L97.20 60.00 M78.60 92.22L97.20 92.22 M78.60 124.43L97.20 124.43 M87.90 11.68L97.20 -4.43 M87.90 11.68L97.20 27.78 M87.90 43.89L97.20 27.78 M87.90 43.89L97.20 60.00 M87.90 76.11L97.20 60.00 M87.90 76.11L97.20 92.22 M87.90 108.32L97.20 92.22 M87.90 108.32L97.20 124.43 M97.20 -4.43L106.50 11.68 M97.20 27.78L106.50 11.68 M97.20 27.78L106.50 43.89 M97.20 27.78L115.80 27.78 M97.20 60.00L106.50 43.89 M97.20 60.00L106.50 76.11 M97.20 60.00L115.80 60.00 M97.20 92.22L106.50 76.11 M97.20 92.22L106.50 108.32 M97.20 92.22L115.80 92.22 M97.20 124.43L106.50 108.32 M106.50 11.68L125.10 11.68 M106.50 43.89L125.10 43.89 M106.50 76.11L125.10 76.11 M106.50 108.32L125.10 108.32 M115.80 27.78L125.10 11.68 M115.80 27.78L125.10 43.89 M115.80 60.00L125.10 43.89 M115.80 60.00L125.10 76.11 M115.80 92.22L125.10 76.11 M115.80 92.22L125.10 108.32 M125.10 11.68L134.40 27.78 M125.10 43.89L134.40 27.78 M125.10 43.89L134.40 60.00 M125.10 76.11L134.40 60.00 M125.10 76.11L134.40 92.22 M125.10 108.32L134.40 92.22"/></g>
       <g clip-path="url(#markClip)" fill="currentColor"><circle cx="41.40" cy="27.78" r="3.1"/><circle cx="78.60" cy="27.78" r="3.1"/><circle cx="22.80" cy="60.00" r="3.1"/><circle cx="78.60" cy="60.00" r="3.1"/><circle cx="50.70" cy="76.11" r="3.1"/><circle cx="78.60" cy="92.22" r="3.1"/></g>
@@ -95,6 +99,7 @@
           <a class="btn btn--ghost" href="#alpha" data-magnet>Read the memo</a>
         </div>
       </div>
+      <p class="stamp" id="stamp" aria-hidden="true"><b>30-40x</b><span>conversion</span></p>
       <p class="cue" id="cue" aria-hidden="true">Scroll<i></i></p>
     </div>
 
@@ -105,10 +110,11 @@
     </div>
 
     <div class="pane" id="pane">
-      <p class="badge"><b>30-40x</b> conversion</p>
-      <!-- A working component: the generic lines type in, get struck, and
-           the specific ones grow in underneath. Copy puts the finished email
-           on the clipboard. Dana and Meridian Labs are sample data. -->
+      <!-- Five emails we would actually send, all sample data. Drag or use
+           the dots to move between them; each one types its generic version,
+           strikes it, and grows the specific lines in underneath. -->
+      <div class="deck" id="deck" tabindex="0" role="group" aria-label="Sample emails, use the arrow keys to move between them">
+        <div class="deck__track" id="deckTrack">
       <figure class="letter" id="letter">
         <figcaption class="letter__head"><span class="letter__k">To</span>dana@meridianlabs.io</figcaption>
         <p class="letter__subj" id="letterSubj"><span>March, SSO, and your Q3 questionnaire pile</span></p>
@@ -120,10 +126,79 @@
           <p class="ln" data-hold="1">Rowan</p>
         </div>
         <div class="letter__foot">
-          <button class="letter__copy" id="letterCopy" type="button" hidden>Copy email</button>
+          <button class="letter__copy" type="button" hidden>Copy email</button>
         </div>
         <span class="letter__bar" aria-hidden="true"><i></i></span>
       </figure>
+      <figure class="letter">
+        <figcaption class="letter__head"><span class="letter__k">To</span>rhea@voltline.io</figcaption>
+        <p class="letter__subj"><span>Four AE roles, and where the first 90 days of pipeline comes from</span></p>
+        <div class="letter__body">
+          <p class="ln" data-hold="1">Hi Rhea,</p>
+          <p class="ln" data-generic="I hope you are doing well." data-specific="Voltline posted four AE roles in Manchester last month.">Voltline posted four AE roles in Manchester last month.</p>
+          <p class="ln" data-generic="We help companies like yours grow faster." data-specific="Ramping four at once means the first 90 days of their pipeline has to come from somewhere else.">Ramping four at once means the first 90 days of their pipeline has to come from somewhere else.</p>
+          <p class="ln" data-generic="Would you be open to a quick call?" data-specific="Worth a look at what we would run in that gap?">Worth a look at what we would run in that gap?</p>
+          <p class="ln" data-hold="1">Rowan</p>
+        </div>
+        <div class="letter__foot">
+          <button class="letter__copy" type="button" hidden>Copy email</button>
+        </div>
+        <span class="letter__bar" aria-hidden="true"><i></i></span>
+      </figure>
+      <figure class="letter">
+        <figcaption class="letter__head"><span class="letter__k">To</span>sam@harlowfreight.com</figcaption>
+        <p class="letter__subj"><span>The Rotterdam lane, and who is quoting under you on it</span></p>
+        <div class="letter__body">
+          <p class="ln" data-hold="1">Hi Sam,</p>
+          <p class="ln" data-generic="I hope this finds you well." data-specific="Saw Harlow added the Rotterdam lane in August.">Saw Harlow added the Rotterdam lane in August.</p>
+          <p class="ln" data-generic="We work with a lot of companies in your space." data-specific="Two of your competitors started quoting it at 11% under you in September.">Two of your competitors started quoting it at 11% under you in September.</p>
+          <p class="ln" data-generic="Do you have time this week?" data-specific="Ten minutes on how we would get in front of that?">Ten minutes on how we would get in front of that?</p>
+          <p class="ln" data-hold="1">Rowan</p>
+        </div>
+        <div class="letter__foot">
+          <button class="letter__copy" type="button" hidden>Copy email</button>
+        </div>
+        <span class="letter__bar" aria-hidden="true"><i></i></span>
+      </figure>
+      <figure class="letter">
+        <figcaption class="letter__head"><span class="letter__k">To</span>priya@quarryhealth.com</figcaption>
+        <p class="letter__subj"><span>SOC 2 in January, procurement asking in March</span></p>
+        <div class="letter__body">
+          <p class="ln" data-hold="1">Hi Priya,</p>
+          <p class="ln" data-generic="Hope all is well with you." data-specific="Quarry closed the Series B and the SOC 2 window opens in January.">Quarry closed the Series B and the SOC 2 window opens in January.</p>
+          <p class="ln" data-generic="We help teams like yours scale." data-specific="Hospital procurement starts asking for the report about eight weeks after that.">Hospital procurement starts asking for the report about eight weeks after that.</p>
+          <p class="ln" data-generic="Free for a chat this week?" data-specific="Worth ten minutes before that queue forms?">Worth ten minutes before that queue forms?</p>
+          <p class="ln" data-hold="1">Rowan</p>
+        </div>
+        <div class="letter__foot">
+          <button class="letter__copy" type="button" hidden>Copy email</button>
+        </div>
+        <span class="letter__bar" aria-hidden="true"><i></i></span>
+      </figure>
+      <figure class="letter">
+        <figcaption class="letter__head"><span class="letter__k">To</span>dee@tessellate.studio</figcaption>
+        <p class="letter__subj"><span>Your pricing page changed, your outbound did not</span></p>
+        <div class="letter__body">
+          <p class="ln" data-hold="1">Hi Dee,</p>
+          <p class="ln" data-generic="Hope you are well." data-specific="Tessellate moved to seat-based pricing on the 3rd.">Tessellate moved to seat-based pricing on the 3rd.</p>
+          <p class="ln" data-generic="We can help with your outbound." data-specific="Every sequence you are running still pitches the old flat plan.">Every sequence you are running still pitches the old flat plan.</p>
+          <p class="ln" data-generic="Can we connect sometime?" data-specific="Ten minutes to rewrite the top of it?">Ten minutes to rewrite the top of it?</p>
+          <p class="ln" data-hold="1">Rowan</p>
+        </div>
+        <div class="letter__foot">
+          <button class="letter__copy" type="button" hidden>Copy email</button>
+        </div>
+        <span class="letter__bar" aria-hidden="true"><i></i></span>
+      </figure>
+        </div>
+      </div>
+      <div class="deck__dots" id="deckDots">
+        <button class="dot" type="button" aria-label="Sample email 1 of 5" aria-current="true"></button>
+        <button class="dot" type="button" aria-label="Sample email 2 of 5"></button>
+        <button class="dot" type="button" aria-label="Sample email 3 of 5"></button>
+        <button class="dot" type="button" aria-label="Sample email 4 of 5"></button>
+        <button class="dot" type="button" aria-label="Sample email 5 of 5"></button>
+      </div>
     </div>
   </div>
 </section>
