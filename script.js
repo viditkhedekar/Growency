@@ -75,6 +75,13 @@
       var s = [+m[1], +m[2], +m[3], +m[4]];
       if (rad(s[0], s[1]) <= CLIP && rad(s[2], s[3]) <= CLIP) segs.push(s);
     }
+    /* the network joining the dots is not part of the lattice, so it is read
+       separately and added, and the scene, plates and mosaics all draw it */
+    var net = document.querySelector('#mark .mark__net');
+    if (net) {
+      var pts = (net.getAttribute('d') || '').match(/-?[\d.]+/g) || [];
+      for (var k = 0; k + 3 < pts.length; k += 2) segs.push([+pts[k], +pts[k + 1], +pts[k + 2], +pts[k + 3]]);
+    }
     var nodes = all('#mark circle').filter(function (c) { return +c.getAttribute('r') < 10; })
       .map(function (c) { return [+c.getAttribute('cx'), +c.getAttribute('cy')]; });
     return segs.length > 8 ? { segs: segs, nodes: nodes, CLIP: CLIP, CX: CX, CY: CY } : null;
