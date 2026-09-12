@@ -27,8 +27,10 @@ you are.
    the letters and the lattice turns inside the O. Scrolling pulls the other
    letters away, opens the O into a portal, and flies the camera through it.
 2. **The signal.** Inside, a drift of generic subject lines comes at you. One of
-   them lights up, travels, and becomes the subject line of the Dana email,
-   which types itself in a glass pane.
+   them lights up, travels, and becomes the subject line of the first email in
+   a deck of five. Drag the card, use the dots or use the arrow keys to move
+   between them. Each one types its generic version, strikes it, and grows the
+   specific lines in underneath. Only the email on screen plays.
 3. **The strategy.** The mark comes apart into six plates, one per part of the
    sentence beside it, with callouts. The sentence fills word by word as you
    scroll, and the plates snap back together at the end.
@@ -58,7 +60,7 @@ you are.
   `@font-face` before launch.
 - **three.js.** Pinned to 0.186.0 on jsDelivr in the import map. Self-host it,
   or at least keep the version pinned.
-- **Sample data.** Dana, Meridian Labs, the angle names and every number on the
+- **Sample data.** All five emails, the angle names and every number on the
   desk are invented. The footer says so, and the desk carries a "sample data"
   label. Keep both if you change the numbers.
 - **The logo.** `#mark` is a hand-rebuilt vector of the brand image, not the
@@ -68,9 +70,11 @@ you are.
 
 ## The 30-40x figure
 
-Shown twice: the badge on the hero pane and the large numeral in chapter 4. It
-is the company's stated position rather than an audited result, and by
-instruction it carries no caveat on the page.
+Shown twice: the rubber stamp pressed across the Y of the wordmark on the first
+screen, and the large numeral in chapter 4. It is the company's stated position
+rather than an audited result, and by instruction it carries no caveat on the
+page. The stamp is measured from the Y's own box, so it follows the wordmark at
+any size and rides the Y off screen when the flight starts.
 
 ## How it holds up
 
