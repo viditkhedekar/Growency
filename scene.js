@@ -660,7 +660,7 @@ function updateTrail(dt) {
     }
   }
   const amt = trail.mesh.material.uniforms.uAmt;
-  amt.value = lerp(amt.value, P.on ? 0.5 : 0, 1 - Math.exp(-dt * 6));
+  amt.value = lerp(amt.value, P.on ? 0.34 : 0, 1 - Math.exp(-dt * 6));
   if (amt.value < 0.004) { trail.mesh.visible = false; return; }
   trail.mesh.visible = true;
 
