@@ -134,17 +134,27 @@ main{overflow-x:clip}
   opacity:0;transition:opacity 260ms var(--ease);
 }
 .has-cursor .cursor{opacity:1}
+/* at rest it is a plus; hovering opens it into a circle */
 .cursor__dot{
   position:absolute;top:0;left:0;
-  width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;
-  background:var(--accent);
+  width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;
+  background:transparent;
   display:flex;align-items:center;justify-content:center;
   transition:width 340ms var(--ease),height 340ms var(--ease),margin 340ms var(--ease),
              background-color 240ms linear,opacity 240ms linear,scale 180ms var(--ease);
 }
-/* a link opens it into a soft circle; an action worth naming fills it */
-.cursor.is-warm .cursor__dot{width:32px;height:32px;margin:-16px 0 0 -16px;opacity:.42}
-.cursor.is-hot .cursor__dot{width:62px;height:62px;margin:-31px 0 0 -31px;opacity:1}
+.cursor__dot::before,.cursor__dot::after{
+  content:"";position:absolute;left:50%;top:50%;background:var(--accent);
+  transition:opacity 200ms linear,background-color 240ms linear;
+}
+.cursor__dot::before{width:15px;height:1.5px;translate:-50% -50%}
+.cursor__dot::after{width:1.5px;height:15px;translate:-50% -50%}
+.cursor.is-light .cursor__dot::before,.cursor.is-light .cursor__dot::after{background:#08081A}
+/* a link opens a soft circle; an action worth naming fills it */
+.cursor.is-warm .cursor__dot{width:32px;height:32px;margin:-16px 0 0 -16px;background:var(--accent);opacity:.42}
+.cursor.is-hot .cursor__dot{width:62px;height:62px;margin:-31px 0 0 -31px;background:var(--accent);opacity:1}
+.cursor.is-warm .cursor__dot::before,.cursor.is-warm .cursor__dot::after,
+.cursor.is-hot .cursor__dot::before,.cursor.is-hot .cursor__dot::after{opacity:0}
 .cursor.is-down .cursor__dot{scale:.86}
 /* over the near-white buttons it flips, so it is always readable */
 .cursor.is-light .cursor__dot{background:#08081A}
