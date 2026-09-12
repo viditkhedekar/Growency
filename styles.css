@@ -355,8 +355,8 @@ main{overflow-x:clip}
 .step__p{color:var(--text-2);max-width:44ch}
 
 .fx .trade__code{
-  display:flex;align-items:baseline;margin:1.6rem 0 1.4rem;
-  font:500 clamp(3.2rem,7.8vw,7rem)/1 var(--mono);letter-spacing:-.06em;color:var(--ink);
+  display:flex;align-items:baseline;margin:1.6rem 0 1.4rem;white-space:nowrap;
+  font:500 clamp(2.4rem,5.4vw,4.6rem)/1 var(--mono);letter-spacing:-.05em;color:var(--ink);
 }
 .odo{display:inline-block;height:1em;overflow:hidden;vertical-align:top}
 .odo__col{display:flex;flex-direction:column;transform:translateY(calc(var(--s,0) * -1em));transition:transform 520ms var(--ease)}
@@ -414,8 +414,10 @@ main{overflow-x:clip}
 .fx .panel.is-done{opacity:.6}
 .fx .panel.is-on{opacity:1;background:rgba(124,147,255,.055)}
 .fx .panel.is-on .panel__t{color:var(--accent)}
-.fx .row,.fx .book li{opacity:var(--o,0);transform:translateY(calc((1 - var(--o,0)) * 6px))}
+.fx .row,.fx .book li{opacity:calc(.12 + .88 * var(--o,0));transform:translateY(calc((1 - var(--o,0)) * 6px))}
 .fx .thesis dd{clip-path:inset(0 calc((1 - var(--t,0)) * 100%) 0 0)}
+.fx .panel:not(.is-on):not(.is-done) .thesis dd{clip-path:none;opacity:.12}
+.fx .panel:not(.is-on):not(.is-done) .stats b,.fx .panel:not(.is-on):not(.is-done) .spark{opacity:.12}
 .fx .bars i{width:calc(var(--v) * var(--t,0) * 100%)}
 
 /* =========================================================
