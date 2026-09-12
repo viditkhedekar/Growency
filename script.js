@@ -153,7 +153,7 @@
   var film = {
     sec: $('top'), stage: $('filmStage'), hero: $('hero'), txt: $('heroTxt'), word: $('word'),
     knock: $('knock'), noise: $('noise'), one: $('noiseOne'), pane: $('pane'),
-    letter: $('letter'), subj: $('letterSubj'),
+    letter: $('letter'), subj: $('letterSubj'), cue: $('cue'),
     lines: [], K: null, target: { dx: 0, dy: 0, s: 1 }
   };
 
@@ -282,6 +282,7 @@
     css(film.txt, 'transform', 'translate3d(0,' + (-t * 7).toFixed(2) + 'vh,0)');
     css(film.txt, 'filter', t > 0.004 ? 'blur(' + (t * 10).toFixed(2) + 'px)' : 'none');
     css(film.txt, 'visibility', t > 0.985 ? 'hidden' : 'visible');
+    css(film.cue, 'opacity', '' + r3(1 - inOut(seg(p, 0.01, 0.08))));
 
     if (film.K) knockUpdate(p);
     else { /* no scene: the gradient wordmark leaves with the copy */
