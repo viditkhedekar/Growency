@@ -695,8 +695,9 @@
     setVar(port.beats[1], '--o', 0.28 + 0.72 * seg(w, 1.3, 1.75));
 
     var q = inOut(seg(p, 0.66, 0.78));
-    css(port.grid, 'opacity', '' + r3(1 - q * 0.88));
+    css(port.grid, 'opacity', '' + r3(1 - q));
     css(port.grid, 'transform', 'scale(' + (1 - q * 0.06).toFixed(3) + ')');
+    css(port.grid, 'visibility', q > 0.99 ? 'hidden' : 'visible');
     css(port.proof, 'opacity', '' + r3(q));
     css(port.proof, 'transform', 'scale(' + (0.9 + 0.1 * q).toFixed(3) + ')');
     var n = out3(seg(p, 0.68, 0.88));
