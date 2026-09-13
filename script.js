@@ -210,13 +210,16 @@
     var ctx = measure();
     ctx.font = weight + ' ' + F + 'px ' + fam;
 
+    /* the baseline marker sits on the last row, and phones stack the letters
+       in rows, so each glyph's baseline is that same distance below its own top */
+    var lastTop = spans[spans.length - 1].getBoundingClientRect().top;
     var glyphs = spans.map(function (sp) {
       var r = sp.getBoundingClientRect();
-      return { ch: sp.textContent, x: r.left - stage.left };
+      return { ch: sp.textContent, x: r.left - stage.left, y: bl + r.top - lastTop };
     });
     var fontAttrs = ' font-family="' + fam + '" font-weight="' + weight + '" font-size="' + F + '"';
     var letters = glyphs.map(function (g) {
-      return '<text x="' + g.x.toFixed(1) + '" y="' + bl.toFixed(1) + '">' + g.ch + '</text>';
+      return '<text x="' + g.x.toFixed(1) + '" y="' + g.y.toFixed(1) + '">' + g.ch + '</text>';
     }).join('');
 
     film.knock.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
@@ -237,7 +240,7 @@
     var left = m.actualBoundingBoxLeft, right = m.actualBoundingBoxRight;
     var asc = m.actualBoundingBoxAscent, desc = m.actualBoundingBoxDescent;
     var cx = glyphs[oi].x + (right - left) / 2;
-    var cy = bl - (asc - desc) / 2;
+    var cy = glyphs[oi].y - (asc - desc) / 2;
     var r = Math.max((right + left) / 2, (asc + desc) / 2);
 
     film.K = {
@@ -294,7 +297,15 @@
     if (!box.width) return;
     var F = parseFloat(getComputedStyle(film.word).fontSize) || 100;
     st.style.fontSize = Math.max(12, F * 0.165).toFixed(1) + 'px';
-    film.stampHome = { x: box.left + box.width / 2 - hero.left, y: box.top + box.height * 0.54 - hero.top };
+    var first = spans[0].getBoundingClientRect();
+    if (box.top - first.top > 1) {
+      /* stacked on phones: pressed across the middle of the stack instead */
+      var right = 0;
+      spans.forEach(function (sp) { right = Math.max(right, sp.getBoundingClientRect().right); });
+      film.stampHome = { x: (first.left + right) / 2 - hero.left, y: (first.top + box.bottom) / 2 - hero.top };
+    } else {
+      film.stampHome = { x: box.left + box.width / 2 - hero.left, y: box.top + box.height * 0.54 - hero.top };
+    }
     stampAt(0, 1);
   }
   function stampAt(dx, o) {
