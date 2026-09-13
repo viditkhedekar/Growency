@@ -1249,11 +1249,13 @@
     if (leadsStale > 0) { leadsStale--; drawLeads(); }
     pointerTick();
     if (fx) {
+      /* the mosaics are a text rebuild per frame, so phones redraw them less often */
+      var every = mobile ? 120 : 55;
       for (var j = 0; j < asciis.length; j++) {
         var Q = asciis[j];
-        if (Q.vis && Q.c && now - asciiAt > 55) renderAscii(Q, now / 1000);
+        if (Q.vis && Q.c && now - asciiAt > every) renderAscii(Q, now / 1000);
       }
-      if (now - asciiAt > 55) asciiAt = now;
+      if (now - asciiAt > every) asciiAt = now;
     }
     loaderTick(now);
     P.moved = false;
