@@ -17,6 +17,7 @@ python3 -m http.server 4341
 | `script.js` | `window.GROWENCY`, the scroll engine, and every scrubbed scene |
 | `scene.js` | The WebGL scene: lattice, corridor, particles, cursor trail, glass medallion |
 | `privacy.html` | The privacy policy, a draft for legal review |
+| `compare/*.html` | Six static comparison pages: Apollo, Clay, 11x, Artisan, Belkins and CIENCE, linked from the footer |
 | `archive/` | Two previous versions of the site, each kept whole |
 
 ## The page, chapter by chapter
@@ -71,7 +72,14 @@ you are.
   their geometry from that symbol: the lattice from its first path, the network
   from `.mark__net`, and the dots from its small circles. Keep that structure,
   or check all four after a swap. The same symbol is copied into
-  `privacy.html`, so update it there too.
+  `privacy.html` and every page in `compare/`, so update it there too.
+- **Comparison pages.** Each page in `compare/` is standalone static HTML with
+  no script. Competitor details and prices come from their public pricing pages
+  and third-party reporting, checked 13 September 2026, and each page names its
+  sources under the table. Prices move, so recheck them before launch and every
+  few months, and update the date in the note and the footer. 11x, Artisan and
+  Belkins do not publish prices, so those figures are labelled as third-party
+  estimates. Keep that labelling.
 - **Privacy policy.** `privacy.html` is a draft written under Hong Kong's
   Personal Data (Privacy) Ordinance, covering site visitors and the people
   contacted for clients. It needs a lawyer's review before launch. Nine
@@ -127,7 +135,13 @@ forces the reduced motion path.
   passes. The native cursor is only hidden while `.has-cursor` is set, and all
   of it is off under reduced motion, on coarse pointers, and on phones.
 - **Phones** get the same flight with fewer particles, no trail, half-resolution
-  bloom, and one desk panel at a time.
+  bloom, and one desk panel at a time. Under 600px the pinned chapters are
+  shorter, so the whole page is about a fifth less scrolling, and each pinned
+  layout is sized to the small viewport so nothing sits under the browser's
+  toolbars. The middle chapters draw the scene at half rate (the portal and the
+  medallion keep every frame), the mosaics redraw less often, and touch screens
+  get a solid fill instead of glass blur, which would be recomputed over the
+  scene every frame.
 - **The loader** counts to 100 while the scene compiles, then the particles snap
   into the lattice. Once per session, skippable with a click, key, scroll or
   touch, and never under reduced motion.
