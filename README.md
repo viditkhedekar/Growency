@@ -135,7 +135,11 @@ forces the reduced motion path.
   passes. The native cursor is only hidden while `.has-cursor` is set, and all
   of it is off under reduced motion, on coarse pointers, and on phones.
 - **Phones** get the same flight with fewer particles, no trail, half-resolution
-  bloom, and one desk panel at a time. Under 600px the pinned chapters are
+  bloom, and one desk panel at a time. Under 600px the wordmark stacks two
+  letters to a row (GR, OW, EN, CY), sized to the height left after the
+  headline and buttons, with the stamp pressed across the middle of the stack;
+  the cut-out letters and the portal read each glyph's own row, so the flight
+  still opens from the O. The pinned chapters are also
   shorter, so the whole page is about a fifth less scrolling, and each pinned
   layout is sized to the small viewport so nothing sits under the browser's
   toolbars. The middle chapters draw the scene at half rate (the portal and the
