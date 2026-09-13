@@ -815,6 +815,15 @@ html:not(.js) .slot::after{
   .dot{position:relative}
   .dot::after{content:"";position:absolute;inset:-9px}   /* a thumb-sized target */
 
+  /* the wordmark stacks two letters to a row, as big as the height left over
+     after the headline, sub-line and buttons allows. Capitals have no
+     descenders, so the rows can sit tighter than the single line does. */
+  .hero{padding-top:calc(var(--nav-h) + 24px)}
+  .word{font-size:min(calc((100vw - 2 * var(--gutter)) / 1.62),calc((100svh - 25rem) / 2.96));line-height:.74}
+  .word span:nth-child(2n):not(:nth-last-child(2))::after{content:"\A";white-space:pre}
+  .hero__cta{flex-wrap:nowrap;gap:.6rem}
+  .hero__cta .btn{flex:1 1 0;min-width:0;padding:0 .8rem}
+
   .fx .film{height:400vh}
   .strat{--len:250vh}
   .port{--len:240vh}
