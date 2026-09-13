@@ -692,7 +692,15 @@ function resize() {
 }
 window.addEventListener('resize', resize, { passive: true });
 
+/* On phones the middle chapters only hold a quiet backdrop, so they draw
+   every other frame. The portal and the medallion keep every frame. */
+let halve = false;
 function tick(now) {
+  const quiet = G.scene.name !== 'film' && G.scene.name !== 'final';
+  if (mobile && ready && !G.loader.active && quiet && (halve = !halve)) {
+    requestAnimationFrame(tick);
+    return;
+  }
   const dt = Math.min(0.05, Math.max(0.001, (now - last) / 1000));
   last = now;
   if (!reduced) time += dt;
