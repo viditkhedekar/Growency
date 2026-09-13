@@ -707,6 +707,64 @@ html:not(.js) .slot::after{
   .sheet__grid{grid-template-columns:1fr}
 }
 
+/* =========================================================
+   Touch screens: no glass blur over the scene. The canvas
+   repaints every frame, so the blur behind it would be
+   recomputed every frame too; a denser fill reads the same.
+   ========================================================= */
+@media (hover:none) and (pointer:coarse){
+  .nav,.letter,.desk,.sheet{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .nav{background:rgba(10,10,22,.8)}
+  .nav.is-stuck{background:rgba(10,10,22,.9)}
+  .letter,.desk,.sheet{background:rgba(13,13,26,.9)}
+}
+
+/* =========================================================
+   Phones. The same page for a skim: shorter pins, labels
+   that stay on screen, and every pinned layout fitted to
+   the small viewport so nothing sits under the toolbars.
+   ========================================================= */
+@media (max-width:600px){
+  .hero__cta .btn{flex:1 1 auto}
+  .hud{bottom:max(14px,env(safe-area-inset-bottom))}
+  .deck__dots{gap:1.1rem;margin-top:1rem}
+  .dot{position:relative}
+  .dot::after{content:"";position:absolute;inset:-9px}   /* a thumb-sized target */
+
+  .fx .film{height:400vh}
+  .strat{--len:250vh}
+  .port{--len:240vh}
+  .trade{--len:390vh}
+  .wont{--len:250vh}
+
+  /* the stage is the large viewport; the content is kept to the small one */
+  .fx .hero{bottom:auto;height:100svh}
+  .fx .cue{display:none}
+  .fx .act__stage,.fx .wont .act__stage{padding-bottom:calc(100lvh - 100svh)}
+
+  .fx .strat__grid{gap:2.6rem}
+  .fx .fill{font-size:1.15rem}
+  .fx .explode{aspect-ratio:1.7}
+
+  .fx .port__art{width:min(56vw,38svh)}
+  .fx .port__angles li{white-space:normal;width:max-content;max-width:6.6rem;font-size:.62rem;line-height:1.25}
+  .fx .port__angles li.is-left{text-align:right}
+  /* the right-hand dots crowd each other, so one label hangs below its dot
+     and the bottom dot's label moves to the empty side */
+  .fx .port__angles li[data-node="3"]{transform:translate(-25%,8px);text-align:center}
+  .fx .port__angles li[data-node="2"]{transform:translate(calc(-100% - 14px),-50%);text-align:right}
+  .fx .port__angles li[data-node="1"]{transform:translate(-50%,calc(-100% - 8px));text-align:center}
+  .fx .port__angles b{display:block;margin:0}
+
+  .fx .trade__code{margin:.6rem 0;font-size:2.3rem}
+  .fx .step__t{font-size:1.15rem}
+  .fx .step__p{font-size:.88rem;line-height:1.5}
+  .fx .panel{padding:.85rem .95rem .95rem}
+
+  .fx .wont__band{display:none}
+  .fx .card{width:min(340px,84vw);height:188px}
+}
+
 @media (prefers-reduced-transparency:reduce){
   .nav,.letter,.desk,.sheet{background:var(--surface);backdrop-filter:none;-webkit-backdrop-filter:none}
 }
