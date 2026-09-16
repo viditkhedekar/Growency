@@ -11,8 +11,9 @@
    on a frame where the page has not moved.
 
    With this file missing the page still reads top to bottom:
-   the pinned scenes and hidden states only exist under `.fx`,
-   which is added here and only when motion is welcome.
+   the pinned strategy and the dotted wordmark only exist
+   under `.fx`, which is added here and only when motion is
+   welcome.
    ========================================================= */
 (function () {
   'use strict';
@@ -93,11 +94,12 @@
     fx: fx, reduced: reduced, fine: fine, mobile: false,
     nogl: params.has('nogl'),
     vw: window.innerWidth, vh: window.innerHeight,
-    film: { p: 0 },
-    portal: { x: 0, y: 0, r: 0, open: 0, on: false },
+    /* the wordmark as dots: sample positions relative to the hero, where the
+       hero sits on screen, and how far it has scrolled away */
+    hero: { pts: null, n: 0, ver: 0, left: 0, top: 0, out: 0, formAt: 0 },
     scene: { name: 'film', p: 0 },
     anchor: null,
-    node: 0,
+    node: -1,
     pointer: { x: 0, y: 0, nx: 0, ny: 0, on: false, moved: false },
     loader: { active: false, phase: 'count', formAt: 0, formed: false, skip: false, done: false, doneAt: 0 },
     sceneOk: false, sceneFail: false,
@@ -105,7 +107,7 @@
       if (G.sceneOk || G.sceneFail) return;
       G.sceneOk = true;
       root.classList.add('gl-on');
-      whenFonts(buildKnock);
+      whenFonts(buildDots);
     },
     sceneFailed: function (e) {
       if (G.sceneFail) return;
@@ -143,7 +145,7 @@
     var a = {
       el: el, mode: opts.mode || 'pin', update: opts.update || null,
       scene: opts.scene || null, anchor: opts.anchor || null, lenOf: opts.lenOf || null,
-      stage: el.querySelector('.act__stage, .film__stage'),
+      stage: el.querySelector('.act__stage'),
       p: -1, top: 0, h: 0, sh: 0, len: 0, rect: null
     };
     acts.push(a);
@@ -156,268 +158,97 @@
   }
 
   /* =======================================================
-     CH 01 and 02: the film
+     CH 01: the wordmark as a field of dots. The letters are
+     drawn offscreen at .word's own layout and sampled on a
+     jittered grid, so CSS still owns the type; scene.js draws
+     a dot at every sample and gathers them in.
      ======================================================= */
-  var film = {
-    sec: $('top'), stage: $('filmStage'), hero: $('hero'), txt: $('heroTxt'), word: $('word'),
-    knock: $('knock'), noise: $('noise'), one: $('noiseOne'), pane: $('pane'),
-    letter: $('letter'), subj: $('letterSubj'), cue: $('cue'), stamp: $('stamp'), stampHome: null,
-    lines: [], K: null, target: { dx: 0, dy: 0, s: 1 }
-  };
+  var hero = { sec: $('top'), el: $('hero'), word: $('word'), stamp: $('stamp') };
 
-  var NOISE = [
-    'Quick question', 'Following up', 'Circling back', 'Touching base', 'Quick intro',
-    'Partnership opportunity', 'Can we connect?', 'Re: our last conversation',
-    '15 minutes this week?', 'Scaling your outbound', 'Idea for {{company}}',
-    '{{first_name}}, quick question', 'Checking in', 'Worth a chat?',
-    'Helping teams like yours', 'Last try', 'Bumping this up', 'Did you see my note?',
-    'Congrats on the growth!', 'Would love your thoughts', 'A free audit for your team',
-    'Hope this finds you well', 'Just following up', 'Thoughts?', 'Exploring synergies',
-    'Grow your pipeline this quarter', 'Any interest?', 'Re: Re: quick question'
-  ];
-
-  function buildNoise() {
-    if (!film.noise || !fx) return;
-    var n = mobile ? 32 : 70, rand = rng(20260911), frag = document.createDocumentFragment();
-    for (var i = 0; i < n; i++) {
-      var el = document.createElement('p');
-      el.textContent = NOISE[i % NOISE.length];
-      var x = (rand() - 0.5) * (mobile ? 1.15 : 1.55);
-      var y = (rand() - 0.5) * 1.25;
-      if (Math.abs(x) < 0.13 && Math.abs(y) < 0.1) y += 0.22;   /* keep the middle clear */
-      film.lines.push({ el: el, x: x, y: y, z0: -1500 + rand() * 1450, seed: rand() });
-      frag.appendChild(el);
-    }
-    film.noise.insertBefore(frag, film.one);
-  }
-
-  /* The wordmark as cut-out letters. The mask mirrors .word's own layout,
-     so CSS still owns the type and this only borrows its measurements. */
-  function buildKnock() {
-    if (!fx || !G.sceneOk || !film.knock || !film.word || !film.stage) return;
-    var stage = film.stage.getBoundingClientRect();
-    var W = film.stage.clientWidth, H = film.stage.clientHeight;
-    if (!W || !H) return;
-    var cs = getComputedStyle(film.word);
+  function buildDots() {
+    if (!fx || !G.sceneOk || !hero.el || !hero.word) return;
+    var W = hero.el.clientWidth, H = hero.el.clientHeight;
+    var spans = all('span', hero.word), blEl = hero.word.querySelector('.word__bl');
+    if (!W || !H || !spans.length || !blEl) return;
+    var box = hero.el.getBoundingClientRect();
+    var cs = getComputedStyle(hero.word);
     var F = parseFloat(cs.fontSize);
-    var fam = (cs.fontFamily || 'sans-serif').replace(/"/g, "'");
-    var weight = cs.fontWeight || '800';
-    var blEl = film.word.querySelector('.word__bl');
-    var bl = blEl ? blEl.getBoundingClientRect().top - stage.top : H * 0.5;
-    var spans = all('span', film.word);
-    if (!spans.length) return;
 
-    var ctx = measure();
-    ctx.font = weight + ' ' + F + 'px ' + fam;
+    var c = document.createElement('canvas');
+    c.width = W; c.height = H;
+    var x = c.getContext('2d', { willReadFrequently: true });
+    x.font = (cs.fontWeight || '800') + ' ' + F + 'px ' + cs.fontFamily;
+    x.fillStyle = '#fff'; x.textBaseline = 'alphabetic';
 
     /* the baseline marker sits on the last row, and the letters stack in rows
        (GROW over ENCY, or two to a row on phones), so each glyph's baseline is
        that same distance below its own top */
+    var bl = blEl.getBoundingClientRect().top - box.top;
     var lastTop = spans[spans.length - 1].getBoundingClientRect().top;
-    var glyphs = spans.map(function (sp) {
+    var minX = Infinity, maxX = -Infinity;
+    spans.forEach(function (sp) {
       var r = sp.getBoundingClientRect();
-      return { ch: sp.textContent, x: r.left - stage.left, y: bl + r.top - lastTop };
+      x.fillText(sp.textContent, r.left - box.left, bl + r.top - lastTop);
+      minX = Math.min(minX, r.left - box.left);
+      maxX = Math.max(maxX, r.right - box.left);
     });
-    var fontAttrs = ' font-family="' + fam + '" font-weight="' + weight + '" font-size="' + F + '"';
-    var letters = glyphs.map(function (g) {
-      return '<text x="' + g.x.toFixed(1) + '" y="' + g.y.toFixed(1) + '">' + g.ch + '</text>';
-    }).join('');
 
-    film.knock.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-    film.knock.setAttribute('preserveAspectRatio', 'none');
-    film.knock.innerHTML =
-      '<defs><mask id="knockMask" maskUnits="userSpaceOnUse" x="0" y="0" width="' + W + '" height="' + H + '">' +
-      '<rect width="' + W + '" height="' + H + '" fill="#fff"/>' +
-      '<g fill="#000"' + fontAttrs + '>' + letters + '</g>' +
-      '<circle id="knockHole" cx="0" cy="0" r="0" fill="#000"/>' +
-      '</mask></defs>' +
-      '<rect width="' + W + '" height="' + H + '" fill="#06060C" mask="url(#knockMask)"/>' +
-      '<g id="knockLine" fill="none" stroke="rgba(120,185,255,.24)" stroke-width="1"' + fontAttrs + '>' + letters + '</g>';
-
-    var maskText = all('mask text', film.knock), lineText = all('#knockLine text', film.knock);
-    var oi = 0;
-    glyphs.forEach(function (g, i) { if (g.ch === 'O') oi = i; });
-    var m = ctx.measureText('O');
-    var left = m.actualBoundingBoxLeft, right = m.actualBoundingBoxRight;
-    var asc = m.actualBoundingBoxAscent, desc = m.actualBoundingBoxDescent;
-    var cx = glyphs[oi].x + (right - left) / 2;
-    var cy = glyphs[oi].y - (asc - desc) / 2;
-    var r = Math.max((right + left) / 2, (asc + desc) / 2);
-
-    film.K = {
-      letters: maskText.map(function (el, i) { return { m: el, s: lineText[i] }; }),
-      oi: oi,
-      o: { cx: cx, cy: cy, r: r, rin: counterRadius(ctx.font, F, m) },
-      hole: film.knock.querySelector('#knockHole'),
-      line: film.knock.querySelector('#knockLine')
-    };
-    G.portal.x = cx; G.portal.y = cy; G.portal.r = r; G.portal.on = true;
-    if (filmAct) filmAct.p = -1;
+    var data = x.getImageData(0, 0, W, H).data, ink = 0, gx, gy;
+    for (gy = 0; gy < H; gy += 2) for (gx = 0; gx < W; gx += 2) if (data[(gy * W + gx) * 4 + 3] > 128) ink += 4;
+    if (!ink) return;
+    /* spacing chosen for a steady dot count whatever the type size */
+    var gap = Math.max(2.4, Math.sqrt(ink / (mobile ? 4200 : 10500)));
+    var rand = rng(20260916), out = [];
+    for (gy = gap / 2; gy < H; gy += gap) {
+      for (gx = gap / 2; gx < W; gx += gap) {
+        var px = gx + (rand() - 0.5) * gap * 0.7, py = gy + (rand() - 0.5) * gap * 0.7;
+        var ix = clamp(px | 0, 0, W - 1), iy = clamp(py | 0, 0, H - 1);
+        if (data[(iy * W + ix) * 4 + 3] > 128) out.push(px, py, (px - minX) / Math.max(1, maxX - minX));
+      }
+    }
+    G.hero.pts = new Float32Array(out);
+    G.hero.n = out.length / 3;
+    G.hero.gap = gap;
+    G.hero.ver++;
+    root.classList.add('dots-on');
     dirty = true;
-  }
-
-  /* The O's counter, measured rather than guessed: draw the glyph and walk
-     out from its centre until the ink starts. */
-  function counterRadius(font, F, m) {
-    var w = Math.ceil(F * 1.4), h = Math.ceil(F * 1.4);
-    var c = document.createElement('canvas');
-    c.width = w; c.height = h;
-    var x = c.getContext('2d');
-    x.font = font; x.fillStyle = '#fff'; x.textBaseline = 'alphabetic';
-    var ox = w / 2 - (m.actualBoundingBoxRight - m.actualBoundingBoxLeft) / 2 + m.actualBoundingBoxLeft;
-    var base = h / 2 + (m.actualBoundingBoxAscent - m.actualBoundingBoxDescent) / 2;
-    x.fillText('O', ox, base);
-    var row = x.getImageData(0, Math.round(h / 2), w, 1).data;
-    for (var i = Math.round(w / 2); i < w; i++) if (row[i * 4 + 3] > 128) return i - w / 2;
-    return F * 0.22;
-  }
-
-  function computeTarget() {
-    if (!film.pane || !film.subj || !film.one || !film.letter) return;
-    var span = film.subj.firstElementChild;
-    if (!span || !film.stage) return;
-    var W = film.stage.clientWidth, H = film.stage.clientHeight;
-    var paneLeft = film.pane.offsetLeft - film.pane.offsetWidth / 2;
-    var paneTop = film.pane.offsetTop - film.pane.offsetHeight / 2;
-    var x = paneLeft + film.letter.offsetLeft + span.offsetLeft + span.offsetWidth / 2;
-    var y = paneTop + film.letter.offsetTop + film.subj.offsetTop + span.offsetHeight / 2;
-    film.target.dx = x - W / 2;
-    film.target.dy = y - H / 2;
-    film.target.s = span.offsetWidth / Math.max(1, film.one.offsetWidth);
   }
 
   /* The stamp is pressed across the Y of the wordmark, so it is measured
      from the Y's own box rather than positioned by hand. */
   function placeStamp() {
-    var st = film.stamp;
-    if (!st || !film.word || !film.hero) return;
-    var spans = all('span', film.word);
+    var st = hero.stamp;
+    if (!st || !hero.word || !hero.el) return;
+    var spans = all('span', hero.word);
     var y = spans[spans.length - 1];
     if (!y) return;
-    var hero = film.hero.getBoundingClientRect(), box = y.getBoundingClientRect();
-    if (!box.width) return;
-    var F = parseFloat(getComputedStyle(film.word).fontSize) || 100;
+    var box = hero.el.getBoundingClientRect(), yb = y.getBoundingClientRect();
+    if (!yb.width) return;
+    var F = parseFloat(getComputedStyle(hero.word).fontSize) || 100;
     st.style.fontSize = Math.max(12, F * 0.165).toFixed(1) + 'px';
-    var first = spans[0].getBoundingClientRect();
-    if (box.top - first.top > 1) {
+    var first = spans[0].getBoundingClientRect(), hx, hy;
+    if (yb.top - first.top > 1) {
       /* stacked (two rows on wide screens, four on phones): pressed across
          the middle of the stack instead */
       var right = 0;
       spans.forEach(function (sp) { right = Math.max(right, sp.getBoundingClientRect().right); });
-      film.stampHome = { x: (first.left + right) / 2 - hero.left, y: (first.top + box.bottom) / 2 - hero.top };
+      hx = (first.left + right) / 2 - box.left; hy = (first.top + yb.bottom) / 2 - box.top;
     } else {
-      film.stampHome = { x: box.left + box.width / 2 - hero.left, y: box.top + box.height * 0.54 - hero.top };
+      hx = yb.left + yb.width / 2 - box.left; hy = yb.top + yb.height * 0.54 - box.top;
     }
-    stampAt(0, 1);
-  }
-  function stampAt(dx, o) {
-    var st = film.stamp, home = film.stampHome;
-    if (!st || !home) return;
-    css(st, 'left', home.x.toFixed(1) + 'px');
-    css(st, 'top', home.y.toFixed(1) + 'px');
-    css(st, 'transform', 'translate(-50%,-50%) translate3d(' + dx.toFixed(1) + 'px,0,0) rotate(-12deg)');
-    css(st, 'opacity', '' + r3(o));
-  }
-
-  function filmUpdate(p) {
-    G.film.p = p;
-
-    var t = inOut(seg(p, 0.04, 0.18));
-    css(film.txt, 'opacity', '' + r3(1 - t));
-    css(film.txt, 'transform', 'translate3d(0,' + (-t * 7).toFixed(2) + 'vh,0)');
-    css(film.txt, 'filter', t > 0.004 ? 'blur(' + (t * 10).toFixed(2) + 'px)' : 'none');
-    css(film.txt, 'visibility', t > 0.985 ? 'hidden' : 'visible');
-    css(film.cue, 'opacity', '' + r3(1 - inOut(seg(p, 0.01, 0.08))));
-
-    if (film.K) knockUpdate(p);
-    else { /* no scene: the gradient wordmark leaves with the copy */
-      var w = inOut(seg(p, 0.05, 0.24));
-      css(film.word, 'opacity', '' + r3(1 - w));
-      css(film.word, 'transform', 'scale(' + (1 + w * 0.35).toFixed(3) + ')');
-      stampAt(0, 1 - w);
-    }
-
-    noiseUpdate(p);
-
-    var into = inOut(seg(p, 0.72, 0.84));
-    css(film.pane, 'visibility', into > 0.002 ? 'visible' : 'hidden');
-    css(film.pane, 'opacity', '' + r3(into));
-    css(film.pane, 'transform', 'translate(-50%,-50%) translate3d(0,' + ((1 - into) * 6).toFixed(2) + 'vh,0) scale(' + (0.94 + 0.06 * into).toFixed(3) + ')');
-
-    if (deck) { if (p >= 0.86) deck.play(); else if (p < 0.8) deck.stop(); }
-  }
-
-  function knockUpdate(p) {
-    var K = film.K, o = K.o;
-    var m = inOut(seg(p, 0.06, 0.28));
-    var S = Math.min(vw, vh) * 0.3 / Math.max(1, o.r);
-    var s = lerp(1, S, m);
-    var cx = lerp(o.cx, vw / 2, m), cy = lerp(o.cy, vh / 2, m);
-    var tO = 'translate(' + cx.toFixed(1) + ' ' + cy.toFixed(1) + ') scale(' + s.toFixed(4) + ') translate(' + (-o.cx).toFixed(1) + ' ' + (-o.cy).toFixed(1) + ')';
-
-    for (var i = 0; i < K.letters.length; i++) {
-      var L = K.letters[i];
-      if (i === K.oi) { attr(L.m, 'transform', tO); attr(L.s, 'transform', tO); continue; }
-      var k = i - K.oi, away = Math.abs(k);
-      var d = inOut(seg(p, 0.06 + away * 0.012, 0.23 + away * 0.012));
-      var dx = (k < 0 ? -1 : 1) * (0.2 + away * 0.075) * vw * d;
-      var tr = 'translate(' + dx.toFixed(1) + ' ' + (-d * vh * 0.05).toFixed(1) + ')';
-      attr(L.m, 'transform', tr); attr(L.m, 'fill-opacity', r3(1 - d));
-      attr(L.s, 'transform', tr); attr(L.s, 'stroke-opacity', r3(1 - d));
-      if (i === K.letters.length - 1) stampAt(dx, 1 - d);
-    }
-
-    var hole = p < 0.26
-      ? out3(seg(p, 0.15, 0.24)) * o.rin * s
-      : lerp(o.r * s, Math.hypot(vw, vh) * 0.62, inOut(seg(p, 0.26, 0.42)));
-    attr(K.hole, 'cx', cx.toFixed(1)); attr(K.hole, 'cy', cy.toFixed(1)); attr(K.hole, 'r', hole.toFixed(1));
-    attr(K.line, 'opacity', r3(1 - seg(p, 0.24, 0.31)));
-    css(film.knock, 'visibility', p > 0.44 ? 'hidden' : 'visible');
-
-    G.portal.x = cx; G.portal.y = cy; G.portal.r = o.r * s;
-    G.portal.open = seg(p, 0.15, 0.26);
-  }
-
-  function noiseUpdate(p) {
-    if (!film.noise) return;
-    var live = p > 0.4 && p < 0.92;
-    css(film.noise, 'visibility', live ? 'visible' : 'hidden');
-    if (!live) return;
-
-    var arrive = seg(p, 0.42, 0.5), fly = seg(p, 0.42, 0.82);
-    for (var i = 0; i < film.lines.length; i++) {
-      var L = film.lines[i];
-      var z = L.z0 + fly * 1500;
-      var depth = clamp(1 + z / 1600, 0.12, 1);
-      var edge = z > 220 ? clamp(1 - (z - 220) / 260, 0, 1) : 1;
-      var f = seg(p, 0.62 + L.seed * 0.08, 0.71 + L.seed * 0.08); f = f * f;
-      var op = arrive * edge * (0.16 + 0.5 * depth) * (1 - f);
-      if (op < 0.005) { css(L.el, 'opacity', '0'); continue; }
-      css(L.el, 'opacity', '' + r3(op));
-      css(L.el, 'transform', 'translate3d(' + (L.x * vw).toFixed(1) + 'px,' + (L.y * vh + f * vh * 0.9).toFixed(1) + 'px,' + z.toFixed(1) + 'px) translate(-50%,-50%)');
-    }
-
-    var shows = seg(p, 0.5, 0.58), lit = seg(p, 0.6, 0.68);
-    var travel = inOut(seg(p, 0.74, 0.84)), handover = seg(p, 0.82, 0.86);
-    var T = film.target;
-    var scale = lerp(1 + lit * 0.28, T.s, travel);
-    setVar(film.one, '--lit', lit);
-    css(film.one, 'opacity', '' + r3(shows * (1 - handover)));
-    css(film.one, 'transform', 'translate3d(' + (T.dx * travel).toFixed(1) + 'px,' + (T.dy * travel).toFixed(1) + 'px,0) translate(-50%,-50%) scale(' + scale.toFixed(3) + ')');
-    setVar(film.subj, '--so', handover);
+    css(st, 'left', hx.toFixed(1) + 'px');
+    css(st, 'top', hy.toFixed(1) + 'px');
   }
 
   /* =======================================================
-     The letters, and the deck of five they sit in
+     CH 02: the emails. Each one can be copied as plain text.
      ======================================================= */
   function letterCopy(el) {
     var btn = el.querySelector('.letter__copy');
     if (!btn) return;
     var subj = el.querySelector('.letter__subj');
     var subject = subj ? subj.textContent.trim() : '';
-    var body = all('.ln', el).map(function (ln) {
-      return ln.dataset.specific || ln.textContent.trim();
-    }).join('\n\n');
+    var body = all('.ln', el).map(function (ln) { return ln.textContent.trim(); }).join('\n\n');
     var out = 'Subject: ' + subject + '\n\n' + body;
 
     btn.hidden = false;
@@ -436,171 +267,11 @@
       try { document.execCommand('copy'); done(); } catch (e) {}
       ta.remove();
     }
-    btn.addEventListener('click', function (e) {
-      /* a drag that happens to end on the button is not a click */
-      if (deck && deck.dragged()) { e.preventDefault(); return; }
+    btn.addEventListener('click', function () {
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(out).then(done, fallback);
       else fallback();
     });
   }
-
-  function makeLetter(el) {
-    var lines = all('.ln', el);
-    var bar = el.querySelector('.letter__bar i');
-    if (!fx || !lines.length) return { play: function () {}, stop: function () {} };
-
-    var parts = lines.map(function (ln) {
-      var spec = ln.dataset.specific || ln.textContent.trim();
-      var gen = ln.dataset.generic || spec;
-      ln.textContent = '';
-      /* .gen is the block that collapses; .gen__t is the inline text inside
-         it, which carries the strike so it follows the words across wraps */
-      var g = document.createElement('span'); g.className = 'gen';
-      var gt = document.createElement('span'); gt.className = 'gen__t'; g.appendChild(gt);
-      var sp = document.createElement('span'); sp.className = 'spec'; sp.textContent = spec;
-      ln.appendChild(g); ln.appendChild(sp);
-      return { el: ln, gen: gt, generic: gen, rewrites: !ln.dataset.hold };
-    });
-
-    var TYPE = 17, token = 0, timers = [], playing = false;
-    function at(ms, fn) { var t = token; timers.push(setTimeout(function () { if (t === token) fn(); }, ms)); }
-    function type(node, host, str, from) {
-      at(from, function () { host.classList.add('is-typing'); });
-      for (var i = 1; i <= str.length; i++) {
-        (function (n) {
-          at(from + n * TYPE, function () {
-            node.textContent = str.slice(0, n);
-            if (n === str.length) host.classList.remove('is-typing');
-          });
-        })(i);
-      }
-      return from + str.length * TYPE;
-    }
-    function reset() {
-      parts.forEach(function (p) { p.el.classList.remove('is-cut', 'is-new', 'is-typing'); p.gen.textContent = ''; });
-    }
-    /* what a letter shows before it has been played, and after it stops */
-    function finished() {
-      parts.forEach(function (p) {
-        p.el.classList.remove('is-cut', 'is-typing');
-        p.gen.textContent = '';
-        p.el.classList.add('is-new');
-      });
-      if (bar) { bar.style.transition = 'none'; bar.style.width = '0%'; }
-    }
-    function pass() {
-      reset();
-      var t = 240;
-      parts.forEach(function (p) { t = type(p.gen, p.el, p.generic, t) + 120; });
-      t += 900;
-      parts.filter(function (p) { return p.rewrites; }).forEach(function (p) {
-        (function (start) {
-          at(start, function () { p.el.classList.add('is-cut'); });
-          at(start + 420, function () { p.el.classList.add('is-new'); });
-        })(t);
-        t += 700;
-      });
-      t += 4200;   /* the finished letter is the point, so it holds longest */
-      at(t, function () { el.classList.add('is-fading'); });
-      t += 420;
-      at(t, function () { el.classList.remove('is-fading'); timers = []; pass(); });
-      if (bar) {
-        bar.style.transition = 'none';
-        bar.style.width = '0%';
-        at(40, function () {
-          bar.style.transition = 'width ' + (t - 40) + 'ms linear';
-          bar.style.width = '100%';
-        });
-      }
-    }
-    finished();
-    return {
-      play: function () { if (playing || document.hidden) return; playing = true; token++; pass(); },
-      stop: function () {
-        if (!playing) return;
-        playing = false; token++;
-        timers.forEach(clearTimeout); timers = [];
-        el.classList.remove('is-fading');
-        finished();
-      }
-    };
-  }
-
-  /* Drag it, use the dots, or use the arrow keys. Only the email on screen
-     plays; the rest sit in their finished state. */
-  var deck = (function () {
-    var box = $('deck'), track = $('deckTrack');
-    if (!box || !track) return null;
-    var cards = all('.letter', track), dots = all('#deckDots .dot');
-    if (!cards.length) return null;
-
-    var engines = cards.map(makeLetter);
-    var index = 0, wanted = false, w = 0;
-    var down = false, moved = false, startX = 0, dx = 0, movedAt = -9999;
-
-    function setTrack(px) { css(track, 'transform', 'translate3d(' + px.toFixed(1) + 'px,0,0)'); }
-    function show(i) {
-      i = clamp(i, 0, cards.length - 1);
-      if (i !== index) {
-        engines[index].stop();
-        index = i;
-        dots.forEach(function (d, k) {
-          if (k === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current');
-        });
-        if (wanted) engines[index].play();
-      }
-      setTrack(-index * w);
-    }
-
-    box.addEventListener('pointerdown', function (e) {
-      if (e.button) return;
-      down = true; moved = false; startX = e.clientX; dx = 0;
-      box.classList.add('is-drag');
-      try { box.setPointerCapture(e.pointerId); } catch (err) {}
-    });
-    box.addEventListener('pointermove', function (e) {
-      if (!down) return;
-      dx = e.clientX - startX;
-      if (Math.abs(dx) > 4) moved = true;
-      /* the ends pull back, so it is obvious there is nothing past them */
-      var slack = ((index === 0 && dx > 0) || (index === cards.length - 1 && dx < 0)) ? 0.35 : 1;
-      setTrack(-index * w + dx * slack);
-    });
-    function release() {
-      if (!down) return;
-      down = false;
-      box.classList.remove('is-drag');
-      if (moved) movedAt = performance.now();
-      var step = Math.abs(dx) > Math.max(52, w * 0.16) ? (dx < 0 ? 1 : -1) : 0;
-      dx = 0;
-      show(index + step);
-    }
-    box.addEventListener('pointerup', release);
-    box.addEventListener('pointercancel', release);
-    box.addEventListener('lostpointercapture', release);
-    box.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowRight') { show(index + 1); e.preventDefault(); }
-      else if (e.key === 'ArrowLeft') { show(index - 1); e.preventDefault(); }
-    });
-    dots.forEach(function (d, i) { d.addEventListener('click', function () { show(i); }); });
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) engines[index].stop(); else if (wanted) engines[index].play();
-    });
-
-    return {
-      play: function () { wanted = true; engines[index].play(); },
-      stop: function () { wanted = false; engines.forEach(function (e) { e.stop(); }); },
-      dragged: function () { return performance.now() - movedAt < 260; },
-      layout: function () {
-        w = box.clientWidth;
-        box.style.height = '';
-        var h = 0;
-        cards.forEach(function (c) { h = Math.max(h, c.offsetHeight); });
-        if (h) box.style.height = (h + 2) + 'px';
-        setTrack(-index * w);
-      }
-    };
-  })();
 
   /* =======================================================
      CH 03: the strategy, and the mark taken apart
@@ -726,11 +397,10 @@
   }
 
   /* =======================================================
-     CH 04: the portfolio. Six dots, two weeks.
+     CH 04: the portfolio, as it stands after week two
      ======================================================= */
   var port = {
-    el: $('portfolio'), svg: $('portSvg'), grid: $('portGrid'), proof: $('proof'),
-    counter: $('counter'), week: $('portWeek'), beats: all('#portfolio .port__beat'),
+    svg: $('portSvg'), list: $('portAngles'),
     angles: all('#portAngles li'), nodes: [], data: [], flows: []
   };
 
@@ -771,16 +441,14 @@
     var flowDots = all('.port__flows circle', port.svg);
     port.flows.forEach(function (f, i) { f.dots = flowDots.slice(i * 5, i * 5 + 5); });
 
-    if (fx) {
-      port.data.forEach(function (a) {
-        var n = MARK.nodes[a.node];
-        a.li.style.left = (n[0] / 1.2).toFixed(2) + '%';
-        a.li.style.top = (n[1] / 1.2).toFixed(2) + '%';
-        if (n[0] < 52) a.li.classList.add('is-left');
-      });
-    } else {
-      renderWeek(2, 1);
-    }
+    port.data.forEach(function (a) {
+      var n = MARK.nodes[a.node];
+      a.li.style.left = (n[0] / 1.2).toFixed(2) + '%';
+      a.li.style.top = (n[1] / 1.2).toFixed(2) + '%';
+      if (n[0] < 52) a.li.classList.add('is-left');
+    });
+    if (port.list) port.list.classList.add('is-placed');
+    renderWeek(2, 1);
   }
 
   function renderWeek(w, flow) {
@@ -804,93 +472,42 @@
         attr(dot, 'opacity', r3(t > 0 && t < 1 ? Math.sin(Math.PI * t) * 0.9 : 0));
       });
     });
-    text(port.week, 'Week ' + Math.min(2, Math.floor(w + 0.002)));
-  }
-
-  function portUpdate(p) {
-    var w = seg(p, 0.1, 0.62) * 2;
-    renderWeek(w, seg(p, 0.34, 0.62));
-    setVar(port.beats[0], '--o', 0.28 + 0.72 * (seg(w, 0.15, 0.6) * (1 - seg(w, 1.35, 1.7) * 0.6)));
-    setVar(port.beats[1], '--o', 0.28 + 0.72 * seg(w, 1.3, 1.75));
-
-    var q = inOut(seg(p, 0.66, 0.78));
-    css(port.grid, 'opacity', '' + r3(1 - q));
-    css(port.grid, 'transform', 'scale(' + (1 - q * 0.06).toFixed(3) + ')');
-    css(port.grid, 'visibility', q > 0.99 ? 'hidden' : 'visible');
-    css(port.proof, 'opacity', '' + r3(q));
-    css(port.proof, 'transform', 'scale(' + (0.9 + 0.1 * q).toFixed(3) + ')');
-    var n = out3(seg(p, 0.68, 0.88));
-    text(port.counter, Math.round(30 * n) + '-' + Math.round(40 * n));
   }
 
   /* =======================================================
-     CH 05: the trade, and the desk beside it
+     CH 05: the trade. Each step opens a card with the detail:
+     on hover or focus with a mouse, on tap on touch screens.
+     The globe beside it lights the matching node.
      ======================================================= */
-  var trade = {
-    el: $('how'), steps: all('#steps .step'), panels: all('#desk .panel'),
-    odo: $('odo'), orb: $('tradeOrb'), spark: $('spark'), sparkLen: 0, step: -1, t: []
-  };
-
-  function buildTrade() {
-    if (trade.spark && trade.spark.getTotalLength) {
-      trade.sparkLen = trade.spark.getTotalLength();
-      if (fx) {
-        trade.spark.style.strokeDasharray = trade.sparkLen;
-        trade.spark.style.strokeDashoffset = trade.sparkLen;
+  var steps = all('#steps .step');
+  function openStep(st) {
+    steps.forEach(function (o) {
+      var on = o === st;
+      if (o.classList.contains('is-open') === on) return;
+      o.classList.toggle('is-open', on);
+      var b = o.querySelector('.step__btn');
+      if (b) b.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+    G.node = st ? +st.dataset.i : -1;
+  }
+  function buildSteps() {
+    steps.forEach(function (st) {
+      var btn = st.querySelector('.step__btn');
+      if (fine) {
+        st.addEventListener('mouseenter', function () { openStep(st); });
+        st.addEventListener('mouseleave', function () { if (st.classList.contains('is-open')) openStep(null); });
+        st.addEventListener('focusin', function () { openStep(st); });
+        st.addEventListener('focusout', function (e) { if (!st.contains(e.relatedTarget)) openStep(null); });
       }
-    }
-    if (!fx) return;
-    trade.panels.forEach(function (pn, i) { renderPanel(i, 0); });
-  }
-
-  function renderPanel(i, t) {
-    var pn = trade.panels[i];
-    if (!pn) return;
-    var k;
-    if (i === 0 || i === 4) {
-      var rows = all('.row', pn);
-      for (k = 0; k < rows.length; k++) setVar(rows[k], '--o', clamp(t * 4 - k, 0, 1));
-    } else if (i === 1) {
-      var dds = all('dd', pn);
-      for (k = 0; k < dds.length; k++) setVar(dds[k], '--t', clamp(t * 3 - k, 0, 1));
-    } else if (i === 2) {
-      all('.bars li', pn).forEach(function (li) {
-        setVar(li, '--t', t);
-        var b = li.querySelector('b');
-        text(b, Math.round((+b.dataset.pct || 0) * t) + '%');
+      if (btn) btn.addEventListener('click', function () {
+        if (!fine) openStep(st.classList.contains('is-open') ? null : st);
       });
-    } else if (i === 3) {
-      all('.stats b', pn).forEach(function (b) {
-        text(b, Math.round((+b.dataset.to || 0) * t).toLocaleString('en-US'));
-      });
-    } else if (i === 5) {
-      if (trade.spark) trade.spark.style.strokeDashoffset = (trade.sparkLen * (1 - t)).toFixed(1);
-      var book = all('.book li', pn);
-      for (k = 0; k < book.length; k++) setVar(book[k], '--o', clamp(t * 3 - k, 0, 1));
-    }
-  }
-
-  function tradeUpdate(p) {
-    var x = p * 6, s = Math.min(5, Math.floor(x)), local = x - s;
-    if (s !== trade.step) {
-      trade.step = s;
-      G.node = s;
-      trade.steps.forEach(function (st, i) { st.classList.toggle('is-on', i === s); });
-      trade.panels.forEach(function (pn, i) {
-        pn.classList.toggle('is-on', i === s);
-        pn.classList.toggle('is-done', i < s);
-      });
-      setVar(trade.odo, '--s', s);
-    }
-    for (var i = 0; i < trade.panels.length; i++) {
-      var t = i < s ? 1 : i > s ? 0 : out3(seg(local, 0.04, 0.72));
-      if (t !== trade.t[i]) { trade.t[i] = t; renderPanel(i, t); }
-    }
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') openStep(null); });
   }
 
   /* =======================================================
-     CH 06: the operators, as character mosaics, and the
-     refusals, as a fan of cards
+     CH 06: the operators, as character mosaics
      ======================================================= */
   var RAMP = ' .,:;-=+*#%@';
   var asciis = all('.ascii').map(function (pre) {
@@ -999,36 +616,6 @@
     A.pre.textContent = out;
   }
 
-  var wont = { el: $('wont'), cards: all('#fan .card'), band: $('wontBand'), rows: [] };
-  function buildWont() {
-    if (!wont.cards.length) return;
-    var ROT = [-3, 4, -6, 5, -2, 7];
-    wont.cards.forEach(function (c, i) {
-      c.style.setProperty('--z', 10 - i);
-      c.style.setProperty('--rot', ROT[i % ROT.length] + 'deg');
-      c.style.setProperty('--dx', (i % 2 ? -1 : 1) * 118 + 'vw');
-      c.style.setProperty('--dr', (i % 2 ? -1 : 1) * 32 + 'deg');
-      c.style.setProperty('--dy', (i * 7) + 'px');
-    });
-    if (!wont.band || !fx) return;
-    var words = wont.cards.map(function (c) { return c.querySelector('.card__t').textContent; });
-    var line = words.join('     ') + '     ';
-    wont.band.innerHTML = '<p class="wont__row">' + line + line + '</p><p class="wont__row">' + line + line + '</p>';
-    wont.rows = all('.wont__row', wont.band);
-  }
-  function wontUpdate(p) {
-    wont.cards.forEach(function (c, j) {
-      var start = 0.05 + j * 0.145, cp = seg(p, start, start + 0.145);
-      setVar(c, '--s', out3(seg(cp, 0, 0.35)));
-      setVar(c, '--st', seg(cp, 0.3, 0.52));
-      setVar(c, '--f', inOut(seg(cp, 0.56, 1)));
-    });
-    if (wont.rows.length) {
-      css(wont.rows[0], 'transform', 'translateX(' + (-p * 30).toFixed(2) + '%)');
-      css(wont.rows[1], 'transform', 'translateX(' + (p * 30 - 30).toFixed(2) + '%)');
-    }
-  }
-
   /* =======================================================
      CH 07: the terms. Scrolling signs the sheet.
      ======================================================= */
@@ -1041,8 +628,8 @@
   }
 
   /* =======================================================
-     Reveals, the chapter marker, the magnets and the letter
-     shift: the page's smaller moving parts
+     Reveals, the chapter marker, the rail, the magnets and the
+     letter shift: the page's smaller moving parts
      ======================================================= */
   var reveals = fx ? all('.rv') : [];
   var revealTop = [];
@@ -1051,6 +638,10 @@
   });
   var CHAPTERS = 7;
   var hud = $('hud'), hudCh = $('hudCh'), hudT = $('hudT'), hudBar = $('hudBar'), hudAt = -1;
+  var rail = all('#rail a').map(function (a) {
+    return { a: a, el: document.querySelector(a.getAttribute('href')), top: 0, h: 0 };
+  }).filter(function (r) { return r.el; });
+  var railAt = -1;
   var nav = $('nav'), stuck = false;
 
   var magnets = (fx && fine) ? all('[data-magnet]').map(function (el) {
@@ -1182,7 +773,7 @@
   /* =======================================================
      Layout, and the one loop
      ======================================================= */
-  var filmAct = null, dirty = true, lastY = -1, asciiAt = 0;
+  var dirty = true, lastY = -1, asciiAt = 0;
 
   function relayout() {
     vw = window.innerWidth; vh = window.innerHeight;
@@ -1195,11 +786,9 @@
       a.p = -1;
     });
     measureShift();
-    if (deck) deck.layout();
-    computeTarget();
     placeStamp();
     asciis.forEach(function (A) { sizeAscii(A); if (!fx) renderAscii(A, 0); });
-    if (G.sceneOk) buildKnock();
+    if (G.sceneOk) buildDots();
     dirty = true;
   }
 
@@ -1228,6 +817,15 @@
       }
       for (i = 0; i < reveals.length; i++) revealTop[i] = reveals[i].getBoundingClientRect().top;
       for (i = 0; i < markers.length; i++) markers[i].top = markers[i].el.getBoundingClientRect().top;
+      for (i = 0; i < rail.length; i++) {
+        r = rail[i].el.getBoundingClientRect();
+        rail[i].top = r.top; rail[i].h = r.height;
+      }
+      if (hero.el) {
+        r = hero.el.getBoundingClientRect();
+        G.hero.left = r.left; G.hero.top = r.top;
+        G.hero.out = clamp(-r.top / Math.max(1, r.height * 0.75), 0, 1);
+      }
       for (i = 0; i < magnets.length; i++) {
         r = magnets[i].el.getBoundingClientRect();
         magnets[i].cx = r.left + r.width / 2 - magnets[i].mx;
@@ -1252,6 +850,7 @@
         if (A.rect) A.r = clamp((vh * 0.95 - A.rect.top) / (vh * 0.55), 0, 1);
       }
       writeHud();
+      writeRail();
       pickScene();
       if (nav) {
         var want = y > 8;
@@ -1287,6 +886,22 @@
       text(hudT, m.title);
     }
     css(hudBar, 'transform', 'scaleX(' + clamp((line - m.top) / Math.max(1, span), 0, 1).toFixed(3) + ')');
+  }
+
+  /* The rail lights the section under the upper part of the screen, and
+     fills its line with how far through that section you are. */
+  function writeRail() {
+    if (!rail.length) return;
+    var line = vh * 0.4, cur = 0;
+    for (var i = 0; i < rail.length; i++) if (rail[i].top <= line) cur = i;
+    if (lastY + vh >= docH - 4) cur = rail.length - 1;
+    if (cur !== railAt) {
+      if (railAt >= 0) rail[railAt].a.removeAttribute('aria-current');
+      rail[cur].a.setAttribute('aria-current', 'location');
+      railAt = cur;
+    }
+    var R = rail[cur];
+    setVar(R.a, '--p', lastY + vh >= docH - 4 ? 1 : clamp((line - R.top) / Math.max(1, R.h), 0, 1));
   }
 
   function pickScene() {
@@ -1348,22 +963,21 @@
   /* =======================================================
      Build, register, go
      ======================================================= */
-  buildNoise();
   buildFill();
   buildExplode();
   buildPortfolio();
-  buildTrade();
-  buildWont();
+  buildSteps();
   buildSign();
   buildShift();
   all('.letter').forEach(letterCopy);
 
-  filmAct = act(film.sec, { mode: 'pin', scene: 'film', update: fx ? filmUpdate : null });
+  act(hero.sec, { mode: 'pass', scene: 'film' });
+  act($('emails'), { mode: 'pass', scene: 'mail' });
   act($('alpha'), { mode: 'pin', scene: 'strat', update: fx ? stratUpdate : null });
-  act($('portfolio'), { mode: 'pin', scene: 'port', update: fx ? portUpdate : null });
-  act($('how'), { mode: 'pin', scene: 'life', update: fx ? tradeUpdate : null, anchor: trade.orb });
+  act($('portfolio'), { mode: 'pass', scene: 'port' });
+  act($('how'), { mode: 'pass', scene: 'life', anchor: $('tradeOrb') });
   act($('operators'), { mode: 'pass', scene: 'ops' });
-  act($('wont'), { mode: 'pin', scene: 'wont', update: fx ? wontUpdate : null });
+  act($('wont'), { mode: 'pass', scene: 'wont' });
   act($('pilot'), { mode: 'pass', scene: 'pilot' });
   act($('contact'), { mode: 'pass', scene: 'final', anchor: $('medallion') });
   if (fx) {
