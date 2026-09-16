@@ -252,17 +252,96 @@ scene.add(globe);
 /* ------------------------------------------ the wordmark as dots --
    script.js samples the GROWENCY letters into points, in CSS pixels from the
    hero's corner. Each dot starts somewhere across the screen and gathers to
-   its place, then keeps moving around it: a slow drift, a wave running
-   through the letters, a push away from the pointer, and a scatter as the
-   hero scrolls off. Drawn straight in screen space, with no camera. */
+   its place, then keeps moving around it with a slow drift and a wave
+   running through the letters. A few are brighter stars with flares.
+
+   The cursor leaves a wind behind it. Moving the pointer paints two coarse
+   fields over the screen: a narrow one along its path, carrying the direction
+   and speed of the stroke plus a glow, that fades over about a second, and a
+   wide soft one that fades fast. Dots in the narrow field are flung along the
+   stroke and wobble across it; the wide one bends the letters around the
+   stroke. Both fade, so the word swishes and then settles back. */
 const COL_C = new THREE.Color('#5A3FD8');
+const FW = 128, FH = 80;
+const wind = (() => {
+  const make = () => {
+    const data = new Uint8Array(FW * FH * 4);
+    const tex = new THREE.DataTexture(data, FW, FH, THREE.RGBAFormat, THREE.UnsignedByteType);
+    tex.magFilter = THREE.LinearFilter; tex.minFilter = THREE.LinearFilter;
+    return { f: new Float32Array(FW * FH * 3), data, tex };
+  };
+  return { near: make(), wide: make(), live: false, x: 0, y: 0, t: 0, had: false };
+})();
+
+/* one stamp of the stroke: gx, gy is its direction, imp how hard, glow how bright */
+function stampWind(F, px, py, gx, gy, imp, glow, radius, scale, max) {
+  const cx = px / W * FW, cy = py / H * FH;
+  const rx = Math.ceil(radius / W * FW) + 1, ry = Math.ceil(radius / H * FH) + 1;
+  for (let j = Math.max(0, Math.floor(cy) - ry); j <= Math.min(FH - 1, Math.ceil(cy) + ry); j++) {
+    for (let i = Math.max(0, Math.floor(cx) - rx); i <= Math.min(FW - 1, Math.ceil(cx) + rx); i++) {
+      const dx = (i + 0.5 - cx) / FW * W, dy = (j + 0.5 - cy) / FH * H;
+      const k = Math.exp(-(dx * dx + dy * dy) / (radius * radius));
+      if (k < 0.002) continue;
+      const o = (j * FW + i) * 3, m = k * imp * scale;
+      F.f[o] = clamp(F.f[o] + gx * m, -max, max);
+      F.f[o + 1] = clamp(F.f[o + 1] + gy * m, -max, max);
+      F.f[o + 2] = Math.max(F.f[o + 2], k * glow);
+    }
+  }
+}
+
+function stepWind(dt, now, active) {
+  const P = G.pointer;
+  if (active && P.on) {
+    if (wind.had) {
+      const nx = (P.x - wind.x) / W * 2, ny = (P.y - wind.y) / H * 2;
+      const dist = Math.hypot(nx, ny);
+      if (dist > 0.0005) {
+        const secs = Math.max((now - wind.t) / 1000, 1 / 120);
+        const e = 1 - Math.exp(-(dist / secs) * 0.45);
+        const imp = Math.min(0.9, 0.94 * e), glow = Math.min(0.82, 0.08 + 0.78 * e);
+        const gx = (P.x - wind.x) / Math.hypot(P.x - wind.x, P.y - wind.y);
+        const gy = (P.y - wind.y) / Math.hypot(P.x - wind.x, P.y - wind.y);
+        const steps = Math.max(1, Math.ceil(dist / 0.035));
+        const rn = Math.max(56, H * 0.09), rw = H * 0.42;
+        for (let k = 1; k <= steps; k++) {
+          const t = k / steps, sx = wind.x + (P.x - wind.x) * t, sy = wind.y + (P.y - wind.y) * t;
+          stampWind(wind.near, sx, sy, gx, gy, imp, glow, rn, 0.62, 1);
+          stampWind(wind.wide, sx, sy, gx, gy, imp, 0, rw, 0.16, 0.32);
+        }
+        wind.live = true;
+      }
+    }
+    wind.x = P.x; wind.y = P.y; wind.t = now; wind.had = true;
+  } else wind.had = false;
+  if (!wind.live) return;
+
+  const dn = Math.exp(-1.15 * dt), dg = Math.exp(-1.55 * dt), dw = Math.exp(-6.4 * dt);
+  let any = false;
+  const n = wind.near, w = wind.wide;
+  for (let c = 0, o = 0, q = 0; c < FW * FH; c++, o += 3, q += 4) {
+    let a = n.f[o] * dn, b = n.f[o + 1] * dn, gl = n.f[o + 2] * dg;
+    if (Math.abs(a) + Math.abs(b) < 5e-4) { a = 0; b = 0; }
+    if (gl < 2e-3) gl = 0;
+    n.f[o] = a; n.f[o + 1] = b; n.f[o + 2] = gl;
+    let u = w.f[o] * dw, v = w.f[o + 1] * dw;
+    if (Math.abs(u) + Math.abs(v) < 5e-4) { u = 0; v = 0; }
+    w.f[o] = u; w.f[o + 1] = v;
+    if (a || b || gl || u || v) any = true;
+    n.data[q] = (a * 0.5 + 0.5) * 255; n.data[q + 1] = (b * 0.5 + 0.5) * 255; n.data[q + 2] = gl * 255; n.data[q + 3] = 255;
+    w.data[q] = (u * 0.5 + 0.5) * 255; w.data[q + 1] = (v * 0.5 + 0.5) * 255; w.data[q + 2] = 0; w.data[q + 3] = 255;
+  }
+  n.tex.needsUpdate = true; w.tex.needsUpdate = true;
+  wind.live = any;
+}
+
 const dots = (() => {
   const g = new THREE.BufferGeometry();
   const m = new THREE.ShaderMaterial({
     uniforms: {
       uTime: shared.uTime, uRes: { value: new THREE.Vector2(W, H) }, uOrigin: { value: new THREE.Vector2() },
-      uForm: { value: 0 }, uOut: { value: 0 }, uAlpha: { value: 0 }, uSize: { value: 2.4 * PR },
-      uPtr: { value: new THREE.Vector2(-9999, -9999) }, uPtrAmt: { value: 0 },
+      uForm: { value: 0 }, uOut: { value: 0 }, uAlpha: { value: 0 }, uSize: { value: 2.4 * PR }, uPR: { value: PR },
+      uNear: { value: wind.near.tex }, uWide: { value: wind.wide.tex }, uWind: { value: 0 },
       uColA: { value: COL_A }, uColB: { value: COL_B }, uColC: { value: COL_C }
     },
     transparent: true, depthTest: false, depthWrite: false, blending: THREE.AdditiveBlending,
@@ -275,17 +354,21 @@ const dots = (() => {
       uniform float uOut;
       uniform float uAlpha;
       uniform float uSize;
-      uniform vec2 uPtr;
-      uniform float uPtrAmt;
+      uniform float uPR;
+      uniform float uWind;
+      uniform sampler2D uNear;
+      uniform sampler2D uWide;
       varying float vA;
       varying float vT;
       varying float vHot;
+      varying float vStar;
       void main() {
         /* position.xy is the dot's home in the letters, position.z where it
            sits along the gradient; aFrom.xy is where it starts, as a share of
            the screen, and aFrom.z its seed */
         float s = aFrom.z;
         float t = uTime;
+        float star = step(0.962, fract(s * 7.13));
         vec2 home = uOrigin + position.xy;
         vec2 drift = vec2(sin(t * 0.7 + s * 40.0 + position.y * 0.02),
                           cos(t * 0.6 + s * 31.0 + position.x * 0.02)) * (0.6 + 1.4 * s);
@@ -298,17 +381,28 @@ const dots = (() => {
         vec2 dir = normalize(vec2(fract(s * 91.7) - 0.5, fract(s * 53.3) - 0.5) + 1e-4);
         p += (dir * (160.0 + 380.0 * s) + vec2(0.0, -220.0 * s)) * uOut * uOut;
 
-        vec2 d = p - uPtr;
-        float dist = length(d);
-        float push = exp(-dist * dist / 9000.0) * uPtrAmt;
-        p += (dist > 0.001 ? d / dist : vec2(0.0)) * push * 34.0;
+        /* the wind */
+        vec2 uv = clamp(p / uRes, 0.0, 1.0);
+        vec4 near = texture2D(uNear, uv);
+        vec2 impulse = (near.rg * 2.0 - 1.0) * uWind;
+        vec2 bend = (texture2D(uWide, uv).rg * 2.0 - 1.0) * uWind;
+        float strength = min(length(impulse), 1.0);
+        float scatter = strength * strength * (3.0 - 2.0 * strength);
+        vec2 gust = impulse / max(strength, 1e-4);
+        vec2 across = vec2(-gust.y, gust.x);
+        vec2 dust = gust * (62.0 + 62.0 * s)
+                  + across * sin(s * 89.0 + t * 3.2) * 50.0
+                  + vec2(cos(s * 47.0), sin(s * 53.0)) * 30.0;
+        p += impulse * (9.0 + 3.0 * s) + bend * (52.0 + 6.0 * s) + dust * scatter;
+        float glow = near.b * uWind;
 
         gl_Position = vec4(p.x / uRes.x * 2.0 - 1.0, 1.0 - p.y / uRes.y * 2.0, 0.0, 1.0);
-        gl_PointSize = uSize * (0.75 + 0.5 * s) * (1.0 + push * 0.6);
-        float twinkle = 0.78 + 0.22 * sin(t * (1.0 + s * 2.0) + s * 60.0);
-        vA = uAlpha * mix(0.3, 1.0, f) * twinkle * (1.0 - uOut);
+        gl_PointSize = uSize * (0.75 + 0.5 * s) * mix(1.0, 5.5, star) * (1.0 + scatter * 0.9);
+        float twinkle = 0.72 + 0.28 * sin(t * (1.0 + s * 2.0) + s * 60.0);
+        vA = uAlpha * mix(0.3, 1.0, f) * twinkle * (1.0 - uOut) * (1.0 - scatter * 0.25);
         vT = position.z;
-        vHot = push;
+        vHot = glow;
+        vStar = star;
       }
     `,
     fragmentShader: `
@@ -318,12 +412,25 @@ const dots = (() => {
       varying float vA;
       varying float vT;
       varying float vHot;
+      varying float vStar;
       void main() {
-        float d = length(gl_PointCoord - 0.5);
-        float a = smoothstep(0.5, 0.3, d);
+        vec2 c = gl_PointCoord - 0.5;
+        float d = length(c);
         vec3 col = vT < 0.5 ? mix(uColA, uColB, vT * 2.0) : mix(uColB, uColC, (vT - 0.5) * 2.0);
-        col = mix(col, vec3(1.0), 0.22 + vHot * 0.5);
-        gl_FragColor = vec4(col, a * vA);
+        float a;
+        if (vStar > 0.5) {
+          /* a hot core, a soft halo and a four point flare */
+          float core = smoothstep(0.1, 0.0, d);
+          float halo = exp(-d * d * 42.0) * 0.55;
+          float flare = (exp(-abs(c.y) * 70.0) * exp(-abs(c.x) * 7.0) + exp(-abs(c.x) * 70.0) * exp(-abs(c.y) * 7.0)) * 0.7;
+          a = clamp(core + halo + flare, 0.0, 1.0) * smoothstep(0.5, 0.35, d);
+          col = mix(col, vec3(1.0, 0.96, 0.92), 0.55 + core * 0.4);
+        } else {
+          a = smoothstep(0.5, 0.3, d);
+          col = mix(col, vec3(1.0), 0.22);
+        }
+        col = mix(col, vec3(0.86, 0.94, 1.0), clamp(vHot * 0.8, 0.0, 0.8));
+        gl_FragColor = vec4(col, a * vA * (1.0 + vHot * 0.9));
       }
     `
   });
@@ -673,13 +780,14 @@ function step(dt, now) {
 
   const hero = G.hero, du = dots.mat.uniforms;
   dots.points.visible = !!(hero && hero.n) && hero.out < 0.999 && S.dots > 0.002;
+  /* the wind only blows over the hero, for a mouse, once the word has formed */
+  stepWind(dt, now, dots.points.visible && G.fine && !reduced && form > 0.6);
   if (dots.points.visible) {
     du.uOrigin.value.set(hero.left, hero.top);
     du.uForm.value = form;
     du.uOut.value = hero.out;
     du.uAlpha.value = S.dots * 0.9;
-    du.uPtrAmt.value = S.ptr;
-    du.uPtr.value.set(P.on ? P.x : -9999, P.on ? P.y : -9999);
+    du.uWind.value = wind.live ? 1 : 0;
   }
 
   backdrop.material.uniforms.uI.value = S.bg;
