@@ -13,38 +13,43 @@ python3 -m http.server 4341
 | File | What it holds |
 | --- | --- |
 | `index.html` | All page content and copy, plus the logo mark as an inline SVG symbol |
-| `styles.css` | Dark tokens, type, every section, and the pinned layouts under `.fx` |
-| `script.js` | `window.GROWENCY`, the scroll engine, and every scrubbed scene |
-| `scene.js` | The WebGL scene: lattice, corridor, particles, cursor trail, glass medallion |
+| `styles.css` | Dark tokens, type, every section, and the pinned strategy under `.fx` |
+| `script.js` | `window.GROWENCY`, the scroll engine, the dotted wordmark's sampling, the section rail and the email rewrites |
+| `scene.js` | The WebGL scene: the wordmark as dots, lattice, cursor trail, glass medallion |
 | `privacy.html` | The privacy policy, a draft for legal review |
 | `compare/*.html` | Six static comparison pages: Apollo, Clay, 11x, Artisan, Belkins and CIENCE, linked from the footer |
 | `archive/` | Two previous versions of the site, each kept whole |
 
 ## The page, chapter by chapter
 
-A marker in the bottom left names the chapter you are in and how far through it
-you are.
+A marker in the bottom left names the chapter you are in. On screens wider
+than 1100px a rail on the right lists every section by name, lights the one you
+are in, fills a line with how far through it you are, and jumps to any of them.
 
-1. **The fund.** GROWENCY is cut out of a dark sheet, so the scene shows through
-   the letters and the lattice turns inside the O. Scrolling pulls the other
-   letters away, opens the O into a portal, and flies the camera through it.
-2. **The signal.** Inside, a drift of generic subject lines comes at you. One of
-   them lights up, travels, and becomes the subject line of the first email in
-   a deck of five. Drag the card, use the dots or use the arrow keys to move
-   between them. Each one types its generic version, strikes it, and grows the
-   specific lines in underneath. Only the email on screen plays.
-3. **The strategy.** The mark comes apart into six plates, one per part of the
-   sentence beside it, with callouts. The sentence fills word by word as you
-   scroll, and the plates snap back together at the end.
-4. **The portfolio.** The mark's six dots are six live angles. Weeks 0 to 2 play
-   out: weak angles are cut and their capital flows along the lattice to the
-   ones booking meetings. Then the 30-40x figure lands.
-5. **The trade.** Six steps, pinned. The giant `ALPHA-0N` rolls over and a desk
-   beside it lights one panel per step: book, thesis, sizing, executions,
-   replies, P&L.
+1. **The fund.** GROWENCY fills most of the first screen as a field of dots.
+   They gather in from across the screen on load (once the loader hits 100 on a
+   first visit), then keep moving: a slow drift, a wave running through the
+   letters, a push away from the cursor. Scrolling away scatters them. The
+   headline, sub-line and buttons sit in one row underneath.
+2. **The emails.** All five sample emails at once: five across on wide screens,
+   three and two on laptops, then two and one. As the grid comes into view each
+   one types the generic email, strikes it, and fades the specific lines in, a
+   beat after the one before. Then they hold. Each has Replay and Copy.
+3. **The strategy.** The one pinned chapter. The mark comes apart into six
+   plates, one per part of the sentence beside it, with callouts. The sentence
+   fills word by word as you scroll, and the plates snap back together at the
+   end.
+4. **The portfolio.** The mark's six dots as six angles at the end of week two:
+   the cut ones crossed out, the rest carrying the budget. Static, with the
+   30-40x figure underneath.
+5. **The trade.** Six steps as a list beside a static desk (book, thesis,
+   sizing, executions, replies, P&L). Hovering or focusing a step opens a card
+   with what we do, what you get and the matching line on the desk, and lights
+   that node on the globe behind the desk. On touch screens a tap opens the
+   step in place.
 6. **The operators.** The two photo slots are live character mosaics of the
-   lattice until real photos exist. Then the refusals: a fan of cards that get
-   struck, stamped and flicked off the table.
+   lattice until real photos exist. Then the refusals: six struck and stamped
+   cards in a grid.
 7. **The terms.** Scrolling draws a signature across the term sheet and the
    button arrives where the stroke ends. The closing band condenses the lattice
    into a glass medallion of the mark.
@@ -97,7 +102,7 @@ and the large numeral in chapter 4. It is the company's stated position rather
 than an audited result, and by instruction it carries no caveat on the page.
 The wordmark is stacked (GROW over ENCY), so the stamp is measured from the
 letters' own boxes and pressed across the middle of the stack. It follows the
-wordmark at any size and rides off screen when the flight starts.
+wordmark at any size.
 
 ## How it holds up
 
@@ -106,8 +111,8 @@ Three layers of state, so the page degrades cleanly:
 - **Base.** Every rule outside `.fx` is the page in plain reading order. That is
   what you get with JavaScript off: no pinning, no hidden states, every word
   visible, and the Copy button hidden.
-- **`.fx`** is added by `script.js` when motion is welcome. It pins the scenes
-  and hands their choreography to the scroll engine. Under
+- **`.fx`** is added by `script.js` when motion is welcome. It pins the strategy,
+  draws the wordmark as dots and plays the email rewrites. Under
   `prefers-reduced-motion` it is never added, so the page reads as a normal
   document with the scene sitting still behind it.
 - **`.gl-on`** means the WebGL scene started. If three.js cannot load, or the
@@ -126,29 +131,32 @@ forces the reduced motion path.
 - **The scene never touches the DOM.** `script.js` measures the page and writes
   what it found to `window.GROWENCY`; `scene.js` only reads it. That keeps
   layout reads in one place.
-- **The lattice.** Every point of the flat mark has three homes: on a sphere, on
-  the corridor it unrolls into, and flat inside the medallion. The shader mixes
-  between them, so one piece of geometry carries the whole page.
+- **The lattice.** Every point of the flat mark has homes on a sphere and flat
+  inside the medallion. The shader mixes between them, so one piece of geometry
+  carries the whole page. (It still carries a corridor shape from an earlier
+  version of the hero, unused for now.)
+- **The dotted wordmark.** `script.js` draws the GROWENCY letters offscreen at
+  `.word`'s own layout and samples them on a jittered grid, about 10,500 dots
+  on desktop and 4,200 on phones, whatever the type size. `scene.js` draws them
+  in screen space, so they line up with the hero exactly and resample on
+  resize. Until the samples exist the gradient type shows instead.
 - **The cursor.** It is a small plus, and it opens into a circle over anything
   you can act on, filling and naming the action where there is a word for it
   (`data-cursor` in the markup). Behind that, the lattice ripples away from it,
   a trail follows it, buttons pull toward it, and headline letters shift as it
   passes. The native cursor is only hidden while `.has-cursor` is set, and all
   of it is off under reduced motion, on coarse pointers, and on phones.
-- **Phones** get the same flight with fewer particles, no trail, half-resolution
-  bloom, and one desk panel at a time. Under 600px the wordmark stacks two
+- **Phones** get fewer dots, no trail and half-resolution bloom. Under 600px the wordmark stacks two
   letters to a row (GR, OW, EN, CY) instead of four, sized to the height left after the
   headline and buttons, with the stamp pressed across the middle of the stack;
-  the cut-out letters and the portal read each glyph's own row, so the flight
-  still opens from the O. The pinned chapters are also
-  shorter, so the whole page is about a fifth less scrolling, and each pinned
-  layout is sized to the small viewport so nothing sits under the browser's
-  toolbars. The middle chapters draw the scene at half rate (the portal and the
-  medallion keep every frame), the mosaics redraw less often, and touch screens
+  the dot sampler reads each glyph's own row. The pinned strategy is shorter
+  and sized to the small viewport so nothing sits under the browser's
+  toolbars. The middle chapters draw the scene at half rate (the dotted
+  wordmark and the medallion keep every frame), the mosaics redraw less often, and touch screens
   get a solid fill instead of glass blur, which would be recomputed over the
   scene every frame.
-- **The loader** counts to 100 while the scene compiles, then the particles snap
-  into the lattice. Once per session, skippable with a click, key, scroll or
+- **The loader** counts to 100 while the scene compiles, then the dots start
+  gathering into the wordmark and the loader lifts part way through. Once per session, skippable with a click, key, scroll or
   touch, and never under reduced motion.
 - **Theme.** Dark only, by instruction. The brand is the gradient from
   `growency_cover.jpeg`: sky blue through royal blue, indigo and purple, fading
