@@ -584,8 +584,11 @@
         st.addEventListener('focusin', function () { openStep(st); });
         st.addEventListener('focusout', function (e) { if (!st.contains(e.relatedTarget)) openStep(null); });
       }
+      /* a click always opens a closed step; closing by click is left to touch
+         screens, where there is no mouseleave to do it */
       if (btn) btn.addEventListener('click', function () {
-        if (!fine) openStep(st.classList.contains('is-open') ? null : st);
+        if (!st.classList.contains('is-open')) openStep(st);
+        else if (!fine) openStep(null);
       });
     });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') openStep(null); });
