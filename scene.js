@@ -51,9 +51,15 @@ camera.position.set(0, 0, 6);
 const pmrem = new THREE.PMREMGenerator(renderer);
 scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.05).texture;
 
-const COL_A = new THREE.Color('#6F8DFF');
-const COL_B = new THREE.Color('#A57BFF');
+/* the cover gradient, left to right. The lattice, nodes, particles and
+   trail take its two bright ends; the backdrop runs the whole ramp. */
+const COL_A = new THREE.Color('#2AA3FC');
+const COL_B = new THREE.Color('#5250E8');
 const COL_BG = new THREE.Color('#06060C');
+const COVER = [
+  [0.0, '#2AA3FC'], [0.2, '#3993F8'], [0.4, '#4B6DF3'], [0.5, '#5250E8'],
+  [0.6, '#5028BE'], [0.7, '#3A0D86'], [0.8, '#27085C'], [1.0, '#0A0326']
+];
 
 /* =======================================================
    Geometry from the mark
@@ -311,13 +317,19 @@ const particles = (() => {
   return p;
 })();
 
-/* ----------------------------------------------- backdrop -- */
+/* ----------------------------------------------- backdrop --
+   The cover, alive. A band of the gradient runs across the screen with its
+   royal-blue stretch on the chapter's focus: sky blue to one side, purple fading
+   to near-black on the other. Slow waves bend the band so it never sits
+   still, and it is brightest near the focus, a dim wash everywhere else. */
 const backdrop = (() => {
+  const stops = COVER.map(([, hex]) => { const c = new THREE.Color(hex); return new THREE.Vector3(c.r, c.g, c.b); });
+  const at = COVER.map(([t]) => t);
   const m = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({
     uniforms: {
       uTime: shared.uTime, uRes: { value: new THREE.Vector2(W, H) }, uI: { value: 0.6 },
       uC: { value: new THREE.Vector2(0.5, 0.5) },
-      uA: { value: new THREE.Color('#22358F') }, uB: { value: new THREE.Color('#43257F') },
+      uStops: { value: stops }, uAt: { value: at },
       uBg: { value: COL_BG }
     },
     depthTest: false, depthWrite: false,
@@ -330,18 +342,36 @@ const backdrop = (() => {
       uniform float uTime;
       uniform float uI;
       uniform vec2 uC;
-      uniform vec3 uA;
-      uniform vec3 uB;
+      uniform vec3 uStops[8];
+      uniform float uAt[8];
       uniform vec3 uBg;
       varying vec2 vUv;
       float blob(vec2 p, vec2 c, float r) { vec2 d = p - c; return exp(-dot(d, d) / (r * r)); }
+      vec3 cover(float t) {
+        t = clamp(t, 0.0, 1.0);
+        vec3 col = uStops[0];
+        for (int i = 1; i < 8; i++) {
+          col = mix(col, uStops[i], smoothstep(uAt[i - 1], uAt[i], t));
+        }
+        return col;
+      }
       void main() {
         float ar = uRes.x / max(uRes.y, 1.0);
         vec2 p = vec2(vUv.x * ar, vUv.y);
         vec2 c = vec2(uC.x * ar, uC.y);
+        vec2 drift = 0.07 * vec2(sin(uTime * 0.13), cos(uTime * 0.11));
+
+        /* where along the cover this pixel sits: across the band, bent by waves */
+        vec2 d = p - c - drift;
+        float t = 0.4 + dot(d, vec2(0.94, -0.34)) * 0.58;
+        t += 0.07 * sin(p.y * 2.6 + uTime * 0.19) + 0.05 * sin(p.x * 1.9 - uTime * 0.15);
+
+        float near = blob(p, c + drift, 0.62);
+        float wide = blob(p, c + vec2(0.35, -0.12) - drift, 1.25);
+        float glow = blob(p, c + vec2(-0.42, 0.18) + drift * 1.4, 0.5);
         vec3 col = uBg;
-        col += uA * blob(p, c + 0.06 * vec2(sin(uTime * 0.21), cos(uTime * 0.17)), 0.42) * uI;
-        col += uB * blob(p, c + vec2(0.26, -0.14) + 0.07 * vec2(cos(uTime * 0.13), sin(uTime * 0.19)), 0.66) * uI * 0.5;
+        col += cover(t) * (near * 0.62 + wide * 0.3) * uI;
+        col += cover(0.05) * glow * 0.16 * uI;
         gl_FragColor = vec4(col, 1.0);
       }
     `
@@ -403,13 +433,13 @@ const medallion = (() => {
   const glass = new THREE.MeshPhysicalMaterial({
     color: 0xffffff, metalness: 0, roughness: 0.06, transmission: 1, thickness: 0.85,
     ior: 1.48, clearcoat: 1, clearcoatRoughness: 0.06, iridescence: 0.45, iridescenceIOR: 1.32,
-    attenuationColor: new THREE.Color('#93A2FF'), attenuationDistance: 2.4,
+    attenuationColor: new THREE.Color('#6C8CF5'), attenuationDistance: 2.4,
     envMapIntensity: 1.15, transparent: true, opacity: 0
   });
   const disc = new THREE.Mesh(new THREE.CylinderGeometry(1.12, 1.12, 0.22, 128, 1).rotateX(Math.PI / 2), glass);
   const rim = new THREE.Mesh(
     new THREE.TorusGeometry(1.12, 0.035, 18, 150),
-    new THREE.MeshPhysicalMaterial({ color: 0xc9d0ff, metalness: 1, roughness: 0.16, envMapIntensity: 1.5, transparent: true, opacity: 0 })
+    new THREE.MeshPhysicalMaterial({ color: 0xb8d6ff, metalness: 1, roughness: 0.16, envMapIntensity: 1.5, transparent: true, opacity: 0 })
   );
   group.add(disc); group.add(rim);
   group.visible = false;
@@ -475,14 +505,16 @@ const T = Object.assign({}, S);
 const nodeGlow = new Float32Array(6).fill(1);
 const nodeTarget = new Float32Array(6).fill(1);
 
+/* bg is how much of the cover shows behind each chapter: rich, never so
+   bright that the copy over it has to fight */
 const PRESETS = {
-  strat: { alpha: 0, particles: 0.42, bg: 0.34, bgx: 0.74, bgy: 0.45, bloom: 0.55, glass: 0 },
-  port: { alpha: 0, particles: 0.38, bg: 0.32, bgx: 0.3, bgy: 0.5, bloom: 0.55, glass: 0 },
-  life: { alpha: 0.55, particles: 0.32, bg: 0.3, bgx: 0.26, bgy: 0.45, bloom: 0.6, glass: 0 },
-  ops: { alpha: 0, particles: 0.28, bg: 0.24, bgx: 0.5, bgy: 0.4, bloom: 0.5, glass: 0 },
-  wont: { alpha: 0, particles: 0.24, bg: 0.22, bgx: 0.5, bgy: 0.5, bloom: 0.5, glass: 0 },
-  pilot: { alpha: 0, particles: 0.3, bg: 0.28, bgx: 0.35, bgy: 0.45, bloom: 0.5, glass: 0 },
-  final: { alpha: 1, particles: 0.45, bg: 0.58, bgx: 0.74, bgy: 0.5, bloom: 0.8, glass: 1 }
+  strat: { alpha: 0, particles: 0.42, bg: 0.5, bgx: 0.74, bgy: 0.45, bloom: 0.55, glass: 0 },
+  port: { alpha: 0, particles: 0.38, bg: 0.48, bgx: 0.3, bgy: 0.5, bloom: 0.55, glass: 0 },
+  life: { alpha: 0.55, particles: 0.32, bg: 0.5, bgx: 0.26, bgy: 0.45, bloom: 0.6, glass: 0 },
+  ops: { alpha: 0, particles: 0.28, bg: 0.44, bgx: 0.5, bgy: 0.4, bloom: 0.5, glass: 0 },
+  wont: { alpha: 0, particles: 0.24, bg: 0.42, bgx: 0.5, bgy: 0.5, bloom: 0.5, glass: 0 },
+  pilot: { alpha: 0, particles: 0.3, bg: 0.46, bgx: 0.35, bgy: 0.45, bloom: 0.5, glass: 0 },
+  final: { alpha: 1, particles: 0.45, bg: 0.66, bgx: 0.74, bgy: 0.5, bloom: 0.8, glass: 1 }
 };
 
 function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
