@@ -213,6 +213,8 @@ main{overflow-x:clip}
 .word__bl{display:inline-block;width:0;height:0;vertical-align:baseline}
 .fx.gl-on .word{visibility:hidden}
 .hero__txt{max-width:44rem}
+.badge{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.1rem;padding:.45rem .7rem;border:1px solid var(--line-2);border-radius:4px;background:var(--glass);font:500 .7rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.badge i{width:4px;height:4px;border-radius:50%;background:var(--grad-text)}
 .hero__h{font-weight:700;font-size:clamp(2.3rem,4.4vw,4.2rem);line-height:1;letter-spacing:-.045em;max-width:14ch}
 .hero__sub{margin-top:1rem;font-size:clamp(1.02rem,1.3vw,1.18rem);color:var(--text-2);max-width:42ch}
 .hero__cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
@@ -660,6 +662,7 @@ html:not(.js) .slot::after{
 .qa[open] .qa__q::after{transform:translateY(-25%) rotate(-135deg)}
 .qa__q:hover{color:#C4CEFF}
 .qa__a{padding:0 2.6rem 1.5rem 0;color:var(--text-2);line-height:1.65;max-width:62ch}
+.qa__a p+p{margin-top:.8rem}
 .qa__a a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
 
 /* ---------- the comparison pages ---------- */
