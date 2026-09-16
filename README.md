@@ -58,8 +58,8 @@ you are.
   2400 x 1400) and a research or workspace detail (about 1200 x 1400). Real
   photos only, no stock. Until then each renders as a character mosaic. Marked
   `TODO` in `index.html`.
-- **Fonts.** Geist and Geist Mono load from Google Fonts. Self-host both with
-  `@font-face` before launch.
+- **Fonts.** Unbounded, Onest and Red Hat Mono load from Google Fonts.
+  Self-host all three with `@font-face` before launch.
 - **three.js.** Pinned to 0.186.0 on jsDelivr in the import map. Self-host it,
   or at least keep the version pinned.
 - **Sample data.** All five emails, the angle names and every number on the
@@ -92,11 +92,12 @@ you are.
 
 ## The 30-40x figure
 
-Shown twice: the rubber stamp pressed across the Y of the wordmark on the first
-screen, and the large numeral in chapter 4. It is the company's stated position
-rather than an audited result, and by instruction it carries no caveat on the
-page. The stamp is measured from the Y's own box, so it follows the wordmark at
-any size and rides the Y off screen when the flight starts.
+Shown twice: the rubber stamp pressed across the wordmark on the first screen,
+and the large numeral in chapter 4. It is the company's stated position rather
+than an audited result, and by instruction it carries no caveat on the page.
+The wordmark is stacked (GROW over ENCY), so the stamp is measured from the
+letters' own boxes and pressed across the middle of the stack. It follows the
+wordmark at any size and rides off screen when the flight starts.
 
 ## How it holds up
 
@@ -136,7 +137,7 @@ forces the reduced motion path.
   of it is off under reduced motion, on coarse pointers, and on phones.
 - **Phones** get the same flight with fewer particles, no trail, half-resolution
   bloom, and one desk panel at a time. Under 600px the wordmark stacks two
-  letters to a row (GR, OW, EN, CY), sized to the height left after the
+  letters to a row (GR, OW, EN, CY) instead of four, sized to the height left after the
   headline and buttons, with the stamp pressed across the middle of the stack;
   the cut-out letters and the portal read each glyph's own row, so the flight
   still opens from the O. The pinned chapters are also
@@ -149,12 +150,19 @@ forces the reduced motion path.
 - **The loader** counts to 100 while the scene compiles, then the particles snap
   into the lattice. Once per session, skippable with a click, key, scroll or
   touch, and never under reduced motion.
-- **Theme.** Dark only, by instruction. One accent (electric blue) with violet
-  as its partner in the brand gradient.
-- **Type.** Geist for every word. Geist Mono only for data: the chapter marker,
-  the lifecycle codes, the desk, the counter.
+- **Theme.** Dark only, by instruction. The brand is the gradient from
+  `growency_cover.jpeg`: sky blue through royal blue, indigo and purple, fading
+  to near-black. It runs through the whole site: headline type, buttons, labels,
+  bars, card edges, and the scene's backdrop, which drifts behind every chapter.
+  In `styles.css`, `--grad` is the full ramp (headlines, wide surfaces),
+  `--grad-ui` stops at purple for details too small to carry the dark tail, and
+  `--accent` is the sky blue for lines too thin for a gradient.
+- **Type.** Unbounded for headlines and the wordmark, Onest for reading, Red Hat
+  Mono only for data: the chapter marker, the lifecycle codes, the desk, the
+  counter.
 - **Radius.** Anything you can press is a pill, and so is the nav. Every surface
-  is 14px. Stamps are 4px.
+  is 14px. Stamps are square, so their gradient border can run all the way
+  round.
 
 ## The archive
 
