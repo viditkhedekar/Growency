@@ -594,6 +594,22 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') openStep(null); });
   }
 
+  /* The refusals start as plain statements. With a mouse, passing over one
+     strikes it through and stamps it, and it stays that way. Touch screens
+     and reduced motion get them already struck. */
+  function buildWont() {
+    var cards = all('#wont .card');
+    if (!fx || !fine || !cards.length) return;
+    root.classList.add('can-strike');
+    cards.forEach(function (c) {
+      c.setAttribute('data-cursor', 'Decline');
+      c.addEventListener('mouseenter', function () {
+        c.classList.add('is-struck');
+        c.removeAttribute('data-cursor');
+      });
+    });
+  }
+
   /* =======================================================
      CH 06: the operators, as character mosaics
      ======================================================= */
@@ -1055,6 +1071,7 @@
   buildExplode();
   buildPortfolio();
   buildSteps();
+  buildWont();
   buildSign();
   buildShift();
   buildMail();
