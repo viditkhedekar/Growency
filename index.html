@@ -54,8 +54,8 @@
 <canvas class="gl" id="gl" aria-hidden="true"></canvas>
 <div class="grain" aria-hidden="true"></div>
 
-<!-- Counts to 100 while the scene loads, then the particles snap into the
-     lattice. Once per session, skippable, never under reduced motion, and
+<!-- Counts to 100 while the scene loads, then the dots gather into the
+     wordmark. Once per session, skippable, never under reduced motion, and
      display:none until script.js opts in. -->
 <div class="loader" id="loader" aria-hidden="true">
   <p class="loader__n" id="loaderN">000</p>
@@ -89,128 +89,129 @@
   <span class="hud__bar"><i id="hudBar"></i></span>
 </div>
 
+<!-- The section rail: every section by name, the current one lit, with how
+     far through it you are. Plain links, so it works with JS off. -->
+<nav class="rail" id="rail" aria-label="Sections">
+  <ol>
+    <li><a href="#top"><span class="rail__t">The fund</span><i aria-hidden="true"></i></a></li>
+    <li><a href="#emails"><span class="rail__t">The emails</span><i aria-hidden="true"></i></a></li>
+    <li><a href="#alpha"><span class="rail__t">The strategy</span><i aria-hidden="true"></i></a></li>
+    <li><a href="#portfolio"><span class="rail__t">The portfolio</span><i aria-hidden="true"></i></a></li>
+    <li><a href="#how"><span class="rail__t">The trade</span><i aria-hidden="true"></i></a></li>
+    <li><a href="#operators"><span class="rail__t">The operators</span><i aria-hidden="true"></i></a></li>
+    <li><a href="#wont"><span class="rail__t">Won&#8217;t take</span><i aria-hidden="true"></i></a></li>
+    <li><a href="#pilot"><span class="rail__t">The terms</span><i aria-hidden="true"></i></a></li>
+    <li><a href="#faq"><span class="rail__t">Questions</span><i aria-hidden="true"></i></a></li>
+    <li><a href="#contact"><span class="rail__t">Start</span><i aria-hidden="true"></i></a></li>
+  </ol>
+</nav>
+
 <main id="main">
 
-<!-- ======================= CH 01 + 02: THE FILM ======================= -->
-<section class="film" id="top" data-ch="1" data-title="The fund" data-scene="film">
-  <span class="ch-mark" data-ch="2" data-title="The signal" aria-hidden="true"></span>
-  <div class="film__stage" id="filmStage">
-
-    <!-- The wordmark as cut-out letters over the WebGL scene. Built by
-         script.js from .word's own layout once the scene is running. -->
-    <svg class="knock" id="knock" aria-hidden="true"></svg>
-
-    <div class="hero" id="hero">
-      <p class="word" id="word" aria-hidden="true"><span>G</span><span>R</span><span>O</span><span>W</span><span>E</span><span>N</span><span>C</span><span>Y</span><i class="word__bl"></i></p>
-      <div class="hero__txt" id="heroTxt">
+<!-- ======================= CH 01: THE FUND ======================= -->
+<section class="top" id="top" data-ch="1" data-title="The fund" data-scene="film">
+  <!-- The wordmark. With the scene running it is drawn as a field of dots
+       that gather into these letters, sampled by script.js from this
+       element's own layout; otherwise it is the gradient type itself. -->
+  <div class="hero" id="hero">
+    <p class="word" id="word" aria-hidden="true"><span>G</span><span>R</span><span>O</span><span>W</span><span>E</span><span>N</span><span>C</span><span>Y</span><i class="word__bl"></i></p>
+    <div class="hero__txt" id="heroTxt">
+      <div class="hero__lead">
         <p class="badge"><span>No spam</span><i aria-hidden="true"></i><span>No AI automation</span></p>
         <h1 class="hero__h">The Hedge Fund for <span class="grad">Marketing.</span></h1>
+      </div>
+      <div class="hero__side">
         <p class="hero__sub">Our salespeople book the calls. You close the deals. We test every angle like a trade.</p>
         <div class="hero__cta">
           <a class="btn btn--solid" href="#pilot" data-magnet data-cursor="Request">Request the pilot</a>
           <a class="btn btn--ghost" href="#alpha" data-magnet data-cursor="Read">Read the memo</a>
         </div>
       </div>
-      <p class="stamp" id="stamp" aria-hidden="true"><b>30-40x</b><span>conversion</span></p>
-      <p class="cue" id="cue" aria-hidden="true">Scroll<i></i></p>
     </div>
+    <p class="stamp" id="stamp" aria-hidden="true"><b>30-40x</b><span>conversion</span></p>
+    <p class="cue" id="cue" aria-hidden="true">Scroll<i></i></p>
+  </div>
+</section>
 
-    <!-- The noise: generic subject lines, filled in by script.js. One of
-         them lights up and becomes the subject of the letter below. -->
-    <div class="noise" id="noise" aria-hidden="true">
-      <p class="noise__one" id="noiseOne">March, SSO, and your Q3 questionnaire pile</p>
+<!-- ======================= CH 02: THE EMAILS ======================= -->
+<section class="mail" id="emails" data-ch="2" data-title="The emails" data-scene="mail">
+  <div class="mail__wrap">
+    <div class="mail__head">
+      <p class="kicker">Sample emails</p>
+      <h2 class="h2" data-shift>Five emails we would actually send.</h2>
+      <p class="lede">Each one opens with something the account did this quarter, and asks for ten minutes. Names and companies are sample data.</p>
     </div>
-
-    <div class="pane" id="pane">
-      <!-- Five emails we would actually send, all sample data. Drag or use
-           the dots to move between them; each one types its generic version,
-           strikes it, and grows the specific lines in underneath. -->
-      <div class="deck" id="deck" tabindex="0" role="group" aria-label="Sample emails, use the arrow keys to move between them" data-cursor="Drag">
-        <div class="deck__track" id="deckTrack">
-      <figure class="letter" id="letter">
-        <figcaption class="letter__head"><span class="letter__k">To</span>dana@meridianlabs.io</figcaption>
-        <p class="letter__subj" id="letterSubj"><span>March, SSO, and your Q3 questionnaire pile</span></p>
+    <div class="mail__grid">
+      <figure class="letter">
+        <figcaption class="letter__head"><span><span class="letter__k">To</span>dana@meridianlabs.io</span><span class="letter__sig">SSO to self-serve</span></figcaption>
+        <p class="letter__subj">March, SSO, and your Q3 questionnaire pile</p>
         <div class="letter__body">
-          <p class="ln" data-hold="1">Hi Dana,</p>
-          <p class="ln" data-generic="I hope this email finds you well." data-specific="Saw Meridian shipped SSO to the self-serve tier in March.">Saw Meridian shipped SSO to the self-serve tier in March.</p>
-          <p class="ln" data-generic="We help companies like yours scale their outbound." data-specific="That usually hands your AEs a security questionnaire problem about two quarters later.">That usually hands your AEs a security questionnaire problem about two quarters later.</p>
-          <p class="ln" data-generic="Do you have 15 minutes this week?" data-specific="Worth ten minutes before the renewal cycle starts?">Worth ten minutes before the renewal cycle starts?</p>
-          <p class="ln" data-hold="1">Rowan</p>
+          <p class="ln">Hi Dana,</p>
+          <p class="ln">Saw Meridian shipped SSO to the self-serve tier in March.</p>
+          <p class="ln">That usually hands your AEs a security questionnaire problem about two quarters later.</p>
+          <p class="ln">Worth ten minutes before the renewal cycle starts?</p>
+          <p class="ln">Rowan</p>
         </div>
         <div class="letter__foot">
           <button class="letter__copy" type="button" data-cursor="Copy" hidden>Copy email</button>
         </div>
-        <span class="letter__bar" aria-hidden="true"><i></i></span>
       </figure>
       <figure class="letter">
-        <figcaption class="letter__head"><span class="letter__k">To</span>rhea@voltline.io</figcaption>
-        <p class="letter__subj"><span>Four AE roles, and where the first 90 days of pipeline comes from</span></p>
+        <figcaption class="letter__head"><span><span class="letter__k">To</span>rhea@voltline.io</span><span class="letter__sig">Hiring four AEs</span></figcaption>
+        <p class="letter__subj">Four AE roles, and where the first 90 days of pipeline comes from</p>
         <div class="letter__body">
-          <p class="ln" data-hold="1">Hi Rhea,</p>
-          <p class="ln" data-generic="I hope you are doing well." data-specific="Voltline posted four AE roles in Manchester last month.">Voltline posted four AE roles in Manchester last month.</p>
-          <p class="ln" data-generic="We help companies like yours grow faster." data-specific="Ramping four at once means the first 90 days of their pipeline has to come from somewhere else.">Ramping four at once means the first 90 days of their pipeline has to come from somewhere else.</p>
-          <p class="ln" data-generic="Would you be open to a quick call?" data-specific="Worth a look at what we would run in that gap?">Worth a look at what we would run in that gap?</p>
-          <p class="ln" data-hold="1">Rowan</p>
+          <p class="ln">Hi Rhea,</p>
+          <p class="ln">Voltline posted four AE roles in Manchester last month.</p>
+          <p class="ln">Ramping four at once means the first 90 days of their pipeline has to come from somewhere else.</p>
+          <p class="ln">Worth a look at what we would run in that gap?</p>
+          <p class="ln">Rowan</p>
         </div>
         <div class="letter__foot">
           <button class="letter__copy" type="button" data-cursor="Copy" hidden>Copy email</button>
         </div>
-        <span class="letter__bar" aria-hidden="true"><i></i></span>
       </figure>
       <figure class="letter">
-        <figcaption class="letter__head"><span class="letter__k">To</span>sam@harlowfreight.com</figcaption>
-        <p class="letter__subj"><span>The Rotterdam lane, and who is quoting under you on it</span></p>
+        <figcaption class="letter__head"><span><span class="letter__k">To</span>sam@harlowfreight.com</span><span class="letter__sig">New lane</span></figcaption>
+        <p class="letter__subj">The Rotterdam lane, and who is quoting under you on it</p>
         <div class="letter__body">
-          <p class="ln" data-hold="1">Hi Sam,</p>
-          <p class="ln" data-generic="I hope this finds you well." data-specific="Saw Harlow added the Rotterdam lane in August.">Saw Harlow added the Rotterdam lane in August.</p>
-          <p class="ln" data-generic="We work with a lot of companies in your space." data-specific="Two of your competitors started quoting it at 11% under you in September.">Two of your competitors started quoting it at 11% under you in September.</p>
-          <p class="ln" data-generic="Do you have time this week?" data-specific="Ten minutes on how we would get in front of that?">Ten minutes on how we would get in front of that?</p>
-          <p class="ln" data-hold="1">Rowan</p>
+          <p class="ln">Hi Sam,</p>
+          <p class="ln">Saw Harlow added the Rotterdam lane in August.</p>
+          <p class="ln">Two of your competitors started quoting it at 11% under you in September.</p>
+          <p class="ln">Ten minutes on how we would get in front of that?</p>
+          <p class="ln">Rowan</p>
         </div>
         <div class="letter__foot">
           <button class="letter__copy" type="button" data-cursor="Copy" hidden>Copy email</button>
         </div>
-        <span class="letter__bar" aria-hidden="true"><i></i></span>
       </figure>
       <figure class="letter">
-        <figcaption class="letter__head"><span class="letter__k">To</span>priya@quarryhealth.com</figcaption>
-        <p class="letter__subj"><span>SOC 2 in January, procurement asking in March</span></p>
+        <figcaption class="letter__head"><span><span class="letter__k">To</span>priya@quarryhealth.com</span><span class="letter__sig">Series B, SOC 2</span></figcaption>
+        <p class="letter__subj">SOC 2 in January, procurement asking in March</p>
         <div class="letter__body">
-          <p class="ln" data-hold="1">Hi Priya,</p>
-          <p class="ln" data-generic="Hope all is well with you." data-specific="Quarry closed the Series B and the SOC 2 window opens in January.">Quarry closed the Series B and the SOC 2 window opens in January.</p>
-          <p class="ln" data-generic="We help teams like yours scale." data-specific="Hospital procurement starts asking for the report about eight weeks after that.">Hospital procurement starts asking for the report about eight weeks after that.</p>
-          <p class="ln" data-generic="Free for a chat this week?" data-specific="Worth ten minutes before that queue forms?">Worth ten minutes before that queue forms?</p>
-          <p class="ln" data-hold="1">Rowan</p>
+          <p class="ln">Hi Priya,</p>
+          <p class="ln">Quarry closed the Series B and the SOC 2 window opens in January.</p>
+          <p class="ln">Hospital procurement starts asking for the report about eight weeks after that.</p>
+          <p class="ln">Worth ten minutes before that queue forms?</p>
+          <p class="ln">Rowan</p>
         </div>
         <div class="letter__foot">
           <button class="letter__copy" type="button" data-cursor="Copy" hidden>Copy email</button>
         </div>
-        <span class="letter__bar" aria-hidden="true"><i></i></span>
       </figure>
       <figure class="letter">
-        <figcaption class="letter__head"><span class="letter__k">To</span>dee@tessellate.studio</figcaption>
-        <p class="letter__subj"><span>Your pricing page changed, your outbound did not</span></p>
+        <figcaption class="letter__head"><span><span class="letter__k">To</span>dee@tessellate.studio</span><span class="letter__sig">Pricing change</span></figcaption>
+        <p class="letter__subj">Your pricing page changed, your outbound did not</p>
         <div class="letter__body">
-          <p class="ln" data-hold="1">Hi Dee,</p>
-          <p class="ln" data-generic="Hope you are well." data-specific="Tessellate moved to seat-based pricing on the 3rd.">Tessellate moved to seat-based pricing on the 3rd.</p>
-          <p class="ln" data-generic="We can help with your outbound." data-specific="Every sequence you are running still pitches the old flat plan.">Every sequence you are running still pitches the old flat plan.</p>
-          <p class="ln" data-generic="Can we connect sometime?" data-specific="Ten minutes to rewrite the top of it?">Ten minutes to rewrite the top of it?</p>
-          <p class="ln" data-hold="1">Rowan</p>
+          <p class="ln">Hi Dee,</p>
+          <p class="ln">Tessellate moved to seat-based pricing on the 3rd.</p>
+          <p class="ln">Every sequence you are running still pitches the old flat plan.</p>
+          <p class="ln">Ten minutes to rewrite the top of it?</p>
+          <p class="ln">Rowan</p>
         </div>
         <div class="letter__foot">
           <button class="letter__copy" type="button" data-cursor="Copy" hidden>Copy email</button>
         </div>
-        <span class="letter__bar" aria-hidden="true"><i></i></span>
       </figure>
-        </div>
-      </div>
-      <div class="deck__dots" id="deckDots">
-        <button class="dot" type="button" aria-label="Sample email 1 of 5" aria-current="true"></button>
-        <button class="dot" type="button" aria-label="Sample email 2 of 5"></button>
-        <button class="dot" type="button" aria-label="Sample email 3 of 5"></button>
-        <button class="dot" type="button" aria-label="Sample email 4 of 5"></button>
-        <button class="dot" type="button" aria-label="Sample email 5 of 5"></button>
-      </div>
     </div>
   </div>
 </section>
@@ -254,12 +255,12 @@
 </section>
 
 <!-- ======================= CH 04: THE PORTFOLIO ======================= -->
-<section class="act port" id="portfolio" data-ch="4" data-title="The portfolio" data-scene="port">
-  <div class="act__stage">
+<section class="port" id="portfolio" data-ch="4" data-title="The portfolio" data-scene="port">
+  <div class="block">
     <div class="wrap port__grid" id="portGrid">
-      <!-- The six dots of the mark as six live angles. Weeks 0 to 2 play out
-           on scroll: the weak ones are cut and their capital flows to the
-           ones booking meetings. Angle names and weights are sample data. -->
+      <!-- The six dots of the mark as six angles, shown at the end of week
+           two: the weak ones cut, the rest carrying the budget. Angle names
+           and weights are sample data. -->
       <div class="port__art">
         <svg class="port__svg" id="portSvg" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
         <ul class="port__angles" id="portAngles" aria-label="Sample angles after two weeks">
@@ -270,66 +271,120 @@
           <li data-node="4" data-alloc="16,21,29"><span>Competitor sunset</span> <b>29%</b></li>
           <li data-node="5" data-alloc="17,11,0" data-to="3" class="is-cut"><span>Series B closed</span> <b>0%</b></li>
         </ul>
-        <p class="port__week" id="portWeek" aria-hidden="true">Week 2</p>
+        <p class="port__week">Week 2</p>
       </div>
       <div class="port__copy">
         <p class="port__lead">We run a portfolio of them rather than betting an account on a single idea.</p>
-        <p class="port__beat" data-beat="1">The ones that produce meetings get more capital.</p>
-        <p class="port__beat" data-beat="2">The ones that do not get cut in week two.</p>
+        <p class="port__beat">The ones that produce meetings get more capital.</p>
+        <p class="port__beat">The ones that do not get cut in week two.</p>
         <p class="port__note">Sample angles</p>
       </div>
     </div>
     <div class="proof" id="proof">
-      <p class="figure"><span class="counter" id="counter">30-40</span><span class="figure__x">x</span></p>
+      <p class="figure"><span class="counter">30-40</span><span class="figure__x">x</span></p>
       <p class="proof__cap">higher conversion than generic outbound</p>
     </div>
   </div>
 </section>
 
 <!-- ======================= CH 05: THE TRADE ======================= -->
-<section class="act trade" id="how" data-ch="5" data-title="The trade" data-scene="life">
-  <div class="act__stage">
+<section class="trade" id="how" data-ch="5" data-title="The trade" data-scene="life">
+  <div class="block">
     <i class="trade__orb" id="tradeOrb" aria-hidden="true"></i>
     <div class="wrap trade__grid">
       <div class="trade__side">
         <p class="kicker">The trade lifecycle</p>
         <h2 class="h2 trade__h" data-shift>Six steps, in order, every time.</h2>
-        <p class="trade__code" aria-hidden="true">ALPHA-0<span class="odo"><span class="odo__col" id="odo"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span></span></p>
+        <p class="trade__hint"><span class="trade__hint--hover">Hover a step to open it</span><span class="trade__hint--tap">Tap a step to open it</span></p>
         <ol class="steps" id="steps">
           <li class="step" data-i="0">
-            <span class="step__code">ALPHA-01</span>
-            <h3 class="step__t">Source the position</h3>
-            <p class="step__p">Account and signal research. We find the companies that fit and the people inside them with a reason to act this quarter.</p>
+            <button class="step__btn" type="button" aria-expanded="false" aria-controls="step1">
+              <span class="step__code">ALPHA-01</span>
+              <span class="step__t">Source the position</span>
+              <span class="step__plus" aria-hidden="true"></span>
+            </button>
+            <div class="step__more" id="step1">
+              <p class="step__p">Account and signal research. We find the companies that fit and the people inside them with a reason to act this quarter.</p>
+              <dl class="step__dl">
+                <div><dt>You get</dt><dd>A named book of accounts, each with the dated reason we are writing to them now.</dd></div>
+                <div><dt>On the desk</dt><dd>212 accounts live</dd></div>
+              </dl>
+            </div>
           </li>
           <li class="step" data-i="1">
-            <span class="step__code">ALPHA-02</span>
-            <h3 class="step__t">Build the thesis</h3>
-            <p class="step__p">Message architecture, written and edited by someone who has actually read the account. The structure repeats across a campaign. The specifics never do.</p>
+            <button class="step__btn" type="button" aria-expanded="false" aria-controls="step2">
+              <span class="step__code">ALPHA-02</span>
+              <span class="step__t">Build the thesis</span>
+              <span class="step__plus" aria-hidden="true"></span>
+            </button>
+            <div class="step__more" id="step2">
+              <p class="step__p">Message architecture, written and edited by someone who has actually read the account. The structure repeats across a campaign. The specifics never do.</p>
+              <dl class="step__dl">
+                <div><dt>You get</dt><dd>The trigger, what it costs the buyer, and the ask, for you to read before anything is sent.</dd></div>
+                <div><dt>On the desk</dt><dd>SSO shipped, questionnaires land on the AEs, ten minutes before renewals</dd></div>
+              </dl>
+            </div>
           </li>
           <li class="step" data-i="2">
-            <span class="step__code">ALPHA-03</span>
-            <h3 class="step__t">Size the trade</h3>
-            <p class="step__p">Channel, sequence and infrastructure. How much goes where, from which domain, at what pace, and what the sending reputation can carry.</p>
+            <button class="step__btn" type="button" aria-expanded="false" aria-controls="step3">
+              <span class="step__code">ALPHA-03</span>
+              <span class="step__t">Size the trade</span>
+              <span class="step__plus" aria-hidden="true"></span>
+            </button>
+            <div class="step__more" id="step3">
+              <p class="step__p">Channel, sequence and infrastructure. How much goes where, from which domain, at what pace, and what the sending reputation can carry.</p>
+              <dl class="step__dl">
+                <div><dt>You get</dt><dd>A volume plan your domains can hold, so week three lands in the inbox like week one did.</dd></div>
+                <div><dt>On the desk</dt><dd>56% email, 29% LinkedIn, 15% introductions. 3 domains at 40 a day per inbox</dd></div>
+              </dl>
+            </div>
           </li>
           <li class="step" data-i="3">
-            <span class="step__code">ALPHA-04</span>
-            <h3 class="step__t">Execute</h3>
-            <p class="step__p">Launch, coordinated across email, LinkedIn and introductions, so an account has more than one credible way to hear from us.</p>
+            <button class="step__btn" type="button" aria-expanded="false" aria-controls="step4">
+              <span class="step__code">ALPHA-04</span>
+              <span class="step__t">Execute</span>
+              <span class="step__plus" aria-hidden="true"></span>
+            </button>
+            <div class="step__more" id="step4">
+              <p class="step__p">Launch, coordinated across email, LinkedIn and introductions, so an account has more than one credible way to hear from us.</p>
+              <dl class="step__dl">
+                <div><dt>You get</dt><dd>One consistent story per account, whichever channel it arrives through.</dd></div>
+                <div><dt>On the desk</dt><dd>1,184 touches sent across 3 channels</dd></div>
+              </dl>
+            </div>
           </li>
           <li class="step" data-i="4">
-            <span class="step__code">ALPHA-05</span>
-            <h3 class="step__t">Mark to market</h3>
-            <p class="step__p">Live reply monitoring. Every response is read and answered by an operator who can carry the conversation forward.</p>
+            <button class="step__btn" type="button" aria-expanded="false" aria-controls="step5">
+              <span class="step__code">ALPHA-05</span>
+              <span class="step__t">Mark to market</span>
+              <span class="step__plus" aria-hidden="true"></span>
+            </button>
+            <div class="step__more" id="step5">
+              <p class="step__p">Live reply monitoring. Every response is read and answered by an operator who can carry the conversation forward.</p>
+              <dl class="step__dl">
+                <div><dt>You get</dt><dd>Meetings in your calendar with the thread attached, and the referrals followed up for you.</dd></div>
+                <div><dt>On the desk</dt><dd>&#8220;Thursday works.&#8221; from Meridian Labs</dd></div>
+              </dl>
+            </div>
           </li>
           <li class="step" data-i="5">
-            <span class="step__code">ALPHA-06</span>
-            <h3 class="step__t">Close the position</h3>
-            <p class="step__p">Weekly reporting and the iteration loop. Keep the angles that worked, cut the ones that did not, and put the budget behind the winners.</p>
+            <button class="step__btn" type="button" aria-expanded="false" aria-controls="step6">
+              <span class="step__code">ALPHA-06</span>
+              <span class="step__t">Close the position</span>
+              <span class="step__plus" aria-hidden="true"></span>
+            </button>
+            <div class="step__more" id="step6">
+              <p class="step__p">Weekly reporting and the iteration loop. Keep the angles that worked, cut the ones that did not, and put the budget behind the winners.</p>
+              <dl class="step__dl">
+                <div><dt>You get</dt><dd>A short weekly note: what we kept, what we cut and where the budget went.</dd></div>
+                <div><dt>On the desk</dt><dd>2 angles kept, 1 cut</dd></div>
+              </dl>
+            </div>
           </li>
         </ol>
       </div>
 
-      <!-- The desk: one panel per step, lit as the lifecycle advances.
+      <!-- The desk: one panel per step, all of it shown at once.
            Every name and number in it is sample data. -->
       <div class="desk" id="desk" role="img" aria-label="A sample Growency desk showing accounts, message thesis, channel sizing, sends, replies and results">
         <div class="desk__head">
@@ -411,12 +466,11 @@
   </div>
 </section>
 
-<section class="act wont" id="wont" data-scene="wont">
-  <div class="act__stage">
-    <div class="wont__band" id="wontBand" aria-hidden="true"></div>
-    <div class="wrap wont__inner">
+<section class="wont" id="wont" data-scene="wont">
+  <div class="block">
+    <div class="wrap">
       <h2 class="h2" data-shift>Positions we won&#8217;t take.</h2>
-      <ul class="fan" id="fan">
+      <ul class="fan">
         <li class="card"><p class="card__p"><span class="card__t">Run spam campaigns</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
         <li class="card"><p class="card__p"><span class="card__t">Rely on fake personalisation</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
         <li class="card"><p class="card__p"><span class="card__t">Send one message to everyone and call it strategy</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
