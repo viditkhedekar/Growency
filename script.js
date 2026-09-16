@@ -210,8 +210,9 @@
     var ctx = measure();
     ctx.font = weight + ' ' + F + 'px ' + fam;
 
-    /* the baseline marker sits on the last row, and phones stack the letters
-       in rows, so each glyph's baseline is that same distance below its own top */
+    /* the baseline marker sits on the last row, and the letters stack in rows
+       (GROW over ENCY, or two to a row on phones), so each glyph's baseline is
+       that same distance below its own top */
     var lastTop = spans[spans.length - 1].getBoundingClientRect().top;
     var glyphs = spans.map(function (sp) {
       var r = sp.getBoundingClientRect();
@@ -231,7 +232,7 @@
       '<circle id="knockHole" cx="0" cy="0" r="0" fill="#000"/>' +
       '</mask></defs>' +
       '<rect width="' + W + '" height="' + H + '" fill="#06060C" mask="url(#knockMask)"/>' +
-      '<g id="knockLine" fill="none" stroke="rgba(190,200,255,.2)" stroke-width="1"' + fontAttrs + '>' + letters + '</g>';
+      '<g id="knockLine" fill="none" stroke="rgba(120,185,255,.24)" stroke-width="1"' + fontAttrs + '>' + letters + '</g>';
 
     var maskText = all('mask text', film.knock), lineText = all('#knockLine text', film.knock);
     var oi = 0;
@@ -299,7 +300,8 @@
     st.style.fontSize = Math.max(12, F * 0.165).toFixed(1) + 'px';
     var first = spans[0].getBoundingClientRect();
     if (box.top - first.top > 1) {
-      /* stacked on phones: pressed across the middle of the stack instead */
+      /* stacked (two rows on wide screens, four on phones): pressed across
+         the middle of the stack instead */
       var right = 0;
       spans.forEach(function (sp) { right = Math.max(right, sp.getBoundingClientRect().right); });
       film.stampHome = { x: (first.left + right) / 2 - hero.left, y: (first.top + box.bottom) / 2 - hero.top };
@@ -736,9 +738,9 @@
     if (!port.svg || !MARK) return;
     var d = MARK.segs.map(function (s) { return 'M' + s[0] + ' ' + s[1] + 'L' + s[2] + ' ' + s[3]; }).join('');
     var html = '<defs><radialGradient id="halo">' +
-      '<stop offset="0" stop-color="#9FB0FF" stop-opacity=".95"/>' +
-      '<stop offset=".4" stop-color="#7C6CFF" stop-opacity=".3"/>' +
-      '<stop offset="1" stop-color="#7C6CFF" stop-opacity="0"/></radialGradient></defs>' +
+      '<stop offset="0" stop-color="#8FCBFF" stop-opacity=".95"/>' +
+      '<stop offset=".4" stop-color="#5250E8" stop-opacity=".35"/>' +
+      '<stop offset="1" stop-color="#5028BE" stop-opacity="0"/></radialGradient></defs>' +
       '<path class="port__lines" d="' + d + '"/>' +
       '<circle class="port__ring" cx="60" cy="60" r="53"/><g class="port__flows">';
 
