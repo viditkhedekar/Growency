@@ -459,7 +459,7 @@
     if (!strat.box || !strat.lead || mobile || !strat.plates.length) return;
     var box = strat.box.getBoundingClientRect();
     if (!box.width) return;
-    var lx = box.width * 0.68, ys = [], pts = [];
+    var lx = box.width * 0.6, ys = [], pts = [];
     for (var i = 0; i < strat.anchors.length; i++) {
       var r = strat.anchors[i].getBoundingClientRect();
       pts.push({ x: r.left - box.left, y: r.top - box.top });
