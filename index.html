@@ -11,10 +11,10 @@
      pinned scene and scrubbed state hangs off `fx`, so with JS off or under
      reduced motion the page reads top to bottom with every word visible. -->
 <script>document.documentElement.classList.add('js')</script>
-<!-- TODO: self-host Geist and Geist Mono with @font-face before launch -->
+<!-- TODO: self-host Unbounded, Onest and Red Hat Mono with @font-face before launch -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Red+Hat+Mono:wght@400;500;700&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <!-- three.js for the WebGL scene, pinned to one release. TODO: self-host. -->
 <script type="importmap">
@@ -31,6 +31,10 @@
 <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
   <defs>
     <clipPath id="markClip" clipPathUnits="userSpaceOnUse"><circle cx="60" cy="60" r="51.2"/></clipPath>
+    <!-- the cover gradient's bright half, for dots, rings and the sparkline (styles.css: --grad-ui) -->
+    <linearGradient id="gradUi" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2AA3FC"/><stop offset=".5" stop-color="#4B6DF3"/><stop offset="1" stop-color="#5A3FD8"/>
+    </linearGradient>
     <filter id="ink" x="-15%" y="-25%" width="130%" height="150%">
       <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" result="n"/>
       <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
