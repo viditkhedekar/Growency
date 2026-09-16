@@ -139,76 +139,84 @@
     <div class="mail__head">
       <p class="kicker">Sample emails</p>
       <h2 class="h2" data-shift>Five emails we would actually send.</h2>
-      <p class="lede">Each one opens with something the account did this quarter, and asks for ten minutes. Names and companies are sample data.</p>
+      <p class="lede">Each one starts as the email everyone sends, then gets rewritten around something the account did this quarter. Names and companies are sample data.</p>
     </div>
-    <div class="mail__grid">
+    <!-- Five emails we would actually send, all sample data. As the grid comes
+         into view each one types its generic version, strikes it, and grows
+         the specific lines in underneath, then holds the finished email. -->
+    <div class="mail__grid" id="mailGrid">
       <figure class="letter">
         <figcaption class="letter__head"><span><span class="letter__k">To</span>dana@meridianlabs.io</span><span class="letter__sig">SSO to self-serve</span></figcaption>
-        <p class="letter__subj">March, SSO, and your Q3 questionnaire pile</p>
+        <p class="letter__subj ln" data-generic="Quick question">March, SSO, and your Q3 questionnaire pile</p>
         <div class="letter__body">
-          <p class="ln">Hi Dana,</p>
-          <p class="ln">Saw Meridian shipped SSO to the self-serve tier in March.</p>
-          <p class="ln">That usually hands your AEs a security questionnaire problem about two quarters later.</p>
-          <p class="ln">Worth ten minutes before the renewal cycle starts?</p>
-          <p class="ln">Rowan</p>
+          <p class="ln" data-hold="1">Hi Dana,</p>
+          <p class="ln" data-generic="I hope this email finds you well.">Saw Meridian shipped SSO to the self-serve tier in March.</p>
+          <p class="ln" data-generic="We help companies like yours scale their outbound.">That usually hands your AEs a security questionnaire problem about two quarters later.</p>
+          <p class="ln" data-generic="Do you have 15 minutes this week?">Worth ten minutes before the renewal cycle starts?</p>
+          <p class="ln" data-hold="1">Rowan</p>
         </div>
         <div class="letter__foot">
+          <button class="letter__replay" type="button" data-cursor="Replay" hidden>Replay</button>
           <button class="letter__copy" type="button" data-cursor="Copy" hidden>Copy email</button>
         </div>
       </figure>
       <figure class="letter">
         <figcaption class="letter__head"><span><span class="letter__k">To</span>rhea@voltline.io</span><span class="letter__sig">Hiring four AEs</span></figcaption>
-        <p class="letter__subj">Four AE roles, and where the first 90 days of pipeline comes from</p>
+        <p class="letter__subj ln" data-generic="Scaling your outbound">Four AE roles, and where the first 90 days of pipeline comes from</p>
         <div class="letter__body">
-          <p class="ln">Hi Rhea,</p>
-          <p class="ln">Voltline posted four AE roles in Manchester last month.</p>
-          <p class="ln">Ramping four at once means the first 90 days of their pipeline has to come from somewhere else.</p>
-          <p class="ln">Worth a look at what we would run in that gap?</p>
-          <p class="ln">Rowan</p>
+          <p class="ln" data-hold="1">Hi Rhea,</p>
+          <p class="ln" data-generic="I hope you are doing well.">Voltline posted four AE roles in Manchester last month.</p>
+          <p class="ln" data-generic="We help companies like yours grow faster.">Ramping four at once means the first 90 days of their pipeline has to come from somewhere else.</p>
+          <p class="ln" data-generic="Would you be open to a quick call?">Worth a look at what we would run in that gap?</p>
+          <p class="ln" data-hold="1">Rowan</p>
         </div>
         <div class="letter__foot">
+          <button class="letter__replay" type="button" data-cursor="Replay" hidden>Replay</button>
           <button class="letter__copy" type="button" data-cursor="Copy" hidden>Copy email</button>
         </div>
       </figure>
       <figure class="letter">
         <figcaption class="letter__head"><span><span class="letter__k">To</span>sam@harlowfreight.com</span><span class="letter__sig">New lane</span></figcaption>
-        <p class="letter__subj">The Rotterdam lane, and who is quoting under you on it</p>
+        <p class="letter__subj ln" data-generic="Following up">The Rotterdam lane, and who is quoting under you on it</p>
         <div class="letter__body">
-          <p class="ln">Hi Sam,</p>
-          <p class="ln">Saw Harlow added the Rotterdam lane in August.</p>
-          <p class="ln">Two of your competitors started quoting it at 11% under you in September.</p>
-          <p class="ln">Ten minutes on how we would get in front of that?</p>
-          <p class="ln">Rowan</p>
+          <p class="ln" data-hold="1">Hi Sam,</p>
+          <p class="ln" data-generic="I hope this finds you well.">Saw Harlow added the Rotterdam lane in August.</p>
+          <p class="ln" data-generic="We work with a lot of companies in your space.">Two of your competitors started quoting it at 11% under you in September.</p>
+          <p class="ln" data-generic="Do you have time this week?">Ten minutes on how we would get in front of that?</p>
+          <p class="ln" data-hold="1">Rowan</p>
         </div>
         <div class="letter__foot">
+          <button class="letter__replay" type="button" data-cursor="Replay" hidden>Replay</button>
           <button class="letter__copy" type="button" data-cursor="Copy" hidden>Copy email</button>
         </div>
       </figure>
       <figure class="letter">
         <figcaption class="letter__head"><span><span class="letter__k">To</span>priya@quarryhealth.com</span><span class="letter__sig">Series B, SOC 2</span></figcaption>
-        <p class="letter__subj">SOC 2 in January, procurement asking in March</p>
+        <p class="letter__subj ln" data-generic="15 minutes this week?">SOC 2 in January, procurement asking in March</p>
         <div class="letter__body">
-          <p class="ln">Hi Priya,</p>
-          <p class="ln">Quarry closed the Series B and the SOC 2 window opens in January.</p>
-          <p class="ln">Hospital procurement starts asking for the report about eight weeks after that.</p>
-          <p class="ln">Worth ten minutes before that queue forms?</p>
-          <p class="ln">Rowan</p>
+          <p class="ln" data-hold="1">Hi Priya,</p>
+          <p class="ln" data-generic="Hope all is well with you.">Quarry closed the Series B and the SOC 2 window opens in January.</p>
+          <p class="ln" data-generic="We help teams like yours scale.">Hospital procurement starts asking for the report about eight weeks after that.</p>
+          <p class="ln" data-generic="Free for a chat this week?">Worth ten minutes before that queue forms?</p>
+          <p class="ln" data-hold="1">Rowan</p>
         </div>
         <div class="letter__foot">
+          <button class="letter__replay" type="button" data-cursor="Replay" hidden>Replay</button>
           <button class="letter__copy" type="button" data-cursor="Copy" hidden>Copy email</button>
         </div>
       </figure>
       <figure class="letter">
         <figcaption class="letter__head"><span><span class="letter__k">To</span>dee@tessellate.studio</span><span class="letter__sig">Pricing change</span></figcaption>
-        <p class="letter__subj">Your pricing page changed, your outbound did not</p>
+        <p class="letter__subj ln" data-generic="Idea for Tessellate">Your pricing page changed, your outbound did not</p>
         <div class="letter__body">
-          <p class="ln">Hi Dee,</p>
-          <p class="ln">Tessellate moved to seat-based pricing on the 3rd.</p>
-          <p class="ln">Every sequence you are running still pitches the old flat plan.</p>
-          <p class="ln">Ten minutes to rewrite the top of it?</p>
-          <p class="ln">Rowan</p>
+          <p class="ln" data-hold="1">Hi Dee,</p>
+          <p class="ln" data-generic="Hope you are well.">Tessellate moved to seat-based pricing on the 3rd.</p>
+          <p class="ln" data-generic="We can help with your outbound.">Every sequence you are running still pitches the old flat plan.</p>
+          <p class="ln" data-generic="Can we connect sometime?">Ten minutes to rewrite the top of it?</p>
+          <p class="ln" data-hold="1">Rowan</p>
         </div>
         <div class="letter__foot">
+          <button class="letter__replay" type="button" data-cursor="Replay" hidden>Replay</button>
           <button class="letter__copy" type="button" data-cursor="Copy" hidden>Copy email</button>
         </div>
       </figure>
