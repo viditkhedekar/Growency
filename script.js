@@ -241,14 +241,99 @@
   }
 
   /* =======================================================
-     CH 02: the emails. Each one can be copied as plain text.
+     CH 02: the emails. As the grid comes into view each one
+     types the email everyone sends, strikes it, and grows the
+     specific lines in underneath, a beat after the one before.
+     Then it holds the finished email, to replay or copy.
      ======================================================= */
+  function makeLetter(el) {
+    var lines = all('.ln', el);
+    lines.forEach(function (ln) { ln.dataset.specific = ln.textContent.trim(); });
+    if (!fx || !lines.length) return null;
+
+    var parts = lines.map(function (ln) {
+      var spec = ln.dataset.specific;
+      ln.textContent = '';
+      /* .gen and .spec share one grid cell, so a line is always as tall as
+         its longer version and nothing below it moves. .gen__t carries the
+         strike, so it follows the words across wrapped lines */
+      var g = document.createElement('span'); g.className = 'gen';
+      var gt = document.createElement('span'); gt.className = 'gen__t'; g.appendChild(gt);
+      var sp = document.createElement('span'); sp.className = 'spec'; sp.textContent = spec;
+      ln.appendChild(g); ln.appendChild(sp);
+      return { el: ln, gen: gt, generic: ln.dataset.generic || spec, rewrites: !ln.dataset.hold };
+    });
+
+    var TYPE = 17, token = 0, timers = [];
+    function at(ms, fn) { var t = token; timers.push(setTimeout(function () { if (t === token) fn(); }, ms)); }
+    function type(node, host, str, from) {
+      at(from, function () { host.classList.add('is-typing'); });
+      for (var i = 1; i <= str.length; i++) {
+        (function (n) {
+          at(from + n * TYPE, function () {
+            node.textContent = str.slice(0, n);
+            if (n === str.length) host.classList.remove('is-typing');
+          });
+        })(i);
+      }
+      return from + str.length * TYPE;
+    }
+    function clear() {
+      token++;
+      timers.forEach(clearTimeout); timers = [];
+      parts.forEach(function (p) { p.el.classList.remove('is-cut', 'is-new', 'is-typing'); p.gen.textContent = ''; });
+    }
+    function finished() {
+      clear();
+      parts.forEach(function (p) { p.el.classList.add('is-new'); });
+    }
+    function play(delay) {
+      clear();
+      var t = delay + 240;
+      parts.forEach(function (p) { t = type(p.gen, p.el, p.generic, t) + 120; });
+      t += 900;
+      parts.filter(function (p) { return p.rewrites; }).forEach(function (p) {
+        (function (start) {
+          at(start, function () { p.el.classList.add('is-cut'); });
+          at(start + 420, function () { p.el.classList.add('is-new'); });
+        })(t);
+        t += 520;
+      });
+    }
+
+    var replay = el.querySelector('.letter__replay');
+    if (replay) {
+      replay.hidden = false;
+      replay.addEventListener('click', function () { play(0); });
+    }
+    finished();
+    return { play: play, clear: clear };
+  }
+
+  var mail = { grid: $('mailGrid'), letters: [], played: false };
+  function buildMail() {
+    mail.letters = all('.letter', mail.grid || document).map(makeLetter).filter(Boolean);
+    all('.letter').forEach(letterCopy);
+    if (!mail.letters.length) return;
+    if (!hasIO) return;   /* no observer: they simply stay finished */
+    mail.letters.forEach(function (L) { L.clear(); });
+    var io = new IntersectionObserver(function (entries) {
+      if (mail.played || !entries.some(function (e) { return e.isIntersecting; })) return;
+      mail.played = true;
+      io.disconnect();
+      mail.letters.forEach(function (L, i) { L.play(i * 420); });
+    }, { rootMargin: '0px 0px -22% 0px' });
+    io.observe(mail.grid);
+  }
+
   function letterCopy(el) {
     var btn = el.querySelector('.letter__copy');
     if (!btn) return;
     var subj = el.querySelector('.letter__subj');
-    var subject = subj ? subj.textContent.trim() : '';
-    var body = all('.ln', el).map(function (ln) { return ln.textContent.trim(); }).join('\n\n');
+    var subject = subj ? (subj.dataset.specific || subj.textContent).trim() : '';
+    var body = all('.letter__body .ln', el).map(function (ln) {
+      return (ln.dataset.specific || ln.textContent).trim();
+    }).join('\n\n');
     var out = 'Subject: ' + subject + '\n\n' + body;
 
     btn.hidden = false;
@@ -969,7 +1054,7 @@
   buildSteps();
   buildSign();
   buildShift();
-  all('.letter').forEach(letterCopy);
+  buildMail();
 
   act(hero.sec, { mode: 'pass', scene: 'film' });
   act($('emails'), { mode: 'pass', scene: 'mail' });
