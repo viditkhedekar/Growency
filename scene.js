@@ -2,10 +2,9 @@
    Growency: the scene
 
    One WebGL canvas behind the whole page. It holds the
-   lattice (the logo's own geometry wrapped onto a sphere,
-   unrolled into a corridor, or laid flat inside a glass
-   medallion), the six nodes, a particle field, a glow, and
-   the cursor's trail.
+   wordmark drawn as dots, the lattice (the logo's own
+   geometry wrapped onto a sphere, or laid flat inside a glass
+   medallion), the six nodes, a glow, and the cursor's trail.
 
    It reads window.GROWENCY every frame and never writes to
    the DOM, so script.js stays the only thing that measures
@@ -51,8 +50,8 @@ camera.position.set(0, 0, 6);
 const pmrem = new THREE.PMREMGenerator(renderer);
 scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.05).texture;
 
-/* the cover gradient, left to right. The lattice, nodes, particles and
-   trail take its two bright ends; the backdrop runs the whole ramp. */
+/* the cover gradient, left to right. The lattice, nodes, dots and trail
+   take its bright half; the backdrop runs the whole ramp. */
 const COL_A = new THREE.Color('#2AA3FC');
 const COL_B = new THREE.Color('#5250E8');
 const COL_BG = new THREE.Color('#06060C');
@@ -250,72 +249,109 @@ const globe = new THREE.Group();
 globe.add(lattice); globe.add(nodes);
 scene.add(globe);
 
-/* ---------------------------------------------- particles -- */
-const COUNT = mobile ? 1800 : 5200;
-const particles = (() => {
+/* ------------------------------------------ the wordmark as dots --
+   script.js samples the GROWENCY letters into points, in CSS pixels from the
+   hero's corner. Each dot starts somewhere across the screen and gathers to
+   its place, then keeps moving around it: a slow drift, a wave running
+   through the letters, a push away from the pointer, and a scatter as the
+   hero scrolls off. Drawn straight in screen space, with no camera. */
+const COL_C = new THREE.Color('#5A3FD8');
+const dots = (() => {
   const g = new THREE.BufferGeometry();
-  const field = new Float32Array(COUNT * 3), target = new Float32Array(COUNT * 3), seed = new Float32Array(COUNT);
-  const verts = latGeo.attributes.position.array;
-  const vcount = verts.length / 3;
-  for (let i = 0; i < COUNT; i++) {
-    const a = Math.random() * Math.PI * 2;
-    const r = 0.7 + Math.pow(Math.random(), 0.6) * 3.6;
-    field[i * 3] = Math.cos(a) * r;
-    field[i * 3 + 1] = Math.sin(a) * r * 0.8;
-    field[i * 3 + 2] = 4 - Math.random() * 20;
-    const v = (Math.random() * vcount) | 0;
-    target[i * 3] = verts[v * 3]; target[i * 3 + 1] = verts[v * 3 + 1]; target[i * 3 + 2] = verts[v * 3 + 2];
-    seed[i] = Math.random();
-  }
-  g.setAttribute('position', new THREE.BufferAttribute(field, 3));
-  g.setAttribute('aField', new THREE.BufferAttribute(field, 3));
-  g.setAttribute('aTarget', new THREE.BufferAttribute(target, 3));
-  g.setAttribute('aSeed', new THREE.BufferAttribute(seed, 1));
   const m = new THREE.ShaderMaterial({
     uniforms: {
-      uTime: shared.uTime, uAlpha: { value: 0.5 }, uConverge: { value: 0 },
-      uGlobe: { value: new THREE.Matrix4() }, uSize: { value: 52 * PR }, uColA: { value: COL_A }
+      uTime: shared.uTime, uRes: { value: new THREE.Vector2(W, H) }, uOrigin: { value: new THREE.Vector2() },
+      uForm: { value: 0 }, uOut: { value: 0 }, uAlpha: { value: 0 }, uSize: { value: 2.4 * PR },
+      uPtr: { value: new THREE.Vector2(-9999, -9999) }, uPtrAmt: { value: 0 },
+      uColA: { value: COL_A }, uColB: { value: COL_B }, uColC: { value: COL_C }
     },
     transparent: true, depthTest: false, depthWrite: false, blending: THREE.AdditiveBlending,
     vertexShader: `
-      attribute vec3 aField;
-      attribute vec3 aTarget;
-      attribute float aSeed;
+      attribute vec3 aFrom;
+      uniform vec2 uRes;
+      uniform vec2 uOrigin;
       uniform float uTime;
+      uniform float uForm;
+      uniform float uOut;
       uniform float uAlpha;
-      uniform float uConverge;
       uniform float uSize;
-      uniform mat4 uGlobe;
+      uniform vec2 uPtr;
+      uniform float uPtrAmt;
       varying float vA;
+      varying float vT;
+      varying float vHot;
       void main() {
-        vec3 f = aField;
-        f.x += sin(uTime * 0.25 + aSeed * 24.0) * 0.16;
-        f.y += cos(uTime * 0.21 + aSeed * 31.0) * 0.16;
-        f.z += sin(uTime * 0.17 + aSeed * 12.0) * 0.28;
-        vec3 t = (uGlobe * vec4(aTarget, 1.0)).xyz;
-        float c = smoothstep(aSeed * 0.4, aSeed * 0.4 + 0.6, uConverge);
-        vec4 mv = modelViewMatrix * vec4(mix(f, t, c), 1.0);
-        gl_Position = projectionMatrix * mv;
-        float view = max(-mv.z, 0.08);
-        gl_PointSize = uSize * (0.5 + aSeed) / view;
-        vA = uAlpha * (0.25 + 0.75 * c) * smoothstep(0.06, 0.9, view) * exp(-max(0.0, view - 9.0) * 0.13);
+        /* position.xy is the dot's home in the letters, position.z where it
+           sits along the gradient; aFrom.xy is where it starts, as a share of
+           the screen, and aFrom.z its seed */
+        float s = aFrom.z;
+        float t = uTime;
+        vec2 home = uOrigin + position.xy;
+        vec2 drift = vec2(sin(t * 0.7 + s * 40.0 + position.y * 0.02),
+                          cos(t * 0.6 + s * 31.0 + position.x * 0.02)) * (0.6 + 1.4 * s);
+        drift.y += sin(position.x * 0.011 + position.y * 0.004 - t * 1.1) * 2.2;
+
+        float f = smoothstep(s * 0.5, s * 0.5 + 0.5, uForm);
+        f = f * f * (3.0 - 2.0 * f);
+        vec2 p = mix(aFrom.xy * uRes, home + drift, f);
+
+        vec2 dir = normalize(vec2(fract(s * 91.7) - 0.5, fract(s * 53.3) - 0.5) + 1e-4);
+        p += (dir * (160.0 + 380.0 * s) + vec2(0.0, -220.0 * s)) * uOut * uOut;
+
+        vec2 d = p - uPtr;
+        float dist = length(d);
+        float push = exp(-dist * dist / 9000.0) * uPtrAmt;
+        p += (dist > 0.001 ? d / dist : vec2(0.0)) * push * 34.0;
+
+        gl_Position = vec4(p.x / uRes.x * 2.0 - 1.0, 1.0 - p.y / uRes.y * 2.0, 0.0, 1.0);
+        gl_PointSize = uSize * (0.75 + 0.5 * s) * (1.0 + push * 0.6);
+        float twinkle = 0.78 + 0.22 * sin(t * (1.0 + s * 2.0) + s * 60.0);
+        vA = uAlpha * mix(0.3, 1.0, f) * twinkle * (1.0 - uOut);
+        vT = position.z;
+        vHot = push;
       }
     `,
     fragmentShader: `
       uniform vec3 uColA;
+      uniform vec3 uColB;
+      uniform vec3 uColC;
       varying float vA;
+      varying float vT;
+      varying float vHot;
       void main() {
         float d = length(gl_PointCoord - 0.5);
-        float a = smoothstep(0.5, 0.0, d);
-        gl_FragColor = vec4(mix(uColA, vec3(1.0), a * 0.35), a * vA);
+        float a = smoothstep(0.5, 0.3, d);
+        vec3 col = vT < 0.5 ? mix(uColA, uColB, vT * 2.0) : mix(uColB, uColC, (vT - 0.5) * 2.0);
+        col = mix(col, vec3(1.0), 0.22 + vHot * 0.5);
+        gl_FragColor = vec4(col, a * vA);
       }
     `
   });
   const p = new THREE.Points(g, m);
   p.frustumCulled = false;
+  p.renderOrder = 10;
+  p.visible = false;
   scene.add(p);
-  return p;
+  return { points: p, geo: g, mat: m, ver: -1 };
 })();
+
+/* rebuilt whenever script.js resamples the letters, on load and on resize */
+function syncDots() {
+  const hero = G.hero;
+  if (!hero || !hero.pts || hero.ver === dots.ver) return;
+  dots.ver = hero.ver;
+  const n = hero.n;
+  const from = new Float32Array(n * 3);
+  for (let i = 0; i < n; i++) {
+    from[i * 3] = -0.15 + Math.random() * 1.3;
+    from[i * 3 + 1] = -0.2 + Math.random() * 1.4;
+    from[i * 3 + 2] = Math.random();
+  }
+  dots.geo.dispose();
+  dots.geo.setAttribute('position', new THREE.BufferAttribute(hero.pts, 3));
+  dots.geo.setAttribute('aFrom', new THREE.BufferAttribute(from, 3));
+  dots.mat.uniforms.uSize.value = clamp((hero.gap || 4) * 0.5, 1.5, 3) * PR;
+}
 
 /* ----------------------------------------------- backdrop --
    The cover, alive. A band of the gradient runs across the screen with its
@@ -499,7 +535,7 @@ function worldPerPx(z) { return 2 * Math.tan(FOV * Math.PI / 360) * z / H; }
 
 const S = {
   gx: 0, gy: 0, gs: 1, alpha: 0, morph: 0, flat: 0, camZ: REF_Z, roll: 0,
-  particles: 0.5, bg: 0.55, bgx: 0.5, bgy: 0.45, bloom: 0.8, glass: 0, ptr: 0
+  dots: 0, bg: 0.55, bgx: 0.5, bgy: 0.45, bloom: 0.8, glass: 0, ptr: 0
 };
 const T = Object.assign({}, S);
 const nodeGlow = new Float32Array(6).fill(1);
@@ -508,13 +544,15 @@ const nodeTarget = new Float32Array(6).fill(1);
 /* bg is how much of the cover shows behind each chapter: rich, never so
    bright that the copy over it has to fight */
 const PRESETS = {
-  strat: { alpha: 0, particles: 0.42, bg: 0.5, bgx: 0.74, bgy: 0.45, bloom: 0.55, glass: 0 },
-  port: { alpha: 0, particles: 0.38, bg: 0.48, bgx: 0.3, bgy: 0.5, bloom: 0.55, glass: 0 },
-  life: { alpha: 0.55, particles: 0.32, bg: 0.5, bgx: 0.26, bgy: 0.45, bloom: 0.6, glass: 0 },
-  ops: { alpha: 0, particles: 0.28, bg: 0.44, bgx: 0.5, bgy: 0.4, bloom: 0.5, glass: 0 },
-  wont: { alpha: 0, particles: 0.24, bg: 0.42, bgx: 0.5, bgy: 0.5, bloom: 0.5, glass: 0 },
-  pilot: { alpha: 0, particles: 0.3, bg: 0.46, bgx: 0.35, bgy: 0.45, bloom: 0.5, glass: 0 },
-  final: { alpha: 1, particles: 0.45, bg: 0.66, bgx: 0.74, bgy: 0.5, bloom: 0.8, glass: 1 }
+  film: { alpha: 0, bg: 0.5, bgx: 0.5, bgy: 0.58, bloom: 0.22, glass: 0 },
+  mail: { alpha: 0, bg: 0.5, bgx: 0.62, bgy: 0.5, bloom: 0.5, glass: 0 },
+  strat: { alpha: 0, bg: 0.5, bgx: 0.74, bgy: 0.45, bloom: 0.55, glass: 0 },
+  port: { alpha: 0, bg: 0.48, bgx: 0.3, bgy: 0.5, bloom: 0.55, glass: 0 },
+  life: { alpha: 0.55, bg: 0.5, bgx: 0.26, bgy: 0.45, bloom: 0.6, glass: 0 },
+  ops: { alpha: 0, bg: 0.44, bgx: 0.5, bgy: 0.4, bloom: 0.5, glass: 0 },
+  wont: { alpha: 0, bg: 0.42, bgx: 0.5, bgy: 0.5, bloom: 0.5, glass: 0 },
+  pilot: { alpha: 0, bg: 0.46, bgx: 0.35, bgy: 0.45, bloom: 0.5, glass: 0 },
+  final: { alpha: 1, bg: 0.66, bgx: 0.74, bgy: 0.5, bloom: 0.8, glass: 1 }
 };
 
 function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
@@ -529,34 +567,10 @@ function placeFromScreen(x, y, r, into) {
   into.gs = Math.max(0.05, r * wpp);
 }
 
-function filmTarget(p) {
-  /* where the lattice sits: inside the O until the portal opens */
-  if (G.portal && G.portal.on) placeFromScreen(G.portal.x, G.portal.y, G.portal.r * 0.92, T);
-  else placeFromScreen(W / 2, H / 2, Math.min(W, H) * 0.2, T);
-
-  T.morph = seg(p, 0.42, 0.62);
-  T.flat = 0;
-  T.alpha = 0.95 - 0.45 * seg(p, 0.6, 0.8);
-  T.particles = 0.8 - 0.3 * seg(p, 0.62, 0.82);
-  T.bg = 0.54 + 0.14 * seg(p, 0.3, 0.5);
-  T.bgx = clamp(G.portal.on ? G.portal.x / W : 0.5, 0, 1);
-  T.bgy = clamp(G.portal.on ? 1 - G.portal.y / H : 0.5, 0, 1);
-  T.bloom = 0.85 + 0.35 * seg(p, 0.3, 0.55) - 0.3 * seg(p, 0.7, 0.9);
-  T.glass = 0;
-  T.roll = Math.sin(p * 5.0) * 0.05 * seg(p, 0.35, 0.6);
-
-  const Rw = T.gs;
-  if (p <= 0.3) T.camZ = REF_Z;
-  else if (p <= 0.46) T.camZ = lerp(REF_Z, Rw * 0.25, inOut(seg(p, 0.3, 0.46)));
-  else T.camZ = lerp(Rw * 0.25, -Rw * 4.0, inOut(seg(p, 0.46, 0.9)));
-
-  for (let i = 0; i < 6; i++) nodeTarget[i] = 1;
-}
-
 function sceneTarget(name) {
   const s = PRESETS[name] || PRESETS.ops;
   T.morph = 0; T.flat = name === 'final' ? 1 : 0; T.camZ = REF_Z; T.roll = 0;
-  T.alpha = s.alpha; T.particles = s.particles; T.bloom = s.bloom; T.glass = s.glass;
+  T.alpha = s.alpha; T.bloom = s.bloom; T.glass = s.glass;
   T.bg = s.bg; T.bgx = s.bgx; T.bgy = s.bgy;
 
   const a = G.anchor;
@@ -564,61 +578,55 @@ function sceneTarget(name) {
   else if (a) { T.bgx = clamp(a.x / W, 0, 1); T.bgy = clamp(1 - a.y / H, 0, 1); }
 
   for (let i = 0; i < 6; i++) {
-    nodeTarget[i] = name === 'life' ? (i === G.node ? 1 : 0.18) : 1;
+    /* a step open beside the globe lights its node and dims the rest */
+    nodeTarget[i] = name === 'life' && G.node >= 0 ? (i === G.node ? 1 : 0.18) : 1;
   }
 }
 
-/* ---------------------------------------------- the loader -- */
-let converge = 0;
-function loaderState(now) {
-  const L = G.loader;
-  if (L.active) {
-    if (L.phase === 'form') {
-      const t = clamp((now - L.formAt) / (L.skip ? 420 : 1000), 0, 1);
-      converge = t;
-      if (t >= 1) L.formed = true;
-    } else converge = 0;
-    return true;
-  }
-  if (L.done && L.doneAt) converge = clamp(1 - (now - L.doneAt) / 1700, 0, 1);
-  else converge = 0;
-  return false;
+/* ------------------------------------- the dots gathering --
+   Once the loader reaches 100, or straight away when it does not run, the
+   dots start gathering. The loader lifts part way through. */
+function formState(now) {
+  const L = G.loader, hero = G.hero;
+  if (!hero || !hero.n) return 0;
+  if (!hero.formAt && (!L.active || L.phase === 'form')) hero.formAt = now;
+  if (!hero.formAt) return 0;
+  const t = reduced ? 1 : clamp((now - hero.formAt) / (L.skip ? 900 : 2200), 0, 1);
+  if (L.active && t > 0.55) L.formed = true;
+  return t;
 }
 
 /* ------------------------------------------------- frames -- */
 let time = 0, last = performance.now(), ready = false;
-const gm = new THREE.Matrix4();
 
 function step(dt, now) {
-  const loading = loaderState(now);
+  syncDots();
+  const form = formState(now);
   const name = G.scene.name;
 
-  if (loading) {
+  if (G.loader.active) {
     placeFromScreen(W / 2, H / 2, Math.min(W, H) * 0.2, T);
-    T.morph = 0; T.flat = 0; T.camZ = REF_Z; T.glass = 0; T.roll = 0;
-    T.alpha = 0.95 * clamp((converge - 0.45) / 0.45, 0, 1);
-    T.particles = 0.95;
-    T.bg = 0.42; T.bgx = 0.5; T.bgy = 0.5; T.bloom = 1;
+    T.morph = 0; T.flat = 0; T.camZ = REF_Z; T.glass = 0; T.roll = 0; T.alpha = 0;
+    T.bg = 0.42; T.bgx = 0.5; T.bgy = 0.5; T.bloom = 0.6;
     for (let i = 0; i < 6; i++) nodeTarget[i] = 1;
-  } else if (name === 'film' && G.fx) {
-    filmTarget(G.film.p);
-  } else if (name === 'film') {
+  } else if (name === 'film' && !G.fx) {
     /* reduced motion: the lattice simply sits behind the hero */
     placeFromScreen(W * 0.5, H * 0.42, Math.min(W, H) * 0.26, T);
-    T.morph = 0; T.flat = 0; T.camZ = REF_Z; T.alpha = 0.8; T.particles = 0.5;
+    T.morph = 0; T.flat = 0; T.camZ = REF_Z; T.alpha = 0.8;
     T.bg = 0.6; T.bgx = 0.5; T.bgy = 0.55; T.bloom = 0.7; T.glass = 0; T.roll = 0;
     for (let i = 0; i < 6; i++) nodeTarget[i] = 1;
   } else {
     sceneTarget(name);
   }
 
-  const fast = 1 - Math.exp(-dt * (name === 'film' ? 16 : 6));
+  const fast = 1 - Math.exp(-dt * 6);
   const slow = 1 - Math.exp(-dt * 3.4);
   S.gx = lerp(S.gx, T.gx, fast); S.gy = lerp(S.gy, T.gy, fast); S.gs = lerp(S.gs, T.gs, fast);
   S.camZ = lerp(S.camZ, T.camZ, fast); S.morph = lerp(S.morph, T.morph, fast);
   S.roll = lerp(S.roll, T.roll, fast);
   S.flat = lerp(S.flat, T.flat, slow); S.alpha = lerp(S.alpha, T.alpha, slow);
-  S.particles = lerp(S.particles, T.particles, slow); S.glass = lerp(S.glass, T.glass, slow);
+  S.glass = lerp(S.glass, T.glass, slow);
+  S.dots = lerp(S.dots, G.hero && G.hero.n ? 1 : 0, slow);
   S.bg = lerp(S.bg, T.bg, slow); S.bgx = lerp(S.bgx, T.bgx, slow); S.bgy = lerp(S.bgy, T.bgy, slow);
   S.bloom = lerp(S.bloom, T.bloom, slow);
 
@@ -663,10 +671,16 @@ function step(dt, now) {
   }
   if (changed) ng.needsUpdate = true;
 
-  particles.material.uniforms.uAlpha.value = S.particles;
-  particles.material.uniforms.uConverge.value = converge;
-  gm.compose(globe.position, globe.quaternion, globe.scale);
-  particles.material.uniforms.uGlobe.value.copy(gm);
+  const hero = G.hero, du = dots.mat.uniforms;
+  dots.points.visible = !!(hero && hero.n) && hero.out < 0.999 && S.dots > 0.002;
+  if (dots.points.visible) {
+    du.uOrigin.value.set(hero.left, hero.top);
+    du.uForm.value = form;
+    du.uOut.value = hero.out;
+    du.uAlpha.value = S.dots * 0.9;
+    du.uPtrAmt.value = S.ptr;
+    du.uPtr.value.set(P.on ? P.x : -9999, P.on ? P.y : -9999);
+  }
 
   backdrop.material.uniforms.uI.value = S.bg;
   backdrop.material.uniforms.uC.value.set(S.bgx, S.bgy);
@@ -719,13 +733,14 @@ function resize() {
   camera.aspect = W / H;
   camera.updateProjectionMatrix();
   backdrop.material.uniforms.uRes.value.set(W, H);
+  dots.mat.uniforms.uRes.value.set(W, H);
   finish.uniforms.uRes.value.set(W, H);
   shared.uAspect.value = W / H;
 }
 window.addEventListener('resize', resize, { passive: true });
 
 /* On phones the middle chapters only hold a quiet backdrop, so they draw
-   every other frame. The portal and the medallion keep every frame. */
+   every other frame. The dotted wordmark and the medallion keep every frame. */
 let halve = false;
 function tick(now) {
   const quiet = G.scene.name !== 'film' && G.scene.name !== 'final';
