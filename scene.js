@@ -316,7 +316,9 @@ function stepWind(dt, now, active) {
   } else wind.had = false;
   if (!wind.live) return;
 
-  const dn = Math.exp(-1.15 * dt), dg = Math.exp(-1.55 * dt), dw = Math.exp(-6.4 * dt);
+  /* slow fades, so a stroke hangs in the letters for a few seconds before
+     the dots find their way home */
+  const dn = Math.exp(-0.42 * dt), dg = Math.exp(-0.6 * dt), dw = Math.exp(-1.6 * dt);
   let any = false;
   const n = wind.near, w = wind.wide;
   for (let c = 0, o = 0, q = 0; c < FW * FH; c++, o += 3, q += 4) {
@@ -368,11 +370,21 @@ const dots = (() => {
            the screen, and aFrom.z its seed */
         float s = aFrom.z;
         float t = uTime;
-        float star = step(0.962, fract(s * 7.13));
+        /* position.z carries where the dot sits along the gradient, plus 2 for
+           one of the logo's six nodes in the O, or 4 for the rest of the mark */
+        float mark = step(3.5, position.z);
+        float node = step(1.5, position.z) * (1.0 - mark);
+        float star = max(step(0.962, fract(s * 7.13)) * (1.0 - mark), node);
         vec2 home = uOrigin + position.xy;
-        vec2 drift = vec2(sin(t * 0.7 + s * 40.0 + position.y * 0.02),
-                          cos(t * 0.6 + s * 31.0 + position.x * 0.02)) * (0.6 + 1.4 * s);
-        drift.y += sin(position.x * 0.011 + position.y * 0.004 - t * 1.1) * 2.2;
+        /* every dot is always on the move: its own small orbit, a slower
+           wander, and a wave running through the letters */
+        float calm = mix(1.0, 0.3, mark);
+        vec2 drift = vec2(sin(t * (0.9 + s * 0.8) + s * 40.0 + position.y * 0.02),
+                          cos(t * (0.8 + s * 0.7) + s * 31.0 + position.x * 0.02)) * (0.9 + 1.5 * s);
+        drift += vec2(sin(t * 0.31 + s * 17.0), cos(t * 0.27 + s * 23.0)) * 1.5 * (1.0 - node);
+        drift.y += sin(position.x * 0.011 + position.y * 0.004 - t * 1.1) * 2.8;
+        drift.x += cos(position.y * 0.013 - t * 0.8) * 1.2;
+        drift *= calm;
 
         float f = smoothstep(s * 0.5, s * 0.5 + 0.5, uForm);
         f = f * f * (3.0 - 2.0 * f);
@@ -397,10 +409,10 @@ const dots = (() => {
         float glow = near.b * uWind;
 
         gl_Position = vec4(p.x / uRes.x * 2.0 - 1.0, 1.0 - p.y / uRes.y * 2.0, 0.0, 1.0);
-        gl_PointSize = uSize * (0.75 + 0.5 * s) * mix(1.0, 5.5, star) * (1.0 + scatter * 0.9);
+        gl_PointSize = uSize * (0.75 + 0.5 * s) * mix(1.0, 5.5, star) * mix(1.0, 1.5, node) * mix(1.0, 0.8, mark) * (1.0 + scatter * 0.9);
         float twinkle = 0.72 + 0.28 * sin(t * (1.0 + s * 2.0) + s * 60.0);
         vA = uAlpha * mix(0.3, 1.0, f) * twinkle * (1.0 - uOut) * (1.0 - scatter * 0.25);
-        vT = position.z;
+        vT = position.z - 2.0 * node - 4.0 * mark;
         vHot = glow;
         vStar = star;
       }
@@ -441,6 +453,108 @@ const dots = (() => {
   scene.add(p);
   return { points: p, geo: g, mat: m, ver: -1 };
 })();
+
+/* --------------------------------------------------- the web --
+   The logo's cube lattice, tiled across the whole screen as a faint web
+   behind everything. The cursor's wind bends it and the lines swell and
+   brighten around the pointer: fully over the hero, then less and less the
+   further down the page you go. Drawn in screen space from one cell of the mark's lattice,
+   repeated along its two periods. */
+const WEB_CELL = [
+  [0, 0, 16.11, 9.3], [32.22, 0, 16.11, 9.3], [16.11, -9.3, 16.11, 9.3],
+  [16.11, 9.3, 0, 18.6], [16.11, 9.3, 32.22, 18.6], [16.11, 9.3, 16.11, 27.9]
+];
+const web = (() => {
+  const g = new THREE.BufferGeometry();
+  const m = new THREE.ShaderMaterial({
+    uniforms: {
+      uRes: { value: new THREE.Vector2(W, H) }, uAlpha: { value: 0 }, uLive: { value: 0 },
+      uNear: { value: wind.near.tex }, uWide: { value: wind.wide.tex }, uWind: { value: 0 },
+      uPtr: { value: new THREE.Vector2(-9999, -9999) }, uPtrAmt: { value: 0 },
+      uColA: { value: COL_A }, uColB: { value: COL_B }, uColC: { value: COL_C }
+    },
+    transparent: true, depthTest: false, depthWrite: false, blending: THREE.AdditiveBlending,
+    vertexShader: `
+      uniform vec2 uRes;
+      uniform float uLive;
+      uniform float uWind;
+      uniform vec2 uPtr;
+      uniform float uPtrAmt;
+      uniform sampler2D uNear;
+      uniform sampler2D uWide;
+      varying float vT;
+      varying float vGlow;
+      varying float vEdge;
+      void main() {
+        vec2 p = position.xy;
+        vec2 uv = clamp(p / uRes, 0.0, 1.0);
+        vec4 near = texture2D(uNear, uv);
+        vec2 impulse = (near.rg * 2.0 - 1.0) * uWind;
+        vec2 bend = (texture2D(uWide, uv).rg * 2.0 - 1.0) * uWind;
+        vec2 d = p - uPtr;
+        float dist = length(d);
+        float lens = exp(-dist * dist / 52000.0) * uPtrAmt;
+        vec2 dir = dist > 0.001 ? d / dist : vec2(0.0);
+        vec2 moved = bend * 70.0 + impulse * 26.0 + dir * lens * 34.0;
+        p += moved * uLive;
+        gl_Position = vec4(p.x / uRes.x * 2.0 - 1.0, 1.0 - p.y / uRes.y * 2.0, 0.0, 1.0);
+        vT = clamp(position.x / uRes.x, 0.0, 1.0);
+        vGlow = (lens * 1.4 + near.b * uWind * 0.8) * uLive;
+        vec2 e = abs(position.xy / uRes - 0.5) * 2.0;
+        vEdge = 1.0 - smoothstep(0.55, 1.05, max(e.x, e.y * 0.9));
+      }
+    `,
+    fragmentShader: `
+      uniform float uAlpha;
+      uniform vec3 uColA;
+      uniform vec3 uColB;
+      uniform vec3 uColC;
+      varying float vT;
+      varying float vGlow;
+      varying float vEdge;
+      void main() {
+        vec3 col = vT < 0.5 ? mix(uColA, uColB, vT * 2.0) : mix(uColB, uColC, (vT - 0.5) * 2.0);
+        col = mix(col, vec3(0.85, 0.93, 1.0), clamp(vGlow, 0.0, 0.7));
+        float a = uAlpha * (0.35 + 0.65 * vEdge) + clamp(vGlow, 0.0, 1.0) * 0.32;
+        gl_FragColor = vec4(col, a);
+      }
+    `
+  });
+  const lines = new THREE.LineSegments(g, m);
+  lines.frustumCulled = false;
+  lines.renderOrder = -5;
+  scene.add(lines);
+  return { lines, geo: g, mat: m };
+})();
+
+function buildWeb() {
+  /* px per unit of the mark: one cube is a little under a tenth of the screen height */
+  const k = clamp(H / 150, 3, 7.5);
+  const T1x = 32.22 * k, T2x = 16.11 * k, T2y = 27.9 * k;
+  const ox = W / 2, oy = H / 2, SUBW = 3;
+  const out = [], seen = new Set();
+  const nb = Math.ceil(H / T2y / 2) + 2, na = Math.ceil(W / T1x / 2) + Math.ceil(nb / 2) + 2;
+  for (let b = -nb; b <= nb; b++) {
+    for (let a = -na; a <= na; a++) {
+      const sx = ox + a * T1x + b * T2x, sy = oy + b * T2y;
+      if (sx < -T1x * 2 || sx > W + T1x || sy < -T2y * 2 || sy > H + T2y) continue;
+      for (const c of WEB_CELL) {
+        const x1 = sx + c[0] * k, y1 = sy + c[1] * k, x2 = sx + c[2] * k, y2 = sy + c[3] * k;
+        const r1 = Math.round(x1 / 2) + ',' + Math.round(y1 / 2), r2 = Math.round(x2 / 2) + ',' + Math.round(y2 / 2);
+        const key = r1 < r2 ? r1 + '|' + r2 : r2 + '|' + r1;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        for (let i = 0; i < SUBW; i++) {
+          const t0 = i / SUBW, t1 = (i + 1) / SUBW;
+          out.push(x1 + (x2 - x1) * t0, y1 + (y2 - y1) * t0, 0, x1 + (x2 - x1) * t1, y1 + (y2 - y1) * t1, 0);
+        }
+      }
+    }
+  }
+  web.geo.dispose();
+  web.geo.setAttribute('position', new THREE.Float32BufferAttribute(out, 3));
+}
+buildWeb();
 
 /* rebuilt whenever script.js resamples the letters, on load and on resize */
 function syncDots() {
@@ -642,7 +756,7 @@ function worldPerPx(z) { return 2 * Math.tan(FOV * Math.PI / 360) * z / H; }
 
 const S = {
   gx: 0, gy: 0, gs: 1, alpha: 0, morph: 0, flat: 0, camZ: REF_Z, roll: 0,
-  dots: 0, bg: 0.55, bgx: 0.5, bgy: 0.45, bloom: 0.8, glass: 0, ptr: 0
+  dots: 0, web: 0, webLive: 0, bg: 0.55, bgx: 0.5, bgy: 0.45, bloom: 0.8, glass: 0, ptr: 0
 };
 const T = Object.assign({}, S);
 const nodeGlow = new Float32Array(6).fill(1);
@@ -781,7 +895,21 @@ function step(dt, now) {
   const hero = G.hero, du = dots.mat.uniforms;
   dots.points.visible = !!(hero && hero.n) && hero.out < 0.999 && S.dots > 0.002;
   /* the wind only blows over the hero, for a mouse, once the word has formed */
-  stepWind(dt, now, dots.points.visible && G.fine && !reduced && form > 0.6);
+  /* the wind blows wherever the web is live; over the hero it waits for the word to form */
+  stepWind(dt, now, G.fine && !reduced && !G.loader.active && (G.scene.name !== 'film' || form > 0.6));
+  /* the web: most alive over the hero, calmer the further down the page you
+     are, but it always answers the cursor */
+  const depth = clamp(G.depth || 0, 0, 1), onHero = name === 'film';
+  const liveWant = reduced || G.loader.active ? 0 : (onHero ? 1 : 0.7 - 0.5 * depth);
+  S.web = lerp(S.web, onHero ? 0.16 : 0.12 - 0.04 * depth, slow);
+  S.webLive = lerp(S.webLive, liveWant, 1 - Math.exp(-dt * 2.2));
+  const wu = web.mat.uniforms;
+  wu.uAlpha.value = S.web * (G.loader.active ? 0 : 1);
+  wu.uLive.value = S.webLive;
+  wu.uWind.value = wind.live ? 1 : 0;
+  wu.uPtrAmt.value = S.ptr * S.webLive;
+  wu.uPtr.value.set(P.on ? P.x : -9999, P.on ? P.y : -9999);
+
   if (dots.points.visible) {
     du.uOrigin.value.set(hero.left, hero.top);
     du.uForm.value = form;
@@ -842,6 +970,8 @@ function resize() {
   camera.updateProjectionMatrix();
   backdrop.material.uniforms.uRes.value.set(W, H);
   dots.mat.uniforms.uRes.value.set(W, H);
+  web.mat.uniforms.uRes.value.set(W, H);
+  buildWeb();
   finish.uniforms.uRes.value.set(W, H);
   shared.uAspect.value = W / H;
 }
