@@ -185,27 +185,91 @@
        that same distance below its own top */
     var bl = blEl.getBoundingClientRect().top - box.top;
     var lastTop = spans[spans.length - 1].getBoundingClientRect().top;
-    var minX = Infinity, maxX = -Infinity;
+    var minX = Infinity, maxX = -Infinity, glyphs = [];
     spans.forEach(function (sp) {
       var r = sp.getBoundingClientRect();
-      x.fillText(sp.textContent, r.left - box.left, bl + r.top - lastTop);
+      glyphs.push({ ch: sp.textContent, x: r.left - box.left, y: bl + r.top - lastTop });
       minX = Math.min(minX, r.left - box.left);
       maxX = Math.max(maxX, r.right - box.left);
     });
+    function letters(skipO) {
+      x.clearRect(0, 0, W, H);
+      glyphs.forEach(function (g) { if (!(skipO && g.ch === 'O')) x.fillText(g.ch, g.x, g.y); });
+    }
 
+    /* spacing chosen for a steady dot count whatever the type size, measured
+       with a plain O so the mark in its place does not change the density */
+    letters(false);
     var data = x.getImageData(0, 0, W, H).data, ink = 0, gx, gy;
     for (gy = 0; gy < H; gy += 2) for (gx = 0; gx < W; gx += 2) if (data[(gy * W + gx) * 4 + 3] > 128) ink += 4;
     if (!ink) return;
-    /* spacing chosen for a steady dot count whatever the type size */
     var gap = Math.max(2.4, Math.sqrt(ink / (mobile ? 4200 : 10500)));
+
+    /* the O is the Growency mark: its ring, the cube lattice inside it, the
+       network and the six nodes, drawn at the O's own size with every line
+       thick enough to catch dots */
+    letters(true);
+    data = x.getImageData(0, 0, W, H).data;
     var rand = rng(20260916), out = [];
+    var t01 = function (px) { return (px - minX) / Math.max(1, maxX - minX); };
     for (gy = gap / 2; gy < H; gy += gap) {
       for (gx = gap / 2; gx < W; gx += gap) {
         var px = gx + (rand() - 0.5) * gap * 0.7, py = gy + (rand() - 0.5) * gap * 0.7;
         var ix = clamp(px | 0, 0, W - 1), iy = clamp(py | 0, 0, H - 1);
-        if (data[(iy * W + ix) * 4 + 3] > 128) out.push(px, py, (px - minX) / Math.max(1, maxX - minX));
+        if (data[(iy * W + ix) * 4 + 3] > 128) out.push(px, py, t01(px));
       }
     }
+
+    x.clearRect(0, 0, W, H);
+    var nodes = [], o = null, markBox = null;
+    glyphs.forEach(function (g) { if (g.ch === 'O') o = g; });
+    if (o && MARK) {
+      var m = x.measureText('O');
+      var cx = o.x + (m.actualBoundingBoxRight - m.actualBoundingBoxLeft) / 2;
+      var cy = o.y - (m.actualBoundingBoxAscent - m.actualBoundingBoxDescent) / 2;
+      var R = Math.max((m.actualBoundingBoxRight + m.actualBoundingBoxLeft) / 2, (m.actualBoundingBoxAscent + m.actualBoundingBoxDescent) / 2);
+      var sc = R / 54.5, g2 = gap * 0.55;
+      markBox = [cx - R - 4, cy - R - 4, cx + R + 4, cy + R + 4, g2];
+      var at = function (u, v) { return [cx + (u - 60) * sc, cy + (v - 60) * sc]; };
+      x.save();
+      x.strokeStyle = '#fff'; x.fillStyle = '#fff'; x.lineCap = 'round'; x.lineJoin = 'round';
+      x.lineWidth = Math.max(g2 * 2.4, R * 0.075);
+      x.beginPath(); x.arc(cx, cy, 53 * sc, 0, Math.PI * 2); x.stroke();
+      x.save();
+      x.beginPath(); x.arc(cx, cy, 49 * sc, 0, Math.PI * 2); x.clip();
+      x.lineWidth = Math.max(g2 * 1.25, R * 0.02);
+      x.beginPath();
+      MARK.segs.forEach(function (sg) { var p1 = at(sg[0], sg[1]), p2 = at(sg[2], sg[3]); x.moveTo(p1[0], p1[1]); x.lineTo(p2[0], p2[1]); });
+      x.stroke();
+      var net = document.querySelector('#mark .mark__net'), pts = net ? (net.getAttribute('d') || '').match(/-?[\d.]+/g) || [] : [];
+      x.lineWidth = Math.max(g2 * 2, R * 0.04);
+      x.beginPath();
+      for (var k = 0; k + 1 < pts.length; k += 2) { var q = at(+pts[k], +pts[k + 1]); if (k) x.lineTo(q[0], q[1]); else x.moveTo(q[0], q[1]); }
+      x.stroke();
+      MARK.nodes.forEach(function (n) {
+        var q = at(n[0], n[1]);
+        nodes.push(q);
+        x.beginPath(); x.arc(q[0], q[1], Math.max(g2 * 2, 4.4 * sc), 0, Math.PI * 2); x.fill();
+      });
+      x.restore();
+      x.restore();
+    }
+
+    /* the mark is sampled finer than the letters, so its thin lattice reads;
+       z above 3.5 tells the scene these dots belong to it */
+    if (markBox) {
+      data = x.getImageData(0, 0, W, H).data;
+      var m2 = markBox[4];
+      for (gy = Math.max(0, markBox[1]); gy < Math.min(H, markBox[3]); gy += m2) {
+        for (gx = Math.max(0, markBox[0]); gx < Math.min(W, markBox[2]); gx += m2) {
+          var mx = gx + (rand() - 0.5) * m2 * 0.5, my = gy + (rand() - 0.5) * m2 * 0.5;
+          var jx = clamp(mx | 0, 0, W - 1), jy = clamp(my | 0, 0, H - 1);
+          if (data[(jy * W + jx) * 4 + 3] > 128) out.push(mx, my, 4 + t01(mx));
+        }
+      }
+    }
+    /* a bright star on each node; z above 1.5 tells the scene which dots they are */
+    nodes.forEach(function (q) { out.push(q[0], q[1], 2 + t01(q[0])); });
     G.hero.pts = new Float32Array(out);
     G.hero.n = out.length / 3;
     G.hero.gap = gap;
@@ -240,8 +304,8 @@
     w.style.fontSize = Math.max(36, fs).toFixed(1) + 'px';
   }
 
-  /* The stamp is pressed across the Y of the wordmark, so it is measured
-     from the Y's own box rather than positioned by hand. */
+  /* The stamp is pressed across a letter of the wordmark, so it is measured
+     from that letter's own box rather than positioned by hand. */
   function placeStamp() {
     var st = hero.stamp;
     if (!st || !hero.word || !hero.el) return;
@@ -252,16 +316,11 @@
     if (!yb.width) return;
     var F = parseFloat(getComputedStyle(hero.word).fontSize) || 100;
     st.style.fontSize = Math.max(15, F * 0.2).toFixed(1) + 'px';
-    var first = spans[0].getBoundingClientRect(), hx, hy;
-    if (yb.top - first.top > 1) {
-      /* stacked (two rows on wide screens, four on phones): pressed across
-         the middle of the stack instead */
-      var right = 0;
-      spans.forEach(function (sp) { right = Math.max(right, sp.getBoundingClientRect().right); });
-      hx = (first.left + right) / 2 - box.left; hy = (first.top + yb.bottom) / 2 - box.top;
-    } else {
-      hx = yb.left + yb.width / 2 - box.left; hy = yb.top + yb.height * 0.54 - box.top;
-    }
+    /* pressed across the N, so the O (drawn as the mark) stays clear */
+    var nSpan = null;
+    spans.forEach(function (sp) { if (sp.textContent === 'N') nSpan = sp; });
+    var nb = (nSpan || y).getBoundingClientRect();
+    var hx = nb.left + nb.width / 2 - box.left, hy = nb.top + nb.height * 0.52 - box.top;
     css(st, 'left', hx.toFixed(1) + 'px');
     css(st, 'top', hy.toFixed(1) + 'px');
   }
@@ -995,6 +1054,8 @@
         var A = asciis[i];
         if (A.rect) A.r = clamp((vh * 0.95 - A.rect.top) / (vh * 0.55), 0, 1);
       }
+      /* how far down the page, for the web to calm as you go */
+      G.depth = clamp(y / Math.max(1, docH - vh), 0, 1);
       writeHud();
       writeRail();
       pickScene();
