@@ -29,7 +29,12 @@ are in, fills a line with how far through it you are, and jumps to any of them.
 1. **The fund.** GROWENCY fills most of the first screen as a field of dots.
    They gather in from across the screen on load (once the loader hits 100 on a
    first visit), then keep moving: a slow drift, a wave running through the
-   letters, a push away from the cursor. Scrolling away scatters them. The
+   letters. Moving the cursor leaves a wind behind it, in the manner of
+   OpenAI's GPT-6 Astra page: dots along the stroke are flung with it and
+   wobble across it, a wider soft field bends the letters, a glow trails, and
+   it all settles back over a second or two. Faster flicks push harder. A few
+   dots are brighter stars with four point flares. Scrolling away scatters
+   them. The
    headline, sub-line and buttons sit in one row underneath.
 2. **The emails.** All five sample emails at once: five across on wide screens,
    three and two on laptops, then two and one. As the grid comes into view each
@@ -48,8 +53,10 @@ are in, fills a line with how far through it you are, and jumps to any of them.
    that node on the globe behind the desk. On touch screens a tap opens the
    step in place.
 6. **The operators.** The two photo slots are live character mosaics of the
-   lattice until real photos exist. Then the refusals: six struck and stamped
-   cards in a grid.
+   lattice until real photos exist. Then the refusals: six cards in a grid.
+   With a mouse they start as plain statements, and running the cursor over
+   one strikes it through and stamps it DECLINED, for good. Touch screens get
+   them already struck.
 7. **The terms.** Scrolling draws a signature across the term sheet and the
    button arrives where the stroke ends. The closing band condenses the lattice
    into a glass medallion of the mark.
@@ -165,9 +172,19 @@ forces the reduced motion path.
   In `styles.css`, `--grad` is the full ramp (headlines, wide surfaces),
   `--grad-ui` stops at purple for details too small to carry the dark tail, and
   `--accent` is the sky blue for lines too thin for a gradient.
-- **Type.** Unbounded for headlines and the wordmark, Onest for reading, Red Hat
-  Mono only for data: the chapter marker, the lifecycle codes, the desk, the
-  counter.
+- **Type.** The brand fonts (Unbounded, Onest, Red Hat Mono) stay on the nav,
+  buttons, kickers, rail, chapter marker and the GROWENCY wordmark. Every
+  section's headings and copy speak in their own type, set under "Section
+  voices" in `styles.css`: Instrument Serif for the fund (a prospectus),
+  Newsreader and IBM Plex for the emails (the template types in Plex Mono),
+  Special Elite and Courier Prime for the strategy (a declassified memo),
+  Archivo Narrow and Big Shoulders for the portfolio (a ticker board), Space
+  Grotesk and Space Mono for the trade (a quant desk), Fraunces for the
+  operators, Anton and Black Ops One for the refusals (a protest poster),
+  Cormorant and EB Garamond for the terms (a signed contract), Bricolage
+  Grotesque for the questions, and Syne for the close. That is 18 extra
+  families from Google Fonts, so self-hosting and subsetting them matters
+  before launch.
 - **Radius.** Anything you can press is a pill, and so is the nav. Every surface
   is 14px. Stamps are square, so their gradient border can run all the way
   round.
