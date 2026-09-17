@@ -54,10 +54,9 @@
   --nav-h:60px;
   /* the right-hand edge content keeps clear of, widened where the rail
      shows: --edge-r inside the centred .wrap, --bleed-r for the wider email
-     grid, --hero-r for the hero, which is never centred */
+     grid. The hero needs neither: the rail stays away until you leave it */
   --edge-r:var(--gutter);
   --bleed-r:var(--gutter);
-  --hero-r:var(--gutter);
   color-scheme:dark;
 }
 
@@ -231,13 +230,13 @@ main{overflow-x:clip}
   :root{
     --edge-r:max(var(--gutter),calc(190px - max(0px,(100vw - var(--max)) / 2)));
     --bleed-r:max(var(--gutter),calc(190px - max(0px,(100vw - 1760px) / 2)));
-    --hero-r:max(var(--gutter),190px);
   }
   .rail{
     display:block;position:fixed;z-index:40;right:clamp(14px,1.6vw,26px);top:50%;translate:0 -50%;
     transition:opacity 900ms var(--ease);
   }
   .rail ol{display:grid;gap:.15rem}
+  .js .rail:not(.is-on){opacity:0;pointer-events:none}
   .rail a{
     --p:0;position:relative;display:flex;align-items:center;justify-content:flex-end;gap:.7rem;
     padding:.42rem 0;font:500 .66rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
@@ -269,15 +268,16 @@ main{overflow-x:clip}
   position:relative;z-index:2;min-height:100vh;min-height:100svh;
   display:grid;grid-template-rows:1fr auto;gap:clamp(1rem,3vh,2rem);
   /* the bottom band keeps the headline row clear of the chapter marker and the cue */
-  padding:calc(var(--nav-h) + 30px) var(--hero-r) clamp(64px,9vh,88px) var(--gutter);
+  padding:calc(var(--nav-h) + 30px) var(--gutter) clamp(64px,9vh,88px);
   transition:opacity 1s var(--ease) .15s;
 }
 .word{
-  align-self:center;margin-left:-.04em;
-  font-family:var(--display);font-weight:800;line-height:.86;letter-spacing:-.04em;white-space:nowrap;
-  /* GROW over ENCY: as big as the narrower of the width and the height left
-     after the headline row */
-  font-size:min(calc((100vw - var(--gutter) - var(--hero-r)) / 3.55),calc((100svh - var(--nav-h) - 19rem) / 1.72));
+  align-self:center;justify-self:center;text-align:center;margin:0;
+  font-family:var(--display);font-weight:800;line-height:.84;letter-spacing:-.04em;white-space:nowrap;
+  /* GROW over ENCY, centred. script.js fits it to the space above the
+     headline row; this is the estimate it starts from, and all you get
+     without JS */
+  font-size:min(calc((100vw - 2 * var(--gutter)) / 4.05),calc((100svh - var(--nav-h) - 19rem) / 1.68));
   background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
   user-select:none;
 }
@@ -888,7 +888,7 @@ html:not(.js) .slot::after{
   .legal__toc{position:static}
   .hud__bar{width:44px}
   .hero__txt{flex-direction:column;align-items:flex-start}
-  .word{font-size:min(calc((100vw - 2 * var(--gutter)) / 3.55),calc((100svh - var(--nav-h) - 25rem) / 1.72))}
+  .word{font-size:min(calc((100vw - 2 * var(--gutter)) / 4.05),calc((100svh - var(--nav-h) - 25rem) / 1.68))}
   .fan{grid-template-columns:repeat(2,minmax(0,1fr))}
   .step__more{position:static;width:auto;max-height:0;overflow:hidden;padding:0 .2rem;margin:0;border:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;transform:none;transition:max-height 380ms var(--ease),opacity 240ms var(--ease),padding 380ms var(--ease)}
   .step.is-open .step__more{max-height:24rem;padding:0 .2rem 1.1rem;transform:none}
@@ -940,10 +940,11 @@ html:not(.js) .slot::after{
   .fan{grid-template-columns:1fr}
 
   /* the wordmark stacks two letters to a row, as big as the height left over
-     after the headline, sub-line and buttons allows. Capitals have no
-     descenders, so the rows can sit tighter than the two-row desktop stack. */
-  .hero{padding-top:calc(var(--nav-h) + 24px)}
-  .word{font-size:min(calc((100vw - 2 * var(--gutter)) / 1.95),calc((100svh - 25rem) / 3.1));line-height:.78}
+     after the headline, sub-line and buttons allows (script.js fits it) */
+  .hero{padding-top:calc(var(--nav-h) + 24px);padding-bottom:56px;gap:.8rem}
+  /* the badge gives its line to the wordmark */
+  .badge{display:none}
+  .word{font-size:min(calc((100vw - 2 * var(--gutter)) / 2.3),calc((100svh - 25rem) / 3.36));line-height:.84}
   .word span:nth-child(2n):not(:nth-last-child(2))::after{content:"\A";white-space:pre}
   .hero__cta{flex-wrap:nowrap;gap:.6rem}
   .hero__cta .btn{flex:1 1 0;min-width:0;padding:0 .8rem}
@@ -969,6 +970,13 @@ html:not(.js) .slot::after{
   .port__angles.is-placed b{display:block;margin:0}
 
   .step__btn{grid-template-columns:5.6rem minmax(0,1fr) auto;gap:.7rem}
+}
+
+/* Portrait screens that are not phones (tablets held upright) have height to
+   spare, so the wordmark stacks two letters to a row there too */
+@media (min-width:601px) and (max-aspect-ratio:4/5){
+  .word{line-height:.84;font-size:min(calc((100vw - 2 * var(--gutter)) / 2.3),calc((100svh - 30rem) / 3.36))}
+  .word span:nth-child(2n):not(:nth-last-child(2))::after{content:"\A";white-space:pre}
 }
 
 @media (prefers-reduced-transparency:reduce){
