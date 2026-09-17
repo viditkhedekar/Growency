@@ -303,7 +303,7 @@ function stepWind(dt, now, active) {
         const gx = (P.x - wind.x) / Math.hypot(P.x - wind.x, P.y - wind.y);
         const gy = (P.y - wind.y) / Math.hypot(P.x - wind.x, P.y - wind.y);
         const steps = Math.max(1, Math.ceil(dist / 0.035));
-        const rn = Math.max(56, H * 0.09), rw = H * 0.42;
+        const rn = Math.max(32, H * 0.048), rw = H * 0.2;
         for (let k = 1; k <= steps; k++) {
           const t = k / steps, sx = wind.x + (P.x - wind.x) * t, sy = wind.y + (P.y - wind.y) * t;
           stampWind(wind.near, sx, sy, gx, gy, imp, glow, rn, 0.62, 1);
@@ -390,10 +390,10 @@ const dots = (() => {
         float scatter = strength * strength * (3.0 - 2.0 * strength);
         vec2 gust = impulse / max(strength, 1e-4);
         vec2 across = vec2(-gust.y, gust.x);
-        vec2 dust = gust * (62.0 + 62.0 * s)
-                  + across * sin(s * 89.0 + t * 3.2) * 50.0
-                  + vec2(cos(s * 47.0), sin(s * 53.0)) * 30.0;
-        p += impulse * (9.0 + 3.0 * s) + bend * (52.0 + 6.0 * s) + dust * scatter;
+        vec2 dust = gust * (44.0 + 40.0 * s)
+                  + across * sin(s * 89.0 + t * 3.2) * 32.0
+                  + vec2(cos(s * 47.0), sin(s * 53.0)) * 18.0;
+        p += impulse * (9.0 + 3.0 * s) + bend * (34.0 + 4.0 * s) + dust * scatter;
         float glow = near.b * uWind;
 
         gl_Position = vec4(p.x / uRes.x * 2.0 - 1.0, 1.0 - p.y / uRes.y * 2.0, 0.0, 1.0);
