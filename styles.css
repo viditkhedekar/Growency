@@ -600,6 +600,7 @@ html:not(.js) .slot::after{
 .card__t{
   background:linear-gradient(var(--ink),var(--ink)) no-repeat 0 56% / 100% 2px;
   -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  transition:background-size 520ms var(--ease);
 }
 .card__stamp{
   align-self:flex-start;font:500 .7rem/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;
@@ -607,6 +608,14 @@ html:not(.js) .slot::after{
   background:var(--grad-ui);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   transform:rotate(-6deg);transform-origin:30% 50%;
 }
+/* with a mouse they wait to be struck: the pen runs through, then the stamp lands */
+.can-strike .card{transition:border-color 300ms var(--ease)}
+.wont__hint{display:none;margin-top:1rem;font:500 .7rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
+.can-strike .wont__hint{display:block}
+.can-strike .card:not(.is-struck) .card__t{background-size:0% 2px}
+.can-strike .card__stamp{transition:opacity 180ms linear 380ms,transform 420ms cubic-bezier(.2,1.6,.4,1) 380ms}
+.can-strike .card:not(.is-struck) .card__stamp{opacity:0;transform:rotate(-6deg) scale(1.9);transition:none}
+.can-strike .card.is-struck{border-color:rgba(42,163,252,.45)}
 
 /* =========================================================
    CH 07: the terms
@@ -777,6 +786,83 @@ html:not(.js) .slot::after{
   .footer__inner{grid-template-columns:minmax(0,1fr)}
   .cmp__cta .btn{flex:1 1 auto}
 }
+
+/* =========================================================
+   Section voices. Every section speaks in its own type, so
+   each one feels like a different document from the same
+   firm. The brand stays constant around them: the nav,
+   buttons, kickers, the rail and the GROWENCY wordmark keep
+   Unbounded, Onest and Red Hat Mono.
+   ========================================================= */
+
+/* The fund: a private bank's prospectus. Quiet money. */
+.hero__h{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(2.5rem,4.9vw,4.7rem);line-height:.96;letter-spacing:-.02em;max-width:14ch}
+.hero__h .grad{font-style:italic;padding-right:.08em}
+.hero__sub{font-family:"Instrument Sans",var(--sans);letter-spacing:-.005em}
+
+/* The emails: correspondence. The canned template types in a flat mono, the
+   rewrite lands in a warm humanist sans, the subjects read like a newspaper. */
+#emails .h2{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:clamp(2.2rem,4.4vw,4rem);line-height:1;letter-spacing:-.025em;max-width:18ch}
+#emails .lede{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:clamp(1.15rem,1.5vw,1.35rem)}
+.letter{font-family:"IBM Plex Sans",var(--sans);font-size:.94rem}
+.letter__subj{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:1.22rem;line-height:1.2;letter-spacing:-.012em}
+.ln .gen{font-family:"IBM Plex Mono",var(--mono);font-size:.86em;letter-spacing:-.01em}
+.letter__subj .gen{font-size:.8em}
+/* the greeting and sign-off never change, so they stay in the letter's own voice */
+.ln[data-hold] .gen{font-family:inherit;font-size:inherit;color:var(--text-2)}
+
+/* The strategy: a declassified memo, redactions and all. */
+#alpha .h2{font-family:"Special Elite","Courier New",monospace;font-weight:400;font-size:clamp(1.9rem,3.6vw,3.2rem);line-height:1.08;letter-spacing:-.01em;max-width:16ch}
+.rd{font-family:"Special Elite","Courier New",monospace;font-weight:400;letter-spacing:0}
+.fill{font-family:"Courier Prime","Courier New",monospace;font-weight:400;font-size:clamp(1.05rem,1.55vw,1.42rem);letter-spacing:-.02em;line-height:1.42;max-width:36ch}
+.explode__labels,.explode__now{font-family:"Courier Prime","Courier New",monospace}
+.fx .explode__labels li{font-size:.92rem}
+
+/* The portfolio: the trading floor, a ticker board and tight condensed type. */
+.port__lead{font-family:"Archivo Narrow",var(--sans);font-weight:700;font-size:clamp(1.5rem,2.5vw,2.3rem);line-height:1.05;letter-spacing:-.01em;text-transform:uppercase}
+.port__beat{font-family:"Archivo Narrow",var(--sans);font-weight:500;font-size:clamp(1.2rem,1.8vw,1.55rem);letter-spacing:0}
+.port__angles{font-family:"Archivo Narrow",var(--sans);font-weight:600;font-size:.95rem;letter-spacing:.01em}
+.port__week,.port__note{font-family:"Archivo Narrow",var(--sans);font-weight:600;font-size:.82rem}
+.figure{font-family:"Big Shoulders Display",var(--display);font-weight:800;font-size:clamp(5.5rem,17vw,15rem);line-height:.84;letter-spacing:-.01em}
+.proof__cap{font-family:"Archivo Narrow",var(--sans);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+
+/* The trade: a quant desk. Engineered grotesque, a proper terminal mono. */
+.trade__h{font-family:"Space Grotesk",var(--sans);font-weight:700;font-size:clamp(1.9rem,3.2vw,2.9rem);line-height:1.02;letter-spacing:-.04em}
+.step__t{font-family:"Space Grotesk",var(--sans);font-weight:500;font-size:clamp(1.1rem,1.6vw,1.38rem);letter-spacing:-.03em}
+.step__code,.step__dl dt{font-family:"Space Mono",var(--mono);font-weight:400}
+.step__p,.step__dl dd{font-family:"Space Grotesk",var(--sans)}
+.desk{font-family:"Space Grotesk",var(--sans)}
+.desk__head,.panel__t,.panel__meta,.thesis dt,.bars b,.stats b,.row em,.book em{font-family:"Space Mono",var(--mono)}
+
+/* The operators: people and craft. A soft, slightly wonky serif. */
+#operators .h2{font-family:"Fraunces",Georgia,serif;font-weight:600;font-variation-settings:"SOFT" 100,"WONK" 1;font-size:clamp(2.1rem,4.2vw,3.8rem);line-height:1.02;letter-spacing:-.03em}
+#operators .lede{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(1.15rem,1.5vw,1.35rem)}
+
+/* Won't take: a protest poster, with a stencilled stamp. */
+#wont .h2{font-family:"Anton",Impact,sans-serif;font-weight:400;font-size:clamp(2.8rem,6.6vw,6rem);line-height:.92;letter-spacing:.005em;text-transform:uppercase;max-width:none}
+.card__p{font-family:"Anton",Impact,sans-serif;font-weight:400;font-size:clamp(1.3rem,2vw,1.75rem);line-height:1.08;letter-spacing:.01em;text-transform:uppercase}
+.card__t{background-position:0 54%;background-size:100% 3px}
+.can-strike .card:not(.is-struck) .card__t{background-size:0% 3px}
+.card__stamp{font-family:"Black Ops One",var(--mono);font-weight:400;font-size:.92rem;letter-spacing:.12em}
+
+/* The terms: a signed contract. Old book faces. */
+#pilot .h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:clamp(2.4rem,4.8vw,4.3rem);line-height:.98;letter-spacing:-.015em}
+#pilot .lede{font-family:"EB Garamond",Georgia,serif;font-size:clamp(1.15rem,1.5vw,1.35rem)}
+.sheet__head{font-family:"EB Garamond",Georgia,serif;font-size:.92rem;letter-spacing:.2em}
+.sheet__grid dt{font-family:"EB Garamond",Georgia,serif;font-weight:500;font-size:.8rem;letter-spacing:.18em}
+.sheet__grid dd{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.45rem;letter-spacing:0;line-height:1.15}
+.sheet__by{font-family:"EB Garamond",Georgia,serif;font-style:italic;text-transform:none;letter-spacing:0;font-size:1rem}
+.suit__h{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(1.6rem,2.2vw,2rem);letter-spacing:-.01em}
+.ticks li{font-family:"EB Garamond",Georgia,serif;font-size:1.14rem;line-height:1.45}
+
+/* Questions: a first call. Friendly, a little quirky, easy to read. */
+#faq .h2,.qa__q{font-family:"Bricolage Grotesque",var(--sans);font-weight:700;letter-spacing:-.035em}
+#faq .h2{font-size:clamp(2.1rem,4vw,3.6rem);line-height:1}
+.qa__q{font-size:clamp(1.12rem,1.5vw,1.32rem)}
+#faq .lede,.qa__a{font-family:"Bricolage Grotesque",var(--sans);font-weight:500;font-variation-settings:"opsz" 14}
+
+/* Start: the closing bell. Loud and wide. */
+.final__h{font-family:"Syne",var(--display);font-weight:800;font-size:clamp(2.3rem,4.4vw,4.3rem);line-height:.98;letter-spacing:-.045em;max-width:14ch}
 
 /* ---------- scrubbed reveals and letter shift ---------- */
 .fx .rv{opacity:var(--r,0);transform:translate3d(0,calc((1 - var(--r,0)) * 28px),0)}
