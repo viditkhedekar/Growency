@@ -93,9 +93,14 @@
 </div>
 
 <!-- The section rail: every section by name, the current one lit, with how
-     far through it you are. Plain links, so it works with JS off. -->
+     far through it you are. Plain links, so it works with JS off. On smaller
+     screens, and over the hero, script.js collapses it to a pill naming the
+     current section, which opens the list. -->
 <nav class="rail" id="rail" aria-label="Sections">
-  <ol>
+  <button class="rail__pill" id="railPill" type="button" aria-expanded="false" aria-controls="railList" hidden>
+    <span class="rail__now" id="railNow">The fund</span><i class="rail__meter" aria-hidden="true"><b></b></i><span class="rail__chev" aria-hidden="true"></span>
+  </button>
+  <ol id="railList">
     <li><a href="#top"><span class="rail__t">The fund</span><i aria-hidden="true"></i></a></li>
     <li><a href="#emails"><span class="rail__t">The emails</span><i aria-hidden="true"></i></a></li>
     <li><a href="#alpha"><span class="rail__t">The strategy</span><i aria-hidden="true"></i></a></li>
@@ -483,12 +488,12 @@
       <h2 class="h2" data-shift>Positions we won&#8217;t take.</h2>
       <p class="wont__hint">Run your cursor over each one</p>
       <ul class="fan">
-        <li class="card"><p class="card__p"><span class="card__t">Run spam campaigns</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
-        <li class="card"><p class="card__p"><span class="card__t">Rely on fake personalisation</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
-        <li class="card"><p class="card__p"><span class="card__t">Send one message to everyone and call it strategy</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
-        <li class="card"><p class="card__p"><span class="card__t">Use AI to remove human judgement</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
-        <li class="card"><p class="card__p"><span class="card__t">Hide weak performance behind vanity metrics</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
-        <li class="card"><p class="card__p"><span class="card__t">Treat your brand or your data casually</span></p><span class="card__stamp" aria-hidden="true">Declined</span></li>
+        <li class="card"><p class="card__p"><span class="card__t">Run spam campaigns</span></p><p class="card__more"><b>Instead</b>Fewer, better sends. Every account is chosen for a reason, from domains warmed up before anything goes out.</p><span class="card__stamp" aria-hidden="true">Declined</span></li>
+        <li class="card"><p class="card__p"><span class="card__t">Rely on fake personalisation</span></p><p class="card__more"><b>Instead</b>Every opening line points at something the account actually did, found by a person who read about them.</p><span class="card__stamp" aria-hidden="true">Declined</span></li>
+        <li class="card"><p class="card__p"><span class="card__t">Send one message to everyone and call it strategy</span></p><p class="card__more"><b>Instead</b>Several angles run side by side, and the ones booking meetings get the budget.</p><span class="card__stamp" aria-hidden="true">Declined</span></li>
+        <li class="card"><p class="card__p"><span class="card__t">Use AI to remove human judgement</span></p><p class="card__more"><b>Instead</b>The tools gather the research. An operator decides who hears from you and what they read.</p><span class="card__stamp" aria-hidden="true">Declined</span></li>
+        <li class="card"><p class="card__p"><span class="card__t">Hide weak performance behind vanity metrics</span></p><p class="card__more"><b>Instead</b>A weekly note on meetings booked and replies in. Open rates stay out of it.</p><span class="card__stamp" aria-hidden="true">Declined</span></li>
+        <li class="card"><p class="card__p"><span class="card__t">Treat your brand or your data casually</span></p><p class="card__more"><b>Instead</b>You approve the thesis before anything sends, and anyone who opts out is never contacted again.</p><span class="card__stamp" aria-hidden="true">Declined</span></li>
       </ul>
     </div>
   </div>
