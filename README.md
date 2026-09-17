@@ -22,14 +22,18 @@ python3 -m http.server 4341
 
 ## The page, chapter by chapter
 
-A marker in the bottom left names the chapter you are in. On screens wider
-than 1100px a rail on the right lists every section by name, lights the one you
-are in, fills a line with how far through it you are, and jumps to any of them.
+A marker in the bottom left names the chapter you are in. A rail lists every
+section by name, lights the one you are in, fills a line with how far through
+it you are, and jumps to any of them. On screens wider than 1100px it runs down
+the right edge once you are past the hero. Over the hero, and everywhere on
+smaller screens, it collapses to a pill in the bottom right naming the current
+section, which opens the list. On phones the pill replaces the chapter marker.
 
 1. **The fund.** GROWENCY fills most of the first screen, centred, as a field of
    dots. `script.js` fits it to the space above the headline row on every
    screen; portrait screens (phones and upright tablets) stack two letters to
-   a row. The section rail stays away until you scroll past the hero.
+   a row. The 30-40x stamp is a solid dark plate with a gradient rim, pressed
+   across the middle of the stack.
    The dots gather in from across the screen on load (once the loader hits 100 on a
    first visit), then keep moving: a slow drift, a wave running through the
    letters. Moving the cursor leaves a wind behind it, in the manner of
@@ -58,8 +62,9 @@ are in, fills a line with how far through it you are, and jumps to any of them.
 6. **The operators.** The two photo slots are live character mosaics of the
    lattice until real photos exist. Then the refusals: six cards in a grid.
    With a mouse they start as plain statements, and running the cursor over
-   one strikes it through and stamps it DECLINED, for good. Touch screens get
-   them already struck.
+   one strikes it through and stamps it DECLINED, for good, and brings up a
+   line on what we do instead while you hover. Touch screens get them already
+   struck, with the line showing.
 7. **The terms.** Scrolling draws a signature across the term sheet and the
    button arrives where the stroke ends. The closing band condenses the lattice
    into a glass medallion of the mark.
