@@ -32,17 +32,23 @@ section, which opens the list. On phones the pill replaces the chapter marker.
 1. **The fund.** GROWENCY fills most of the first screen, centred, as a field of
    dots. `script.js` fits it to the space above the headline row on every
    screen; portrait screens (phones and upright tablets) stack two letters to
-   a row. The 30-40x stamp is a solid dark plate with a gradient rim, pressed
-   across the middle of the stack.
+   a row. The O is the Growency mark in finer, steadier dots (ring, cube
+   lattice, network, and a bright star on each of the six nodes). The 30-40x
+   stamp is a solid dark plate with a gradient rim, pressed across the N so
+   the mark stays clear.
    The dots gather in from across the screen on load (once the loader hits 100 on a
    first visit), then keep moving: a slow drift, a wave running through the
-   letters. Moving the cursor leaves a wind behind it, in the manner of
+   letters, so no dot ever sits still. Moving the cursor leaves a wind behind it, in the manner of
    OpenAI's GPT-6 Astra page: dots along the stroke are flung with it and
    wobble across it, a wider soft field bends the letters, a glow trails, and
-   it all settles back over a second or two. Faster flicks push harder. A few
+   it all drifts back over several seconds. Faster flicks push harder. A few
    dots are brighter stars with four point flares. Scrolling away scatters
    them. The
    headline, sub-line and buttons sit in one row underneath.
+   Behind the whole page is a faint web: the mark's cube lattice tiled across
+   the screen. The cursor's wind bends it and the lines swell and brighten
+   around the pointer. It is most alive over the hero and answers less and
+   less the further down the page you go.
 2. **The emails.** All five sample emails at once: five across on wide screens,
    three and two on laptops, then two and one. As the grid comes into view each
    one types the generic email, strikes it, and fades the specific lines in, a
