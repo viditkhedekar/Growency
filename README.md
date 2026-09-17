@@ -26,7 +26,10 @@ A marker in the bottom left names the chapter you are in. On screens wider
 than 1100px a rail on the right lists every section by name, lights the one you
 are in, fills a line with how far through it you are, and jumps to any of them.
 
-1. **The fund.** GROWENCY fills most of the first screen as a field of dots.
+1. **The fund.** GROWENCY fills most of the first screen, centred, as a field of
+   dots. `script.js` fits it to the space above the headline row on every
+   screen; portrait screens (phones and upright tablets) stack two letters to
+   a row. The section rail stays away until you scroll past the hero.
    They gather in from across the screen on load (once the loader hits 100 on a
    first visit), then keep moving: a slow drift, a wave running through the
    letters. Moving the cursor leaves a wind behind it, in the manner of
