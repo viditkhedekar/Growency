@@ -30,7 +30,7 @@ are in, fills a line with how far through it you are, and jumps to any of them.
    dots. `script.js` fits it to the space above the headline row on every
    screen; portrait screens (phones and upright tablets) stack two letters to
    a row. The section rail stays away until you scroll past the hero.
-   They gather in from across the screen on load (once the loader hits 100 on a
+   The dots gather in from across the screen on load (once the loader hits 100 on a
    first visit), then keep moving: a slow drift, a wave running through the
    letters. Moving the cursor leaves a wind behind it, in the manner of
    OpenAI's GPT-6 Astra page: dots along the stroke are flung with it and
