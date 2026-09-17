@@ -225,30 +225,58 @@ main{overflow-x:clip}
 .hud__bar i{position:absolute;inset:0;background:var(--grad-ui);transform-origin:0 50%;transform:scaleX(0)}
 
 /* ---------- the section rail ---------- */
-.rail{display:none}
 @media (min-width:1101px){
   :root{
     --edge-r:max(var(--gutter),calc(190px - max(0px,(100vw - var(--max)) / 2)));
     --bleed-r:max(var(--gutter),calc(190px - max(0px,(100vw - 1760px) / 2)));
   }
-  .rail{
-    display:block;position:fixed;z-index:40;right:clamp(14px,1.6vw,26px);top:50%;translate:0 -50%;
-    transition:opacity 900ms var(--ease);
-  }
-  .rail ol{display:grid;gap:.15rem}
-  .js .rail:not(.is-on){opacity:0;pointer-events:none}
-  .rail a{
-    --p:0;position:relative;display:flex;align-items:center;justify-content:flex-end;gap:.7rem;
-    padding:.42rem 0;font:500 .66rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
-    color:var(--text-3);transition:color 200ms var(--ease);
-  }
-  .rail a:hover{color:var(--text-2)}
-  .rail i{position:relative;display:block;width:14px;height:1px;background:var(--line-2);transition:width 320ms var(--ease)}
-  .rail i::after{content:"";position:absolute;inset:0;background:var(--grad-ui);transform-origin:0 50%;transform:scaleX(0)}
-  .rail a[aria-current]{color:var(--ink)}
-  .rail a[aria-current] i{width:40px}
-  .rail a[aria-current] i::after{transform:scaleX(var(--p))}
 }
+.rail{
+  position:fixed;z-index:46;right:clamp(14px,1.6vw,26px);top:50%;translate:0 -50%;
+  transition:opacity 900ms var(--ease);
+}
+.rail ol{display:grid;gap:.15rem}
+.rail a{
+  --p:0;position:relative;display:flex;align-items:center;justify-content:flex-end;gap:.7rem;
+  padding:.42rem 0;font:500 .66rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text-3);transition:color 200ms var(--ease);
+}
+.rail a:hover{color:var(--text-2)}
+.rail ol i{position:relative;display:block;width:14px;height:1px;background:var(--line-2);transition:width 320ms var(--ease)}
+.rail ol i::after{content:"";position:absolute;inset:0;background:var(--grad-ui);transform-origin:0 50%;transform:scaleX(0)}
+.rail a[aria-current]{color:var(--ink)}
+.rail a[aria-current] i{width:40px}
+.rail a[aria-current] i::after{transform:scaleX(var(--p))}
+.rail__pill{display:none}
+/* without JS on a narrow screen there is no pill to open the list, so the list waits */
+@media (max-width:1100px){ html:not(.js) .rail{display:none} }
+
+/* collapsed: a pill in the bottom right naming the section you are in, with
+   how far through it you are; it opens the full list above itself */
+.rail.is-compact{top:auto;bottom:max(14px,env(safe-area-inset-bottom));translate:none}
+.rail.is-compact .rail__pill{
+  --p:0;display:inline-flex;align-items:center;gap:.6rem;height:34px;padding:0 .8rem 0 .95rem;cursor:pointer;
+  border-radius:999px;border:1px solid var(--glass-line);background:rgba(10,10,22,.72);color:var(--ink);
+  box-shadow:inset 0 1px 0 var(--glass-hi),0 12px 30px -14px rgba(0,0,0,.7);
+  backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);
+  font:500 .64rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  transition:border-color 200ms var(--ease);
+}
+.rail.is-compact .rail__pill:hover,.rail.is-open .rail__pill{border-color:rgba(75,109,243,.55)}
+.rail__meter{position:relative;display:block;width:26px;height:2px;border-radius:2px;background:var(--line-2);overflow:hidden}
+.rail__meter b{position:absolute;inset:0;background:var(--grad-ui);transform-origin:0 50%;transform:scaleX(var(--p))}
+.rail__chev{width:6px;height:6px;border-left:1.5px solid var(--text-2);border-top:1.5px solid var(--text-2);transform:translateY(2px) rotate(45deg);transition:transform 260ms var(--ease)}
+.rail.is-open .rail__chev{transform:translateY(-1px) rotate(225deg)}
+.rail.is-compact ol{
+  position:absolute;right:0;bottom:calc(100% + 8px);min-width:13rem;padding:.55rem .95rem;
+  border-radius:var(--r);border:1px solid var(--glass-line);background:rgba(10,10,22,.9);
+  box-shadow:inset 0 1px 0 var(--glass-hi),var(--shadow);
+  backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  opacity:0;visibility:hidden;transform:translateY(6px);
+  transition:opacity 200ms var(--ease),transform 260ms var(--ease),visibility 0s linear 260ms;
+}
+.rail.is-compact.is-open ol{opacity:1;visibility:visible;transform:none;transition:opacity 200ms var(--ease),transform 260ms var(--ease),visibility 0s}
+.rail.is-compact a{padding:.6rem 0}
 
 /* ---------- loader ---------- */
 .loader{display:none}
@@ -295,21 +323,20 @@ main{overflow-x:clip}
 .hero__cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.4rem}
 .stamp{
   position:absolute;left:50%;top:38%;z-index:3;pointer-events:none;
-  display:flex;flex-direction:column;align-items:center;gap:.14em;
-  padding:.4em .62em .34em;border:.1em solid currentColor;border-radius:.12em;
-  outline:.03em solid currentColor;outline-offset:.07em;
-  color:#4B6DF3;font-family:var(--mono);font-size:clamp(13px,2.2vw,32px);
-  border-image:var(--grad-ui) 1;
-  text-transform:uppercase;opacity:.9;
+  display:flex;flex-direction:column;align-items:center;gap:.16em;
+  padding:.42em .7em .38em;border-radius:.1em;
+  font-family:var(--mono);font-size:clamp(15px,2.8vw,40px);text-transform:uppercase;
+  /* a solid dark stamp sitting on top of the dots: a near-black plate, a heavy
+     gradient rim and an inner keyline, bright gradient type */
+  background:linear-gradient(160deg,#0E0B2A 0%,#07061A 60%,#040312 100%) padding-box,var(--grad-ui) border-box;
+  border:.12em solid transparent;
+  box-shadow:inset 0 0 0 .05em rgba(169,214,255,.28),0 .3em .9em -.1em rgba(4,3,18,.85),0 0 1.4em -.2em rgba(42,163,252,.45);
   transform:translate(-50%,-50%) rotate(-12deg);
   filter:url(#ink);
-  -webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='.05' numOctaves='2'/><feColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .85 0 0 0 .42'/></filter><rect width='120' height='120' filter='url(%23m)'/></svg>");
-  mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='.05' numOctaves='2'/><feColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .85 0 0 0 .42'/></filter><rect width='120' height='120' filter='url(%23m)'/></svg>");
-  -webkit-mask-size:150px;mask-size:150px;
 }
-.stamp b,.stamp span{background:var(--grad-ui);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stamp b,.stamp span{background:linear-gradient(90deg,#7CC6FF 0%,#8FA6FF 50%,#B79CFF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .stamp b{font-weight:700;font-size:1em;line-height:1;letter-spacing:-.03em}
-.stamp span{font-size:.32em;line-height:1;letter-spacing:.26em;margin-right:-.26em}
+.stamp span{font-size:.3em;line-height:1;letter-spacing:.3em;margin-right:-.3em}
 
 .cue{
   position:absolute;left:50%;bottom:14px;z-index:2;translate:-50% 0;
@@ -616,6 +643,11 @@ html:not(.js) .slot::after{
 .can-strike .card__stamp{transition:opacity 180ms linear 380ms,transform 420ms cubic-bezier(.2,1.6,.4,1) 380ms}
 .can-strike .card:not(.is-struck) .card__stamp{opacity:0;transform:rotate(-6deg) scale(1.9);transition:none}
 .can-strike .card.is-struck{border-color:rgba(42,163,252,.45)}
+.card__more{margin-top:-.4rem;font:400 .98rem/1.45 "Archivo Narrow",var(--sans);color:var(--text-2);max-width:34ch}
+.card__more b{display:block;margin-bottom:.3rem;font:400 .7rem/1 "Black Ops One",var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+/* with a mouse it waits under the statement and rises in while you hover */
+.can-strike .card__more{opacity:0;transform:translateY(8px);transition:opacity 260ms var(--ease),transform 380ms var(--ease)}
+.can-strike .card:hover .card__more{opacity:1;transform:none;transition-delay:120ms}
 
 /* =========================================================
    CH 07: the terms
@@ -936,7 +968,8 @@ html:not(.js) .slot::after{
    ========================================================= */
 @media (max-width:600px){
   .hero__cta .btn{flex:1 1 auto}
-  .hud{bottom:max(14px,env(safe-area-inset-bottom))}
+  /* the rail's pill names the section here, so the chapter marker steps aside */
+  .js .hud{display:none}
   .fan{grid-template-columns:1fr}
 
   /* the wordmark stacks two letters to a row, as big as the height left over
