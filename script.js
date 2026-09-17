@@ -214,6 +214,32 @@
     dirty = true;
   }
 
+  /* The wordmark fills the hero on any screen. CSS decides how the letters
+     stack (GROW over ENCY, or two to a row on portrait screens); this measures
+     that stack at 100px, then sizes it to the space left above the headline
+     row, as wide or as tall as it can go. */
+  function fitWord() {
+    var w = hero.word, el = hero.el, txt = $('heroTxt');
+    if (!w || !el) return;
+    w.style.fontSize = '100px';
+    var rows = [];
+    all('span', w).forEach(function (sp) {
+      var r = sp.getBoundingClientRect(), row = rows[rows.length - 1];
+      if (!row || Math.abs(row.top - r.top) > 20) { row = { top: r.top, l: r.left, r: r.right }; rows.push(row); }
+      row.l = Math.min(row.l, r.left); row.r = Math.max(row.r, r.right);
+    });
+    if (!rows.length) return;
+    var widest = 0;
+    rows.forEach(function (row) { widest = Math.max(widest, (row.r - row.l) / 100); });
+    var cs = getComputedStyle(el), ws = getComputedStyle(w);
+    var lh = (parseFloat(ws.lineHeight) || 86) / 100;
+    var availW = el.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    var availH = Math.min(el.clientHeight, window.innerHeight) - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom) -
+      (txt ? txt.offsetHeight : 0) - (parseFloat(cs.rowGap) || 0);
+    var fs = Math.min(availW * 0.97 / widest, availH / (rows.length * lh));
+    w.style.fontSize = Math.max(36, fs).toFixed(1) + 'px';
+  }
+
   /* The stamp is pressed across the Y of the wordmark, so it is measured
      from the Y's own box rather than positioned by hand. */
   function placeStamp() {
@@ -745,7 +771,7 @@
   var rail = all('#rail a').map(function (a) {
     return { a: a, el: document.querySelector(a.getAttribute('href')), top: 0, h: 0 };
   }).filter(function (r) { return r.el; });
-  var railAt = -1;
+  var railAt = -1, railEl = $('rail');
   var nav = $('nav'), stuck = false;
 
   var magnets = (fx && fine) ? all('[data-magnet]').map(function (el) {
@@ -890,6 +916,7 @@
       a.p = -1;
     });
     measureShift();
+    fitWord();
     placeStamp();
     asciis.forEach(function (A) { sizeAscii(A); if (!fx) renderAscii(A, 0); });
     if (G.sceneOk) buildDots();
@@ -996,6 +1023,9 @@
      fills its line with how far through that section you are. */
   function writeRail() {
     if (!rail.length) return;
+    /* the hero keeps the whole width to itself; the rail arrives after it */
+    var on = !hero.el || lastY > hero.el.offsetHeight * 0.6;
+    if (railEl && railEl.classList.contains('is-on') !== on) railEl.classList.toggle('is-on', on);
     var line = vh * 0.4, cur = 0;
     for (var i = 0; i < rail.length; i++) if (rail[i].top <= line) cur = i;
     if (lastY + vh >= docH - 4) cur = rail.length - 1;
