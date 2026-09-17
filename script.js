@@ -251,7 +251,7 @@
     var box = hero.el.getBoundingClientRect(), yb = y.getBoundingClientRect();
     if (!yb.width) return;
     var F = parseFloat(getComputedStyle(hero.word).fontSize) || 100;
-    st.style.fontSize = Math.max(12, F * 0.165).toFixed(1) + 'px';
+    st.style.fontSize = Math.max(15, F * 0.2).toFixed(1) + 'px';
     var first = spans[0].getBoundingClientRect(), hx, hy;
     if (yb.top - first.top > 1) {
       /* stacked (two rows on wide screens, four on phones): pressed across
@@ -771,7 +771,22 @@
   var rail = all('#rail a').map(function (a) {
     return { a: a, el: document.querySelector(a.getAttribute('href')), top: 0, h: 0 };
   }).filter(function (r) { return r.el; });
-  var railAt = -1, railEl = $('rail');
+  var railAt = -1, railEl = $('rail'), railPill = $('railPill'), railNow = $('railNow'), railCompact = null;
+  function railOpen(on) {
+    if (!railEl || !railPill) return;
+    railEl.classList.toggle('is-open', on);
+    railPill.setAttribute('aria-expanded', on ? 'true' : 'false');
+  }
+  if (railEl && railPill) {
+    railPill.hidden = false;
+    railPill.addEventListener('click', function (e) {
+      e.stopPropagation();
+      railOpen(!railEl.classList.contains('is-open'));
+    });
+    rail.forEach(function (r) { r.a.addEventListener('click', function () { railOpen(false); }); });
+    document.addEventListener('click', function (e) { if (!railEl.contains(e.target)) railOpen(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') railOpen(false); });
+  }
   var nav = $('nav'), stuck = false;
 
   var magnets = (fx && fine) ? all('[data-magnet]').map(function (el) {
@@ -1023,9 +1038,15 @@
      fills its line with how far through that section you are. */
   function writeRail() {
     if (!rail.length) return;
-    /* the hero keeps the whole width to itself; the rail arrives after it */
-    var on = !hero.el || lastY > hero.el.offsetHeight * 0.6;
-    if (railEl && railEl.classList.contains('is-on') !== on) railEl.classList.toggle('is-on', on);
+    /* the full list only where there is room for it: on wide screens, once
+       the hero (which keeps its width for the wordmark) is behind you.
+       Everywhere else it is the pill. */
+    var compact = !!railPill && (vw <= 1100 || (hero.el && lastY < hero.el.offsetHeight * 0.6));
+    if (compact !== railCompact) {
+      railCompact = compact;
+      railEl.classList.toggle('is-compact', compact);
+      if (!compact) railOpen(false);
+    }
     var line = vh * 0.4, cur = 0;
     for (var i = 0; i < rail.length; i++) if (rail[i].top <= line) cur = i;
     if (lastY + vh >= docH - 4) cur = rail.length - 1;
@@ -1033,9 +1054,12 @@
       if (railAt >= 0) rail[railAt].a.removeAttribute('aria-current');
       rail[cur].a.setAttribute('aria-current', 'location');
       railAt = cur;
+      text(railNow, rail[cur].a.textContent.trim());
     }
     var R = rail[cur];
-    setVar(R.a, '--p', lastY + vh >= docH - 4 ? 1 : clamp((line - R.top) / Math.max(1, R.h), 0, 1));
+    var prog = lastY + vh >= docH - 4 ? 1 : clamp((line - R.top) / Math.max(1, R.h), 0, 1);
+    setVar(R.a, '--p', prog);
+    if (railPill) setVar(railPill, '--p', prog);
   }
 
   function pickScene() {
