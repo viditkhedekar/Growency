@@ -315,11 +315,11 @@ main{overflow-x:clip}
 .fx.dots-on .word{visibility:hidden}
 .hero__txt{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem 3rem}
 .hero__lead{max-width:44rem}
-.hero__side{max-width:27rem}
+.hero__side{max-width:34rem}
 .badge{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.1rem;padding:.45rem .7rem;border:1px solid var(--line-2);border-radius:4px;background:var(--glass);font:500 .7rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
 .badge i{width:4px;height:4px;border-radius:50%;background:var(--grad-ui)}
 .hero__h{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,3.5vw,3.3rem);line-height:1.04;letter-spacing:-.035em;max-width:15ch}
-.hero__sub{font-size:clamp(1.02rem,1.3vw,1.18rem);color:var(--text-2);max-width:42ch}
+.hero__sub{font-size:clamp(1.25rem,1.75vw,1.65rem);line-height:1.4;color:var(--text-2);max-width:26ch}
 .hero__cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.4rem}
 .stamp{
   position:absolute;left:50%;top:38%;z-index:3;pointer-events:none;
@@ -831,6 +831,13 @@ html:not(.js) .slot::after{
 .hero__h{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(2.5rem,4.9vw,4.7rem);line-height:.96;letter-spacing:-.02em;max-width:14ch}
 .hero__h .grad{font-style:italic;padding-right:.08em}
 .hero__sub{font-family:"Instrument Sans",var(--sans);letter-spacing:-.005em}
+/* the promise itself, in the brand's wide display face and the gradient */
+.hero__booked{
+  display:inline-block;font-family:var(--display);font-weight:800;font-size:1.32em;line-height:1;
+  letter-spacing:-.02em;text-transform:uppercase;white-space:nowrap;vertical-align:-.06em;
+  background:var(--grad-ui);-webkit-background-clip:text;background-clip:text;color:transparent;
+  padding-right:.04em;
+}
 
 /* The emails: correspondence. The canned template types in a flat mono, the
    rewrite lands in a warm humanist sans, the subjects read like a newspaper. */
