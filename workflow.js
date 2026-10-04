@@ -101,6 +101,8 @@
     if (filtered.length && !filtered.some(p => p.id === selected.id)) selectProspect(filtered[0]);
     count.dataset.total = String(filtered.length);
     count.textContent = String(filtered.length);
+    const plural = document.querySelector('.prospect-plural');
+    if (plural) plural.textContent = filtered.length === 1 ? 'prospect' : 'prospects';
     researchButton.disabled = filtered.length === 0;
     results.replaceChildren();
     for (const p of filtered) {
@@ -144,7 +146,7 @@
       empty.textContent = 'No sample leads match. Try another filter or clear your search.';
       results.append(empty);
     }
-    document.querySelector('#prospect-status').textContent = `${filtered.length} sample prospects found.`;
+    document.querySelector('#prospect-status').textContent = `${filtered.length} sample ${filtered.length === 1 ? 'prospect' : 'prospects'} found.`;
   }
   [industry, role, region].forEach(el => el.addEventListener('change', renderProspects));
   search.addEventListener('input', renderProspects);
