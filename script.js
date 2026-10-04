@@ -825,7 +825,7 @@
   var markers = all('[data-ch]').map(function (el) {
     return { el: el, ch: +el.dataset.ch, title: el.dataset.title || '', top: 0 };
   });
-  var CHAPTERS = 7;
+  var CHAPTERS = 9;
   var hud = $('hud'), hudCh = $('hudCh'), hudT = $('hudT'), hudBar = $('hudBar'), hudAt = -1;
   var rail = all('#rail a').map(function (a) {
     return { a: a, el: document.querySelector(a.getAttribute('href')), top: 0, h: 0 };
@@ -1195,8 +1195,11 @@
   act($('emails'), { mode: 'pass', scene: 'mail' });
   act($('alpha'), { mode: 'pin', scene: 'strat', update: fx ? stratUpdate : null });
   act($('portfolio'), { mode: 'pass', scene: 'port' });
+  act($('proof'), { mode: 'pass', scene: 'port' });
   act($('how'), { mode: 'pass', scene: 'life', anchor: $('tradeOrb') });
+  act($('journey'), { mode: 'pass', scene: 'life' });
   act($('operators'), { mode: 'pass', scene: 'ops' });
+  act($('coo'), { mode: 'pass', scene: 'ops' });
   act($('wont'), { mode: 'pass', scene: 'wont' });
   act($('pilot'), { mode: 'pass', scene: 'pilot' });
   act($('contact'), { mode: 'pass', scene: 'final', anchor: $('medallion') });
