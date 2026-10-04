@@ -20,121 +20,27 @@ h1, h2, h3, p { margin: 0; }
 .wrap { width: min(100% - 112px, 1408px); margin-inline: auto; }
 .skip { position: fixed; top: -80px; left: 20px; z-index: 20; padding: 16px; background: white; color: #231241; }
 .skip:focus { top: 12px; }
-.brand-world { isolation: isolate; position: relative; overflow: hidden; color: var(--ink); background: var(--brand-gradient); }
-/* A very faint material finish. Colour remains entirely in the sampled ramp. */
-.atmosphere { position: absolute; inset: 0; z-index: -1; opacity: .11; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.67' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='white' filter='url(%23n)' opacity='.55' d='M0 0h240v240H0z'/%3E%3C/svg%3E"); mix-blend-mode: soft-light; }
-.orbital { pointer-events: none; position: absolute; z-index: -1; width: 1500px; height: 1500px; border: 1px solid #ffffff0d; border-radius: 50%; left: 50%; top: -1330px; transform: translateX(-50%); box-shadow: 0 0 0 80px #ffffff02, 0 0 0 160px #ffffff02, 0 0 0 240px #ffffff02; }
-.orbital--two { top: auto; bottom: -1440px; width: 1800px; height: 1800px; border-color: #ffffff0c; box-shadow: 0 0 0 100px #ffffff02, 0 0 0 200px #ffffff02; }
-.header { position: relative; height: 108px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ffffff26; }
-.brand { display: inline-flex; align-items: center; gap: 10px; }
-.brand svg { width: 43px; height: 43px; }
-.brand > span { font-size: 29px; letter-spacing: -1.5px; font-weight: 600; }
-.navigation { display: flex; align-items: center; gap: 35px; font-size: 13px; padding-right: 75px; }
-.navigation a { padding-block: 14px; color: #ffffffd9; transition: color .2s; }
-.navigation a:hover { color: #fff; }
-.nav-cta { font-size: 13px; min-height: 43px; padding: 0 20px; display: inline-flex; gap: 32px; align-items: center; border: 1px solid #ffffff66; border-radius: 5px; transition: background .2s; }
-.nav-cta:hover { background: #ffffff18; }
-.nav-cta span { font-size: 19px; }
-.hero { min-height: 625px; height: calc(100svh - 247px); max-height: 870px; display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: clamp(58px, 8vh, 105px); }
-.eyebrow { display: flex; align-items: center; gap: 11px; text-transform: uppercase; font-size: 10px; font-weight: 500; letter-spacing: 2.25px; margin-bottom: 28px; }
-.eyebrow-line { width: 25px; height: 1px; background: currentColor; }
-h1 { font-weight: 400; font-size: clamp(49px, 5.6vw, 84px); line-height: 1.12; letter-spacing: -.058em; }
-.headline-line { display: block; }
-h1 strong { font: italic 400 1.21em/.85 var(--serif); letter-spacing: -.04em; padding-right: .055em; }
-.headline-close { color: #ffffffa6; }
-.hero-description { font-size: 15px; color: #ffffffe3; line-height: 1.65; margin-top: 28px; letter-spacing: -.2px; }
-.hero-actions { display: flex; align-items: center; gap: 30px; margin-top: 30px; }
+.section-label { color: #6b6575; font-size: 10px; font-weight: 600; letter-spacing: 1.6px; margin-bottom: 27px; }
+.approach-link { display: inline-flex; gap: 25px; min-height: 44px; align-items: center; border-bottom: 1px solid #292035; font-size: 13px; }
 .button-primary { display: inline-flex; gap: 32px; align-items: center; min-height: 55px; padding: 6px 8px 6px 24px; color: #272035; background: linear-gradient(180deg, #fff, #eeeaf6); border: 1px solid #fff; border-radius: 6px; font-size: 13px; font-weight: 600; box-shadow: 0 1px 2px #1b0a4d33, 0 5px 14px #1b0a4d21; transition: transform .2s, box-shadow .2s; }
 .button-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 18px #1b0a4d40; }
 .button-arrow { display: grid; place-items: center; width: 36px; height: 36px; font-size: 21px; background: #4939750a; border: 1px solid #4a3f7319; border-radius: 3px; }
-.button-text { display: inline-flex; gap: 20px; align-items: center; min-height: 48px; font-size: 12px; color: #fffffff0; }
-.button-text span { transition: transform .2s; }
-.button-text:hover span { transform: translateY(3px); }
-.hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; margin-top: auto; padding-block: 48px 29px; width: 100%; font-size: 10px; line-height: 1.7; text-align: left; letter-spacing: .1px; }
-.hero-bottom p span { color: #ffffffb8; }
-.hero-bottom-right { text-align: right; }
-.scroll-cue { display: grid; place-items: center; width: 36px; height: 44px; font-size: 21px; }
-.worked-with { display: grid; grid-template-columns: 1fr 1.2fr 1.2fr; align-items: center; min-height: 139px; border-top: 1px solid #ffffff30; gap: 30px; }
-.worked-label h2 { font-size: 12px; font-weight: 500; }
-.worked-label > span { display: block; margin-top: 8px; color: #ffffffe0; font-size: 10px; }
-.client { display: flex; gap: 14px; align-items: center; justify-content: center; min-height: 70px; transition: opacity .2s; }
-.client:hover { opacity: .72; }
-.client-name { white-space: nowrap; letter-spacing: -1.2px; }
-.client-posting .client-name { font-size: 28px; font-weight: 400; }
-.posting-weight { font-weight: 700; }
-.client-dot { font-weight: 700; }
-.client-arrow { font-size: 15px; color: #ffffffa3; }
-.client-kairos .client-name { font-family: var(--serif); font-size: 34px; }
-.kairos-health { font-family: var(--sans); font-size: 24px; letter-spacing: -.9px; font-weight: 400; }
-.yc-badge { font-size: 9px; border: 1px solid #ffffff4a; padding: 4px 5px; border-radius: 3px; letter-spacing: .2px; white-space: nowrap; }
-.approach { padding-block: 110px 100px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 100px; }
-.section-label { color: #6b6575; font-size: 10px; font-weight: 600; letter-spacing: 1.6px; margin-bottom: 27px; }
-.approach h2 { font-size: clamp(36px,3.7vw,56px); letter-spacing: -2px; font-weight: 400; line-height: 1.12; }
-.approach h2 em { font: italic 400 1.12em/1 var(--serif); }
-.approach-summary { font-size: 16px; line-height: 1.65; max-width: 460px; color: #625d68; }
-.steps { list-style: none; margin: 35px 0 28px; padding: 0; }
-.steps li { display: flex; gap: 24px; border-top: 1px solid #24203421; padding: 22px 0; }
-.step-number { font: italic 21px var(--serif); color: #7f788a; }
-.steps h3 { font-weight: 500; font-size: 16px; letter-spacing: -.3px; margin-bottom: 7px; }
-.steps p { color: #6e6874; font-size: 13px; line-height: 1.6; max-width: 350px; }
-.approach-link { display: inline-flex; gap: 25px; min-height: 44px; align-items: center; border-bottom: 1px solid #292035; font-size: 13px; }
 .footer { display: flex; align-items: center; padding-block: 31px; gap: 25px; border-top: 1px solid #24203421; }
 .footer-brand { font-size: 21px; font-weight: 600; letter-spacing: -1px; }
 .footer p { font-size: 11px; color: #77707e; }
 .footer > div { display: flex; margin-left: auto; align-items: center; gap: 22px; font-size: 10px; color: #77707e; }
 .footer > div a { padding-block: 14px; }
-@media (min-width: 1600px) { .hero { padding-top: 100px; } }
 @media (max-width: 1000px) {
   .wrap { width: calc(100% - 64px); }
-  .hero { min-height: 510px; }
-  .navigation { padding-right: 0; }
-  .client-posting .client-name { font-size: 23px; }
-  .client-kairos .client-name { font-size: 29px; }
-  .kairos-health { font-size: 20px; }
-  .client { gap: 9px; }
-  .approach { gap: 60px; padding-block: 80px; }
 }
 @media (max-width: 700px) {
   .wrap { width: calc(100% - 40px); }
-  .header { height: 86px; }
-  .brand svg { width: 33px; height: 33px; }
-  .brand > span { font-size: 25px; }
-  .brand { gap: 7px; }
-  .navigation { display: none; }
-  .nav-cta { padding-inline: 14px; gap: 21px; font-size: 12px; min-height: 44px; }
-  .hero { min-height: 620px; height: calc(100svh - 250px); max-height: 760px; padding-top: 77px; }
-  .eyebrow { font-size: 8px; letter-spacing: 1.65px; gap: 8px; margin-bottom: 27px; }
-  .eyebrow-line { width: 18px; }
-  h1 { font-size: clamp(31px, 7.3vw, 51px); line-height: 1.24; letter-spacing: -.055em; }
-  h1 strong { font-size: 1.25em; }
-  .hero-description { font-size: 13px; line-height: 1.8; margin-top: 27px; }
-  .hero-actions { flex-direction: column; gap: 9px; margin-top: 28px; }
-  .button-primary { min-height: 55px; font-size: 13px; gap: 33px; }
-  .button-text { font-size: 11px; }
-  .hero-bottom { padding-bottom: 25px; padding-top: 35px; font-size: 8px; }
-  .worked-with { min-height: auto; padding-block: 30px 37px; grid-template-columns: 1fr 1fr; gap: 18px 10px; }
-  .worked-label { grid-column: 1 / -1; text-align: center; }
-  .worked-label h2 { font-size: 11px; }
-  .worked-label > span { display: none; }
-  .client { flex-wrap: wrap; gap: 6px; min-height: 58px; }
-  .client-arrow { display: none; }
-  .client-posting .client-name { font-size: clamp(17px, 4.2vw, 25px); }
-  .client-kairos .client-name { font-size: 26px; }
-  .kairos-health { font-size: 17px; }
-  .yc-badge { font-size: 7px; padding: 3px; }
-  .approach { padding-block: 65px; grid-template-columns: 1fr; gap: 30px; }
-  .approach h2 { font-size: 41px; letter-spacing: -1.8px; }
   .section-label { margin-bottom: 20px; }
-  .approach-summary { font-size: 15px; }
   .footer { flex-wrap: wrap; gap: 12px 20px; padding-block: 26px; }
   .footer > div { margin-left: 0; width: 100%; justify-content: space-between; }
 }
 @media (max-width: 360px) {
   .wrap { width: calc(100% - 32px); }
-  h1 { font-size: 28px; }
-  .eyebrow { font-size: 7px; }
-  .hero-description { font-size: 11px; }
-  .hero-bottom-right { max-width: 100px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

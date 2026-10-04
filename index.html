@@ -3,143 +3,225 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Growency — Your next conversation starts here.</title>
-  <meta name="description" content="Our salespeople get you booked calls in days. You close the trade. Growency is the hedge fund for marketing.">
-  <meta name="theme-color" content="#291064">
+  <title>Growency — the hedge fund for sales.</title>
+  <meta name="description" content="We are the hedge fund for sales. Our salespeople get you booked calls in days. You close the trade.">
+  <meta name="theme-color" content="#2a0962">
   <link rel="icon" type="image/png" href="favicon-32.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="vibe.css">
 </head>
 <body>
 <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
   <defs>
     <clipPath id="markClip" clipPathUnits="userSpaceOnUse"><circle cx="60" cy="60" r="51.2"/></clipPath>
-    <!-- the cover gradient's bright half, for dots, rings and the sparkline (styles.css: --grad-ui) -->
     <linearGradient id="gradUi" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#2AA3FC"/><stop offset=".5" stop-color="#4B6DF3"/><stop offset="1" stop-color="#5A3FD8"/>
     </linearGradient>
-    <filter id="ink" x="-15%" y="-25%" width="130%" height="150%">
-      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
     <symbol id="mark" viewBox="0 0 120 120">
-      <!-- A hand trace of the brand image. script.js reads the lattice from the first
-           path, the network from .mark__net, and the dots from the small circles. -->
-      <g clip-path="url(#markClip)" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M27.78 -14.40L11.68 -5.10 M27.78 -14.40L43.89 -5.10 M27.78 -14.40L27.78 4.20 M60.00 -14.40L43.89 -5.10 M60.00 -14.40L76.11 -5.10 M60.00 -14.40L60.00 4.20 M92.22 -14.40L76.11 -5.10 M92.22 -14.40L108.32 -5.10 M92.22 -14.40L92.22 4.20 M11.68 -5.10L11.68 13.50 M43.89 -5.10L43.89 13.50 M76.11 -5.10L76.11 13.50 M108.32 -5.10L108.32 13.50 M27.78 4.20L11.68 13.50 M27.78 4.20L43.89 13.50 M60.00 4.20L43.89 13.50 M60.00 4.20L76.11 13.50 M92.22 4.20L76.11 13.50 M92.22 4.20L108.32 13.50 M11.68 13.50L-4.43 22.80 M11.68 13.50L27.78 22.80 M11.68 13.50L11.68 32.10 M43.89 13.50L27.78 22.80 M43.89 13.50L60.00 22.80 M43.89 13.50L43.89 32.10 M76.11 13.50L60.00 22.80 M76.11 13.50L92.22 22.80 M76.11 13.50L76.11 32.10 M108.32 13.50L92.22 22.80 M108.32 13.50L124.43 22.80 M108.32 13.50L108.32 32.10 M-4.43 22.80L-4.43 41.40 M27.78 22.80L27.78 41.40 M60.00 22.80L60.00 41.40 M92.22 22.80L92.22 41.40 M124.43 22.80L124.43 41.40 M11.68 32.10L-4.43 41.40 M11.68 32.10L27.78 41.40 M43.89 32.10L27.78 41.40 M43.89 32.10L60.00 41.40 M76.11 32.10L60.00 41.40 M76.11 32.10L92.22 41.40 M108.32 32.10L92.22 41.40 M108.32 32.10L124.43 41.40 M-4.43 41.40L-20.54 50.70 M-4.43 41.40L11.68 50.70 M-4.43 41.40L-4.43 60.00 M27.78 41.40L11.68 50.70 M27.78 41.40L43.89 50.70 M27.78 41.40L27.78 60.00 M60.00 41.40L43.89 50.70 M60.00 41.40L76.11 50.70 M60.00 41.40L60.00 60.00 M92.22 41.40L76.11 50.70 M92.22 41.40L108.32 50.70 M92.22 41.40L92.22 60.00 M124.43 41.40L108.32 50.70 M124.43 41.40L140.54 50.70 M124.43 41.40L124.43 60.00 M-20.54 50.70L-20.54 69.30 M11.68 50.70L11.68 69.30 M43.89 50.70L43.89 69.30 M76.11 50.70L76.11 69.30 M108.32 50.70L108.32 69.30 M140.54 50.70L140.54 69.30 M-4.43 60.00L-20.54 69.30 M-4.43 60.00L11.68 69.30 M27.78 60.00L11.68 69.30 M27.78 60.00L43.89 69.30 M60.00 60.00L43.89 69.30 M60.00 60.00L76.11 69.30 M92.22 60.00L76.11 69.30 M92.22 60.00L108.32 69.30 M124.43 60.00L108.32 69.30 M124.43 60.00L140.54 69.30 M-20.54 69.30L-4.43 78.60 M11.68 69.30L-4.43 78.60 M11.68 69.30L27.78 78.60 M11.68 69.30L11.68 87.90 M43.89 69.30L27.78 78.60 M43.89 69.30L60.00 78.60 M43.89 69.30L43.89 87.90 M76.11 69.30L60.00 78.60 M76.11 69.30L92.22 78.60 M76.11 69.30L76.11 87.90 M108.32 69.30L92.22 78.60 M108.32 69.30L124.43 78.60 M108.32 69.30L108.32 87.90 M140.54 69.30L124.43 78.60 M-4.43 78.60L-4.43 97.20 M27.78 78.60L27.78 97.20 M60.00 78.60L60.00 97.20 M92.22 78.60L92.22 97.20 M124.43 78.60L124.43 97.20 M11.68 87.90L-4.43 97.20 M11.68 87.90L27.78 97.20 M43.89 87.90L27.78 97.20 M43.89 87.90L60.00 97.20 M76.11 87.90L60.00 97.20 M76.11 87.90L92.22 97.20 M108.32 87.90L92.22 97.20 M108.32 87.90L124.43 97.20 M-4.43 97.20L11.68 106.50 M27.78 97.20L11.68 106.50 M27.78 97.20L43.89 106.50 M27.78 97.20L27.78 115.80 M60.00 97.20L43.89 106.50 M60.00 97.20L76.11 106.50 M60.00 97.20L60.00 115.80 M92.22 97.20L76.11 106.50 M92.22 97.20L108.32 106.50 M92.22 97.20L92.22 115.80 M124.43 97.20L108.32 106.50 M11.68 106.50L11.68 125.10 M43.89 106.50L43.89 125.10 M76.11 106.50L76.11 125.10 M108.32 106.50L108.32 125.10 M27.78 115.80L11.68 125.10 M27.78 115.80L43.89 125.10 M60.00 115.80L43.89 125.10 M60.00 115.80L76.11 125.10 M92.22 115.80L76.11 125.10 M92.22 115.80L108.32 125.10 M11.68 125.10L27.78 134.40 M43.89 125.10L27.78 134.40 M43.89 125.10L60.00 134.40 M76.11 125.10L60.00 134.40 M76.11 125.10L92.22 134.40 M108.32 125.10L92.22 134.40"/></g>
+      <g clip-path="url(#markClip)" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M27.78 -14.40L11.68 -5.10 M27.78 -14.40L43.89 -5.10 M27.78 -14.40L27.78 4.20 M60.00 -14.40L43.89 -5.10 M60.00 -14.40L76.11 -5.10 M60.00 -14.40L60.00 4.20 M92.22 -14.40L76.11 -5.10 M92.22 -14.40L108.32 -5.10 M92.22 -14.40L92.22 4.20 M11.68 -5.10L11.68 13.50 M43.89 -5.10L43.89 13.50 M76.11 -5.10L76.11 13.50 M108.32 -5.10L108.32 13.50 M27.78 4.20L11.68 13.50 M27.78 4.20L43.89 13.50 M60.00 4.20L43.89 13.50 M60.00 4.20L76.11 13.50 M92.22 4.20L76.11 13.50 M92.22 4.20L108.32 13.50 M11.68 13.50L-4.43 22.80 M11.68 13.50L27.78 22.80 M11.68 13.50L11.68 32.10 M43.89 13.50L27.78 22.80 M43.89 13.50L60.00 22.80 M43.89 13.50L43.89 32.10 M76.11 13.50L60.00 22.80 M76.11 13.50L92.22 22.80 M76.11 13.50L76.11 32.10 M108.32 13.50L92.22 22.80 M108.32 13.50L124.43 22.80 M108.32 13.50L108.32 32.10 M-4.43 22.80L-4.43 41.40 M27.78 22.80L27.78 41.40 M60.00 22.80L60.00 41.40 M92.22 22.80L92.22 41.40 M124.43 22.80L124.43 41.40 M11.68 32.10L-4.43 41.40 M11.68 32.10L27.78 41.40 M43.89 32.10L27.78 41.40 M43.89 32.10L60.00 41.40 M76.11 32.10L60.00 41.40 M76.11 32.10L92.22 41.40 M108.32 32.10L92.22 41.40 M108.32 32.10L124.43 41.40 M-4.43 41.40L-20.54 50.70 M-4.43 41.40L11.68 50.70 M-4.43 41.40L-4.43 60.00 M27.78 41.40L11.68 50.70 M27.78 41.40L43.89 50.70 M27.78 41.40L27.78 60.00 M60.00 41.40L43.89 50.70 M60.00 41.40L60.00 60.00 M92.22 41.40L76.11 50.70 M92.22 41.40L108.32 50.70 M92.22 41.40L92.22 60.00 M124.43 41.40L108.32 50.70 M124.43 41.40L140.54 50.70 M124.43 41.40L124.43 60.00 M-20.54 50.70L-20.54 69.30 M11.68 50.70L11.68 69.30 M43.89 50.70L43.89 69.30 M76.11 50.70L76.11 69.30 M108.32 50.70L108.32 69.30 M140.54 50.70L140.54 69.30 M-4.43 60.00L-20.54 69.30 M-4.43 60.00L11.68 69.30 M27.78 60.00L11.68 69.30 M27.78 60.00L43.89 69.30 M60.00 60.00L43.89 69.30 M60.00 60.00L76.11 69.30 M92.22 60.00L76.11 69.30 M124.43 60.00L108.32 69.30 M124.43 60.00L124.43 69.30"/></g>
       <path class="mark__net" d="M27.78 78.60L43.89 69.30L60.00 97.20L76.11 69.30L92.22 60.00L92.22 41.40" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
       <g class="mark__nodes" fill="var(--mark-hole,#06060C)" stroke="currentColor" stroke-width="1.7"><circle cx="27.78" cy="78.60" r="3.8"/><circle cx="43.89" cy="69.30" r="3.8"/><circle cx="60.00" cy="97.20" r="3.8"/><circle cx="76.11" cy="69.30" r="3.8"/><circle cx="92.22" cy="60.00" r="3.8"/><circle cx="92.22" cy="41.40" r="3.8"/></g>
       <circle cx="60" cy="60" r="53" fill="none" stroke="currentColor" stroke-width="3"/>
     </symbol>
+    <symbol id="spark" viewBox="0 0 64 64">
+      <path d="M32 3c2.2 15.6 7.4 20.8 29 29-21.6 8.2-26.8 13.4-29 29-2.2-15.6-7.4-20.8-29-29 21.6-8.2 26.8-13.4 29-29z" fill="currentColor"/>
+    </symbol>
   </defs>
 </svg>
 <a class="skip" href="#main">Skip to content</a>
-<div class="brand-world" id="top">
-  <div class="atmosphere" aria-hidden="true"></div>
-  <div class="orbital orbital--one" aria-hidden="true"></div>
-  <div class="orbital orbital--two" aria-hidden="true"></div>
-  <header class="header wrap">
-    <a class="brand" href="#top" aria-label="Growency home">
-      <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
-      <span>Growency</span>
+
+<header class="site-header" id="top">
+  <a class="brand" href="#top" aria-label="Growency home" id="brand-egg">
+    <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
+    <span>growency</span>
+  </a>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="#manifesto">the pitch</a>
+    <a href="#approach">the machine</a>
+    <a href="#work">worked with</a>
+  </nav>
+  <a class="nav-cta" href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">let’s talk <span aria-hidden="true">↗</span></a>
+</header>
+
+<main id="main">
+  <!-- ============ HERO: busy, alive, wayari-flavoured ============ -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-shade" aria-hidden="true"></div>
+
+    <!-- left rail: demos that never sleep -->
+    <div class="rail rail--left" aria-hidden="true">
+      <div class="widget feed-widget float-a">
+        <div class="widget-bar"><span class="live-dot"></span>live prospect feed<span class="widget-tag">demo</span></div>
+        <ul class="feed-list" id="feed-list"></ul>
+        <div class="widget-foot"><span class="scan-bar"><i></i></span><span id="feed-count">scanning 2,400 profiles…</span></div>
+      </div>
+      <div class="widget notes-widget float-b">
+        <div class="widget-bar"><svg class="widget-spark" viewBox="0 0 64 64" aria-hidden="true"><use href="#spark"/></svg>research notes</div>
+        <div class="notes-body" id="notes-body"></div>
+      </div>
+    </div>
+
+    <!-- right rail: more demos that never sleep -->
+    <div class="rail rail--right" aria-hidden="true">
+      <div class="widget inbox-widget float-c">
+        <div class="widget-bar"><span class="live-dot"></span>inbox · replies<span class="inbox-badge" id="inbox-badge">2</span></div>
+        <div class="inbox-list" id="inbox-list"></div>
+      </div>
+      <div class="widget cal-widget float-d">
+        <div class="widget-bar"><svg class="widget-spark" viewBox="0 0 64 64" aria-hidden="true"><use href="#spark"/></svg>your calendar</div>
+        <div class="cal-week"><span>mon</span><span>tue</span><span>wed</span><span>thu</span><span>fri</span></div>
+        <div class="cal-grid" id="cal-grid"></div>
+        <div class="cal-toast" id="cal-toast">✓ call booked · wed 10:00</div>
+      </div>
+    </div>
+
+    <!-- notification toasts, top right -->
+    <div class="toast-stack" id="toast-stack" aria-hidden="true"></div>
+
+    <!-- floating pills, pure decoration + easter eggs -->
+    <span class="float-pill pill-1" data-tip="that’s a real rhythm, not a promise.">reply in 2 days ⚡</span>
+    <span class="float-pill pill-2" data-tip="wednesdays are underrated.">call booked · wed 10:00</span>
+    <span class="float-pill pill-3" data-tip="warm. not hot. not cold. warm.">+3 warm leads this week</span>
+    <span class="float-pill pill-4" data-tip="no bots were harmed making this page.">human-led, always</span>
+
+    <!-- centre stage -->
+    <div class="hero-core">
+      <p class="hero-live"><span class="live-dot"></span><span id="live-count">3</span> conversations happening right now</p>
+      <h1 id="hero-heading">
+        <span class="hl-row">we get you</span>
+        <span class="hl-row"><mark class="hl" data-tip="yes, really. on your calendar.">booked calls</mark>.</span>
+        <span class="hl-row dim">you close the trade.</span>
+      </h1>
+      <p class="hero-sub">human-led sales, built around your business. <br>we find the right people, start the right conversations, <br>and put them on your calendar.</p>
+      <div class="hero-cta">
+        <a class="btn-gold" href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">let’s talk growth <span aria-hidden="true">↗</span></a>
+        <a class="btn-ghost" href="#manifesto">the pitch <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="hero-trust">trusted by teams like <a href="https://www.postingmachine.ai/" target="_blank" rel="noopener noreferrer">postingmachine.</a> + <a href="https://kairoshealthai.com/" target="_blank" rel="noopener noreferrer">kairos health · yc f26</a></p>
+    </div>
+
+    <!-- the mascot. he watches. -->
+    <button class="mascot" id="mascot" type="button" aria-label="Spark, the Growency mascot. Click for a surprise.">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 3c2.2 15.6 7.4 20.8 29 29-21.6 8.2-26.8 13.4-29 29-2.2-15.6-7.4-20.8-29-29 21.6-8.2 26.8-13.4 29-29z" fill="#ffc94d"/>
+        <g class="mascot-eyes" id="mascot-eyes">
+          <circle cx="26" cy="31" r="3.1" fill="#2a0962"/>
+          <circle cx="38" cy="31" r="3.1" fill="#2a0962"/>
+        </g>
+      </svg>
+      <span class="mascot-bubble" id="mascot-bubble" role="status">psst… hover everything.</span>
+    </button>
+
+    <!-- ticker -->
+    <div class="ticker" id="ticker" role="button" tabindex="0" aria-label="Ticker. Click to pause.">
+      <div class="ticker-track" id="ticker-track">
+        <span>booked calls <svg class="t-star" viewBox="0 0 64 64" aria-hidden="true"><use href="#spark"/></svg> warm replies <svg class="t-star" viewBox="0 0 64 64" aria-hidden="true"><use href="#spark"/></svg> real humans <svg class="t-star" viewBox="0 0 64 64" aria-hidden="true"><use href="#spark"/></svg> pipeline <svg class="t-star" viewBox="0 0 64 64" aria-hidden="true"><use href="#spark"/></svg> follow-ups <svg class="t-star" viewBox="0 0 64 64" aria-hidden="true"><use href="#spark"/></svg> research <svg class="t-star" viewBox="0 0 64 64" aria-hidden="true"><use href="#spark"/></svg> your next conversation <svg class="t-star" viewBox="0 0 64 64" aria-hidden="true"><use href="#spark"/></svg> you close the trade <svg class="t-star" viewBox="0 0 64 64" aria-hidden="true"><use href="#spark"/></svg> </span><span aria-hidden="true">booked calls <svg class="t-star" viewBox="0 0 64 64"><use href="#spark"/></svg> warm replies <svg class="t-star" viewBox="0 0 64 64"><use href="#spark"/></svg> real humans <svg class="t-star" viewBox="0 0 64 64"><use href="#spark"/></svg> pipeline <svg class="t-star" viewBox="0 0 64 64"><use href="#spark"/></svg> follow-ups <svg class="t-star" viewBox="0 0 64 64"><use href="#spark"/></svg> research <svg class="t-star" viewBox="0 0 64 64"><use href="#spark"/></svg> your next conversation <svg class="t-star" viewBox="0 0 64 64"><use href="#spark"/></svg> you close the trade <svg class="t-star" viewBox="0 0 64 64"><use href="#spark"/></svg> </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MANIFESTO: the big text thing ============ -->
+  <section class="manifesto" id="manifesto" aria-labelledby="manifesto-heading">
+    <div class="manifesto-night" aria-hidden="true"></div>
+    <div class="manifesto-inner wrap">
+      <p class="section-label light">THE PITCH</p>
+      <h2 id="manifesto-heading">
+        <span class="m-row">we are the</span>
+        <span class="m-row"><mark class="hl big" data-tip="minus the suits. plus the charm.">hedge fund</mark></span>
+        <span class="m-row">for sales.</span>
+      </h2>
+      <p class="manifesto-small">*past conversations do not guarantee future conversations.<br>they’re still a pretty good sign.</p>
+      <div class="manifesto-chips" aria-hidden="true">
+        <span class="m-chip chip-1" data-tip="diversify your pipeline.">pipeline is the portfolio</span>
+        <span class="m-chip chip-2" data-tip="compound interest, but chats.">replies are returns</span>
+        <span class="m-chip chip-3" data-tip="we read the filings. metaphorically.">research is due diligence</span>
+        <span class="m-chip chip-4" data-tip="the eighth wonder of sales.">follow-ups are compounding</span>
+      </div>
+      <p class="manifesto-second">you bring the <em>product.</em><br>we bring the <mark class="hl" data-tip="that’s the whole job.">people</mark>.</p>
+      <button class="dnp" id="dnp-button" type="button">do not press</button>
+    </div>
+  </section>
+
+  <!-- ============ WORKED WITH ============ -->
+  <section class="clients-strip wrap" id="work" aria-labelledby="work-heading">
+    <div class="worked-label"><h2 id="work-heading">Worked with</h2><span>A few good companies.</span></div>
+    <a class="client client-posting" href="https://www.postingmachine.ai/" target="_blank" rel="noopener noreferrer" aria-label="Posting Machine — visit client website">
+      <span class="client-name">posting<span class="posting-weight">machine</span><span class="client-dot">.</span></span>
+      <span class="client-arrow" aria-hidden="true">↗</span>
     </a>
-    <nav class="navigation" aria-label="Primary navigation">
-      <a href="#approach">Our approach</a>
-      <a href="#work">Our work</a>
-    </nav>
-    <a class="nav-cta" href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">Let’s talk <span aria-hidden="true">↗</span></a>
-  </header>
-  <main id="main">
-    <section class="hero wrap" aria-labelledby="hero-heading">
-      <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>The hedge fund for marketing</p>
-      <h1 id="hero-heading"><span class="headline-line">Our salespeople get you</span><span class="headline-line"><strong>booked calls</strong> in days.</span><span class="headline-line headline-close">You close the trade.</span></h1>
-      <p class="hero-description">We find the right people. Start the right conversations.<br>And put the opportunity on your calendar.</p>
-      <div class="hero-actions">
-        <a class="button-primary" href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">Let’s talk growth <span class="button-arrow" aria-hidden="true">↗</span></a>
-        <a class="button-text" href="#approach">See how we work <span aria-hidden="true">↓</span></a>
-      </div>
-      <div class="hero-bottom">
-        <p>Human-led sales.<br><span>Built around your business.</span></p>
-        <a class="scroll-cue" href="#work" aria-label="Explore who we have worked with"><span aria-hidden="true">↓</span></a>
-        <p class="hero-bottom-right">From first contact<br><span>to your next opportunity.</span></p>
-      </div>
-    </section>
-    <section class="worked-with wrap" id="work" aria-labelledby="work-heading">
-      <div class="worked-label"><h2 id="work-heading">Worked with</h2><span>A few good companies.</span></div>
-      <a class="client client-posting" href="https://www.postingmachine.ai/" target="_blank" rel="noopener noreferrer" aria-label="Posting Machine — visit client website">
-        <span class="client-name">posting<span class="posting-weight">machine</span><span class="client-dot">.</span></span>
-        <span class="client-arrow" aria-hidden="true">↗</span>
-      </a>
-      <a class="client client-kairos" href="https://kairoshealthai.com/" target="_blank" rel="noopener noreferrer" aria-label="Kairos Health, YC F26 — visit client website">
-        <span class="client-name">Kairos <span class="kairos-health">Health</span></span><span class="yc-badge">YC F26</span>
-        <span class="client-arrow" aria-hidden="true">↗</span>
-      </a>
-    </section>
-  </main>
-</div>
-<button class="journey-dock" type="button" hidden aria-label="Next: prospect research"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg><span class="dock-count">01 / 04</span><span class="dock-label">Finding your people</span><span class="dock-next" aria-hidden="true">↓</span></button>
-<section class="journey" id="approach" aria-labelledby="journey-heading">
-  <div class="journey-intro wrap">
-    <span class="intro-thread" aria-hidden="true"></span>
-    <p class="section-label">FROM FIRST CONTACT TO A BOOKED CALL</p>
-    <h2 id="journey-heading">From a name on a list<br>to <em>a call on your calendar.</em></h2>
-    <p>Find. Research. Reach out. Book.<br>Try the workflow below. Every demo is interactive.<br><small>Fictional prospects. Real steps in the process.</small></p>
-    <button class="motion-toggle" type="button" aria-pressed="false" hidden><span aria-hidden="true">Ⅱ</span> <span class="motion-label">Pause motion</span></button>
-  </div>
-  <div class="journey-track wrap">
-    <div class="journey-rail" aria-hidden="true"><div class="journey-fill"></div><span class="journey-traveller"><svg viewBox="0 0 120 120"><use href="#mark"/></svg></span></div>
-    <article class="story-step" id="find" aria-labelledby="find-heading">
-      <span class="step-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
-      <figure class="story-visual">
-        <div class="workflow-stage prospect-stage" role="group" aria-label="Prospecting demo: filter the sample database and select a prospect to update the rest of the workflow.">
-          <div class="workflow-window prospect-window">
-            <div class="window-bar"><span class="mini-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>Growency</span><span class="window-section">Prospecting</span><span class="window-dots" aria-hidden="true">•••</span></div>
-            <div class="window-content"><div class="ui-title">Find your next customer<span class="ui-search-icon" aria-hidden="true">⌕</span></div><label class="search-field"><span aria-hidden="true">⌕</span><input id="prospect-search" type="search" placeholder="Search names or companies…" aria-label="Search sample prospects" autocomplete="off"></label><div class="filter-chips"><select id="industry-filter" aria-label="Prospect industry"><option value="saas">B2B SaaS</option><option value="services">Services</option><option value="all">All industries</option></select><select id="role-filter" aria-label="Prospect role"><option value="all">Founder / CEO</option><option value="Founder">Founder</option><option value="CEO">CEO</option></select><select id="region-filter" aria-label="Prospect region"><option value="UK">United Kingdom</option><option value="US">United States</option><option value="all">All regions</option></select></div>
-              <span class="prospect-scan" aria-hidden="true"></span><div class="table-heading"><span>PROSPECT</span><span>MATCH</span></div>
-              <div id="prospect-results" class="prospect-results" aria-label="Sample prospect results">
-                <button class="prospect-row" type="button" aria-pressed="true" data-prospect="alex"><span class="person-initials initials-blue">AM</span><span class="prospect-details"><b>Alex Morgan</b><span>Founder · Meridian</span></span><span class="match-label">Selected <i>✓</i></span></button>
+    <a class="client client-kairos" href="https://kairoshealthai.com/" target="_blank" rel="noopener noreferrer" aria-label="Kairos Health, YC F26 — visit client website">
+      <span class="client-name">Kairos <span class="kairos-health">Health</span></span><span class="yc-badge">YC F26</span>
+      <span class="client-arrow" aria-hidden="true">↗</span>
+    </a>
+  </section>
+
+  <!-- ============ THE MACHINE: interactive journey (unchanged) ============ -->
+  <button class="journey-dock" type="button" hidden aria-label="Next: prospect research"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg><span class="dock-count">01 / 04</span><span class="dock-label">Finding your people</span><span class="dock-next" aria-hidden="true">↓</span></button>
+  <section class="journey" id="approach" aria-labelledby="journey-heading">
+    <div class="journey-intro wrap">
+      <span class="intro-thread" aria-hidden="true"></span>
+      <p class="section-label">FROM FIRST CONTACT TO A BOOKED CALL</p>
+      <h2 id="journey-heading">From a name on a list<br>to <em>a call on your calendar.</em></h2>
+      <p>Find. Research. Reach out. Book.<br>Try the workflow below. Every demo is interactive.<br><small>Fictional prospects. Real steps in the process.</small></p>
+      <button class="motion-toggle" type="button" aria-pressed="false" hidden><span aria-hidden="true">Ⅱ</span> <span class="motion-label">Pause motion</span></button>
+    </div>
+    <div class="journey-track wrap">
+      <div class="journey-rail" aria-hidden="true"><div class="journey-fill"></div><span class="journey-traveller"><svg viewBox="0 0 120 120"><use href="#mark"/></svg></span></div>
+      <article class="story-step" id="find" aria-labelledby="find-heading">
+        <span class="step-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+        <figure class="story-visual">
+          <div class="workflow-stage prospect-stage" role="group" aria-label="Prospecting demo: filter the sample database and select a prospect to update the rest of the workflow.">
+            <div class="workflow-window prospect-window">
+              <div class="window-bar"><span class="mini-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>Growency</span><span class="window-section">Prospecting</span><span class="window-dots" aria-hidden="true">•••</span></div>
+              <div class="window-content"><div class="ui-title">Find your next customer<span class="ui-search-icon" aria-hidden="true">⌕</span></div><label class="search-field"><span aria-hidden="true">⌕</span><input id="prospect-search" type="search" placeholder="Search names or companies…" aria-label="Search sample prospects" autocomplete="off"></label><div class="filter-chips"><select id="industry-filter" aria-label="Prospect industry"><option value="saas">B2B SaaS</option><option value="services">Services</option><option value="all">All industries</option></select><select id="role-filter" aria-label="Prospect role"><option value="all">Founder / CEO</option><option value="Founder">Founder</option><option value="CEO">CEO</option></select><select id="region-filter" aria-label="Prospect region"><option value="UK">United Kingdom</option><option value="US">United States</option><option value="all">All regions</option></select></div>
+                <span class="prospect-scan" aria-hidden="true"></span><div class="table-heading"><span>PROSPECT</span><span>MATCH</span></div>
+                <div id="prospect-results" class="prospect-results" aria-label="Sample prospect results">
+                  <button class="prospect-row" type="button" aria-pressed="true" data-prospect="alex"><span class="person-initials initials-blue">AM</span><span class="prospect-details"><b>Alex Morgan</b><span>Founder · Meridian</span></span><span class="match-label">Selected <i>✓</i></span></button>
+                </div>
+                <span class="sr-only" id="prospect-status" aria-live="polite"></span>
+                <div class="table-footer"><span><b class="prospect-count" data-total="4">4</b> prospects found</span><button class="mini-action" id="research-lead" type="button">Research lead <span aria-hidden="true">→</span></button></div>
               </div>
-              <span class="sr-only" id="prospect-status" aria-live="polite"></span>
-              <div class="table-footer"><span><b class="prospect-count" data-total="4">4</b> prospects found</span><button class="mini-action" id="research-lead" type="button">Research lead <span aria-hidden="true">→</span></button></div>
             </div>
+            <div class="workflow-toast staged" style="--delay:1.9s"><span class="toast-check">✓</span><div><b>Your market. Your criteria.</b><span>A list built around your business.</span></div></div>
           </div>
-          <div class="workflow-toast staged" style="--delay:1.9s"><span class="toast-check">✓</span><div><b>Your market. Your criteria.</b><span>A list built around your business.</span></div></div>
-        </div>
-        <figcaption><span>01 / Build the right list.</span><button class="replay" type="button" hidden aria-label="Replay prospecting animation">↻ Replay</button><span>Try the filters &amp; select a lead</span></figcaption>
-      </figure>
-      <div class="story-copy"><p class="section-label">LEAD GENERATION</p><h3 id="find-heading">Your customers<br>are <em>out there.</em></h3><p>We turn your ideal customer into a focused prospect list. The right industry, the right company, the person who can actually make the decision.</p><p class="story-aside">A good list is the start of a good conversation.</p></div>
-    </article>
-    <article class="story-step story-step--reverse" id="research" aria-labelledby="research-heading">
-      <span class="step-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M8 10h4M10 8v4"/></svg></span>
-      <div class="story-copy"><p class="section-label">PROSPECT RESEARCH</p><h3 id="research-heading">More than a name.<br><em>A reason to talk.</em></h3><p>We go through each prospect, check their fit, and look for a relevant opening. A new market. A growing team. A problem your business can solve.</p><p class="story-aside">The homework happens before the first hello.</p></div>
-      <figure class="story-visual">
-        <div class="workflow-stage research-stage" role="group" aria-label="Research demo: review the selected prospect and choose a personalised outreach angle.">
-          <div class="workflow-window research-window">
-            <div class="window-bar"><span class="mini-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>Growency</span><span class="window-section">Research</span><span class="window-dots" aria-hidden="true">•••</span></div>
-            <div class="window-content"><div class="profile-heading"><span class="person-initials initials-blue" data-bind="initials">AM</span><div><h4 data-bind="name">Alex Morgan</h4><p data-bind="role-company">Founder at Meridian</p><span class="profile-url" data-bind="domain">meridian.example</span></div><span class="profile-fit">Sample lead</span></div>
-              <div class="profile-facts"><span>INDUSTRY<b data-bind="industry">B2B software</b></span><span>LOCATION<b data-bind="region">United Kingdom</b></span></div>
-              <div class="research-signal staged" style="--delay:.35s"><span class="signal-symbol">↗</span><div><small>COMPANY SIGNAL</small><b data-bind="signal">Expanding into the UK</b><p data-bind="signal-detail">A new market. A new set of buyers.</p></div><span class="signal-tick">✓</span></div>
-              <div class="research-signal staged" style="--delay:.8s"><span class="signal-symbol">◎</span><div><small>CONTACT CHECK</small><b data-bind="role">Founder &amp; decision-maker</b><p>Role and contact details reviewed.</p></div><span class="signal-tick">✓</span></div>
-              <div class="angle-picker" aria-label="Choose an outreach angle"><span>CHOOSE YOUR ANGLE</span><div><button type="button" data-angle="expansion" aria-pressed="true">New market ↗</button><button type="button" data-angle="hiring" aria-pressed="false">Growing team +</button></div></div>
-              <div class="outreach-angle staged" style="--delay:1.35s"><small>THE OPENING</small><p id="angle-preview">“Saw you’re expanding into the UK. Let’s talk about your first customers there.”</p></div>
+          <figcaption><span>01 / Build the right list.</span><button class="replay" type="button" hidden aria-label="Replay prospecting animation">↻ Replay</button><span>Try the filters &amp; select a lead</span></figcaption>
+        </figure>
+        <div class="story-copy"><p class="section-label">LEAD GENERATION</p><h3 id="find-heading">Your customers<br>are <em>out there.</em></h3><p>We turn your ideal customer into a focused prospect list. The right industry, the right company, the person who can actually make the decision.</p><p class="story-aside">A good list is the start of a good conversation.</p></div>
+      </article>
+      <article class="story-step story-step--reverse" id="research" aria-labelledby="research-heading">
+        <span class="step-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M8 10h4M10 8v4"/></svg></span>
+        <div class="story-copy"><p class="section-label">PROSPECT RESEARCH</p><h3 id="research-heading">More than a name.<br><em>A reason to talk.</em></h3><p>We go through each prospect, check their fit, and look for a relevant opening. A new market. A growing team. A problem your business can solve.</p><p class="story-aside">The homework happens before the first hello.</p></div>
+        <figure class="story-visual">
+          <div class="workflow-stage research-stage" role="group" aria-label="Research demo: review the selected prospect and choose a personalised outreach angle.">
+            <div class="workflow-window research-window">
+              <div class="window-bar"><span class="mini-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>Growency</span><span class="window-section">Research</span><span class="window-dots" aria-hidden="true">•••</span></div>
+              <div class="window-content"><div class="profile-heading"><span class="person-initials initials-blue" data-bind="initials">AM</span><div><h4 data-bind="name">Alex Morgan</h4><p data-bind="role-company">Founder at Meridian</p><span class="profile-url" data-bind="domain">meridian.example</span></div><span class="profile-fit">Sample lead</span></div>
+                <div class="profile-facts"><span>INDUSTRY<b data-bind="industry">B2B software</b></span><span>LOCATION<b data-bind="region">United Kingdom</b></span></div>
+                <div class="research-signal staged" style="--delay:.35s"><span class="signal-symbol">↗</span><div><small>COMPANY SIGNAL</small><b data-bind="signal">Expanding into the UK</b><p data-bind="signal-detail">A new market. A new set of buyers.</p></div><span class="signal-tick">✓</span></div>
+                <div class="research-signal staged" style="--delay:.8s"><span class="signal-symbol">◎</span><div><small>CONTACT CHECK</small><b data-bind="role">Founder &amp; decision-maker</b><p>Role and contact details reviewed.</p></div><span class="signal-tick">✓</span></div>
+                <div class="angle-picker" aria-label="Choose an outreach angle"><span>CHOOSE YOUR ANGLE</span><div><button type="button" data-angle="expansion" aria-pressed="true">New market ↗</button><button type="button" data-angle="hiring" aria-pressed="false">Growing team +</button></div></div>
+                <div class="outreach-angle staged" style="--delay:1.35s"><small>THE OPENING</small><p id="angle-preview">“Saw you’re expanding into the UK. Let’s talk about your first customers there.”</p></div>
+              </div>
             </div>
+            <div class="workflow-toast staged" style="--delay:1.9s"><span class="toast-check">✓</span><div><b>Ready for a personal introduction.</b><span>Context, not just contact details.</span></div></div>
           </div>
-          <div class="workflow-toast staged" style="--delay:1.9s"><span class="toast-check">✓</span><div><b>Ready for a personal introduction.</b><span>Context, not just contact details.</span></div></div>
-        </div>
-        <figcaption><span>02 / Choose an angle.</span><button class="replay" type="button" hidden aria-label="Replay prospect research animation">↻ Replay</button><span>Try a different angle</span></figcaption>
-      </figure>
-    </article>
-    <article class="story-step" id="conversation" aria-labelledby="conversation-heading">
-      <span class="step-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-8-8 18-2-8-8-2Z"/><path d="m11 13 10-10"/></svg></span>
-      <figure class="story-visual">
-        <div class="workflow-stage outreach-stage" role="group" aria-label="Email demo: edit the draft, simulate sending it, and receive a sample reply. No email is sent.">
-          <div class="workflow-window compose-window">
-            <div class="window-bar"><span class="mini-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>Growency</span><span class="window-section">Outreach</span><span class="window-dots" aria-hidden="true">•••</span></div>
-            <div class="compose-address"><span>To</span><b data-bind="name">Alex Morgan</b><span class="verified-contact">Sample recipient</span></div>
-            <label class="compose-subject"><span>Subject</span><input id="demo-subject" aria-label="Demo email subject" value="Meridian’s next chapter" maxlength="120"></label>
-            <div class="compose-body compose-body--editable"><label class="sr-only" for="demo-message">Edit your demo email</label><textarea id="demo-message" spellcheck="false">Hi Alex,
+          <figcaption><span>02 / Choose an angle.</span><button class="replay" type="button" hidden aria-label="Replay prospect research animation">↻ Replay</button><span>Try a different angle</span></figcaption>
+        </figure>
+      </article>
+      <article class="story-step" id="conversation" aria-labelledby="conversation-heading">
+        <span class="step-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-8-8 18-2-8-8-2Z"/><path d="m11 13 10-10"/></svg></span>
+        <figure class="story-visual">
+          <div class="workflow-stage outreach-stage" role="group" aria-label="Email demo: edit the draft, simulate sending it, and receive a sample reply. No email is sent.">
+            <div class="workflow-window compose-window">
+              <div class="window-bar"><span class="mini-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>Growency</span><span class="window-section">Outreach</span><span class="window-dots" aria-hidden="true">•••</span></div>
+              <div class="compose-address"><span>To</span><b data-bind="name">Alex Morgan</b><span class="verified-contact">Sample recipient</span></div>
+              <label class="compose-subject"><span>Subject</span><input id="demo-subject" aria-label="Demo email subject" value="Meridian’s next chapter" maxlength="120"></label>
+              <div class="compose-body compose-body--editable"><label class="sr-only" for="demo-message">Edit your demo email</label><textarea id="demo-message" spellcheck="false">Hi Alex,
 
 Saw you’re expanding Meridian into the UK.
 We have a few ideas about the people you’ll want to speak to first.
@@ -147,40 +229,52 @@ We have a few ideas about the people you’ll want to speak to first.
 Worth a conversation?
 
 The Growency team</textarea></div>
-            <div class="compose-footer"><button class="send-button" id="send-demo" type="button"><span>Send demo email</span><span class="send-plane" aria-hidden="true">↗</span></button><span class="sent-status" id="send-status" aria-live="polite">Try editing the email</span></div>
-          </div>
-          <div class="sequence-strip" id="email-sequence"><span class="sequence-active">Draft</span><i></i><span>Sent</span><i></i><span>Reply received</span></div>
-          <div class="workflow-toast reply-toast" id="demo-reply" hidden><span class="person-initials initials-blue" data-bind="initials">AM</span><div><small data-bind="reply-name">ALEX REPLIED</small><b>“Sounds relevant. Let’s find a time.”</b><button class="reply-book" id="reply-book" type="button">Pick a time →</button></div></div><p class="demo-send-note">Interactive example. No emails are sent.</p>
-        </div>
-        <figcaption><span>03 / Start the conversation.</span><button class="replay" type="button" hidden aria-label="Replay email outreach animation">↻ Replay</button><span>Edit it. Try sending.</span></figcaption>
-      </figure>
-      <div class="story-copy"><p class="section-label">PERSONAL OUTREACH &amp; FOLLOW-UP</p><h3 id="conversation-heading">The right words.<br><em>From a real person.</em></h3><p>Our salespeople write the email, send it, and stay with the conversation. They handle follow-ups and replies until there’s genuine interest in meeting you.</p><p class="story-aside">Someone to write it. Someone to see it through.</p></div>
-    </article>
-    <article class="story-step story-step--reverse" id="booked" aria-labelledby="booked-heading">
-      <span class="step-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18m-13 5 3 3 5-5"/></svg></span>
-      <div class="story-copy"><p class="section-label">THE HANDOVER</p><h3 id="booked-heading">On your calendar.<br><em>Over to you.</em></h3><p>An interested prospect. A time that works. A brief with the conversation so far. You walk into the call knowing who you’re meeting and why they’re interested.</p><a class="approach-link" href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">Let’s get you talking <span aria-hidden="true">↗</span></a></div>
-      <figure class="story-visual">
-        <div class="workflow-stage calendar-stage" role="group" aria-label="Booking demo: choose a day and time for the selected prospect and confirm a fictional meeting.">
-          <div class="workflow-window calendar-window">
-            <div class="window-bar"><span class="mini-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>Growency</span><span class="window-section">Your calendar</span><span class="window-dots" aria-hidden="true">•••</span></div>
-            <div class="calendar-title"><b>Pick a time to talk.</b><span>Demo calendar</span></div>
-            <div class="calendar-grid"><div class="calendar-corner"></div><button type="button" class="calendar-day" data-day="MON" aria-label="Monday 12" aria-pressed="false">MON<span>12</span></button><button type="button" class="calendar-day" data-day="TUE" aria-label="Tuesday 13" aria-pressed="false">TUE<span>13</span></button><button type="button" class="calendar-day day-selected" data-day="WED" aria-label="Wednesday 14" aria-pressed="true">WED<span>14</span></button><button type="button" class="calendar-day" data-day="THU" aria-label="Thursday 15" aria-pressed="false">THU<span>15</span></button>
-              <div class="calendar-time">09:00</div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"></div>
-              <div class="calendar-time">10:00</div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell event-cell"><div class="calendar-event" id="demo-event"><span class="event-dot"></span><b data-bind="meeting-title">You × Meridian</b><span id="event-time">10:00 – 10:30</span><span class="event-attendees" data-bind="attendees">You + Alex</span></div></div><div class="calendar-cell"></div>
-              <div class="calendar-time">11:00</div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"></div>
+              <div class="compose-footer"><button class="send-button" id="send-demo" type="button"><span>Send demo email</span><span class="send-plane" aria-hidden="true">↗</span></button><span class="sent-status" id="send-status" aria-live="polite">Try editing the email</span></div>
             </div>
-            <div class="slot-picker" aria-label="Choose a demo meeting time"><button type="button" data-time="10:00" aria-pressed="true">10:00</button><button type="button" data-time="14:00" aria-pressed="false">14:00</button><button type="button" data-time="16:00" aria-pressed="false">16:00</button><button type="button" id="book-demo">Book demo call ↗</button></div>
-            <div class="handover-brief staged" style="--delay:1.1s"><span class="brief-icon" aria-hidden="true">≡</span><div><b>Your meeting brief</b><span>Prospect research + conversation history</span></div><span class="brief-ready">Ready ↗</span></div>
+            <div class="sequence-strip" id="email-sequence"><span class="sequence-active">Draft</span><i></i><span>Sent</span><i></i><span>Reply received</span></div>
+            <div class="workflow-toast reply-toast" id="demo-reply" hidden><span class="person-initials initials-blue" data-bind="initials">AM</span><div><small data-bind="reply-name">ALEX REPLIED</small><b>“Sounds relevant. Let’s find a time.”</b><button class="reply-book" id="reply-book" type="button">Pick a time →</button></div></div><p class="demo-send-note">Interactive example. No emails are sent.</p>
           </div>
-          <div class="workflow-toast booked-toast" id="booking-result" aria-live="polite"><span class="toast-check">↗</span><div><small>YOUR NEXT CONVERSATION</small><b>Choose a day and time above.</b></div></div>
-        </div>
-        <figcaption><span>04 / Book your demo call.</span><button class="replay" type="button" hidden aria-label="Replay booking animation">↻ Replay</button><span>No real booking is made</span></figcaption>
-      </figure>
-    </article>
-  </div>
-  <div class="journey-end wrap"><span class="end-point" aria-hidden="true">↗</span><p>YOUR NEXT CHAPTER</p><h2>There’s a conversation<br><em>with your name on it.</em></h2><a class="button-primary" href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">Let’s talk growth <span class="button-arrow" aria-hidden="true">↗</span></a></div>
-</section>
-<footer class="footer wrap"><a class="footer-brand" href="#top">Growency</a><p>The hedge fund for marketing.</p><div><span>© 2026 Growency</span><a href="privacy.html">Privacy</a><a href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></footer>
+          <figcaption><span>03 / Start the conversation.</span><button class="replay" type="button" hidden aria-label="Replay email outreach animation">↻ Replay</button><span>Edit it. Try sending.</span></figcaption>
+        </figure>
+        <div class="story-copy"><p class="section-label">PERSONAL OUTREACH &amp; FOLLOW-UP</p><h3 id="conversation-heading">The right words.<br><em>From a real person.</em></h3><p>Our salespeople write the email, send it, and stay with the conversation. They handle follow-ups and replies until there’s genuine interest in meeting you.</p><p class="story-aside">Someone to write it. Someone to see it through.</p></div>
+      </article>
+      <article class="story-step story-step--reverse" id="booked" aria-labelledby="booked-heading">
+        <span class="step-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18m-13 5 3 3 5-5"/></svg></span>
+        <div class="story-copy"><p class="section-label">THE HANDOVER</p><h3 id="booked-heading">On your calendar.<br><em>Over to you.</em></h3><p>An interested prospect. A time that works. A brief with the conversation so far. You walk into the call knowing who you’re meeting and why they’re interested.</p><a class="approach-link" href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">Let’s get you talking <span aria-hidden="true">↗</span></a></div>
+        <figure class="story-visual">
+          <div class="workflow-stage calendar-stage" role="group" aria-label="Booking demo: choose a day and time for the selected prospect and confirm a fictional meeting.">
+            <div class="workflow-window calendar-window">
+              <div class="window-bar"><span class="mini-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>Growency</span><span class="window-section">Your calendar</span><span class="window-dots" aria-hidden="true">•••</span></div>
+              <div class="calendar-title"><b>Pick a time to talk.</b><span>Demo calendar</span></div>
+              <div class="calendar-grid"><div class="calendar-corner"></div><button type="button" class="calendar-day" data-day="MON" aria-label="Monday 12" aria-pressed="false">MON<span>12</span></button><button type="button" class="calendar-day" data-day="TUE" aria-label="Tuesday 13" aria-pressed="false">TUE<span>13</span></button><button type="button" class="calendar-day day-selected" data-day="WED" aria-label="Wednesday 14" aria-pressed="true">WED<span>14</span></button><button type="button" class="calendar-day" data-day="THU" aria-label="Thursday 15" aria-pressed="false">THU<span>15</span></button>
+                <div class="calendar-time">09:00</div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"></div>
+                <div class="calendar-time">10:00</div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell event-cell"><div class="calendar-event" id="demo-event"><span class="event-dot"></span><b data-bind="meeting-title">You × Meridian</b><span id="event-time">10:00 – 10:30</span><span class="event-attendees" data-bind="attendees">You + Alex</span></div></div><div class="calendar-cell"></div>
+                <div class="calendar-time">11:00</div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"></div>
+              </div>
+              <div class="slot-picker" aria-label="Choose a demo meeting time"><button type="button" data-time="10:00" aria-pressed="true">10:00</button><button type="button" data-time="14:00" aria-pressed="false">14:00</button><button type="button" data-time="16:00" aria-pressed="false">16:00</button><button type="button" id="book-demo">Book demo call ↗</button></div>
+              <div class="handover-brief staged" style="--delay:1.1s"><span class="brief-icon" aria-hidden="true">≡</span><div><b>Your meeting brief</b><span>Prospect research + conversation history</span></div><span class="brief-ready">Ready ↗</span></div>
+            </div>
+            <div class="workflow-toast booked-toast" id="booking-result" aria-live="polite"><span class="toast-check">↗</span><div><small>YOUR NEXT CONVERSATION</small><b>Choose a day and time above.</b></div></div>
+          </div>
+          <figcaption><span>04 / Book your demo call.</span><button class="replay" type="button" hidden aria-label="Replay booking animation">↻ Replay</button><span>No real booking is made</span></figcaption>
+        </figure>
+      </article>
+    </div>
+    <div class="journey-end wrap"><span class="end-point" aria-hidden="true">↗</span><p>YOUR NEXT CHAPTER</p><h2>There’s a conversation<br><em>with your name on it.</em></h2><a class="button-primary" href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">Let’s talk growth <span class="button-arrow" aria-hidden="true">↗</span></a></div>
+  </section>
+</main>
+
+<footer class="footer wrap">
+  <a class="footer-brand" href="#top">Growency</a>
+  <p>The hedge fund for sales.</p>
+  <button class="luck-button" id="luck-button" type="button">press for luck</button>
+  <div><span>© 2026 Growency</span><a href="privacy.html">Privacy</a><a href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
+</footer>
+
+<div class="egg-toast" id="egg-toast" role="status" aria-live="polite"></div>
+<div class="party-overlay" id="party-overlay" aria-hidden="true"></div>
+
+<script src="vibe.js" defer></script>
 <script src="landing.js" defer></script>
 <script src="workflow.js" defer></script>
 </body>
