@@ -9,8 +9,30 @@
   let frame = 0;
   let observer;
   const dock = document.querySelector('.journey-dock');
-  const labels = ['Finding your people', 'Doing the homework', 'Starting conversations', 'Getting you booked'];
-  let currentStep = 0;
+  const chapters = [...document.querySelectorAll('#top,#work,#pitch,.journey-intro,.story-step,#founder,#team,#pilot,#pricing,#faq,#contact')];
+  const labels = ['The first conversation', 'Worked with', 'The hedge fund for sales', 'The workflow', 'Finding your people', 'Doing the homework', 'Starting conversations', 'Getting you booked', 'Why we started', 'The team', 'The pilot', 'Pricing', 'Your questions', 'The next trade'];
+  let currentChapter = 0;
+  let currentScene = -1;
+  const scenePalettes = [
+    ['#f8f7f3','#090619'], ['#f2eff7','#111025'], ['#eef1f8','#15112c'],
+    ['#f5f2ed','#121024'], ['#e8f0f9','#101a31'], ['#eee5f5','#211330'],
+    ['#e4e9f8','#111a34'], ['#e8edf7','#111c30'], ['#ede6f2','#1b112c'],
+    ['#e8edf4','#10192c'], ['#f2ebe3','#1b1625'], ['#e6edf3','#101b2c'], ['#eee8f3','#171126'],
+    ['#ece8f6','#1d1232']
+  ];
+  const milestones = chapters.map((chapter, index) => {
+    chapter.dataset.scenePaper = scenePalettes[index][0];
+    chapter.dataset.sceneNight = scenePalettes[index][1];
+    let node = chapter.querySelector('.step-node');
+    if (!node) {
+      node = document.createElement('span'); node.className = 'scene-node';
+      node.setAttribute('aria-hidden','true');
+      node.innerHTML = `<svg viewBox="0 0 120 120"><use href="#mark"/></svg><span>${String(index + 1).padStart(2,'0')}</span>`;
+      chapter.append(node);
+    }
+    node.dataset.chapter = String(index);
+    return node;
+  });
   const timers = new Set();
   function finishCounters() {
     timers.forEach(clearTimeout);
@@ -36,26 +58,48 @@
 
   function update() {
     frame = 0;
-    const rect = track.getBoundingClientRect();
-    const position = Math.max(0, Math.min(rect.height, innerHeight * .5 - rect.top));
+    const pageHeight = document.body.scrollHeight;
+    const pagePosition = Math.max(0, Math.min(pageHeight, scrollY + innerHeight * .5));
     const paused = userPaused || preference.matches;
-    if (!paused) {
-      track.style.setProperty('--journey-progress', String(position / rect.height));
-      track.style.setProperty('--traveller-y', `${position}px`);
+    if (!paused && !root.classList.contains('routed-rail')) {
+      document.body.style.setProperty('--site-progress', String(pagePosition / pageHeight));
+      document.body.style.setProperty('--site-traveller-y', `${pagePosition}px`);
     }
-    currentStep = 0;
-    let nearest = Infinity;
-    steps.forEach((step, index) => {
+    steps.forEach(step => {
       const node = step.querySelector('.step-node').getBoundingClientRect();
-      const distance = Math.abs(node.top + node.height / 2 - innerHeight * .5);
-      const passed = node.top + node.height / 2 <= innerHeight * .5 + 18;
+      const passed = node.top + node.height / 2 <= innerHeight * .5 + 1;
       step.classList.toggle('is-passed', passed);
-      if (distance < nearest) { nearest = distance; currentStep = index; }
     });
-    dock.hidden = rect.top > innerHeight * .45 || rect.bottom < innerHeight * .4;
-    dock.querySelector('.dock-count').textContent = `0${currentStep + 1} / 04`;
-    dock.querySelector('.dock-label').textContent = labels[currentStep];
-    dock.setAttribute('aria-label', `Current step: ${labels[currentStep]}. Go to ${currentStep < 3 ? labels[currentStep + 1] : 'Let’s talk growth'}`);
+    let scene = 0;
+    milestones.forEach((node,index) => {
+      const r = node.getBoundingClientRect();
+      const passed = r.top + r.height / 2 <= innerHeight * .5 + 1;
+      node.classList.toggle('milestone-reached',passed);
+      if (passed) scene = index;
+    });
+    if (scene !== currentScene) {
+      const previous = currentScene;
+      currentScene = scene;
+      root.dataset.scene = String(scene);
+      milestones.forEach((node,index)=>node.classList.toggle('milestone-current',index===scene));
+      if (!paused && previous !== -1) {
+        milestones[scene].classList.remove('milestone-arrived');
+        requestAnimationFrame(()=>milestones[scene].classList.add('milestone-arrived'));
+      }
+    }
+    let nearest = Infinity;
+    let containing = -1;
+    chapters.forEach((chapter, index) => {
+      const r = chapter.getBoundingClientRect();
+      if (r.top <= innerHeight * .5 && r.bottom >= innerHeight * .5) containing = index;
+      const distance = Math.abs(r.top + r.height / 2 - innerHeight * .5);
+      if (distance < nearest) { nearest = distance; currentChapter = index; }
+    });
+    if (containing !== -1) currentChapter = containing;
+    dock.hidden = scrollY < 140;
+    dock.querySelector('.dock-count').textContent = `${String(currentChapter + 1).padStart(2, '0')} / ${chapters.length}`;
+    dock.querySelector('.dock-label').textContent = labels[currentChapter];
+    dock.setAttribute('aria-label', `Current chapter: ${labels[currentChapter]}. Go to ${labels[currentChapter + 1] || labels[0]}`);
   }
   function schedule() {
     if (!frame) frame = requestAnimationFrame(update);
@@ -88,7 +132,7 @@
     schedule();
   }
   dock.addEventListener('click', () => {
-    const target = steps[currentStep + 1] || document.querySelector('.journey-end');
+    const target = chapters[currentChapter + 1] || chapters[0];
     target.scrollIntoView({ behavior: userPaused || preference.matches ? 'instant' : 'smooth', block: 'center' });
   });
   document.querySelectorAll('.replay').forEach(button => {

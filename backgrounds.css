@@ -1,0 +1,45 @@
+/* Editorial photographs sit under the content, with a distinct tint per chapter. */
+.slide-photo { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; user-select: none; isolation: isolate; opacity: var(--photo-opacity,.24); mask-image: linear-gradient(transparent,#000 14%,#000 86%,transparent); }
+.slide-photo img { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: var(--photo-position,center); filter: grayscale(1) contrast(.94); }
+.slide-photo-tint { position: absolute; inset: 0; background: linear-gradient(120deg,var(--photo-from,#3d96dd),var(--photo-to,#7656b7)); mix-blend-mode: color; }
+.journey-intro > .slide-photo,.story-step > .slide-photo,.journey-end > .slide-photo { inset-inline: calc((100% - 100vw) / 2); }
+.story-step::before { content: none; }
+/* The hero retains its sampled brand ramp underneath the photograph. */
+#top { --photo-opacity: .20; --photo-from: #249ce9; --photo-to: #5231aa; --photo-position: 35% 46%; }
+#top > .slide-photo { mix-blend-mode: soft-light; mask-image: linear-gradient(#0008,#000 35%,#000 80%,transparent); }
+#work { --photo-opacity: .25; --photo-from: #787dc8; --photo-to: #ad6e9c; --photo-position: 58% 43%; }
+#pitch { --photo-opacity: .26; --photo-from: #437aac; --photo-to: #7564bc; --photo-position: 50% 58%; }
+.journey-intro { --photo-opacity: .20; --photo-from: #5888c8; --photo-to: #b49ab2; --photo-position: 50% 43%; }
+#find { --photo-opacity: .22; --photo-from: #288fce; --photo-to: #7284bd; --photo-position: 50% 45%; }
+#research { --photo-opacity: .22; --photo-from: #858fca; --photo-to: #af77ad; --photo-position: 58% 48%; }
+#conversation { --photo-opacity: .23; --photo-from: #607eca; --photo-to: #8257ba; --photo-position: 38% 52%; }
+#booked { --photo-opacity: .22; --photo-from: #418d9a; --photo-to: #667cae; --photo-position: 55% 54%; }
+.journey-end { --photo-opacity: .20; --photo-from: #727cbd; --photo-to: #a287ba; --photo-position: 50% 65%; }
+#founder { --photo-opacity: .26; --photo-from: #8078c3; --photo-to: #9666a5; --photo-position: 48% 52%; }
+#team { --photo-opacity: .24; --photo-from: #598aa1; --photo-to: #647bbb; --photo-position: 63% 44%; }
+#pilot { --photo-opacity: .21; --photo-from: #b39063; --photo-to: #a88eaf; --photo-position: 43% 60%; }
+#faq { --photo-opacity: .24; --photo-from: #538b91; --photo-to: #8077b3; --photo-position: 65% 47%; }
+#contact { --photo-opacity: .27; --photo-from: #498ccc; --photo-to: #9166b0; --photo-position: 52% 55%; }
+.site-footer { --photo-opacity: .19; --photo-from: #716caa; --photo-to: #99758f; --photo-position: 50% 65%; }
+.pitch-art { opacity: .045; }
+@media (max-width:700px) {
+  .slide-photo { mask-image: linear-gradient(transparent,#000 10%,#000 90%,transparent); }
+  #top { --photo-opacity: .18; }
+  #find,#research,#conversation,#booked { --photo-opacity: .20; }
+}
+/* Keep small copy readable as the photographic texture becomes more visible. */
+#work .slide-photo img,#pitch .slide-photo img,#founder .slide-photo img,#team .slide-photo img,#faq .slide-photo img,#contact .slide-photo img,.site-footer .slide-photo img { filter: grayscale(1) contrast(.94) brightness(.8); }
+.story-copy > p:not(.section-label),.journey-intro > p:not(.section-label),.pilot-intro > p:last-child,.pilot-fit li { color: #493f52; }
+
+/* The progressive enhancement shares one colour field beneath all chapters.
+   Without JS, the original section colours remain available. */
+.scene-atmosphere { position: absolute; top: 0; left: 0; right: 0; z-index: -2; pointer-events: none; user-select: none; }
+.fluid-backgrounds { overflow-x: clip; }
+.fluid-backgrounds :is(.clients-slide,.pitch-slide,.journey,.founder-slide,.team-slide,.pilot-slide,.pricing-slide,.restored-faq,.closing-slide,.site-footer,.page-hero,.page-chapter) { background: transparent; transition: none; }
+.fluid-backgrounds .slide-photo { inset-block: -80px; mask-image: linear-gradient(transparent,#000 20%,#000 80%,transparent); }
+.fluid-backgrounds .site-footer { overflow: clip; }
+.fluid-backgrounds .brand-world::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: calc(var(--scene-edge,92px) * 2); z-index: -1; pointer-events: none; background: linear-gradient(transparent,var(--scene-night)); }
+.fluid-backgrounds .page-netting { mask-image: linear-gradient(transparent,#000 80px,#000 calc(100% - 80px),transparent),linear-gradient(90deg,#000a,#000 18%,#0008 50%,#000 82%,#000a); mask-composite: intersect; }
+@media (max-width:700px) {
+  .fluid-backgrounds .slide-photo { inset-block: -55px; }
+}

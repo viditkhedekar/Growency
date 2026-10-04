@@ -1,0 +1,12 @@
+/* The original mark's cube lattice, kept below every content layer. */
+.netting-surface { position: relative; isolation: isolate; }
+.page-netting { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; user-select: none; opacity: var(--netting-opacity,.19); background-image: url('assets/netting.svg'); background-repeat: repeat; background-size: 180px 311.73px; background-attachment: fixed; mask-image: linear-gradient(90deg,#000a,#000 18%,#0008 50%,#000 82%,#000a); animation: netting-drift 24s ease-in-out infinite alternate; animation-play-state: paused; }
+.page-netting.is-netting-visible { animation-play-state: running; }
+.brand-world,.clients-slide,.pitch-slide,.founder-slide,.team-slide,.restored-faq,.closing-slide,.site-footer,body.netting-surface { --netting-opacity: .16; }
+.brand-world > .page-netting,.clients-slide > .page-netting,.pitch-slide > .page-netting,.founder-slide > .page-netting,.team-slide > .page-netting,.restored-faq > .page-netting,.closing-slide > .page-netting,.site-footer > .page-netting,body > .page-netting { background-image: url('assets/netting-light.svg'); }
+.journey.netting-surface { background-image: none; }
+body > .page-netting { position: fixed; }
+@keyframes netting-drift { from { background-position: -3px 2px; } to { background-position: 5px -4px; } }
+.motion-paused .page-netting,.netting-tab-hidden .page-netting { animation-play-state: paused; }
+@media (max-width:700px) { .page-netting { background-size: 125px 216.48px; background-attachment: scroll; opacity: calc(var(--netting-opacity,.19) * .8); } }
+@media (prefers-reduced-motion:reduce) { .page-netting { animation: none; } }
