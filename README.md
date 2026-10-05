@@ -19,7 +19,7 @@ Open http://localhost:4341. No build step is required. `landing.js` and `campaig
 - `campaign.js` and `campaign.css`: four passive, looping Northstar campaign films. The same three prospects move through ideal-customer fit, research, personal outreach, follow-up, interested replies and calendar handover. Only the nearest visible film plays. There are no editable fields, clickable demo tabs, filters, booking controls or playback buttons inside the films. Global pause and reduced motion show completed frames; hidden tabs and offscreen films stop. Nothing is transmitted or booked. See `DEMO-FLOW.md`.
 - Typography: Instrument Sans and Instrument Serif, currently loaded from Google Fonts.
 - The brand gradient uses 21 colour samples taken from the unobstructed top edge of the supplied Growency cover. The cover's raster texture is approximated with a subtle noise layer; this is not a pixel-identical reproduction of the source image.
-- The existing inline Growency mark is preserved. Founder/team copy comes from the supplied screenshots; initials are used until original portraits are supplied.
+- The existing inline Growency mark is preserved. Founder/team copy comes from the supplied screenshots. The team section uses the supplied portraits from `assets/team/`, with Vivin’s card above Vidit’s; `team.css` keeps the layout responsive. The founder quote retains its initial badge.
 - The pitch displays the requested 8× higher conversion rate claim, with a keyboard/tap/hover explanation of alpha strategies. The hero uses the supplied booked-calls copy. Team cards show names only.
 - Client references link to Posting Machine (https://www.postingmachine.ai/) and Kairos Health, YC F26 (https://kairoshealthai.com/). They are labelled “Worked with”; no client outcomes or testimonials have been invented.
 - Business meeting buttons and floating shortcuts open https://calendly.com/vidit-khedekar/30min in a new tab, including contact, company, comparison and privacy pages. Contact navigation still opens `contact.html`; cohort applications still link directly to https://www.linkedin.com/in/vidit-khedekar/.
@@ -39,11 +39,21 @@ Open http://localhost:4341. No build step is required. `landing.js` and `campaig
 ## Company pages and pricing
 
 - `index.html#pricing`: fees for booked calls and positive replies, with no commission on client sales. Rates and qualification criteria are agreed in writing after the pilot; no numerical prices have been invented. Pricing is included in the chapter rail and background transitions.
-- `contact.html`: LinkedIn contact routes and a useful brief for starting a pilot conversation.
-- `manifesto.html`: Growency’s principles of qualified opportunities, human judgement, measurable proof and keeping the client’s upside.
-- `methodology.html`: offer mapping, research signals, alpha strategies, live pilot tests and optimisation for quality over quantity.
-- `careers.html`: Founding GTM Operator — Pilot Cohort, all four stages, unpaid probation, learning requirements, compensation, fit and direct LinkedIn application instructions. Earnings examples are labelled performance-dependent; the full-time pay period has not been assumed.
-- `pages.css` and `pages.js`: shared responsive company-page layout, native Company menu, photographed chapter backgrounds, animated netting, central milestones, text-clearing rail, cursor and motion controls. Content and navigation work without JavaScript.
+- `contact.html`: Calendly booking and LinkedIn contact routes, plus context for a pilot conversation.
+- `careers.html`: the supplied Founding GTM Operator - Pilot Cohort copy, including all stages and learning requirements, with the updated compensation copy and a direct LinkedIn application button. Vidit assesses applicants’ experience and team fit; the former fit section and application checklist are removed.
+- `compare/*.html` and `comparison.css`: all six comparisons use the current company-page shell, Instrument typography, responsive navigation, editorial chapter images, fluid milestone backgrounds, central rail, motion controls and Calendly booking. Comparison content and source dates are preserved; the table scrolls within its own region on small screens and the rail clears its content.
+- `pages.css` and `pages.js`: shared responsive company-page layout, native desktop Company and compact mobile menus, photographed chapter backgrounds, animated netting, central milestones, text-clearing rail, cursor and motion controls. Content and navigation work without JavaScript. `navigation.js` closes menus after navigation, outside clicks or Escape. The header switches to a compact menu at 960px and keeps its brand, booking button and menu usable down to 320px.
+
+## Pinned workflow demos
+
+- `demo-scroll.js` and `demo-scroll.css` hold the four existing passive campaign films in one native sticky viewport. About 1.1 viewport lengths of scroll advance each stage; the active film keeps looping, while copy, photographs and milestone palettes switch together. Reverse scrolling restores the previous stage. No wheel locking or forced snap is used.
+- A four-stage side meter shows the current stage and continuous scroll progress. Only the active film runs, and inactive panels are inert and hidden from assistive technology. The central rail uses the virtual milestone positions of the pinned sequence.
+- At widths below 901px, heights below 700px, or with reduced motion, the complete demos remain in normal document flow with a compact side meter. Pause motion keeps the sticky layout but stops film playback, typing, colour easing and scroll inertia.
+
+## Smooth scrolling
+
+- `smooth-scroll.js` uses locally vendored Lenis 1.3.26 with light wheel easing (`lerp: 0.18`) for a quicker response and shorter trailing motion. Scroll distance is unchanged; touch gestures stay native. Anchor links, nested scrolling, the rail and milestone backgrounds continue to use the browser’s actual scroll position.
+- Reduced motion and the existing Pause motion control restore native scrolling. The library is stored in `assets/vendor/lenis/` with its MIT license; no CDN is required.
 
 ## Fluid backgrounds and image variation
 

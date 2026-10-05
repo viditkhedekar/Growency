@@ -16,8 +16,9 @@
   function measureRoute() {
     if(!progress)return;
     const width=innerWidth,height=Math.max(document.body.offsetHeight,innerHeight);
-    const r=track.getBoundingClientRect();
-    const entry=r.top+scrollY+(width<=700?48:width<=1100?65:90);
+    const pinned=window.GROWENCY_DEMOS?.enabled;
+    const r=(pinned?track.closest('.demo-scroll'):track).getBoundingClientRect();
+    const entry=r.top+scrollY+(pinned?-90:width<=700?48:width<=1100?65:90);
     const exit=r.bottom+scrollY+(width<=700?48:70);
     const centre=width/2,right=width-(width<=700?14:width<=1100?24:32);
     const radius=width<=700?16:24;
@@ -51,7 +52,7 @@
     const clearance=innerWidth<=700?16:32,intervals=[];
     const selector='.header,.hero-copy,.film-frame,.client-monument,.founder-content,.team-card,.term-sheet,.qa,.workflow-stage,.footer-layout,h1,h2,h3,p,a,button,label,figcaption,.footer-fine,.hero-actions,.hero-principles,.pilot-fit li';
     document.querySelectorAll(selector).forEach(el=>{
-      if(el.closest('[hidden],.site-rail,.scene-node,.step-node,.journey-dock,.meeting-shortcut') || el.getAttribute('aria-hidden')==='true')return;
+      if(el.closest('[hidden],[inert],.site-rail,.scene-node,.step-node,.journey-dock,.meeting-shortcut') || el.getAttribute('aria-hidden')==='true')return;
       const r=el.getBoundingClientRect(),top=r.top+scrollY,bottom=r.bottom+scrollY;
       const x=routeX((top+bottom)/2);
       const crossesTurn=[entry,exit].some(y=>top<y+radius&&bottom>y-radius&&r.left<right+clearance&&r.right>centre-clearance);

@@ -106,3 +106,43 @@
 }
 @media(prefers-reduced-motion:reduce) { .pricing-slide { transition: none; } }
 .motion-paused .pricing-slide { transition: none; }
+
+/* Compact navigation applies to the landing page and the company pages. */
+.header,.page-header { gap: 24px; }
+.header .brand,.page-header .brand,.header .nav-cta,.page-header .nav-cta { flex-shrink: 0; white-space: nowrap; }
+.header .navigation { padding-right: 0; gap: clamp(18px,2.4vw,35px); }
+.mobile-menu { display: none; }
+.mobile-menu summary { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #ffffff66; border-radius: 5px; cursor: pointer; list-style: none; }
+.mobile-menu summary::-webkit-details-marker { display: none; }
+.mobile-menu summary svg { width: 23px; height: 23px; }
+.mobile-menu .menu-close { display: none; }
+.mobile-menu[open] .menu-open { display: none; }
+.mobile-menu[open] .menu-close { display: block; }
+.mobile-menu nav { position: absolute; top: calc(100% + 10px); right: 0; width: min(330px,calc(100vw - 40px)); padding: 12px; border: 1px solid #ffffff33; border-radius: 8px; background: #171127; box-shadow: 0 20px 45px #08031466; z-index: 30; }
+.mobile-menu nav a { display: flex; align-items: center; min-height: 48px; padding: 12px 16px; font-size: 15px; color: #f4f1ff; border-radius: 4px; }
+.mobile-menu nav a:hover,.mobile-menu nav a[aria-current=page] { background: #ffffff0d; }
+.careers-page .page-hero h1 { font-size: clamp(56px,6.3vw,96px); }
+.careers-page .cohort-hero-link { margin-top: 35px; }
+.careers-page .page-chapter h2 em { display: block; margin-top: 12px; }
+.careers-page .page-copy { max-width: 660px; }
+@media (max-width:960px) {
+  .header.wrap,.page-header.wrap { width: calc(100% - 48px); display: flex; flex-wrap: nowrap; gap: 12px; height: 88px; min-height: 88px; padding-block: 16px; }
+  .header .navigation,.page-header .page-nav { display: none; }
+  .header .nav-cta,.page-header .nav-cta { margin-left: auto; }
+  .header .mobile-menu,.page-header .mobile-menu { display: block; flex: 0 0 44px; }
+  #top > .scene-node,.subpage .page-hero > .scene-node { top: 116px; }
+}
+@media (max-width:700px) {
+  .header.wrap,.page-header.wrap { width: calc(100% - 40px); gap: 8px; }
+  .header .brand > span,.page-header .brand > span { font-size: 24px; }
+  .header .brand svg,.page-header .brand svg { width: 32px; height: 32px; }
+  .header .brand,.page-header .brand { gap: 7px; }
+  .header .nav-cta,.page-header .nav-cta { padding-inline: 12px; gap: 12px; font-size: 12px; min-height: 44px; }
+  .careers-page .page-hero h1 { font-size: clamp(48px,13vw,72px); }
+  .careers-page .page-hero-content { padding-top: 90px; }
+}
+@media (max-width:380px) {
+  .header .brand > span,.page-header .brand > span { font-size: 21px; }
+  .header .brand svg,.page-header .brand svg { width: 28px; height: 28px; }
+  .header .nav-cta span,.page-header .nav-cta span { display: none; }
+}

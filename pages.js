@@ -9,7 +9,7 @@
     const height = document.body.scrollHeight;
     const clearance = innerWidth <= 700 ? 26 : 36;
     const intervals = [];
-    const selector = '.page-header,.page-nav,.page-labels,.cohort-jumps,.page-copy li,.compensation,.header,.hero-copy,.film-frame,.hero-console,.client-monument,.founder-content,.team-card,.term-sheet,.qa,.workflow-stage,.workflow-controls,.pipeline-overview,.footer-layout,h1,h2,h3,p,a,button,label,figcaption,.footer-fine,.hero-actions,.hero-principles,.pilot-fit li';
+    const selector = '.page-header,.page-nav,.page-labels,.cohort-jumps,.page-copy li,.comparison-table,.comparison-links,.compensation,.header,.hero-copy,.film-frame,.hero-console,.client-monument,.founder-content,.team-card,.term-sheet,.qa,.workflow-stage,.workflow-controls,.pipeline-overview,.footer-layout,h1,h2,h3,p,a,button,label,figcaption,.footer-fine,.hero-actions,.hero-principles,.pilot-fit li';
     document.querySelectorAll(selector).forEach(el => {
       if (el.closest('[hidden],.site-rail,.scene-node,.step-node,.journey-dock') || el.getAttribute('aria-hidden') === 'true') return;
       const r = el.getBoundingClientRect();

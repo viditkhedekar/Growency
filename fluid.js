@@ -38,7 +38,7 @@
   let lastPaint = '';
   document.body.classList.add('fluid-backgrounds');
   function measure() {
-    geometry = anchors.map(anchor => ({...anchor,y:anchor.node.getBoundingClientRect().top+scrollY+anchor.node.offsetHeight/2}));
+    geometry = anchors.map(anchor => ({...anchor,y:window.GROWENCY_DEMOS?.milestoneY(anchor.node) ?? anchor.node.getBoundingClientRect().top+scrollY+anchor.node.offsetHeight/2}));
     // Measure normal flow, so the absolute colour layer cannot keep the page
     // artificially tall after an accordion closes or the viewport grows wider.
     const height = Math.max(document.body.offsetHeight,innerHeight);

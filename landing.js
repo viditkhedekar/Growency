@@ -68,14 +68,15 @@
       document.body.style.setProperty('--site-traveller-y', `${pagePosition}px`);
     }
     steps.forEach(step => {
-      const node = step.querySelector('.step-node').getBoundingClientRect();
-      const passed = node.top + node.height / 2 <= innerHeight * .5 + 1;
+      const node = step.querySelector('.step-node');
+      const y = window.GROWENCY_DEMOS?.milestoneY(node) ?? node.getBoundingClientRect().top + scrollY + node.offsetHeight / 2;
+      const passed = y <= scrollY + innerHeight * .5 + 1;
       step.classList.toggle('is-passed', passed);
     });
     let scene = 0;
     milestones.forEach((node,index) => {
-      const r = node.getBoundingClientRect();
-      const passed = r.top + r.height / 2 <= innerHeight * .5 + 1;
+      const y = window.GROWENCY_DEMOS?.milestoneY(node) ?? node.getBoundingClientRect().top + scrollY + node.offsetHeight / 2;
+      const passed = y <= scrollY + innerHeight * .5 + 1;
       node.classList.toggle('milestone-reached',passed);
       if (passed) scene = index;
     });
@@ -98,6 +99,7 @@
       if (distance < nearest) { nearest = distance; currentChapter = index; }
     });
     if (containing !== -1) currentChapter = containing;
+    if (window.GROWENCY_DEMOS?.pinned) currentChapter = chapters.indexOf(window.GROWENCY_DEMOS.activeStep);
     dock.hidden = scrollY < 140;
     dock.querySelector('.dock-count').textContent = `${String(currentChapter + 1).padStart(2, '0')} / ${chapters.length}`;
     dock.querySelector('.dock-label').textContent = labels[currentChapter];
@@ -135,6 +137,7 @@
   }
   dock.addEventListener('click', () => {
     const target = chapters[currentChapter + 1] || chapters[0];
+    if (window.GROWENCY_DEMOS?.scrollToStep(target)) return;
     target.scrollIntoView({ behavior: userPaused || preference.matches ? 'instant' : 'smooth', block: 'center' });
   });
   document.querySelectorAll('.replay').forEach(button => {

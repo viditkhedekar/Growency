@@ -198,6 +198,7 @@
     if(document.hidden||still()){players.forEach(player=>{stopped(player);if(still())completedFrame(player);});return;}
     let closest=null,distance=Infinity;
     players.forEach(player=>{
+      if(player.stage.closest('[inert]'))return;
       const r=player.stage.getBoundingClientRect();
       if(r.bottom>60&&r.top<innerHeight-60){const delta=Math.abs(r.top+r.height/2-innerHeight/2);if(delta<distance){distance=delta;closest=player;}}
     });
@@ -210,6 +211,7 @@
   addEventListener('load',schedule,{once:true});preference.addEventListener('change',schedule);
   new MutationObserver(schedule).observe(root,{attributes:true,attributeFilter:['class']});
   document.addEventListener('visibilitychange',schedule);
+  document.addEventListener('growency:demo-step',schedule);
 
   // Body copy types once on arrival, then remains complete for reading and review.
   const copies=[...document.querySelectorAll('.campaign-copy')].map(element=>({element,controller:null,started:false,text:element.querySelector('.sr-only').textContent}));
@@ -234,7 +236,11 @@
     catch(error){if(error.name!=='AbortError')throw error;}
     finally {paintCopy(copy);copy.element.classList.remove('is-copy-typing');copy.element.style.removeProperty('min-height');copy.controller=null;}
   }
-  const copyObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){const copy=copies.find(c=>c.element===entry.target);typeCopy(copy);copyObserver.unobserve(entry.target);}});},{threshold:.25});
+  const copyObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting&&!entry.target.closest('[inert]')){const copy=copies.find(c=>c.element===entry.target);typeCopy(copy);copyObserver.unobserve(entry.target);}});},{threshold:.25});
+  document.addEventListener('growency:demo-step',event=>{
+    const copy=copies.find(c=>event.detail.step.contains(c.element));
+    if(copy)typeCopy(copy);
+  });
   copies.forEach(copy=>copyObserver.observe(copy.element));
   function stopCopyMotion(){if(document.hidden||still())copies.forEach(copy=>{copy.controller?.abort();paintCopy(copy);copy.element.classList.remove('is-copy-typing');});}
   new MutationObserver(stopCopyMotion).observe(root,{attributes:true,attributeFilter:['class']});

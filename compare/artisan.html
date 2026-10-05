@@ -1,25 +1,35 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Growency vs Artisan | How they compare</title>
 <meta name="description" content="Growency vs Artisan: what each one does, where Artisan is the better fit, and how pricing and commitment compare.">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#06060C">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Red+Hat+Mono:wght@400;500&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32-v2.png">
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="stylesheet" href="../netting.css?v=20261004-netting-v5">
-</head>
-<body>
-
+<meta name="theme-color" content="#291064">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32-v2.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon-v2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../landing.css?v=20261005-comparisons-v19">
+<link rel="stylesheet" href="../slides.css?v=20261005-comparisons-v19">
+<link rel="stylesheet" href="../premium.css?v=20261005-comparisons-v19">
+<link rel="stylesheet" href="../netting.css?v=20261005-comparisons-v19">
+<link rel="stylesheet" href="../backgrounds.css?v=20261005-comparisons-v19">
+<link rel="stylesheet" href="../pages.css?v=20261005-comparisons-v19">
+<link rel="stylesheet" href="../comparison.css?v=20261005-comparisons-v19">
+<link rel="stylesheet" href="../assets/vendor/lenis/lenis.css?v=1.3.26">
+<link rel="stylesheet" href="../smooth-scroll.css?v=20261005-scroll-v15">
+</head><body class="subpage comparison-page">
 <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
   <defs>
-    <clipPath id="markClip" clipPathUnits="userSpaceOnUse"><circle cx="60" cy="60" r="51.2"/></clipPath>
+    <clipPath id="markClip" clipPathUnits="userSpaceOnUse">
+<circle cx="60" cy="60" r="51.2"/>
+</clipPath>
+    <!-- the cover gradient's bright half, for dots, rings and the sparkline (styles.css: --grad-ui) -->
+    <linearGradient id="gradUi" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2AA3FC"/>
+<stop offset=".5" stop-color="#4B6DF3"/>
+<stop offset="1" stop-color="#5A3FD8"/>
+    </linearGradient>
     <filter id="ink" x="-15%" y="-25%" width="130%" height="150%">
       <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" result="n"/>
       <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
@@ -27,66 +37,78 @@
     <symbol id="mark" viewBox="0 0 120 120">
       <!-- A hand trace of the brand image. script.js reads the lattice from the first
            path, the network from .mark__net, and the dots from the small circles. -->
-      <g clip-path="url(#markClip)" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M27.78 -14.40L11.68 -5.10 M27.78 -14.40L43.89 -5.10 M27.78 -14.40L27.78 4.20 M60.00 -14.40L43.89 -5.10 M60.00 -14.40L76.11 -5.10 M60.00 -14.40L60.00 4.20 M92.22 -14.40L76.11 -5.10 M92.22 -14.40L108.32 -5.10 M92.22 -14.40L92.22 4.20 M11.68 -5.10L11.68 13.50 M43.89 -5.10L43.89 13.50 M76.11 -5.10L76.11 13.50 M108.32 -5.10L108.32 13.50 M27.78 4.20L11.68 13.50 M27.78 4.20L43.89 13.50 M60.00 4.20L43.89 13.50 M60.00 4.20L76.11 13.50 M92.22 4.20L76.11 13.50 M92.22 4.20L108.32 13.50 M11.68 13.50L-4.43 22.80 M11.68 13.50L27.78 22.80 M11.68 13.50L11.68 32.10 M43.89 13.50L27.78 22.80 M43.89 13.50L60.00 22.80 M43.89 13.50L43.89 32.10 M76.11 13.50L60.00 22.80 M76.11 13.50L92.22 22.80 M76.11 13.50L76.11 32.10 M108.32 13.50L92.22 22.80 M108.32 13.50L124.43 22.80 M108.32 13.50L108.32 32.10 M-4.43 22.80L-4.43 41.40 M27.78 22.80L27.78 41.40 M60.00 22.80L60.00 41.40 M92.22 22.80L92.22 41.40 M124.43 22.80L124.43 41.40 M11.68 32.10L-4.43 41.40 M11.68 32.10L27.78 41.40 M43.89 32.10L27.78 41.40 M43.89 32.10L60.00 41.40 M76.11 32.10L60.00 41.40 M76.11 32.10L92.22 41.40 M108.32 32.10L92.22 41.40 M108.32 32.10L124.43 41.40 M-4.43 41.40L-20.54 50.70 M-4.43 41.40L11.68 50.70 M-4.43 41.40L-4.43 60.00 M27.78 41.40L11.68 50.70 M27.78 41.40L43.89 50.70 M27.78 41.40L27.78 60.00 M60.00 41.40L43.89 50.70 M60.00 41.40L76.11 50.70 M60.00 41.40L60.00 60.00 M92.22 41.40L76.11 50.70 M92.22 41.40L108.32 50.70 M92.22 41.40L92.22 60.00 M124.43 41.40L108.32 50.70 M124.43 41.40L140.54 50.70 M124.43 41.40L124.43 60.00 M-20.54 50.70L-20.54 69.30 M11.68 50.70L11.68 69.30 M43.89 50.70L43.89 69.30 M76.11 50.70L76.11 69.30 M108.32 50.70L108.32 69.30 M140.54 50.70L140.54 69.30 M-4.43 60.00L-20.54 69.30 M-4.43 60.00L11.68 69.30 M27.78 60.00L11.68 69.30 M27.78 60.00L43.89 69.30 M60.00 60.00L43.89 69.30 M60.00 60.00L76.11 69.30 M92.22 60.00L76.11 69.30 M92.22 60.00L108.32 69.30 M124.43 60.00L108.32 69.30 M124.43 60.00L140.54 69.30 M-20.54 69.30L-4.43 78.60 M11.68 69.30L-4.43 78.60 M11.68 69.30L27.78 78.60 M11.68 69.30L11.68 87.90 M43.89 69.30L27.78 78.60 M43.89 69.30L60.00 78.60 M43.89 69.30L43.89 87.90 M76.11 69.30L60.00 78.60 M76.11 69.30L92.22 78.60 M76.11 69.30L76.11 87.90 M108.32 69.30L92.22 78.60 M108.32 69.30L124.43 78.60 M108.32 69.30L108.32 87.90 M140.54 69.30L124.43 78.60 M-4.43 78.60L-4.43 97.20 M27.78 78.60L27.78 97.20 M60.00 78.60L60.00 97.20 M92.22 78.60L92.22 97.20 M124.43 78.60L124.43 97.20 M11.68 87.90L-4.43 97.20 M11.68 87.90L27.78 97.20 M43.89 87.90L27.78 97.20 M43.89 87.90L60.00 97.20 M76.11 87.90L60.00 97.20 M76.11 87.90L92.22 97.20 M108.32 87.90L92.22 97.20 M108.32 87.90L124.43 97.20 M-4.43 97.20L11.68 106.50 M27.78 97.20L11.68 106.50 M27.78 97.20L43.89 106.50 M27.78 97.20L27.78 115.80 M60.00 97.20L43.89 106.50 M60.00 97.20L76.11 106.50 M60.00 97.20L60.00 115.80 M92.22 97.20L76.11 106.50 M92.22 97.20L108.32 106.50 M92.22 97.20L92.22 115.80 M124.43 97.20L108.32 106.50 M11.68 106.50L11.68 125.10 M43.89 106.50L43.89 125.10 M76.11 106.50L76.11 125.10 M108.32 106.50L108.32 125.10 M27.78 115.80L11.68 125.10 M27.78 115.80L43.89 125.10 M60.00 115.80L43.89 125.10 M60.00 115.80L76.11 125.10 M92.22 115.80L76.11 125.10 M92.22 115.80L108.32 125.10 M11.68 125.10L27.78 134.40 M43.89 125.10L27.78 134.40 M43.89 125.10L60.00 134.40 M76.11 125.10L60.00 134.40 M76.11 125.10L92.22 134.40 M108.32 125.10L92.22 134.40"/></g>
+      <g clip-path="url(#markClip)" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+<path d="M27.78 -14.40L11.68 -5.10 M27.78 -14.40L43.89 -5.10 M27.78 -14.40L27.78 4.20 M60.00 -14.40L43.89 -5.10 M60.00 -14.40L76.11 -5.10 M60.00 -14.40L60.00 4.20 M92.22 -14.40L76.11 -5.10 M92.22 -14.40L108.32 -5.10 M92.22 -14.40L92.22 4.20 M11.68 -5.10L11.68 13.50 M43.89 -5.10L43.89 13.50 M76.11 -5.10L76.11 13.50 M108.32 -5.10L108.32 13.50 M27.78 4.20L11.68 13.50 M27.78 4.20L43.89 13.50 M60.00 4.20L43.89 13.50 M60.00 4.20L76.11 13.50 M92.22 4.20L76.11 13.50 M92.22 4.20L108.32 13.50 M11.68 13.50L-4.43 22.80 M11.68 13.50L27.78 22.80 M11.68 13.50L11.68 32.10 M43.89 13.50L27.78 22.80 M43.89 13.50L60.00 22.80 M43.89 13.50L43.89 32.10 M76.11 13.50L60.00 22.80 M76.11 13.50L92.22 22.80 M76.11 13.50L76.11 32.10 M108.32 13.50L92.22 22.80 M108.32 13.50L124.43 22.80 M108.32 13.50L108.32 32.10 M-4.43 22.80L-4.43 41.40 M27.78 22.80L27.78 41.40 M60.00 22.80L60.00 41.40 M92.22 22.80L92.22 41.40 M124.43 22.80L124.43 41.40 M11.68 32.10L-4.43 41.40 M11.68 32.10L27.78 41.40 M43.89 32.10L27.78 41.40 M43.89 32.10L60.00 41.40 M76.11 32.10L60.00 41.40 M76.11 32.10L92.22 41.40 M108.32 32.10L92.22 41.40 M108.32 32.10L124.43 41.40 M-4.43 41.40L-20.54 50.70 M-4.43 41.40L11.68 50.70 M-4.43 41.40L-4.43 60.00 M27.78 41.40L11.68 50.70 M27.78 41.40L43.89 50.70 M27.78 41.40L27.78 60.00 M60.00 41.40L43.89 50.70 M60.00 41.40L76.11 50.70 M60.00 41.40L60.00 60.00 M92.22 41.40L76.11 50.70 M92.22 41.40L108.32 50.70 M92.22 41.40L92.22 60.00 M124.43 41.40L108.32 50.70 M124.43 41.40L140.54 50.70 M124.43 41.40L124.43 60.00 M-20.54 50.70L-20.54 69.30 M11.68 50.70L11.68 69.30 M43.89 50.70L43.89 69.30 M76.11 50.70L76.11 69.30 M108.32 50.70L108.32 69.30 M140.54 50.70L140.54 69.30 M-4.43 60.00L-20.54 69.30 M-4.43 60.00L11.68 69.30 M27.78 60.00L11.68 69.30 M27.78 60.00L43.89 69.30 M60.00 60.00L43.89 69.30 M60.00 60.00L76.11 69.30 M92.22 60.00L76.11 69.30 M92.22 60.00L108.32 69.30 M124.43 60.00L108.32 69.30 M124.43 60.00L140.54 69.30 M-20.54 69.30L-4.43 78.60 M11.68 69.30L-4.43 78.60 M11.68 69.30L27.78 78.60 M11.68 69.30L11.68 87.90 M43.89 69.30L27.78 78.60 M43.89 69.30L60.00 78.60 M43.89 69.30L43.89 87.90 M76.11 69.30L60.00 78.60 M76.11 69.30L92.22 78.60 M76.11 69.30L76.11 87.90 M108.32 69.30L92.22 78.60 M108.32 69.30L124.43 78.60 M108.32 69.30L108.32 87.90 M140.54 69.30L124.43 78.60 M-4.43 78.60L-4.43 97.20 M27.78 78.60L27.78 97.20 M60.00 78.60L60.00 97.20 M92.22 78.60L92.22 97.20 M124.43 78.60L124.43 97.20 M11.68 87.90L-4.43 97.20 M11.68 87.90L27.78 97.20 M43.89 87.90L27.78 97.20 M43.89 87.90L60.00 97.20 M76.11 87.90L60.00 97.20 M76.11 87.90L92.22 97.20 M108.32 87.90L92.22 97.20 M108.32 87.90L124.43 97.20 M-4.43 97.20L11.68 106.50 M27.78 97.20L11.68 106.50 M27.78 97.20L43.89 106.50 M27.78 97.20L27.78 115.80 M60.00 97.20L43.89 106.50 M60.00 97.20L76.11 106.50 M60.00 97.20L60.00 115.80 M92.22 97.20L76.11 106.50 M92.22 97.20L108.32 106.50 M92.22 97.20L92.22 115.80 M124.43 97.20L108.32 106.50 M11.68 106.50L11.68 125.10 M43.89 106.50L43.89 125.10 M76.11 106.50L76.11 125.10 M108.32 106.50L108.32 125.10 M27.78 115.80L11.68 125.10 M27.78 115.80L43.89 125.10 M60.00 115.80L43.89 125.10 M60.00 115.80L76.11 125.10 M92.22 115.80L76.11 125.10 M92.22 115.80L108.32 125.10 M11.68 125.10L27.78 134.40 M43.89 125.10L27.78 134.40 M43.89 125.10L60.00 134.40 M76.11 125.10L60.00 134.40 M76.11 125.10L92.22 134.40 M108.32 125.10L92.22 134.40"/>
+</g>
       <path class="mark__net" d="M27.78 78.60L43.89 69.30L60.00 97.20L76.11 69.30L92.22 60.00L92.22 41.40" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-      <g class="mark__nodes" fill="var(--mark-hole,#06060C)" stroke="currentColor" stroke-width="1.7"><circle cx="27.78" cy="78.60" r="3.8"/><circle cx="43.89" cy="69.30" r="3.8"/><circle cx="60.00" cy="97.20" r="3.8"/><circle cx="76.11" cy="69.30" r="3.8"/><circle cx="92.22" cy="60.00" r="3.8"/><circle cx="92.22" cy="41.40" r="3.8"/></g>
+      <g class="mark__nodes" fill="var(--mark-hole,#06060C)" stroke="currentColor" stroke-width="1.7">
+<circle cx="27.78" cy="78.60" r="3.8"/>
+<circle cx="43.89" cy="69.30" r="3.8"/>
+<circle cx="60.00" cy="97.20" r="3.8"/>
+<circle cx="76.11" cy="69.30" r="3.8"/>
+<circle cx="92.22" cy="60.00" r="3.8"/>
+<circle cx="92.22" cy="41.40" r="3.8"/>
+</g>
       <circle cx="60" cy="60" r="53" fill="none" stroke="currentColor" stroke-width="3"/>
     </symbol>
   </defs>
 </svg>
-
 <a class="skip" href="#main">Skip to content</a>
+<div class="site-rail" aria-hidden="true">
+<div class="site-rail-fill">
+</div>
+<span class="site-traveller">
+<svg viewBox="0 0 120 120">
+<use href="#mark"/>
+</svg>
+</span>
+</div>
+<main id="main">
+<section class="page-hero slide" id="top" aria-labelledby="page-heading"><div class="slide-photo" aria-hidden="true"><img src="../assets/editorial/strategy.webp" alt="" width="1536" height="1024" loading="eager" decoding="async"><span class="slide-photo-tint"></span></div><header class="page-header wrap">
+<a class="brand" href="../index.html" aria-label="Growency home">
+<svg viewBox="0 0 120 120" aria-hidden="true">
+<use href="#mark"/>
+</svg>
+<span>Growency</span>
+</a>
+<nav class="page-nav" aria-label="Primary navigation">
+<a href="../index.html#approach">The workflow</a>
+<a href="../index.html#pricing">Pricing</a>
 
-<header class="nav is-stuck">
-  <a class="wordmark" href="../index.html" aria-label="Growency home">
-    <svg class="wordmark__mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
-    <span>Growency</span>
-  </a>
-  <nav class="nav__links" aria-label="Primary">
-    <a href="../index.html#pitch">Alpha strategies</a>
-    <a href="../index.html#approach">How it works</a>
-    <a href="../index.html#pilot">The pilot</a>
-  </nav>
-  <a class="btn btn--solid btn--sm" href="https://calendly.com/vidit-khedekar/30min" target="_blank" rel="noopener noreferrer">Request the pilot</a>
-</header>
+<details class="company-menu">
+<summary>Company</summary>
+<nav aria-label="Company pages">
 
-<!-- Competitor details come from their public sites and third-party reporting,
-     checked 13 September 2026. Recheck prices before relying on them. -->
-<main id="main" class="cmp">
-  <div class="wrap">
 
-    <header class="cmp__head">
-      <p class="kicker">Compare / AI SDR software</p>
-      <h1 class="cmp__h">Growency <span>vs</span> Artisan</h1>
-      <p class="lede">Artisan pairs Ava, its AI BDR, with a built-in contact database and deliverability tooling in one workspace. Growency is a service: operators research, write and answer, and you get the booked calls.</p>
-    </header>
-
-    <div class="cmp__fit">
-      <section class="fit">
-        <h2 class="fit__k">Choose Artisan if</h2>
+<a href="../careers.html">Careers</a>
+<a href="../contact.html">Contact us</a>
+</nav>
+</details>
+</nav>
+<a class="nav-cta" href="https://calendly.com/vidit-khedekar/30min" target="_blank" rel="noopener noreferrer">Let’s talk <span aria-hidden="true">↗</span>
+</a>
+<details class="mobile-menu"><summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path class="menu-open" d="M4 8h16M4 16h16"/><path class="menu-close" d="m6 6 12 12M18 6 6 18"/></svg><span class="sr-only">Menu</span></summary><nav aria-label="Mobile navigation"><a href="../index.html#work">Worked with</a><a href="../index.html#approach">The workflow</a><a href="../index.html#pricing">Pricing</a><a href="../careers.html">Careers</a><a href="../contact.html">Contact us</a></nav></details></header>
+<div class="wrap page-hero-content page-split"><div><p class="page-kicker">Compare / AI SDR software</p><h1 id="page-heading">Growency <em>vs Artisan</em></h1><a class="button-primary comparison-jump" href="#side-by-side">Side by side <span class="button-arrow" aria-hidden="true">↓</span></a></div><div class="page-hero-aside"><p>Artisan pairs Ava, its AI BDR, with a built-in contact database and deliverability tooling in one workspace. Growency is a service: operators research, write and answer, and you get the booked calls.</p><button class="page-motion" type="button" aria-pressed="false"><span class="motion-label">Pause motion</span><span aria-hidden="true">Ⅱ</span></button></div></div></section>
+<section class="page-chapter slide " id="fit"><div class="slide-photo" aria-hidden="true"><img src="../assets/editorial/leads.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap page-split comparison-fit"><div class="page-copy">
+        <h2 class="comparison-fit-heading">Choose Artisan if</h2>
         <ul>
             <li>You want data, sending and an AI rep in one workspace</li>
             <li>You would rather buy software than a service</li>
             <li>Cost per contact matters more than depth per account</li>
             <li>You are happy for AI to write most messages</li>
         </ul>
-      </section>
-      <section class="fit fit--us">
-        <h2 class="fit__k">Choose Growency if</h2>
+      </div><div class="page-copy">
+        <h2 class="comparison-fit-heading">Choose Growency if</h2>
         <ul>
             <li>Your buyers are senior and a generic note costs you the account</li>
             <li>You want a person to read every account first</li>
             <li>You want replies answered by someone who can carry a call forward</li>
             <li>You want to see what works before agreeing terms</li>
         </ul>
-      </section>
-    </div>
-
-    <section class="cmp__sec">
-      <h2>Side by side</h2>
-      <div class="cmp__table" role="region" aria-label="Comparison table" tabindex="0">
+      </div></div></section>
+<section class="page-chapter slide comparison-matrix" id="side-by-side"><div class="slide-photo" aria-hidden="true"><img src="../assets/editorial/meeting.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap"><h2 class="comparison-section-heading">Side by side</h2><div class="comparison-table" role="region" aria-label="Comparison table" tabindex="0">
         <table>
-          <thead><tr><th scope="col"><span class="sr">Area</span></th><th scope="col">Artisan</th><th scope="col" class="is-us">Growency</th></tr></thead>
+          <thead><tr><th scope="col">Area</th><th scope="col">Artisan</th><th scope="col" class="is-us">Growency</th></tr></thead>
           <tbody>
           <tr><th scope="row">What you get</th><td>Ava, an AI BDR, with a B2B database, email warmup and deliverability tools</td><td class="is-us">Booked, qualified sales calls, run for you by a trained operator</td></tr>
           <tr><th scope="row">Who does the work</th><td>Ava runs the campaigns once your team sets them up</td><td class="is-us">Growency operators, from research to the reply</td></tr>
@@ -99,76 +121,65 @@
           <tr><th scope="row">Commitment</th><td>Quoted by sales, contract-based</td><td class="is-us">None until the pilot proves it</td></tr>
           </tbody>
         </table>
-      </div>
-      <p class="cmp__note">Artisan details from public sources, checked 13 September 2026: <a href="https://www.artisan.co/pricing">Artisan pricing</a>, <a href="https://www.devcommx.com/blogs/artisan-vs-11x-vs-aisdr">DevCommX comparison, updated August 2026</a>, <a href="https://salesmotion.io/blog/best-ai-sdr-tools-2026">Salesmotion, Best AI SDR tools 2026</a>. Prices change, so confirm with Artisan directly.</p>
-    </section>
-
-    <section class="cmp__sec cmp__cols">
-      <div>
+      </div><p class="comparison-note">Artisan details from public sources, checked 13 September 2026: <a href="https://www.artisan.co/pricing">Artisan pricing</a>, <a href="https://www.devcommx.com/blogs/artisan-vs-11x-vs-aisdr">DevCommX comparison, updated August 2026</a>, <a href="https://salesmotion.io/blog/best-ai-sdr-tools-2026">Salesmotion, Best AI SDR tools 2026</a>. Prices change, so confirm with Artisan directly.</p></div></section>
+<section class="page-chapter slide " id="differences"><div class="slide-photo" aria-hidden="true"><img src="../assets/editorial/conversation.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap page-split comparison-analysis"><div class="page-copy">
         <h3>Where Artisan is strong</h3>
           <p>Consolidation. Artisan folds the data, warmup and deliverability work that usually needs several tools into one place, with Ava doing the sending.</p>
           <p>For a team replacing a stack of subscriptions, that simplicity is real.</p>
-      </div>
-      <div>
+      </div><div class="page-copy">
         <h3>Where Growency is different</h3>
           <p>Artisan automates the rep. We keep the rep human and automate the gathering around them.</p>
           <p>That makes us slower per account and more deliberate about each one, which is the point for teams whose deals depend on a few right conversations.</p>
-      </div>
-    </section>
-
-    <section class="cmp__sec cmp__prose">
-      <h2>Can you use both?</h2>
-      <p>If Artisan already covers your high-volume segments, we can take a narrower list of accounts where the message needs a person behind it.</p>
-    </section>
-
-    <section class="cmp__sec cmp__cta">
-      <div>
-        <h2>Two weeks, then you decide.</h2>
-        <p>We test the strongest angles for your market and show you what moved.</p>
-      </div>
-      <a class="btn btn--solid btn--lg" href="https://calendly.com/vidit-khedekar/30min" target="_blank" rel="noopener noreferrer">Request the pilot</a>
-    </section>
-
-    <nav class="cmp__sec cmp__more" aria-label="Other comparisons">
-      <h2>Other comparisons</h2>
-      <ul>
-        <li><a href="apollo.html">Growency vs Apollo</a></li>
+      </div></div></section>
+<section class="page-chapter slide " id="together"><div class="slide-photo" aria-hidden="true"><img src="../assets/editorial/outreach.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap page-split"><h2>Can you use both?</h2><div class="page-copy"><p>If Artisan already covers your high-volume segments, we can take a narrower list of accounts where the message needs a person behind it.</p></div></div></section>
+<section class="page-chapter slide " id="pilot"><div class="slide-photo" aria-hidden="true"><img src="../assets/editorial/call.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap page-split"><h2>Two weeks, then you decide.</h2><div class="page-copy"><p>We test the strongest angles for your market and show you what moved.</p><div class="page-apply"><a class="button-primary" href="https://calendly.com/vidit-khedekar/30min" target="_blank" rel="noopener noreferrer">Request the pilot <span class="button-arrow" aria-hidden="true">↗</span></a></div></div></div></section>
+<section class="page-chapter slide " id="more"><div class="slide-photo" aria-hidden="true"><img src="../assets/editorial/handover.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap page-split"><h2>Other comparisons</h2><nav aria-label="Other comparisons"><ul class="comparison-links"><li><a href="apollo.html">Growency vs Apollo</a></li>
         <li><a href="clay.html">Growency vs Clay</a></li>
         <li><a href="11x.html">Growency vs 11x</a></li>
         <li><a href="belkins.html">Growency vs Belkins</a></li>
-        <li><a href="cience.html">Growency vs CIENCE</a></li>
-      </ul>
-    </nav>
-
-  </div>
+        <li><a href="cience.html">Growency vs CIENCE</a></li></ul></nav></div></section>
 </main>
+<footer class="site-footer page-footer">
+  <div class="slide-photo" aria-hidden="true">
+<img src="../assets/editorial/strategy.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+<span class="slide-photo-tint">
+</span>
+</div>
+<div class="wrap footer-layout">
+<div>
+<a class="footer-brand" href="../index.html">Growency</a>
+<p>The hedge fund for sales.</p>
+</div>
+<nav aria-label="Comparisons">
+<span>COMPARE</span>
+<a href="apollo.html">Growency vs Apollo</a>
+<a href="clay.html">Growency vs Clay</a>
+<a href="11x.html">Growency vs 11x</a>
+<a href="artisan.html" aria-current="page">Growency vs Artisan</a>
+<a href="belkins.html">Growency vs Belkins</a>
+<a href="cience.html">Growency vs CIENCE</a>
+</nav>
+<nav aria-label="Company">
+<span>COMPANY</span>
 
-<footer class="footer">
-  <div class="wrap footer__inner">
-    <a class="wordmark wordmark--sm" href="../index.html">
-      <svg class="wordmark__mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
-      <span>Growency</span>
-    </a>
-    <nav class="footer__compare" aria-label="Comparisons">
-      <p class="footer__k">Compare</p>
-      <ul>
-        <li><a href="apollo.html">Growency vs Apollo</a></li>
-        <li><a href="clay.html">Growency vs Clay</a></li>
-        <li><a href="11x.html">Growency vs 11x</a></li>
-        <li><a href="artisan.html" aria-current="page">Growency vs Artisan</a></li>
-        <li><a href="belkins.html">Growency vs Belkins</a></li>
-        <li><a href="cience.html">Growency vs CIENCE</a></li>
-      </ul>
-    </nav>
-    <div class="footer__side">
-      <p class="footer__k">Company</p>
-      <nav class="footer__links" aria-label="Legal"><a href="../privacy.html">Privacy</a></nav>
-      <a class="footer__in" href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener" aria-label="Growency on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
-    </div>
-    <p class="footer__fine">&#169; 2026 Growency. Competitor names are trademarks of their owners. Details are drawn from public sources as of 13 September 2026 and may have changed.</p>
-  </div>
+
+<a href="../careers.html">Careers</a>
+<a href="../contact.html">Contact us</a>
+<a href="../index.html#pricing">Pricing</a>
+<a href="../index.html#team">The team</a>
+<a href="../index.html#pilot">The pilot</a>
+<a href="../index.html#faq">Questions</a>
+<a href="../privacy.html">Privacy policy</a>
+<a href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+</nav>
+</div>
+<div class="wrap footer-fine">© 2026 Growency. Competitor names are trademarks of their owners. Details are drawn from public sources as of 13 September 2026 and may have changed.</div>
 </footer>
-
-<script src="../netting.js?v=20261004-netting-v5" defer></script>
-</body>
-</html>
+<a class="meeting-shortcut" href="https://calendly.com/vidit-khedekar/30min" aria-label="Book a meeting with Growency" target="_blank" rel="noopener noreferrer"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18m-13 5 3 3 5-5"/></svg></span><b>Book a meeting</b></a>
+<script src="../pages.js?v=20261005-comparisons-v19" defer></script>
+<script src="../fluid.js?v=20261005-comparisons-v19" defer></script>
+<script src="../netting.js?v=20261005-comparisons-v19" defer></script>
+<script src="../navigation.js?v=20261005-comparisons-v19" defer></script>
+<script src="../assets/vendor/lenis/lenis.min.js?v=1.3.26" defer></script>
+<script src="../smooth-scroll.js?v=20261005-light-scroll-v17" defer></script>
+</body></html>

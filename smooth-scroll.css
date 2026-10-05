@@ -1,0 +1,2 @@
+/* Lenis owns easing while enabled. Native scrolling remains the fallback. */
+html.lenis { scroll-behavior: auto !important; }

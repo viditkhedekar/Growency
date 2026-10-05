@@ -1,0 +1,59 @@
+.demo-progress { display: none; }
+/* A native sticky frame holds the four films; scrolling never locks the page. */
+.has-pinned-demos .journey { overflow: visible; }
+.has-pinned-demos .demo-scroll { position: relative; height: var(--demo-scroll-height); }
+.has-pinned-demos .demo-pin { position: sticky; top: 0; height: 100vh; isolation: isolate; }
+.has-pinned-demos .journey-track.wrap { height: 100%; padding: 0; margin-inline: 32px 96px; width: calc(100% - 128px); }
+.has-pinned-demos .journey-track .story-step {
+  position: absolute; inset: 0; padding: 70px 0 55px;
+  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,3fr);
+  gap: 40px; align-items: center; opacity: 0; visibility: hidden;
+  transition: opacity 300ms ease, visibility 300ms; isolation: isolate;
+}
+.has-pinned-demos .journey-track .story-step.demo-active { opacity: 1; visibility: visible; }
+.has-pinned-demos .story-step > .step-node { display: none; }
+.has-pinned-demos .story-step .story-copy { align-self: start; margin-top: 32px; padding-bottom: 170px; }
+.has-pinned-demos .story-copy h3.campaign-heading { font-size: clamp(27px,2.6vw,42px); }
+.has-pinned-demos .story-step .story-visual { height: calc(100vh - 145px); align-self: start; }
+.has-pinned-demos .story-visual .campaign-stage {
+  position: absolute; width: 100%; top: 50%; left: 0;
+  transform: translateY(-50%) scale(var(--demo-scale,1)); transform-origin: center;
+}
+.has-pinned-demos .story-visual figcaption {
+  position: absolute; left: 0; right: 0;
+  top: calc(50% + var(--demo-scaled-height,500px) / 2 + 12px); margin: 0;
+}
+.has-pinned-demos .story-step > .slide-photo { inset: 0 calc((100% - 100vw) / 2); mask-image: linear-gradient(transparent,#000 20%,#000 80%,transparent); }
+.has-pinned-demos .demo-progress { display: block; position: absolute; left: 32px; bottom: 42px; width: calc((100% - 248px) / 4); max-width: 260px; color: #433454; }
+.demo-progress ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 13px; }
+.demo-progress li { display: grid; grid-template-columns: 23px 1fr 52px; align-items: center; gap: 9px; color: #8e809b; font-size: 12px; }
+.demo-progress li > span { font-size: 9px; font-variant-numeric: tabular-nums; }
+.demo-progress li b { font-weight: 400; }
+.demo-progress li i { height: 2px; background: #6f5b9226; position: relative; }
+.demo-progress li i::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,#4e99e7,#7860b5); transform: scaleX(var(--step-progress,0)); transform-origin: left; }
+.demo-progress .is-current { color: #514092; }
+.demo-progress .is-current b { font-weight: 600; }
+.demo-progress .is-complete { color: #6b6180; }
+.demo-progress-total { display: flex; justify-content: space-between; gap: 8px; margin-top: 22px; font-size: 9px; color: #82718f; }
+.demo-progress-count { font-variant-numeric: tabular-nums; color: #59449a; }
+html.demo-pinned .journey-dock { opacity: 0; visibility: hidden; pointer-events: none; }
+html.motion-paused .story-step { transition: none; }
+/* Compact screens keep every film readable in normal flow, with a side meter. */
+html:not(.has-pinned-demos).demo-inview .demo-progress {
+  display: block; position: fixed; right: 24px; top: 50%; transform: translateY(-50%);
+  width: 16px; z-index: 8; color: #59449a;
+}
+html:not(.has-pinned-demos) .demo-progress ol { gap: 9px; }
+html:not(.has-pinned-demos) .demo-progress li { display: block; }
+html:not(.has-pinned-demos) .demo-progress li > span,
+html:not(.has-pinned-demos) .demo-progress li b,
+html:not(.has-pinned-demos) .demo-progress-total > span:last-child { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+html:not(.has-pinned-demos) .demo-progress li i { display: block; width: 3px; height: 24px; margin-inline: auto; }
+html:not(.has-pinned-demos) .demo-progress li i::after { transform: scaleY(var(--step-progress,0)); transform-origin: top; }
+html:not(.has-pinned-demos) .demo-progress-total { margin-top: 13px; font-size: 8px; white-space: nowrap; }
+html:not(.has-pinned-demos) .demo-progress-count { font-size: 7px; }
+@media(min-width:901px) and (max-width:1100px) {
+  .has-pinned-demos .journey-track.wrap { margin-inline: 24px 60px; width: calc(100% - 84px); }
+  .has-pinned-demos .journey-track .story-step { gap: 28px; grid-template-columns: minmax(0,1fr) minmax(0,2.5fr); }
+  .has-pinned-demos .demo-progress { left: 24px; width: calc((100% - 160px) / 3.5); }
+}
