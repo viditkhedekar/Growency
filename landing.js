@@ -14,11 +14,13 @@
   let currentChapter = 0;
   let currentScene = -1;
   const scenePalettes = [
-    ['#f8f7f3','#090619'], ['#f2eff7','#111025'], ['#eef1f8','#15112c'],
-    ['#f5f2ed','#121024'], ['#e8f0f9','#101a31'], ['#eee5f5','#211330'],
-    ['#e4e9f8','#111a34'], ['#e8edf7','#111c30'], ['#ede6f2','#1b112c'],
-    ['#e8edf4','#10192c'], ['#f2ebe3','#1b1625'], ['#e6edf3','#101b2c'], ['#eee8f3','#171126'],
-    ['#ece8f6','#1d1232']
+    // Distinct, restrained chapter colours: blue, lilac, periwinkle and teal.
+    // Keep light fields pale enough for ink copy and dark fields behind white copy.
+    ['#f8f7f3','#090619'], ['#eee3f4','#241833'], ['#e2eafb','#162747'],
+    ['#efe8f4','#201930'], ['#d3e6f7','#172d48'], ['#e5d5ee','#2b1c3b'],
+    ['#dce0f5','#202549'], ['#d5e9e7','#153438'], ['#e9ddef','#2a1a38'],
+    ['#dde7f3','#182d40'], ['#f0e4d8','#2b2332'], ['#dbe9ee','#1a303e'], ['#e5dff1','#252039'],
+    ['#dfe0f3','#251c40']
   ];
   const milestones = chapters.map((chapter, index) => {
     chapter.dataset.scenePaper = scenePalettes[index][0];

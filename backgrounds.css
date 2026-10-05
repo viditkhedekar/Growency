@@ -36,10 +36,28 @@
 .scene-atmosphere { position: absolute; top: 0; left: 0; right: 0; z-index: -2; pointer-events: none; user-select: none; }
 .fluid-backgrounds { overflow-x: clip; }
 .fluid-backgrounds :is(.clients-slide,.pitch-slide,.journey,.founder-slide,.team-slide,.pilot-slide,.pricing-slide,.restored-faq,.closing-slide,.site-footer,.page-hero,.page-chapter) { background: transparent; transition: none; }
-.fluid-backgrounds .slide-photo { inset-block: -80px; mask-image: linear-gradient(transparent,#000 20%,#000 80%,transparent); }
-.fluid-backgrounds .site-footer { overflow: clip; }
+.fluid-backgrounds .slide-photo {
+  inset-block: -160px;
+  /* Feather overlapping photographs gradually, without a visible fade band. */
+  mask-image: linear-gradient(to bottom,transparent,#00000008 5%,#00000026 12%,#00000066 20%,#000000b3 27%,#000 34%,#000 66%,#000000b3 73%,#00000066 80%,#00000026 88%,#00000008 95%,transparent);
+}
+.fluid-backgrounds .slide-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Blur only the meeting edges; the middle keeps its photographic detail. */
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  mask-image: linear-gradient(to bottom,#000,#000000b3 12%,#00000040 23%,transparent 35%,transparent 65%,#00000040 77%,#000000b3 88%,#000);
+}
+/* These older section clips cut off the overlapping image at the join. */
+.fluid-backgrounds :is(.pitch-slide,.founder-slide,.site-footer) { overflow-x: clip; overflow-y: visible; }
+/* Let the footer blend upward, but end its photograph at the page bottom. */
+.fluid-backgrounds .site-footer { position: relative; border-top: 0; }
+.fluid-backgrounds .site-footer > .slide-photo { bottom: 0; }
 .fluid-backgrounds .brand-world::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: calc(var(--scene-edge,92px) * 2); z-index: -1; pointer-events: none; background: linear-gradient(transparent,var(--scene-night)); }
 .fluid-backgrounds .page-netting { mask-image: linear-gradient(transparent,#000 80px,#000 calc(100% - 80px),transparent),linear-gradient(90deg,#000a,#000 18%,#0008 50%,#000 82%,#000a); mask-composite: intersect; }
 @media (max-width:700px) {
-  .fluid-backgrounds .slide-photo { inset-block: -55px; }
+  .fluid-backgrounds .slide-photo { inset-block: -100px; }
+  .fluid-backgrounds .slide-photo::after { -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
 }

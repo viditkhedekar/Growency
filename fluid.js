@@ -17,7 +17,6 @@
   };
   const mix = (a,b,t) => a.map((v,i) => v+(b[i]-v)*t);
   const colour = values => `rgb(${values.map(v=>Math.round(v)).join(' ')})`;
-  const ease = t => t*t*(3-2*t);
   const descriptors = surfaces.map(el => ({
     el, paper: !!el.closest('.journey,.pilot-slide,.pricing-slide'),
     initial: rgb(getComputedStyle(el).backgroundColor)
@@ -43,7 +42,7 @@
     // Measure normal flow, so the absolute colour layer cannot keep the page
     // artificially tall after an accordion closes or the viewport grows wider.
     const height = Math.max(document.body.offsetHeight,innerHeight);
-    const edge = innerWidth <= 700 ? 60 : 92;
+    const edge = innerWidth <= 700 ? 90 : 145;
     const positions = descriptors.map(scene => ({...scene,start:scene.el.getBoundingClientRect().top+scrollY}));
     stops = [{paper:positions[0].paper,y:0}];
     positions.forEach((scene,index) => {
@@ -60,17 +59,16 @@
     lastPaint = ''; schedule();
   }
   function palette(position) {
-    let paper = geometry[0].paper, night = geometry[0].night;
+    // Hold the full-page palette until the traveller reaches a milestone.
+    // The colour field then eases into the new scene, rather than gradually
+    // changing throughout the space between two chapters.
+    let active = geometry[0];
     for (let i=1;i<geometry.length;i++) {
-      const next = geometry[i], previous = geometry[i-1];
-      const span = Math.min(innerHeight*.8,620,(next.y-previous.y)*.8);
-      const amount = Math.max(0,Math.min(1,(position-next.y+span/2)/Math.max(1,span)));
-      if (amount === 0) break;
-      paper = mix(previous.paper,next.paper,ease(amount));
-      night = mix(previous.night,next.night,ease(amount));
-      if (amount < 1) break;
+      if (position < geometry[i].y) break;
+      active = geometry[i];
     }
-    return {paper,night};
+    root.dataset.atmosphereChapter = String(geometry.indexOf(active));
+    return {paper:active.paper,night:active.night};
   }
   function update(time) {
     frame=0;
@@ -79,7 +77,7 @@
     const still = preference.matches || root.classList.contains('motion-paused');
     const elapsed = lastTime ? Math.min(64,time-lastTime) : 16;
     lastTime=time;
-    const amount = still ? 1 : 1-Math.exp(-elapsed/150);
+    const amount = still ? 1 : 1-Math.exp(-elapsed/280);
     currentPaper=mix(currentPaper,target.paper,amount);
     currentNight=mix(currentNight,target.night,amount);
     const paper=colour(currentPaper),night=colour(currentNight);

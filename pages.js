@@ -44,7 +44,10 @@
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
   const toggle = document.querySelector('.page-motion');
   const chapters = [...document.querySelectorAll('main > .slide')];
+  const nightPalettes = ['#10182d','#202842','#2a1c39','#173139','#29203c'];
   const nodes = chapters.map((chapter,index) => {
+    chapter.dataset.scenePaper = '#e4e4f0';
+    chapter.dataset.sceneNight = nightPalettes[index % nightPalettes.length];
     const node = document.createElement('span');
     node.className = 'scene-node'; node.setAttribute('aria-hidden','true');
     node.innerHTML = `<svg viewBox="0 0 120 120"><use href="#mark"/></svg><span>${String(index+1).padStart(2,'0')}</span>`;
