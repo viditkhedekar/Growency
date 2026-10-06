@@ -2,9 +2,11 @@
   const root = document.documentElement;
   const rail = document.querySelector('.site-rail');
   const track = document.querySelector('.journey-track');
+  const traveller = rail?.querySelector('.site-traveller');
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  const mobile = matchMedia('(max-width: 700px), (pointer: coarse)');
   let geometry, maskFrame=0, scrollFrame=0;
-  let progress;
+  let progress, routePath, liveLayer, liveSvg, liveProgress, clearAreas=[];
   if (rail && track) {
     root.classList.add('routed-rail');
     const ns='http://www.w3.org/2000/svg';
@@ -12,6 +14,17 @@
     svg.classList.add('site-rail-svg');svg.setAttribute('aria-hidden','true');
     svg.innerHTML='<defs><linearGradient id="routed-rail-gradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6e97ee"/><stop offset=".5" stop-color="#aaa3f3"/><stop offset="1" stop-color="#7152bd"/></linearGradient></defs><path class="rail-casing"/><path class="rail-track"/><path class="rail-progress"/>';
     rail.prepend(svg);progress=svg.querySelector('.rail-progress');
+    routePath=svg.querySelector('.rail-track');
+    // The mobile illuminated path paints only a viewport-sized surface. The
+    // full-page casing and track remain static underneath it.
+    liveLayer=document.createElement('div');liveLayer.className='rail-live';liveLayer.setAttribute('aria-hidden','true');
+    liveSvg=svg.cloneNode(true);
+    liveSvg.classList.remove('site-rail-svg');
+    liveSvg.querySelector('linearGradient').id='rail-live-gradient';
+    liveSvg.querySelectorAll('.rail-casing,.rail-track').forEach(path=>path.remove());
+    liveProgress=liveSvg.querySelector('.rail-progress');
+    liveProgress.style.stroke='url(#rail-live-gradient)';
+    liveLayer.append(liveSvg);rail.after(liveLayer);
   }
   function measureRoute() {
     if(!progress)return;
@@ -28,7 +41,10 @@
     const svg=rail.querySelector('svg.site-rail-svg');
     svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
     svg.querySelectorAll('path').forEach(path=>path.setAttribute('d',d));
-    geometry={width,height,entry,exit,centre,right,radius,offset,window:width<=700?55:80,total:progress.getTotalLength()};
+    liveProgress.setAttribute('d',d);
+    root.classList.toggle('rail-lite',mobile.matches);
+    (mobile.matches?liveLayer:rail).append(traveller);
+    geometry={width,height,entry,exit,centre,right,radius,offset,window:width<=700?55:80,total:routePath.getTotalLength()};
     rail.dataset.route='centre-right-centre';
     rebuildMask();updateScroll();
   }
@@ -61,6 +77,7 @@
     intervals.sort((a,b)=>a[0]-b[0]);
     const merged=[];
     for(const interval of intervals){const last=merged.at(-1);if(last&&interval[0]<=last[1])last[1]=Math.max(last[1],interval[1]);else merged.push(interval);}
+    clearAreas=merged;
     const stops=['#000 0px'];
     for(const [start,end] of merged)stops.push(`#000 ${start}px`,`transparent ${start}px`,`transparent ${end}px`,`#000 ${end}px`);
     stops.push(`#000 ${height}px`);
@@ -71,11 +88,26 @@
     const paused=preference.matches||root.classList.contains('motion-paused');
     const distance=Math.max(0,Math.min(geometry.total,distanceAt(scrollY+innerHeight*.5)));
     const position=scrollY+innerHeight*.5;
-    root.dataset.railZone=position>=geometry.entry&&position<=geometry.exit?'demos':'centre';
-    const point=progress.getPointAtLength(distance);
-    rail.style.setProperty('--site-traveller-x',`${point.x}px`);
-    rail.style.setProperty('--routed-traveller-y',`${point.y}px`);
-    progress.style.strokeDasharray=`${paused?geometry.total:distance} ${geometry.total}`;
+    const zone=position>=geometry.entry&&position<=geometry.exit?'demos':'centre';
+    if(root.dataset.railZone!==zone)root.dataset.railZone=zone;
+    // Straight stretches need no SVG geometry query. Move only the small
+    // traveller layer rather than changing inherited styles on the whole rail.
+    const turning=Math.abs(position-geometry.entry)<geometry.window || Math.abs(position-geometry.exit)<geometry.window;
+    const point=turning?routePath.getPointAtLength(distance):{x:routeX(position),y:Math.max(0,Math.min(geometry.height,position))};
+    traveller.style.transform=`translate3d(${point.x}px,${point.y-(mobile.matches?scrollY:0)}px,0)`;
+    if(mobile.matches&&!paused){
+      liveLayer.style.height=`${innerHeight}px`;
+      liveSvg.setAttribute('viewBox',`0 ${scrollY} ${geometry.width} ${innerHeight}`);
+      liveProgress.style.strokeDasharray=`${distance} ${geometry.total}`;
+      const stops=['#000 0px'];
+      for(const [top,bottom] of clearAreas){
+        if(bottom<=scrollY||top>=scrollY+innerHeight)continue;
+        const start=Math.max(0,top-scrollY),end=Math.min(innerHeight,bottom-scrollY);
+        stops.push(`#000 ${start}px`,`transparent ${start}px`,`transparent ${end}px`,`#000 ${end}px`);
+      }
+      stops.push(`#000 ${innerHeight}px`);
+      liveLayer.style.setProperty('--rail-live-mask',`linear-gradient(to bottom,${stops.join(',')})`);
+    }else progress.style.strokeDasharray=`${paused?geometry.total:distance} ${geometry.total}`;
   }
   function scheduleScroll(){if(!scrollFrame)scrollFrame=requestAnimationFrame(updateScroll);}
   function scheduleMeasure(){if(!maskFrame)maskFrame=requestAnimationFrame(()=>{maskFrame=0;measureRoute();});}
@@ -84,10 +116,12 @@
     addEventListener('resize',scheduleMeasure);addEventListener('load',scheduleMeasure);
     addEventListener('scroll',scheduleScroll,{passive:true});
     document.addEventListener('toggle',scheduleMeasure,true);
-    document.addEventListener('transitionend',scheduleMeasure,true);
-    document.addEventListener('animationend',scheduleMeasure,true);
+    document.addEventListener('growency:demo-layout', scheduleMeasure);
+    // Demo pointer/cursor and milestone animations do not change page layout.
+    // ResizeObserver, disclosures and demo-layout events cover real changes.
     document.addEventListener('visibilitychange',scheduleScroll);
     preference.addEventListener('change',scheduleScroll);
+    mobile.addEventListener('change',scheduleMeasure);
     new MutationObserver(scheduleScroll).observe(root,{attributes:true,attributeFilter:['class']});
     document.fonts?.ready.then(scheduleMeasure);scheduleMeasure();
   }

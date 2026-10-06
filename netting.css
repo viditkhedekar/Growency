@@ -9,4 +9,5 @@ body > .page-netting { position: fixed; }
 @keyframes netting-drift { from { background-position: -3px 2px; } to { background-position: 5px -4px; } }
 .motion-paused .page-netting,.netting-tab-hidden .page-netting { animation-play-state: paused; }
 @media (max-width:700px) { .page-netting { background-size: 125px 216.48px; background-attachment: scroll; opacity: calc(var(--netting-opacity,.19) * .8); } }
+@media (max-width:700px), (pointer:coarse) { .page-netting { animation: none; background-attachment: scroll; } }
 @media (prefers-reduced-motion:reduce) { .page-netting { animation: none; } }

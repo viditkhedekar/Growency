@@ -5,6 +5,7 @@
   if (!surfaces.length) return;
   const root = document.documentElement;
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  const mobile = matchMedia('(max-width: 700px), (pointer: coarse)');
   const layer = document.createElement('div');
   layer.className = 'scene-atmosphere'; layer.setAttribute('aria-hidden','true');
   document.body.prepend(layer);
@@ -67,14 +68,17 @@
       if (position < geometry[i].y) break;
       active = geometry[i];
     }
-    root.dataset.atmosphereChapter = String(geometry.indexOf(active));
+    const chapter = String(geometry.indexOf(active));
+    if (root.dataset.atmosphereChapter !== chapter) root.dataset.atmosphereChapter = chapter;
     return {paper:active.paper,night:active.night};
   }
   function update(time) {
     frame=0;
     if (document.hidden) { lastTime=0; return; }
     const target = palette(scrollY+innerHeight*.5);
-    const still = preference.matches || root.classList.contains('motion-paused');
+    // On phones, change the palette once at each milestone. Repainting a
+    // full-document gradient for dozens of easing frames competes with scrolling.
+    const still = mobile.matches || preference.matches || root.classList.contains('motion-paused');
     const elapsed = lastTime ? Math.min(64,time-lastTime) : 16;
     lastTime=time;
     const amount = still ? 1 : 1-Math.exp(-elapsed/280);
@@ -100,6 +104,7 @@
   addEventListener('resize',scheduleMeasure,{passive:true});
   addEventListener('load',scheduleMeasure,{once:true});
   document.addEventListener('toggle',scheduleMeasure,true);
+  document.addEventListener('growency:demo-layout', scheduleMeasure);
   preference.addEventListener('change',schedule);
   new MutationObserver(schedule).observe(root,{attributes:true,attributeFilter:['class']});
   new ResizeObserver(scheduleMeasure).observe(document.body);

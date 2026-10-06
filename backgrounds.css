@@ -59,5 +59,8 @@
 .fluid-backgrounds .page-netting { mask-image: linear-gradient(transparent,#000 80px,#000 calc(100% - 80px),transparent),linear-gradient(90deg,#000a,#000 18%,#0008 50%,#000 82%,#000a); mask-composite: intersect; }
 @media (max-width:700px) {
   .fluid-backgrounds .slide-photo { inset-block: -100px; }
-  .fluid-backgrounds .slide-photo::after { -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+  .fluid-backgrounds .slide-photo::after { -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+@media (pointer:coarse) {
+  .fluid-backgrounds .slide-photo::after { -webkit-backdrop-filter: none; backdrop-filter: none; }
 }

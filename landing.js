@@ -13,6 +13,10 @@
   const labels = ['The first conversation', 'Worked with', 'The hedge fund for sales', 'The workflow', 'Finding your people', 'Doing the homework', 'Starting conversations', 'Getting you booked', 'Why we started', 'The team', 'The pilot', 'Pricing', 'Your questions', 'The next trade'];
   let currentChapter = 0;
   let currentScene = -1;
+  let chapterGeometry = [], milestonePositions = [], stepPositions = [], pageHeight = 1;
+  let measureFrame = 0, displayedChapter = -1;
+  const dockCount = dock.querySelector('.dock-count');
+  const dockLabel = dock.querySelector('.dock-label');
   const scenePalettes = [
     // Distinct, restrained chapter colours: blue, lilac, periwinkle and teal.
     // Keep light fields pale enough for ink copy and dark fields behind white copy.
@@ -36,6 +40,21 @@
     return node;
   });
   const timers = new Set();
+  function measure() {
+    measureFrame = 0;
+    pageHeight = document.body.scrollHeight;
+    const milestoneY = node => window.GROWENCY_DEMOS?.milestoneY(node) ?? node.getBoundingClientRect().top + scrollY + node.offsetHeight / 2;
+    milestonePositions = milestones.map(milestoneY);
+    stepPositions = steps.map(step => milestoneY(step.querySelector('.step-node')));
+    chapterGeometry = chapters.map(chapter => {
+      const r = chapter.getBoundingClientRect();
+      return { top: r.top + scrollY, bottom: r.bottom + scrollY, middle: r.top + scrollY + r.height / 2 };
+    });
+    schedule();
+  }
+  function scheduleMeasure() {
+    if (!measureFrame) measureFrame = requestAnimationFrame(measure);
+  }
   function finishCounters() {
     timers.forEach(clearTimeout);
     timers.clear();
@@ -60,23 +79,19 @@
 
   function update() {
     frame = 0;
-    const pageHeight = document.body.scrollHeight;
     const pagePosition = Math.max(0, Math.min(pageHeight, scrollY + innerHeight * .5));
     const paused = userPaused || preference.matches;
     if (!paused && !root.classList.contains('routed-rail')) {
       document.body.style.setProperty('--site-progress', String(pagePosition / pageHeight));
       document.body.style.setProperty('--site-traveller-y', `${pagePosition}px`);
     }
-    steps.forEach(step => {
-      const node = step.querySelector('.step-node');
-      const y = window.GROWENCY_DEMOS?.milestoneY(node) ?? node.getBoundingClientRect().top + scrollY + node.offsetHeight / 2;
-      const passed = y <= scrollY + innerHeight * .5 + 1;
+    steps.forEach((step, index) => {
+      const passed = stepPositions[index] <= pagePosition + 1;
       step.classList.toggle('is-passed', passed);
     });
     let scene = 0;
     milestones.forEach((node,index) => {
-      const y = window.GROWENCY_DEMOS?.milestoneY(node) ?? node.getBoundingClientRect().top + scrollY + node.offsetHeight / 2;
-      const passed = y <= scrollY + innerHeight * .5 + 1;
+      const passed = milestonePositions[index] <= pagePosition + 1;
       node.classList.toggle('milestone-reached',passed);
       if (passed) scene = index;
     });
@@ -92,18 +107,20 @@
     }
     let nearest = Infinity;
     let containing = -1;
-    chapters.forEach((chapter, index) => {
-      const r = chapter.getBoundingClientRect();
-      if (r.top <= innerHeight * .5 && r.bottom >= innerHeight * .5) containing = index;
-      const distance = Math.abs(r.top + r.height / 2 - innerHeight * .5);
+    chapterGeometry.forEach((chapter, index) => {
+      if (chapter.top <= pagePosition && chapter.bottom >= pagePosition) containing = index;
+      const distance = Math.abs(chapter.middle - pagePosition);
       if (distance < nearest) { nearest = distance; currentChapter = index; }
     });
     if (containing !== -1) currentChapter = containing;
     if (window.GROWENCY_DEMOS?.pinned) currentChapter = chapters.indexOf(window.GROWENCY_DEMOS.activeStep);
     dock.hidden = scrollY < 140;
-    dock.querySelector('.dock-count').textContent = `${String(currentChapter + 1).padStart(2, '0')} / ${chapters.length}`;
-    dock.querySelector('.dock-label').textContent = labels[currentChapter];
-    dock.setAttribute('aria-label', `Current chapter: ${labels[currentChapter]}. Go to ${labels[currentChapter + 1] || labels[0]}`);
+    if (currentChapter !== displayedChapter) {
+      displayedChapter = currentChapter;
+      dockCount.textContent = `${String(currentChapter + 1).padStart(2, '0')} / ${chapters.length}`;
+      dockLabel.textContent = labels[currentChapter];
+      dock.setAttribute('aria-label', `Current chapter: ${labels[currentChapter]}. Go to ${labels[currentChapter + 1] || labels[0]}`);
+    }
   }
   function schedule() {
     if (!frame) frame = requestAnimationFrame(update);
@@ -152,7 +169,12 @@
   toggle.addEventListener('click', () => { userPaused = !userPaused; configure(); });
   preference.addEventListener('change', configure);
   window.addEventListener('scroll', schedule, { passive: true });
-  window.addEventListener('resize', schedule, { passive: true });
-  window.addEventListener('load', schedule, { once: true });
+  document.addEventListener('growency:demo-layout', scheduleMeasure);
+  document.addEventListener('toggle', scheduleMeasure, true);
+  window.addEventListener('resize', scheduleMeasure, { passive: true });
+  window.addEventListener('load', scheduleMeasure, { once: true });
+  new ResizeObserver(scheduleMeasure).observe(document.body);
+  document.fonts?.ready.then(scheduleMeasure);
+  measure();
   configure();
 })();

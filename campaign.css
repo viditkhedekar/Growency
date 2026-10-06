@@ -20,6 +20,18 @@
 .campaign-indicator { width: 6px; height: 6px; border-radius: 50%; background: #7b69a8; }
 .campaign-body { padding: 22px; min-height: 390px; }
 .campaign-status { padding: 14px 20px; border-top: 1px solid #e5dfed; font-size: 10px; color: #756283; background: #f4f0fa; min-height: 44px; }
+/* A passive stopwatch follows the film, including its final hold before looping. */
+.campaign-playback { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 12px 20px; border-top: 1px solid #e5dfed; background: #fcfbfe; color: #665087; }
+.campaign-playback > svg { width: 17px; height: 17px; flex: 0 0 17px; }
+.campaign-playback-track { flex: 1; min-width: 0; height: 4px; overflow: hidden; border-radius: 4px; background: #e9e2f1; }
+.campaign-playback-track > span { display: block; height: 100%; background: linear-gradient(90deg,#4e99e7,#7860b5); transform: scaleX(0); transform-origin: left; }
+.campaign-playback-time { flex-shrink: 0; font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.campaign-elapsed { font-weight: 600; }
+.campaign-time-divider { color: #9789a5; }
+@media(max-width:700px) {
+  .campaign-playback { padding-inline: 12px; gap: 9px; }
+  .campaign-playback-time { font-size: 11px; }
+}
 .campaign-stage h4 { font-size: 17px; font-weight: 500; margin: 0; letter-spacing: -.5px; }
 .campaign-stage p { margin: 0; }
 .find-scene { display: grid; grid-template-columns: 1fr; gap: 14px; min-height: 425px; align-items: start; }
@@ -282,7 +294,12 @@
 .routed-rail .rail-casing { fill: none; stroke: #a997c53b; stroke-width: 16px; }
 .routed-rail .rail-track { fill: none; stroke: #c2b5d180; stroke-width: 10px; }
 .routed-rail .rail-progress { fill: none; stroke: url(#routed-rail-gradient); stroke-width: 8px; stroke-linecap: round; }
-.routed-rail .site-traveller { left: var(--site-traveller-x,50%); top: var(--routed-traveller-y,36vh); }
+.routed-rail .site-traveller { left: 0; top: 0; will-change: transform; }
+.rail-live { display: none; position: fixed; top: 0; left: 0; width: 100%; z-index: 1; pointer-events: none; overflow: hidden; mask-image: var(--rail-live-mask); -webkit-mask-image: var(--rail-live-mask); }
+.rail-live > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.rail-lite .rail-live { display: block; }
+.rail-lite:not(.motion-paused) .site-rail .rail-progress { display: none; }
+.motion-paused .rail-live { display: none; }
 html[data-rail-zone="demos"] .journey-dock { left: 32px; transform: none; }
 @media(max-width:1100px) {
   html[data-rail-zone="demos"] .journey-dock { left: 20px; }
@@ -296,4 +313,49 @@ html[data-rail-zone="demos"] .journey-dock { left: 32px; transform: none; }
   .routed-rail .rail-progress { stroke-width: 4px; }
   .routed-rail .site-traveller { width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 8px; outline-width: 2px; }
   .routed-rail .site-traveller svg { width: 19px; height: 19px; }
+}
+
+/* Compact frames reserve their footprint, so playing does not jump the page. */
+@media(max-width:700px) {
+  .campaign-stage { padding: 8px; }
+  .campaign-bar { height: 50px; padding-inline: 12px; }
+  .campaign-body { padding: 12px; }
+  .find-scene,.find-scene.criteria-compact { height: 380px; min-height: 380px; gap: 10px; }
+  .icp-list { margin-top: 12px; gap: 9px; }
+  .icp-list li { font-size: 12px; min-height: 23px; }
+  .candidate-card { padding: 12px; }
+  .candidate-card h4,.calendar-brief h4 { font-size: 15px; }
+  .candidate-card header { gap: 7px; }
+  .candidate-checks { margin: 12px 0 10px; }
+  .candidate-checks li { min-height: 27px; font-size: 12px; }
+  .criteria-compact .criteria-card { padding: 8px 10px; }
+  .campaign-shortlist { padding: 0 12px 12px; }
+  .campaign-shortlist > div { margin-top: 8px; gap: 4px; }
+  .campaign-shortlist > div > span { padding: 5px 6px; }
+  .campaign-status { min-height: 52px; padding: 11px 12px; line-height: 1.5; }
+  .research-people { padding-bottom: 10px; }
+  .research-people > span { padding: 8px 6px; gap: 4px; }
+  .research-people i { display: none; }
+  .research-account { margin-top: 14px; }
+  .campaign-findings { margin: 12px 0; min-height: 190px; }
+  .campaign-findings li { min-height: 38px; padding: 7px 5px; gap: 7px; }
+  .research-opening { min-height: 70px; padding: 10px; }
+  .campaign-email { height: 175px; min-height: 175px; overflow-y: auto; padding-top: 12px; }
+  .campaign-envelope { padding-bottom: 10px; }
+  .campaign-mail-footer { padding: 10px 0; }
+  .mail-send { padding: 6px 10px; }
+  .campaign-mail-timeline { margin: 12px 0; }
+  .campaign-reply { min-height: 98px; padding: 12px; }
+  .campaign-calendar-top { margin-bottom: 16px; }
+  .calendar-weekday { padding-bottom: 10px; }
+  .calendar-weekday b { font-size: 18px; margin-top: 5px; }
+  .booking-block { min-height: 106px; padding: 10px 7px; }
+  .booking-block small { margin-top: 8px; }
+  .booking-block i { display: none; }
+  .calendar-brief { min-height: 195px; padding: 12px; margin-top: 12px; }
+  .calendar-brief header { flex-wrap: wrap; gap: 7px; }
+  .calendar-brief header > span:last-child { display: none; }
+  .calendar-brief ul { margin-top: 12px; }
+  .calendar-brief li { margin-bottom: 3px; line-height: 1.5; }
+  .calendar-handover { margin-top: 12px; }
 }
