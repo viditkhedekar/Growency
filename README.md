@@ -10,7 +10,7 @@ Open http://localhost:4341. No build step is required. `landing.js` and `campaig
 
 ## Current landing page
 
-- `index.html`: split hero with a large video-ready film frame, a dedicated client slide, hedge-fund-for-sales pitch, four workflow chapters, founder and team slides, pilot term sheet, original FAQs, and comparison/privacy navigation.
+- `index.html`: split hero with a large video-ready film frame, a dedicated client slide, hedge-fund-for-sales pitch, four workflow chapters, founder and team slides, one-week pilot term sheet, original FAQs, and comparison/privacy navigation.
 - `slides.css`: full-screen sections, client wordmarks, pilot, FAQ, hover details and responsive layouts.
 - `media.js`: hero video configuration. Set `GROWENCY_MEDIA.heroVideo` to the supplied file or URL when ready; the empty value keeps the subdued editorial poster. Video pauses offscreen, when the tab is hidden, and with reduced or paused motion.
 - `interactions.js`: hover, keyboard-focus and tap details; video playback coordination.
