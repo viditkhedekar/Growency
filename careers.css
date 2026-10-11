@@ -1,0 +1,17 @@
+/* Keep the application in the company pages' existing editorial layout. */
+.application-form { display: grid; gap: 28px; min-width: 0; }
+.application-field { display: grid; gap: 10px; min-width: 0; }
+.application-field label { color: #f4f1ff; font-size: 15px; font-weight: 500; line-height: 1.5; }
+.application-field label span { color: #c7bfd8; font-size: 13px; font-weight: 400; }
+.application-field input,.application-field textarea { box-sizing: border-box; display: block; width: 100%; min-width: 0; min-height: 52px; padding: 13px 15px; border: 1px solid #867c9a; border-radius: 5px; background: #151326; color: #f4f1ff; font: 400 16px/1.5 var(--sans); color-scheme: dark; }
+.application-field textarea { min-height: 112px; resize: vertical; }
+.application-field input::placeholder,.application-field textarea::placeholder { color: #bcb3ce; opacity: 1; }
+.application-field input:focus-visible,.application-field textarea:focus-visible,.application-form a:focus-visible,.application-submit:focus-visible { outline: 2px solid #b4c5ff; outline-offset: 4px; }
+.application-copy p.application-hint,.application-copy p.application-note { margin: 0; color: #c7bfd8; font-size: 13px; line-height: 1.65; }
+.application-copy p.application-hint { font-size: 12px; }
+.application-submit { justify-self: start; cursor: pointer; font-family: var(--sans); }
+.application-contact { padding-top: 4px; }
+@media (max-width:700px) {
+  .application-form { gap: 25px; }
+  .application-submit { justify-self: stretch; justify-content: space-between; }
+}
