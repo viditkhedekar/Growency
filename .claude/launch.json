@@ -5,8 +5,7 @@
       "name": "growency",
       "runtimeExecutable": "python3",
       "runtimeArgs": [
-        "-m",
-        "http.server",
+        "dev_server.py",
         "4341"
       ],
       "port": 4341

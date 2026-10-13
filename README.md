@@ -3,10 +3,16 @@
 Static landing page. Run locally with:
 
 ```sh
-python3 -m http.server 4341
+python3 dev_server.py 4341
 ```
 
 Open http://localhost:4341. No build step is required. `landing.js` and `campaign.js` progressively add scroll and campaign animations; the content and navigation remain usable without JavaScript.
+
+## Page URLs
+
+The public pages use `/`, `/careers`, `/contact`, `/privacy`, and `/compare/<name>` without `.html` or a trailing slash. `vercel.json` enables Vercel's `cleanUrls` and redirects `/index` and `/index.html` to `/`. Existing `.html` page URLs redirect permanently to the clean URLs. Navigation and footer links use these canonical paths; homepage section links use `/#section`.
+
+The source files keep their `.html` names. `dev_server.py` serves the same clean routes and legacy redirects locally so navigation works in the preview. Use this server instead of Python's generic `http.server`, which doesn't resolve extensionless page paths. Recheck FormSubmit delivery from `/careers` after publishing if it requests activation for the new form URL.
 
 ## Current landing page
 
@@ -22,7 +28,7 @@ Open http://localhost:4341. No build step is required. `landing.js` and `campaig
 - The existing inline Growency mark is preserved. Founder/team copy comes from the supplied screenshots. The team section uses the supplied portraits from `assets/team/`, with Vivin’s card above Vidit’s; `team.css` keeps the layout responsive. The founder quote retains its initial badge.
 - The pitch displays the requested 8× higher conversion rate claim, with a keyboard/tap/hover explanation of alpha strategies. The hero uses the supplied booked-calls copy. Team cards show names only.
 - Client references link to Posting Machine (https://www.postingmachine.ai/) and Kairos Health, YC F26 (https://kairoshealthai.com/). They are labelled “Worked with”; no client outcomes or testimonials have been invented.
-- Business meeting buttons and floating shortcuts open https://calendly.com/vidit-khedekar/30min in a new tab, including contact, company, comparison and privacy pages. Contact navigation still opens `contact.html`; cohort applications use the form on `careers.html#apply`, with LinkedIn available for questions.
+- Business meeting buttons and floating shortcuts open https://calendly.com/vidit-khedekar/30min in a new tab, including contact, company, comparison and privacy pages. Contact navigation opens `/contact`; cohort applications use the form on `/careers#apply`, with LinkedIn available for questions.
 - Native anchor navigation works without JavaScript. Reduced-motion preferences disable animation and smooth scrolling; a visible pause control also disables motion.
 - The four campaign chapters place explanatory headlines beside films that occupy two-thirds of the desktop screen, with larger demonstration typography. They stack on smaller screens. The headlines type once on arrival and emphasise the relevant phrase in Instrument Serif italic. The large cursive introduction reads “Find. Research. Reach out. Book.” Northstar, Atlas Labs, Relay Systems, Lumen AI and all contacts/signals are fictional illustrations, disclosed in the footer.
 - Seven original reference-inspired, grainy blue/violet editorial photographs are in assets/editorial/. Every landing chapter, the journey introduction and ending, and the footer use them as full-width backgrounds through `backgrounds.css`. Each has its own crop and tint: blue, lavender, violet, teal, rose or warm amber. Background opacity is generally 20–27%, raised from the earlier 14%; mobile workflow backgrounds use 20%. The hero keeps the sampled brand gradient below its photograph. WebP copies reduce download size; original generated PNGs remain available. The prompt directions are in assets/editorial/PROMPTS.md.
