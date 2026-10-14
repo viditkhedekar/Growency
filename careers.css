@@ -1,23 +1,30 @@
 /* Keep the application in the company pages' existing editorial layout. */
+.careers-page .page-hero { min-height: 0; }
+.careers-page .page-hero-content { padding-block: 56px 64px; align-items: center; }
+.careers-page .page-hero h1 { font-size: clamp(54px,5.5vw,80px); }
 .careers-page .career-intro-aside { padding-top: 0; }
 .career-intro-aside > p { font-size: 16px; }
-.career-roles { border-top: 1px solid #ffffff40; }
-.career-role { display: grid; gap: 9px; padding: 22px 0; border-bottom: 1px solid #ffffff40; }
-.career-role-meta { color: #bdcafa; font-size: 10px; letter-spacing: 1.7px; }
-.career-role strong { color: #f4f1ff; font-size: clamp(20px,2vw,26px); font-weight: 500; line-height: 1.25; }
-.career-role > span:last-child { display: flex; align-items: center; justify-content: space-between; gap: 15px; color: #d0c9de; font-size: 13px; line-height: 1.6; }
-.career-role b { color: #b4c5ff; font-size: 22px; font-weight: 400; }
-.career-role:hover strong { color: #b4c5ff; }
-.career-role:focus-visible { outline: 2px solid #b4c5ff; outline-offset: 5px; }
-.career-manager-shortcut { display: inline-flex; align-items: center; gap: 18px; min-height: 44px; margin-top: 8px; color: #c6d2ff; font-size: 13px; line-height: 1.6; }
-.career-manager-shortcut:focus-visible { outline: 2px solid #b4c5ff; outline-offset: 4px; }
+.career-tabs-anchor { height: 1px; }
+.career-tabs-shell { position: sticky; top: 0; z-index: 12; background: #111326f5; border-block: 1px solid #ffffff35; }
+.career-tabs { display: grid; grid-template-columns: minmax(0,2fr) minmax(0,1fr) minmax(0,1fr); }
+.career-tab { display: flex; align-items: center; justify-content: center; min-height: 70px; padding: 18px 16px; border-bottom: 3px solid transparent; color: #c7bfd8; font-size: 15px; line-height: 1.4; text-align: center; }
+.career-tab[data-role-tab="gtm"] { font-size: 17px; font-weight: 600; }
+.career-tab:hover { background: #ffffff08; color: #fff; }
+.career-tab[aria-selected="true"] { border-bottom-color: #b4c5ff; color: #fff; background: #ffffff0d; }
+.career-tab:focus-visible { outline: 2px solid #b4c5ff; outline-offset: -5px; }
+.career-panel { position: relative; }
+.career-panel[hidden] { display: none; }
+.career-panel:focus-visible { outline: 2px solid #b4c5ff; outline-offset: -3px; }
+.careers-page .career-panel > .slide { --netting-opacity: .15; }
+.career-panel > .page-chapter:first-child { padding-top: 80px; }
+.career-legacy-anchor { position: absolute; top: 0; left: 0; width: 1px; height: 1px; }
+html.careers-tabs-ready { scroll-padding-top: 104px; }
 .page-copy .hype-organisations { display: flex; flex-wrap: wrap; gap: 12px 22px; list-style: none; margin: 20px 0 28px; padding: 0; }
 .page-copy .hype-organisations li { margin: 0; padding: 0; font-size: 14px; }
 .hype-organisations a { display: inline-flex; align-items: center; min-height: 44px; }
 .hype-organisations a:focus-visible { outline: 2px solid #b4c5ff; outline-offset: 4px; }
 .application-form { display: grid; gap: 28px; min-width: 0; }
 .application-field { display: grid; gap: 10px; min-width: 0; }
-.application-field[hidden],#application-tools-optional[hidden] { display: none; }
 .application-field label { color: #f4f1ff; font-size: 15px; font-weight: 500; line-height: 1.5; }
 .application-field label span { color: #c7bfd8; font-size: 13px; font-weight: 400; }
 .application-field input,.application-field textarea,.application-field select { box-sizing: border-box; display: block; width: 100%; min-width: 0; min-height: 52px; padding: 13px 15px; border: 1px solid #867c9a; border-radius: 5px; background: #151326; color: #f4f1ff; font: 400 16px/1.5 var(--sans); color-scheme: dark; }
@@ -29,6 +36,11 @@
 .application-submit { justify-self: start; cursor: pointer; font-family: var(--sans); }
 .application-contact { padding-top: 4px; }
 @media (max-width:700px) {
+  .careers-page .page-hero-content { padding-block: 40px; gap: 26px; }
+  .careers-page .page-hero h1 { font-size: clamp(48px,12vw,64px); }
+  .career-tab { min-height: 70px; padding: 12px 7px; font-size: 12px; }
+  .career-tab[data-role-tab="gtm"] { font-size: 14px; }
+  .career-panel > .page-chapter:first-child { padding-top: 60px; }
   .application-form { gap: 25px; }
   .application-submit { justify-self: stretch; justify-content: space-between; }
 }

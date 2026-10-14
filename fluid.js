@@ -1,7 +1,7 @@
 (() => {
   // One continuous colour field sits beneath the complete page. Palette blending
   // follows the rail; section boundaries blend spatially in their empty margins.
-  const surfaces = [...document.querySelectorAll('main > .slide,.journey-intro,.story-step,.journey-end,.site-footer')];
+  const surfaces = [...document.querySelectorAll('main > .slide,.career-panel > .slide,.journey-intro,.story-step,.journey-end,.site-footer')];
   if (!surfaces.length) return;
   const root = document.documentElement;
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
@@ -39,12 +39,12 @@
   let lastPaint = '';
   document.body.classList.add('fluid-backgrounds');
   function measure() {
-    geometry = anchors.map(anchor => ({...anchor,y:window.GROWENCY_DEMOS?.milestoneY(anchor.node) ?? anchor.node.getBoundingClientRect().top+scrollY+anchor.node.offsetHeight/2}));
+    geometry = anchors.filter(anchor => !anchor.node.closest('[hidden]')).map(anchor => ({...anchor,y:window.GROWENCY_DEMOS?.milestoneY(anchor.node) ?? anchor.node.getBoundingClientRect().top+scrollY+anchor.node.offsetHeight/2}));
     // Measure normal flow, so the absolute colour layer cannot keep the page
     // artificially tall after an accordion closes or the viewport grows wider.
     const height = Math.max(document.body.offsetHeight,innerHeight);
     const edge = innerWidth <= 700 ? 90 : 145;
-    const positions = descriptors.map(scene => ({...scene,start:scene.el.getBoundingClientRect().top+scrollY}));
+    const positions = descriptors.filter(scene => !scene.el.closest('[hidden]')).map(scene => ({...scene,start:scene.el.getBoundingClientRect().top+scrollY}));
     stops = [{paper:positions[0].paper,y:0}];
     positions.forEach((scene,index) => {
       if (!index) return;

@@ -2,7 +2,7 @@
   // Reuse the cube-cell geometry from the earlier WebGL scene without bringing
   // back its loader, wordmark effects or renderer. Sections own their backgrounds
   // so opaque slide colours and editorial photographs can coexist with the net.
-  const surfaces = [...document.querySelectorAll('main > .slide,main > .journey,.site-footer')];
+  const surfaces = [...document.querySelectorAll('main > .slide,.career-panel > .slide,main > .journey,.site-footer')];
   if (!surfaces.length) surfaces.push(document.body);
   const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
     entries.forEach(entry => entry.target.querySelector(':scope > .page-netting')?.classList.toggle('is-netting-visible', entry.isIntersecting));

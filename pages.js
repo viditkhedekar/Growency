@@ -43,7 +43,7 @@
   const root = document.documentElement;
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
   const toggle = document.querySelector('.page-motion');
-  const chapters = [...document.querySelectorAll('main > .slide')];
+  const chapters = [...document.querySelectorAll('main > .slide,.career-panel > .slide')];
   const nightPalettes = ['#10182d','#202842','#2a1c39','#173139','#29203c'];
   const nodes = chapters.map((chapter,index) => {
     chapter.dataset.scenePaper = '#e4e4f0';
@@ -63,12 +63,16 @@
     }
     let current = 0;
     nodes.forEach((node,index) => {
+      if (node.closest('[hidden]')) {
+        node.classList.remove('milestone-reached','milestone-current');
+        return;
+      }
       const r = node.getBoundingClientRect();
       const reached = r.top + r.height/2 <= innerHeight*.5;
       node.classList.toggle('milestone-reached',reached);
       if (reached) current = index;
     });
-    nodes.forEach((node,index) => node.classList.toggle('milestone-current',index===current));
+    nodes.forEach((node,index) => node.classList.toggle('milestone-current',!node.closest('[hidden]') && index===current));
   }
   function scheduleProgress() { if (!progressFrame) progressFrame=requestAnimationFrame(updateProgress); }
   function configureMotion() {

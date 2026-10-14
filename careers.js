@@ -1,46 +1,80 @@
 (() => {
-  const form = document.querySelector('.application-form');
-  if (!form) return;
+  const tabList = document.querySelector('[data-role-tabs]');
+  if (!tabList) return;
+  const tabs = [...tabList.querySelectorAll('[data-role-tab]')];
+  const panels = [...document.querySelectorAll('[data-career-panel]')];
+  const anchor = document.getElementById('roles');
+  let activeRole = 'gtm';
+  let routeFrame;
 
-  const role = form.elements.namedItem('Role');
-  const subject = form.elements.namedItem('_subject');
-  const tools = form.elements.namedItem('Tool familiarity');
-  const toolsField = document.getElementById('application-tools-field');
-  const toolsOptional = document.getElementById('application-tools-optional');
-  const experienceLabel = document.getElementById('application-experience-label');
-  const experienceHint = document.getElementById('application-experience-hint');
-
-  function updateRole() {
-    const selectedRole = role.selectedOptions[0]?.dataset.role;
-    const isGtm = selectedRole === 'gtm';
-    const isHypeManager = selectedRole === 'hype-manager';
-    toolsField.hidden = !isGtm;
-    tools.disabled = !isGtm;
-    tools.required = isGtm;
-    toolsOptional.hidden = isGtm;
-    experienceLabel.textContent = isGtm
-      ? 'What sales, marketing, or other relevant experience do you have?'
-      : isHypeManager
-        ? 'What content creation or client outreach experience do you have?'
-        : 'What experience or interests would you bring to the role?';
-    experienceHint.textContent = isHypeManager
-      ? 'Tell us about posts you’ve created, outreach you’ve done, or clients you’ve helped bring in. Student projects and personal accounts count too.'
-      : 'Work, internships, side projects, or student activities all count. If you’re just starting out, tell us that.';
-    subject.value = role.value ? `Growency application: ${role.value}` : 'Growency application';
+  function scrollToTarget(target) {
+    const height = document.querySelector('.career-tabs-shell').offsetHeight;
+    const offset = target === anchor ? 12 : height + 18;
+    const top = Math.max(0, target.getBoundingClientRect().top + scrollY - offset);
+    if (window.GROWENCY_SCROLL) window.GROWENCY_SCROLL.to(top, { immediate: true });
+    else window.scrollTo({ top, behavior: 'instant' });
   }
 
-  role.addEventListener('change', updateRole);
-  document.querySelectorAll('[data-application-role]').forEach(link => {
-    link.addEventListener('click', event => {
-      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      const option = [...role.options].find(item => item.dataset.role === link.dataset.applicationRole);
-      if (!option) return;
-      role.value = option.value;
-      updateRole();
+  function activate(role) {
+    if (!panels.some(panel => panel.dataset.careerPanel === role)) return;
+    activeRole = role;
+    panels.forEach(panel => { panel.hidden = panel.dataset.careerPanel !== role; });
+    tabs.forEach(tab => {
+      const selected = tab.dataset.roleTab === role;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+    });
+    // Refresh the rail, colour field and scroll geometry after a panel changes.
+    dispatchEvent(new Event('resize'));
+  }
+
+  function choose(tab) {
+    const role = tab.dataset.roleTab;
+    activate(role);
+    if (location.hash !== `#${role}`) history.pushState(null, '', `#${role}`);
+    tab.focus({ preventScroll: true });
+    scrollToTarget(anchor);
+  }
+
+  function restoreFromUrl(scroll = true) {
+    const target = document.getElementById(location.hash.slice(1));
+    const panel = target?.closest('[data-career-panel]');
+    activate(panel ? panel.dataset.careerPanel : location.hash ? activeRole : 'gtm');
+    if (scroll && target) scrollToTarget(target);
+  }
+
+  tabList.setAttribute('role', 'tablist');
+  tabList.setAttribute('aria-orientation', 'horizontal');
+  panels.forEach(panel => panel.setAttribute('role', 'tabpanel'));
+  tabs.forEach((tab, index) => {
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-controls', `panel-${tab.dataset.roleTab}`);
+    tab.addEventListener('click', event => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      event.stopPropagation();
+      choose(tab);
+    });
+    tab.addEventListener('keydown', event => {
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else if (event.key === ' ') next = index;
+      else return;
+      event.preventDefault();
+      choose(tabs[next]);
     });
   });
-  // Restore the correct fields when returning from the form provider or browser history.
-  addEventListener('pageshow', updateRole);
-  form.addEventListener('reset', () => requestAnimationFrame(updateRole));
-  updateRole();
+  document.documentElement.classList.add('careers-tabs-ready');
+  function scheduleRestore() {
+    cancelAnimationFrame(routeFrame);
+    routeFrame = requestAnimationFrame(() => restoreFromUrl());
+  }
+  addEventListener('hashchange', scheduleRestore);
+  addEventListener('popstate', scheduleRestore);
+  addEventListener('pageshow', () => restoreFromUrl(false));
+  restoreFromUrl(false);
+  if (location.hash) scheduleRestore();
 })();
