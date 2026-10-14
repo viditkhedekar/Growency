@@ -8,16 +8,24 @@
   const toolsField = document.getElementById('application-tools-field');
   const toolsOptional = document.getElementById('application-tools-optional');
   const experienceLabel = document.getElementById('application-experience-label');
+  const experienceHint = document.getElementById('application-experience-hint');
 
   function updateRole() {
-    const isGtm = role.selectedOptions[0]?.dataset.role === 'gtm';
+    const selectedRole = role.selectedOptions[0]?.dataset.role;
+    const isGtm = selectedRole === 'gtm';
+    const isHypeManager = selectedRole === 'hype-manager';
     toolsField.hidden = !isGtm;
     tools.disabled = !isGtm;
     tools.required = isGtm;
     toolsOptional.hidden = isGtm;
     experienceLabel.textContent = isGtm
       ? 'What sales, marketing, or other relevant experience do you have?'
-      : 'What experience or interests would you bring to the role?';
+      : isHypeManager
+        ? 'What content creation or client outreach experience do you have?'
+        : 'What experience or interests would you bring to the role?';
+    experienceHint.textContent = isHypeManager
+      ? 'Tell us about posts you’ve created, outreach you’ve done, or clients you’ve helped bring in. Student projects and personal accounts count too.'
+      : 'Work, internships, side projects, or student activities all count. If you’re just starting out, tell us that.';
     subject.value = role.value ? `Growency application: ${role.value}` : 'Growency application';
   }
 

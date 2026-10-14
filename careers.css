@@ -9,6 +9,8 @@
 .career-role b { color: #b4c5ff; font-size: 22px; font-weight: 400; }
 .career-role:hover strong { color: #b4c5ff; }
 .career-role:focus-visible { outline: 2px solid #b4c5ff; outline-offset: 5px; }
+.career-manager-shortcut { display: inline-flex; align-items: center; gap: 18px; min-height: 44px; margin-top: 8px; color: #c6d2ff; font-size: 13px; line-height: 1.6; }
+.career-manager-shortcut:focus-visible { outline: 2px solid #b4c5ff; outline-offset: 4px; }
 .page-copy .hype-organisations { display: flex; flex-wrap: wrap; gap: 12px 22px; list-style: none; margin: 20px 0 28px; padding: 0; }
 .page-copy .hype-organisations li { margin: 0; padding: 0; font-size: 14px; }
 .hype-organisations a { display: inline-flex; align-items: center; min-height: 44px; }
