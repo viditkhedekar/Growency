@@ -1,12 +1,27 @@
 /* Keep the application in the company pages' existing editorial layout. */
+.careers-page .career-intro-aside { padding-top: 0; }
+.career-intro-aside > p { font-size: 16px; }
+.career-roles { border-top: 1px solid #ffffff40; }
+.career-role { display: grid; gap: 9px; padding: 22px 0; border-bottom: 1px solid #ffffff40; }
+.career-role-meta { color: #bdcafa; font-size: 10px; letter-spacing: 1.7px; }
+.career-role strong { color: #f4f1ff; font-size: clamp(20px,2vw,26px); font-weight: 500; line-height: 1.25; }
+.career-role > span:last-child { display: flex; align-items: center; justify-content: space-between; gap: 15px; color: #d0c9de; font-size: 13px; line-height: 1.6; }
+.career-role b { color: #b4c5ff; font-size: 22px; font-weight: 400; }
+.career-role:hover strong { color: #b4c5ff; }
+.career-role:focus-visible { outline: 2px solid #b4c5ff; outline-offset: 5px; }
+.page-copy .hype-organisations { display: flex; flex-wrap: wrap; gap: 12px 22px; list-style: none; margin: 20px 0 28px; padding: 0; }
+.page-copy .hype-organisations li { margin: 0; padding: 0; font-size: 14px; }
+.hype-organisations a { display: inline-flex; align-items: center; min-height: 44px; }
+.hype-organisations a:focus-visible { outline: 2px solid #b4c5ff; outline-offset: 4px; }
 .application-form { display: grid; gap: 28px; min-width: 0; }
 .application-field { display: grid; gap: 10px; min-width: 0; }
+.application-field[hidden],#application-tools-optional[hidden] { display: none; }
 .application-field label { color: #f4f1ff; font-size: 15px; font-weight: 500; line-height: 1.5; }
 .application-field label span { color: #c7bfd8; font-size: 13px; font-weight: 400; }
-.application-field input,.application-field textarea { box-sizing: border-box; display: block; width: 100%; min-width: 0; min-height: 52px; padding: 13px 15px; border: 1px solid #867c9a; border-radius: 5px; background: #151326; color: #f4f1ff; font: 400 16px/1.5 var(--sans); color-scheme: dark; }
+.application-field input,.application-field textarea,.application-field select { box-sizing: border-box; display: block; width: 100%; min-width: 0; min-height: 52px; padding: 13px 15px; border: 1px solid #867c9a; border-radius: 5px; background: #151326; color: #f4f1ff; font: 400 16px/1.5 var(--sans); color-scheme: dark; }
 .application-field textarea { min-height: 112px; resize: vertical; }
 .application-field input::placeholder,.application-field textarea::placeholder { color: #bcb3ce; opacity: 1; }
-.application-field input:focus-visible,.application-field textarea:focus-visible,.application-form a:focus-visible,.application-submit:focus-visible { outline: 2px solid #b4c5ff; outline-offset: 4px; }
+.application-field input:focus-visible,.application-field textarea:focus-visible,.application-field select:focus-visible,.application-form a:focus-visible,.application-submit:focus-visible { outline: 2px solid #b4c5ff; outline-offset: 4px; }
 .application-copy p.application-hint,.application-copy p.application-note { margin: 0; color: #c7bfd8; font-size: 13px; line-height: 1.65; }
 .application-copy p.application-hint { font-size: 12px; }
 .application-submit { justify-self: start; cursor: pointer; font-family: var(--sans); }
