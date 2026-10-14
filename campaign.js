@@ -10,8 +10,8 @@
       subject:'Atlas’s US expansion',
       email:"Hi Maya,\nCame across Atlas while looking at companies that have recently expanded internationally.\nSaw the US launch and the Financial Controller hire. Usually around that point, reporting starts getting a lot more annoying than it used to be.\nWe built Northstar to give finance teams one place for forecasting, cash visibility and reporting without constantly rebuilding models.\nMight be completely off, but figured it was worth reaching out.\nOpen to a 15 minute chat?\nVidit",
       followup:'Just checking whether bringing UK and US reporting together is on your radar. Happy to show you how Northstar approaches it.',
-      reply:'Sounds relevant. Happy to take a look — Tuesday at 10:30 works.',
-      slot:'Tuesday · 10:30',brief:['Maya Patel — CFO','Series B · 84 employees','Recently expanded into the US','Interested in consolidating financial reporting','Primary pain: multi-entity forecasting']},
+      reply:'Sounds relevant. Happy to take a look. Tuesday at 10:30 works.',
+      slot:'Tuesday · 10:30',brief:['Maya Patel, CFO','Series B · 84 employees','Recently expanded into the US','Interested in consolidating financial reporting','Primary pain: multi-entity forecasting']},
     {name:'Daniel Wong',initials:'DW',role:'Founder',company:'Relay Systems',
       fit:['Series A','46 employees','London','£7.5m raised','Finance team growing','SaaS','Hiring across 8 roles'],
       research:['Raised £7.5m Series A','Hiring across sales and engineering','Headcount doubled this year','Founder discussed operational visibility','Hiring the first Head of Finance'],openingIndex:4,opening:'First finance hire → founder-led reporting',
@@ -19,7 +19,7 @@
       email:"Hi Daniel,\nSaw Relay is hiring its first Head of Finance after the Series A.\nI’m guessing a fair bit of the reporting and forecasting still sits with you or gets pulled together manually at the moment.\nThat’s basically why we built Northstar. It gives growing teams one place to track cash, forecasts and reporting before the finance function starts getting complicated.\nCould be too early for you, but thought the timing looked interesting.\nWorth a quick chat?\nVidit",
       followup:'Following up on the finance hire. If reporting is still founder-led, I can show you how Northstar brings the data into one place.',
       reply:'Good timing with the hire. Wednesday at 14:00 would work for me.',
-      slot:'Wednesday · 14:00',brief:['Daniel Wong — Founder','Series A · 46 employees','Hiring the first Head of Finance','Current reporting is largely founder-led','Primary pain: scaling finance operations']},
+      slot:'Wednesday · 14:00',brief:['Daniel Wong, Founder','Series A · 46 employees','Hiring the first Head of Finance','Current reporting is largely founder-led','Primary pain: scaling finance operations']},
     {name:'Sofia Martins',initials:'SM',role:'VP Finance',company:'Lumen AI',
       fit:['Series B','126 employees','London / Lisbon','£21m raised','6-person finance team','AI software','Expanding internationally'],
       research:['Expanded from the UK into Portugal','126 employees across two countries','Raised £21m','Hiring finance operations roles','Growing international reporting requirements'],openingIndex:0,opening:'Two countries → cross-entity reporting',
@@ -27,7 +27,7 @@
       email:"Hi Sofia,\nSaw Lumen has been growing across the UK and Portugal.\nManaging reporting across two countries tends to create a lot of little manual jobs that somehow turn into very big ones.\nNorthstar brings the finance data into one place so teams can handle forecasts, cash visibility and cross-entity reporting without living in spreadsheets.\nNot sure if that’s something you’re dealing with at Lumen, but thought I’d ask.\nOpen to a quick chat next week?\nVidit",
       followup:'Checking back on cross-entity reporting. If the UK and Portugal teams are working from separate spreadsheets, Northstar may be relevant.',
       reply:'That’s something we’re looking at. Thursday at 11:00 works.',
-      slot:'Thursday · 11:00',brief:['Sofia Martins — VP Finance','Series B · 126 employees','UK + Portugal','International finance team','Primary pain: cross-entity reporting']}
+      slot:'Thursday · 11:00',brief:['Sofia Martins, VP Finance','Series B · 126 employees','UK + Portugal','International finance team','Primary pain: cross-entity reporting']}
   ];
   // Playback durations and the animation share the same timing values.
   const timing = {
