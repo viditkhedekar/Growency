@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="netting.css?v=20261005-atmosphere-v11">
 <link rel="stylesheet" href="backgrounds.css?v=20261005-seams-v13">
 <link rel="stylesheet" href="pages.css?v=20261005-navigation-v14">
-<link rel="stylesheet" href="careers.css?v=20261014-role-tabs-v4">
+<link rel="stylesheet" href="careers.css?v=20261015-hype-applications-v1">
 <link rel="stylesheet" href="assets/vendor/lenis/lenis.css?v=1.3.26">
 <link rel="stylesheet" href="smooth-scroll.css?v=20261005-scroll-v15">
 </head>
@@ -220,7 +220,7 @@
       <p class="chapter-summary">Tell us why you’d like to join the community and how you’d contribute.</p>
     </div>
     <div class="page-copy application-copy">
-      <form class="application-form" action="https://formsubmit.co/vidit.khedekar@gmail.com" method="POST" aria-label="Hype Member application" aria-describedby="hype-application-required hype-application-privacy">
+      <form class="application-form" action="https://formsubmit.co/vidit.khedekar@gmail.com" method="POST" enctype="multipart/form-data" aria-label="Hype Member application" aria-describedby="hype-application-required hype-application-privacy">
         <input type="hidden" name="_subject" value="Growency application: Member of Hype @Growency">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="Role" value="Member of Hype @Growency">
@@ -244,12 +244,17 @@
         <div class="application-field">
           <label for="hype-application-location">Where are you based?</label>
           <input id="hype-application-location" name="Location" type="text" autocomplete="address-level2" maxlength="200" aria-describedby="hype-application-location-hint" required>
-          <p id="hype-application-location-hint" class="application-hint">City and country. Add your time zone if helpful.</p>
+          <p id="hype-application-location-hint" class="application-hint">City and country.</p>
         </div>
         <div class="application-field">
-          <label for="hype-application-profile">LinkedIn profile or CV link <span>(optional)</span></label>
-          <input id="hype-application-profile" name="LinkedIn or CV link" type="url" inputmode="url" maxlength="2000" placeholder="https://" aria-describedby="hype-application-profile-hint">
-          <p id="hype-application-profile-hint" class="application-hint">Share a link we can open without requesting access.</p>
+          <label for="hype-application-timezone">Time zone</label>
+          <input id="hype-application-timezone" name="Time zone" type="text" maxlength="120" placeholder="e.g. Asia/Kolkata (UTC+05:30)" aria-describedby="hype-application-timezone-hint" required>
+          <p id="hype-application-timezone-hint" class="application-hint">Tell us your time zone so we can coordinate with you.</p>
+        </div>
+        <div class="application-field">
+          <label for="hype-application-profile">LinkedIn profile</label>
+          <input id="hype-application-profile" name="LinkedIn profile" type="url" inputmode="url" maxlength="2000" placeholder="https://www.linkedin.com/in/your-profile/" pattern="https?://([a-zA-Z0-9]+\.)?linkedin\.com/in/.+" title="Enter your LinkedIn profile URL, such as https://www.linkedin.com/in/your-profile/" aria-describedby="hype-application-profile-hint" required>
+          <p id="hype-application-profile-hint" class="application-hint">Your LinkedIn profile is required. Please include the full profile URL.</p>
         </div>
         <div class="application-field">
           <label for="hype-application-experience" id="hype-application-experience-label">What experience or interests would you bring to the role?</label>
@@ -262,6 +267,32 @@
           <p id="hype-application-motivation-hint" class="application-hint">What interests you about your chosen role, and what would you like to learn?</p>
         </div>
         <div class="application-field">
+          <label for="hype-application-projects">Tell us about your past projects</label>
+          <textarea id="hype-application-projects" name="Past projects" rows="5" maxlength="5000" aria-describedby="hype-application-projects-hint" data-lenis-prevent required></textarea>
+          <p id="hype-application-projects-hint" class="application-hint">Describe one or two projects, your contribution, and what happened. Include links if you have them. If you haven’t worked on a project yet, tell us about an idea you’d like to try.</p>
+        </div>
+        <div class="application-field">
+          <label for="hype-application-pitch">Pitch yourself in 300 words</label>
+          <textarea id="hype-application-pitch" name="Personal pitch" rows="8" maxlength="18000" data-max-words="300" aria-describedby="hype-application-pitch-hint hype-application-pitch-count" data-lenis-prevent required></textarea>
+          <p id="hype-application-pitch-hint" class="application-hint">In up to 300 words, tell us what makes you a great fit, what you’d contribute, and why we should choose you.</p>
+          <p id="hype-application-pitch-count" class="application-hint application-word-count" aria-live="polite" aria-atomic="true">0 / 300 words</p>
+        </div>
+        <div class="application-field">
+          <label for="hype-application-resume">Résumé <span>(optional)</span></label>
+          <input id="hype-application-resume" name="attachment" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" data-max-file-bytes="5000000" aria-describedby="hype-application-resume-hint">
+          <p id="hype-application-resume-hint" class="application-hint">Upload a PDF, DOC, or DOCX file, up to 5 MB.</p>
+        </div>
+        <div class="application-field">
+          <label for="hype-application-video">Intro video link <span>(optional)</span></label>
+          <input id="hype-application-video" name="Intro video link" type="url" inputmode="url" maxlength="2000" placeholder="https://" aria-describedby="hype-application-video-hint">
+          <p id="hype-application-video-hint" class="application-hint">Introduce yourself in a short video. Share a Loom, YouTube, or Drive link we can view without requesting access.</p>
+        </div>
+        <div class="application-field">
+          <label for="hype-application-personal-website">Personal website <span>(optional)</span></label>
+          <input id="hype-application-personal-website" name="Personal website" type="url" inputmode="url" maxlength="2000" placeholder="https://" aria-describedby="hype-application-personal-website-hint">
+          <p id="hype-application-personal-website-hint" class="application-hint">A portfolio, blog, or personal website you’d like us to see.</p>
+        </div>
+        <div class="application-field">
           <label for="hype-application-hours">How many hours per week can you commit?</label>
           <input id="hype-application-hours" name="Hours per week" type="number" inputmode="numeric" min="1" max="168" step="1" required>
         </div>
@@ -269,7 +300,7 @@
           <label for="hype-application-start">When could you start?</label>
           <input id="hype-application-start" name="Earliest start date" type="date" required>
         </div>
-        <p id="hype-application-privacy" class="application-note">We’ll use your answers to review your application and contact you about the role. Submissions are processed by <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a> and emailed to Vidit. Please don’t include sensitive personal information.</p>
+        <p id="hype-application-privacy" class="application-note">We’ll use your answers and any files or links you share to review your application and contact you about the role. Submissions are processed by <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a> and emailed to Vidit. Please don’t include sensitive personal information.</p>
         <button class="button-primary application-submit" type="submit">Submit application <span class="button-arrow" aria-hidden="true">↗</span></button>
         <p class="application-note application-contact">Have a question? <a href="https://www.linkedin.com/in/vidit-khedekar/" target="_blank" rel="noopener noreferrer">Message Vidit on LinkedIn</a>.</p>
       </form>
@@ -300,7 +331,7 @@
       <p class="chapter-summary">Tell us about the content you create and how you’d approach bringing clients into Growency.</p>
     </div>
     <div class="page-copy application-copy">
-      <form class="application-form" action="https://formsubmit.co/vidit.khedekar@gmail.com" method="POST" aria-label="Hype Manager application" aria-describedby="hype-manager-application-required hype-manager-application-privacy">
+      <form class="application-form" action="https://formsubmit.co/vidit.khedekar@gmail.com" method="POST" enctype="multipart/form-data" aria-label="Hype Manager application" aria-describedby="hype-manager-application-required hype-manager-application-privacy">
         <input type="hidden" name="_subject" value="Growency application: Hype Manager @Growency">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="Role" value="Hype Manager @Growency">
@@ -324,12 +355,17 @@
         <div class="application-field">
           <label for="hype-manager-application-location">Where are you based?</label>
           <input id="hype-manager-application-location" name="Location" type="text" autocomplete="address-level2" maxlength="200" aria-describedby="hype-manager-application-location-hint" required>
-          <p id="hype-manager-application-location-hint" class="application-hint">City and country. Add your time zone if helpful.</p>
+          <p id="hype-manager-application-location-hint" class="application-hint">City and country.</p>
         </div>
         <div class="application-field">
-          <label for="hype-manager-application-profile">LinkedIn profile or CV link <span>(optional)</span></label>
-          <input id="hype-manager-application-profile" name="LinkedIn or CV link" type="url" inputmode="url" maxlength="2000" placeholder="https://" aria-describedby="hype-manager-application-profile-hint">
-          <p id="hype-manager-application-profile-hint" class="application-hint">Share a link we can open without requesting access.</p>
+          <label for="hype-manager-application-timezone">Time zone</label>
+          <input id="hype-manager-application-timezone" name="Time zone" type="text" maxlength="120" placeholder="e.g. Asia/Kolkata (UTC+05:30)" aria-describedby="hype-manager-application-timezone-hint" required>
+          <p id="hype-manager-application-timezone-hint" class="application-hint">Tell us your time zone so we can coordinate with you.</p>
+        </div>
+        <div class="application-field">
+          <label for="hype-manager-application-profile">LinkedIn profile</label>
+          <input id="hype-manager-application-profile" name="LinkedIn profile" type="url" inputmode="url" maxlength="2000" placeholder="https://www.linkedin.com/in/your-profile/" pattern="https?://([a-zA-Z0-9]+\.)?linkedin\.com/in/.+" title="Enter your LinkedIn profile URL, such as https://www.linkedin.com/in/your-profile/" aria-describedby="hype-manager-application-profile-hint" required>
+          <p id="hype-manager-application-profile-hint" class="application-hint">Your LinkedIn profile is required. Please include the full profile URL.</p>
         </div>
         <div class="application-field">
           <label for="hype-manager-application-experience" id="hype-manager-application-experience-label">What content creation or client outreach experience do you have?</label>
@@ -342,6 +378,32 @@
           <p id="hype-manager-application-motivation-hint" class="application-hint">What interests you about your chosen role, and what would you like to learn?</p>
         </div>
         <div class="application-field">
+          <label for="hype-manager-application-projects">Tell us about your past projects</label>
+          <textarea id="hype-manager-application-projects" name="Past projects" rows="5" maxlength="5000" aria-describedby="hype-manager-application-projects-hint" data-lenis-prevent required></textarea>
+          <p id="hype-manager-application-projects-hint" class="application-hint">Describe one or two projects, your contribution, and what happened. Include links if you have them. If you haven’t worked on a project yet, tell us about an idea you’d like to try.</p>
+        </div>
+        <div class="application-field">
+          <label for="hype-manager-application-pitch">Pitch yourself in 300 words</label>
+          <textarea id="hype-manager-application-pitch" name="Personal pitch" rows="8" maxlength="18000" data-max-words="300" aria-describedby="hype-manager-application-pitch-hint hype-manager-application-pitch-count" data-lenis-prevent required></textarea>
+          <p id="hype-manager-application-pitch-hint" class="application-hint">In up to 300 words, tell us what makes you a great fit, what you’d contribute, and why we should choose you.</p>
+          <p id="hype-manager-application-pitch-count" class="application-hint application-word-count" aria-live="polite" aria-atomic="true">0 / 300 words</p>
+        </div>
+        <div class="application-field">
+          <label for="hype-manager-application-resume">Résumé <span>(optional)</span></label>
+          <input id="hype-manager-application-resume" name="attachment" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" data-max-file-bytes="5000000" aria-describedby="hype-manager-application-resume-hint">
+          <p id="hype-manager-application-resume-hint" class="application-hint">Upload a PDF, DOC, or DOCX file, up to 5 MB.</p>
+        </div>
+        <div class="application-field">
+          <label for="hype-manager-application-video">Intro video link <span>(optional)</span></label>
+          <input id="hype-manager-application-video" name="Intro video link" type="url" inputmode="url" maxlength="2000" placeholder="https://" aria-describedby="hype-manager-application-video-hint">
+          <p id="hype-manager-application-video-hint" class="application-hint">Introduce yourself in a short video. Share a Loom, YouTube, or Drive link we can view without requesting access.</p>
+        </div>
+        <div class="application-field">
+          <label for="hype-manager-application-personal-website">Personal website <span>(optional)</span></label>
+          <input id="hype-manager-application-personal-website" name="Personal website" type="url" inputmode="url" maxlength="2000" placeholder="https://" aria-describedby="hype-manager-application-personal-website-hint">
+          <p id="hype-manager-application-personal-website-hint" class="application-hint">A portfolio, blog, or personal website you’d like us to see.</p>
+        </div>
+        <div class="application-field">
           <label for="hype-manager-application-hours">How many hours per week can you commit?</label>
           <input id="hype-manager-application-hours" name="Hours per week" type="number" inputmode="numeric" min="1" max="168" step="1" required>
         </div>
@@ -349,7 +411,7 @@
           <label for="hype-manager-application-start">When could you start?</label>
           <input id="hype-manager-application-start" name="Earliest start date" type="date" required>
         </div>
-        <p id="hype-manager-application-privacy" class="application-note">We’ll use your answers to review your application and contact you about the role. Submissions are processed by <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a> and emailed to Vidit. Please don’t include sensitive personal information.</p>
+        <p id="hype-manager-application-privacy" class="application-note">We’ll use your answers and any files or links you share to review your application and contact you about the role. Submissions are processed by <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a> and emailed to Vidit. Please don’t include sensitive personal information.</p>
         <button class="button-primary application-submit" type="submit">Submit application <span class="button-arrow" aria-hidden="true">↗</span></button>
         <p class="application-note application-contact">Have a question? <a href="https://www.linkedin.com/in/vidit-khedekar/" target="_blank" rel="noopener noreferrer">Message Vidit on LinkedIn</a>.</p>
       </form>
@@ -395,7 +457,7 @@
 <div class="wrap footer-fine">© 2026 Growency.</div>
 </footer>
 <a class="meeting-shortcut" href="https://calendly.com/vidit-khedekar/30min" aria-label="Book a meeting with Growency" target="_blank" rel="noopener noreferrer"><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18m-13 5 3 3 5-5"/></svg></span><b>Book a meeting</b></a>
-<script src="careers.js?v=20261014-role-tabs-v3" defer></script>
+<script src="careers.js?v=20261015-hype-applications-v1" defer></script>
 <script src="pages.js?v=20261014-role-tabs-v2" defer>
 </script>
 <script src="fluid.js?v=20261014-role-tabs-v2" defer></script>

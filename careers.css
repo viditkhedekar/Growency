@@ -29,6 +29,9 @@ html.careers-tabs-ready { scroll-padding-top: 104px; }
 .application-field label span { color: #c7bfd8; font-size: 13px; font-weight: 400; }
 .application-field input,.application-field textarea,.application-field select { box-sizing: border-box; display: block; width: 100%; min-width: 0; min-height: 52px; padding: 13px 15px; border: 1px solid #867c9a; border-radius: 5px; background: #151326; color: #f4f1ff; font: 400 16px/1.5 var(--sans); color-scheme: dark; }
 .application-field textarea { min-height: 112px; resize: vertical; }
+.application-field input[type="file"] { padding: 10px; font-size: 14px; }
+.application-field input[type="file"]::file-selector-button { margin-right: 12px; padding: 8px 12px; border: 1px solid #867c9a; border-radius: 3px; background: #29243f; color: #f4f1ff; font: inherit; cursor: pointer; }
+.application-copy p.application-word-count.is-over-limit { color: #ffb6bf; }
 .application-field input::placeholder,.application-field textarea::placeholder { color: #bcb3ce; opacity: 1; }
 .application-field input:focus-visible,.application-field textarea:focus-visible,.application-field select:focus-visible,.application-form a:focus-visible,.application-submit:focus-visible { outline: 2px solid #b4c5ff; outline-offset: 4px; }
 .application-copy p.application-hint,.application-copy p.application-note { margin: 0; color: #c7bfd8; font-size: 13px; line-height: 1.65; }

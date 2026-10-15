@@ -77,4 +77,31 @@
   addEventListener('pageshow', () => restoreFromUrl(false));
   restoreFromUrl(false);
   if (location.hash) scheduleRestore();
+
+  document.querySelectorAll('[data-max-words]').forEach(field => {
+    const limit = Number(field.dataset.maxWords);
+    const counter = document.getElementById(`${field.id}-count`);
+    function validatePitch() {
+      const words = field.value.trim().match(/\S+/g)?.length || 0;
+      const overLimit = words > limit;
+      field.setCustomValidity(overLimit ? `Please keep your pitch to ${limit} words or fewer. You currently have ${words} words.` : '');
+      counter.textContent = `${words} / ${limit} words`;
+      counter.classList.toggle('is-over-limit', overLimit);
+    }
+    field.addEventListener('input', validatePitch);
+    addEventListener('pageshow', validatePitch);
+    validatePitch();
+  });
+
+  document.querySelectorAll('[data-max-file-bytes]').forEach(field => {
+    function validateResume() {
+      const file = field.files[0];
+      const allowedType = !file || /\.(pdf|doc|docx)$/i.test(file.name);
+      const allowedSize = !file || file.size <= Number(field.dataset.maxFileBytes);
+      field.setCustomValidity(!allowedType ? 'Please choose a PDF, DOC, or DOCX résumé.' : !allowedSize ? 'Please choose a résumé smaller than 5 MB.' : '');
+    }
+    field.addEventListener('change', validateResume);
+    addEventListener('pageshow', validateResume);
+    validateResume();
+  });
 })();
