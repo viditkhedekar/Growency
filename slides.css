@@ -21,6 +21,7 @@
 .posting-monument b { font-weight: 700; }
 .kairos-monument { font: 400 clamp(49px,7vw,105px) var(--serif); letter-spacing: -.035em; }
 .kairos-monument > span { font: 400 .73em var(--sans); letter-spacing: -.055em; }
+.infratex-monument { display: block; width: clamp(240px,54vw,640px); max-width: 100%; height: auto; }
 .monument-yc { border: 1px solid #fff3; border-radius: 4px; padding: 8px 10px; font-size: 11px; white-space: nowrap; color: #c9c2df; }
 .monument-arrow { position: absolute; right: 35px; font-size: 27px; color: #a69bbf; }
 .pitch-slide { display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; background: radial-gradient(ellipse at 70% 35%,#45307355,transparent 65%),#090619; color: var(--night-text); isolation: isolate; }

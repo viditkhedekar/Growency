@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a call | Growency</title>
+  <meta name="description" content="Book a 30-minute conversation with Growency. Tell us what you sell, who you want to reach, and where your pipeline needs to go.">
+  <meta name="theme-color" content="#291064">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-v2.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/landing.css?v=20261005-atmosphere-v11">
+  <link rel="stylesheet" href="/book.css?v=20261021">
+  <script src="/book.js?v=20261021" defer></script>
+  <noscript><style>.scheduler-stage { display: none; }</style></noscript>
+</head>
+<body class="booking-page">
+<svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="markClip" clipPathUnits="userSpaceOnUse"><circle cx="60" cy="60" r="51.2"/></clipPath>
+    <!-- the cover gradient's bright half, for dots, rings and the sparkline (styles.css: --grad-ui) -->
+    <linearGradient id="gradUi" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2AA3FC"/><stop offset=".5" stop-color="#4B6DF3"/><stop offset="1" stop-color="#5A3FD8"/>
+    </linearGradient>
+    <filter id="ink" x="-15%" y="-25%" width="130%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <symbol id="mark" viewBox="0 0 120 120">
+      <!-- A hand trace of the brand image. script.js reads the lattice from the first
+           path, the network from .mark__net, and the dots from the small circles. -->
+      <g clip-path="url(#markClip)" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M27.78 -14.40L11.68 -5.10 M27.78 -14.40L43.89 -5.10 M27.78 -14.40L27.78 4.20 M60.00 -14.40L43.89 -5.10 M60.00 -14.40L76.11 -5.10 M60.00 -14.40L60.00 4.20 M92.22 -14.40L76.11 -5.10 M92.22 -14.40L108.32 -5.10 M92.22 -14.40L92.22 4.20 M11.68 -5.10L11.68 13.50 M43.89 -5.10L43.89 13.50 M76.11 -5.10L76.11 13.50 M108.32 -5.10L108.32 13.50 M27.78 4.20L11.68 13.50 M27.78 4.20L43.89 13.50 M60.00 4.20L43.89 13.50 M60.00 4.20L76.11 13.50 M92.22 4.20L76.11 13.50 M92.22 4.20L108.32 13.50 M11.68 13.50L-4.43 22.80 M11.68 13.50L27.78 22.80 M11.68 13.50L11.68 32.10 M43.89 13.50L27.78 22.80 M43.89 13.50L60.00 22.80 M43.89 13.50L43.89 32.10 M76.11 13.50L60.00 22.80 M76.11 13.50L92.22 22.80 M76.11 13.50L76.11 32.10 M108.32 13.50L92.22 22.80 M108.32 13.50L124.43 22.80 M108.32 13.50L108.32 32.10 M-4.43 22.80L-4.43 41.40 M27.78 22.80L27.78 41.40 M60.00 22.80L60.00 41.40 M92.22 22.80L92.22 41.40 M124.43 22.80L124.43 41.40 M11.68 32.10L-4.43 41.40 M11.68 32.10L27.78 41.40 M43.89 32.10L27.78 41.40 M43.89 32.10L60.00 41.40 M76.11 32.10L60.00 41.40 M76.11 32.10L92.22 41.40 M108.32 32.10L92.22 41.40 M108.32 32.10L124.43 41.40 M-4.43 41.40L-20.54 50.70 M-4.43 41.40L11.68 50.70 M-4.43 41.40L-4.43 60.00 M27.78 41.40L11.68 50.70 M27.78 41.40L43.89 50.70 M27.78 41.40L27.78 60.00 M60.00 41.40L43.89 50.70 M60.00 41.40L76.11 50.70 M60.00 41.40L60.00 60.00 M92.22 41.40L76.11 50.70 M92.22 41.40L108.32 50.70 M92.22 41.40L92.22 60.00 M124.43 41.40L108.32 50.70 M124.43 41.40L140.54 50.70 M124.43 41.40L124.43 60.00 M-20.54 50.70L-20.54 69.30 M11.68 50.70L11.68 69.30 M43.89 50.70L43.89 69.30 M76.11 50.70L76.11 69.30 M108.32 50.70L108.32 69.30 M140.54 50.70L140.54 69.30 M-4.43 60.00L-20.54 69.30 M-4.43 60.00L11.68 69.30 M27.78 60.00L11.68 69.30 M27.78 60.00L43.89 69.30 M60.00 60.00L43.89 69.30 M60.00 60.00L76.11 69.30 M92.22 60.00L76.11 69.30 M92.22 60.00L108.32 69.30 M124.43 60.00L108.32 69.30 M124.43 60.00L140.54 69.30 M-20.54 69.30L-4.43 78.60 M11.68 69.30L-4.43 78.60 M11.68 69.30L27.78 78.60 M11.68 69.30L11.68 87.90 M43.89 69.30L27.78 78.60 M43.89 69.30L60.00 78.60 M43.89 69.30L43.89 87.90 M76.11 69.30L60.00 78.60 M76.11 69.30L92.22 78.60 M76.11 69.30L76.11 87.90 M108.32 69.30L92.22 78.60 M108.32 69.30L124.43 78.60 M108.32 69.30L108.32 87.90 M140.54 69.30L124.43 78.60 M-4.43 78.60L-4.43 97.20 M27.78 78.60L27.78 97.20 M60.00 78.60L60.00 97.20 M92.22 78.60L92.22 97.20 M124.43 78.60L124.43 97.20 M11.68 87.90L-4.43 97.20 M11.68 87.90L27.78 97.20 M43.89 87.90L27.78 97.20 M43.89 87.90L60.00 97.20 M76.11 87.90L60.00 97.20 M76.11 87.90L92.22 97.20 M108.32 87.90L92.22 97.20 M108.32 87.90L124.43 97.20 M-4.43 97.20L11.68 106.50 M27.78 97.20L11.68 106.50 M27.78 97.20L43.89 106.50 M27.78 97.20L27.78 115.80 M60.00 97.20L43.89 106.50 M60.00 97.20L76.11 106.50 M60.00 97.20L60.00 115.80 M92.22 97.20L76.11 106.50 M92.22 97.20L108.32 106.50 M92.22 97.20L92.22 115.80 M124.43 97.20L108.32 106.50 M11.68 106.50L11.68 125.10 M43.89 106.50L43.89 125.10 M76.11 106.50L76.11 125.10 M108.32 106.50L108.32 125.10 M27.78 115.80L11.68 125.10 M27.78 115.80L43.89 125.10 M60.00 115.80L43.89 125.10 M60.00 115.80L76.11 125.10 M92.22 115.80L76.11 125.10 M92.22 115.80L108.32 125.10 M11.68 125.10L27.78 134.40 M43.89 125.10L27.78 134.40 M43.89 125.10L60.00 134.40 M76.11 125.10L60.00 134.40 M76.11 125.10L92.22 134.40 M108.32 125.10L92.22 134.40"/></g>
+      <path class="mark__net" d="M27.78 78.60L43.89 69.30L60.00 97.20L76.11 69.30L92.22 60.00L92.22 41.40" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="mark__nodes" fill="var(--mark-hole,#06060C)" stroke="currentColor" stroke-width="1.7"><circle cx="27.78" cy="78.60" r="3.8"/><circle cx="43.89" cy="69.30" r="3.8"/><circle cx="60.00" cy="97.20" r="3.8"/><circle cx="76.11" cy="69.30" r="3.8"/><circle cx="92.22" cy="60.00" r="3.8"/><circle cx="92.22" cy="41.40" r="3.8"/></g>
+      <circle cx="60" cy="60" r="53" fill="none" stroke="currentColor" stroke-width="3"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+<div class="booking-world">
+  <div class="booking-texture" aria-hidden="true"></div>
+  <header class="booking-header booking-wrap">
+    <a class="brand" href="/" aria-label="Growency home"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg><span>Growency</span></a>
+    <nav class="booking-nav" aria-label="Primary navigation"><a href="/#work">Worked with</a><a href="/#approach">The workflow</a><a href="/#pricing">Pricing</a></nav>
+    <a class="booking-back" href="/"><span aria-hidden="true">↖</span> Back to the site</a>
+  </header>
+  <main id="main" class="booking-wrap">
+    <section class="booking-intro" aria-labelledby="booking-title">
+      <div><p class="booking-kicker"><span aria-hidden="true"></span> THE NEXT CONVERSATION</p><h1 id="booking-title">Let’s talk <em>growth.</em></h1></div>
+      <p>Your business. Your next move.<br> Thirty minutes to explore what’s possible.</p>
+    </section>
+    <section class="booking-card" aria-label="Book a 30-minute call with Growency">
+      <aside class="booking-context" aria-labelledby="call-title">
+        <div class="booking-host"><img src="/assets/team/vidit-khedekar.png" alt="" width="64" height="64"><div><span>YOUR CONVERSATION WITH</span><p>Vidit Khedekar</p><small>COO, Growency</small></div></div>
+        <h2 id="call-title">Your next chapter.<br><em>Starts here.</em></h2>
+        <div class="booking-duration"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>30-minute introduction</span></div>
+        <p class="booking-summary">Tell us what you sell, who you want to reach, and where your pipeline needs to go. We’ll talk through how we could help.</p>
+        <div class="booking-agenda"><p class="booking-small-label">A LITTLE CONTEXT GOES A LONG WAY</p><ol><li><span>01</span>Your offer and ideal customers</li><li><span>02</span>What’s working. What’s missing.</li><li><span>03</span>Whether a one-week pilot fits</li></ol></div>
+        <div class="booking-note"><span aria-hidden="true">↗</span><p>A conversation, with no commitment.<br>Let’s see where it takes us.</p></div>
+      </aside>
+      <div class="booking-scheduler">
+        <div class="scheduler-heading"><h2 id="scheduler-title">Find a time that works.</h2><span class="scheduler-label">YOUR CALENDAR, YOUR TIME ZONE</span></div>
+        <div class="scheduler-stage" id="scheduler-stage" aria-busy="true">
+          <div id="calendly-embed" class="booking-embed" data-url="https://calendly.com/vidit-khedekar/30min"></div>
+          <div class="scheduler-feedback" id="scheduler-feedback"><span class="booking-spinner" aria-hidden="true"></span><p id="scheduler-status" role="status" aria-live="polite">Loading available times…</p><button class="booking-retry" id="booking-retry" type="button" hidden>Try again <span aria-hidden="true">↻</span></button><a class="feedback-direct" href="https://calendly.com/vidit-khedekar/30min" target="_blank" rel="noopener noreferrer">Open Calendly <span aria-hidden="true">↗</span></a></div>
+        </div>
+        <noscript><div class="booking-noscript">To see available times, <a href="https://calendly.com/vidit-khedekar/30min" target="_blank" rel="noopener noreferrer">book directly on Calendly ↗</a>.</div></noscript>
+        <div class="scheduler-footer"><span>Booked through Calendly. Confirmation by email.</span><a href="https://calendly.com/vidit-khedekar/30min" target="_blank" rel="noopener noreferrer">Open in a new tab <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+    <div class="booking-alternative"><p>Prefer to say hello first?</p><a href="https://www.linkedin.com/in/vidit-khedekar/" target="_blank" rel="noopener noreferrer">Message Vidit on LinkedIn <span aria-hidden="true">↗</span></a></div>
+    <section class="booking-clients" aria-label="Worked with"><p class="booking-small-label">IN GOOD COMPANY. WORKED WITH</p><div><span class="booking-posting">posting<strong>machine.</strong></span><span class="booking-kairos">Kairos <span>Health</span><small>YC F26</small></span><img src="/assets/clients/infratex-dark.svg" alt="Infratex" width="150" height="44"></div></section>
+  </main>
+  <footer class="booking-footer booking-wrap"><p>© 2026 Growency</p><p>The hedge fund for sales.</p><nav aria-label="Footer navigation"><a href="/contact">Contact</a><a href="/privacy">Privacy</a></nav></footer>
+</div>
+</body>
+</html>
