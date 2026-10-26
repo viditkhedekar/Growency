@@ -93,12 +93,22 @@
 .step-node::before { content: ''; position: absolute; inset: -10px; border: 1px solid #a990c522; border-radius: 23px; }
 .journey { background-image: radial-gradient(#8b76a918 .7px,transparent .7px); background-size: 24px 24px; }
 @media (hover:hover) and (pointer:fine) {
-  body { cursor: url('assets/cursor.svg') 4 4, auto; }
-  a,button,summary,[role="tab"],[data-info] { cursor: url('assets/cursor-link.svg') 9 9, pointer; }
-  input,textarea { cursor: text; }
-  .cursor-halo { position: fixed; top: 0; left: 0; z-index: 90; width: 32px; height: 32px; margin: -16px 0 0 -16px; border: 1px solid #ac96d985; border-radius: 50%; background: #9580c708; pointer-events: none; opacity: 0; transition: width .2s,height .2s,margin .2s,opacity .2s; }
+  body { cursor: url('assets/cursor.svg?v=20261026-plus') 12 12, crosshair; }
+  html body :is(a,button,summary,[role="tab"],[data-info]) { cursor: url('assets/cursor-link.svg?v=20261026-plus') 14 14, pointer; }
+  html body :is(input,textarea,[contenteditable="true"]) { cursor: text; }
+  html body :is(button:disabled,[aria-disabled="true"]) { cursor: not-allowed; }
+}
+.cursor-halo { display: none; }
+@media (hover:hover) and (pointer:fine) {
+  .cursor-halo { display: flex; align-items: center; position: fixed; top: 0; left: 0; z-index: 100; width: 40px; height: 40px; margin: -20px 0 0 -20px; border: 1px solid #fffefb80; border-radius: 999px; background: #fffefb12; box-shadow: 0 0 0 1px #30234f12; color: #30234f; pointer-events: none; opacity: 0; transition: width .22s cubic-bezier(.2,.8,.2,1),margin-left .22s cubic-bezier(.2,.8,.2,1),background .18s,border-color .18s,opacity .12s; }
   .cursor-halo.is-visible { opacity: 1; }
-  .cursor-halo.is-link { width: 48px; height: 48px; margin: -24px 0 0 -24px; background: #ad91d518; }
+  .cursor-halo.is-link { width: var(--cursor-width,96px); background: #fffefbe8; border-color: #fffefbd9; box-shadow: 0 3px 14px #130a2720; }
+  .cursor-label { width: 100%; padding: 0 14px 0 40px; font: 500 11px/1 var(--sans); white-space: nowrap; opacity: 0; transition: opacity .12s; }
+  .cursor-halo.is-link .cursor-label { opacity: 1; transition-delay: .06s; }
+  .cursor-halo.opens-left.is-link { margin-left: calc(20px - var(--cursor-width,96px)); }
+  .cursor-halo.opens-left .cursor-label { padding: 0 40px 0 14px; }
+  .cursor-halo.is-text { opacity: 0; }
+  .cursor-halo.is-pressed { background: #e7e0fff2; }
 }
 @media (max-width:1000px) {
   .hero { column-gap: 70px; padding-block: 50px 70px; }

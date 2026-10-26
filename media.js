@@ -1,5 +1,5 @@
 /* Add the supplied video URL or a project-relative path here when it is ready.
-   The subdued editorial poster stays visible until the film is supplied. */
+   The coming-soon placeholder stays visible until the film is supplied. */
 window.GROWENCY_MEDIA = { heroVideo: '' };
 (() => {
   const video = document.querySelector('#hero-video');
@@ -7,6 +7,7 @@ window.GROWENCY_MEDIA = { heroVideo: '' };
   if (!video || !source) return;
   const play = document.querySelector('#film-play');
   const status = document.querySelector('.film-status');
+  video.hidden = false;
   video.src = source;
   video.addEventListener('loadeddata', () => {
     video.closest('.brand-world').classList.add('has-video');
@@ -28,8 +29,9 @@ window.GROWENCY_MEDIA = { heroVideo: '' };
   video.addEventListener('error', () => {
     video.closest('.brand-world').classList.remove('has-video');
     play.disabled = true;
-    play.setAttribute('aria-label', 'Growency film coming soon');
-    status.textContent = 'Coming soon';
+    video.hidden = true;
+    play.setAttribute('aria-label', 'Growency demo video coming soon');
+    status.textContent = 'Demo video coming soon';
   });
   video.load();
 })();

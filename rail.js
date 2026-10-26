@@ -66,7 +66,7 @@
     if(!geometry)return;
     const {height,entry,exit,centre,right,radius}=geometry;
     const clearance=innerWidth<=700?16:32,intervals=[];
-    const selector='.header,.hero-copy,.film-frame,.client-monument,.founder-content,.team-card,.term-sheet,.qa,.workflow-stage,.footer-layout,h1,h2,h3,p,a,button,label,figcaption,.footer-fine,.hero-actions,.hero-principles,.pilot-fit li';
+    const selector='.minimal-hero,.header,.hero-copy,.film-frame,.client-monument,.founder-content,.team-card,.term-sheet,.qa,.workflow-stage,.footer-layout,h1,h2,h3,p,a,button,label,figcaption,.footer-fine,.hero-actions,.hero-principles,.pilot-fit li';
     document.querySelectorAll(selector).forEach(el=>{
       if(el.closest('[hidden],[inert],.site-rail,.scene-node,.step-node,.journey-dock,.meeting-shortcut') || el.getAttribute('aria-hidden')==='true')return;
       const r=el.getBoundingClientRect(),top=r.top+scrollY,bottom=r.bottom+scrollY;
@@ -126,16 +126,55 @@
     document.fonts?.ready.then(scheduleMeasure);scheduleMeasure();
   }
 
-  // Native SVG cursor plus a lightweight halo; native text/drag cursors still apply.
+  // The native plus stays precise; only its light surround expands on actions.
   if(matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    const halo=document.createElement('div');halo.className='cursor-halo';halo.setAttribute('aria-hidden','true');document.body.append(halo);
-    let pointerFrame=0,x=0,y=0;
+    const halo=document.createElement('div');
+    halo.className='cursor-halo';halo.setAttribute('aria-hidden','true');
+    const label=document.createElement('span');label.className='cursor-label';
+    halo.append(label);document.body.append(halo);
+    let frame=0,x=0,y=0,active=null,width=40;
+    const actionSelector='a[href],button,summary,[role="tab"],[data-info]';
+    function actionLabel(el) {
+      if(el.dataset.cursor)return el.dataset.cursor;
+      const href=el.getAttribute('href')||'';
+      if(/(?:^|\/)book(?:[?#/]|$)|calendly\.com/.test(href))return 'Book';
+      if(el.matches('summary'))return el.closest('details')?.open?'Close':'Open';
+      if(el.matches('[data-info]'))return 'Info';
+      if(el.matches('.motion-toggle'))return el.getAttribute('aria-pressed')==='true'?'Resume':'Pause';
+      if(el.matches('.journey-dock'))return 'Next';
+      if(href==='#approach')return 'Explore';
+      if(href==='#top')return 'Home';
+      if(href.startsWith('mailto:'))return 'Email';
+      if(/^https?:/.test(href))return 'Visit';
+      return el.matches('a')?'View':'Select';
+    }
+    function target(el) {
+      const action=el.closest(actionSelector);
+      const next=action&&!action.matches(':disabled,[aria-disabled="true"]')?action:null;
+      if(next!==active) {
+        active=next;label.textContent=next?actionLabel(next):'';
+        width=next?Math.max(88,Math.min(152,54+label.textContent.length*7)):40;
+        halo.style.setProperty('--cursor-width',`${width}px`);
+        halo.classList.toggle('is-link',!!next);
+      }
+      halo.classList.toggle('is-text',!!el.closest('input,textarea,[contenteditable="true"]'));
+      halo.classList.toggle('opens-left',!!next&&x+width-20>innerWidth-12);
+    }
     document.addEventListener('pointermove',e=>{
-      x=e.clientX;y=e.clientY;halo.classList.add('is-visible');
-      halo.classList.toggle('is-link',!!e.target.closest('a,button,summary,[data-info]'));
-      if(!pointerFrame)pointerFrame=requestAnimationFrame(()=>{halo.style.transform=`translate3d(${x}px,${y}px,0)`;pointerFrame=0;});
+      if(e.pointerType==='touch')return;
+      x=e.clientX;y=e.clientY;target(e.target);halo.classList.add('is-visible');
+      if(!frame)frame=requestAnimationFrame(()=>{halo.style.transform=`translate3d(${x}px,${y}px,0)`;frame=0;});
     },{passive:true});
-    document.addEventListener('pointerout',e=>{if(!e.relatedTarget)halo.classList.remove('is-visible');});
-    document.addEventListener('focusin',()=>halo.classList.remove('is-visible'));
+    const release=()=>halo.classList.remove('is-pressed');
+    const hide=()=>{release();halo.classList.remove('is-visible');};
+    document.addEventListener('pointerdown',e=>{if(e.pointerType!=='touch'&&e.button===0)halo.classList.add('is-pressed');},{passive:true});
+    document.addEventListener('pointerup',()=>{release();if(active)label.textContent=actionLabel(active);},{passive:true});
+    document.addEventListener('toggle',()=>{if(active)label.textContent=actionLabel(active);},true);
+    document.addEventListener('pointercancel',hide,{passive:true});
+    document.addEventListener('pointerout',e=>{if(!e.relatedTarget)hide();});
+    document.addEventListener('keydown',e=>{if(e.key==='Tab')hide();});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});
+    window.addEventListener('blur',hide);
+    window.addEventListener('scroll',()=>{const el=document.elementFromPoint(x,y);if(el)target(el);},{passive:true});
   }
 })();

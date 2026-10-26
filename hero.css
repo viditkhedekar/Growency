@@ -1,0 +1,199 @@
+/* A centred, quieter hero. Colours and typography come from Growency's
+   existing brand; all overrides are scoped to the homepage hero. */
+#top.minimal-hero {
+  background: var(--brand-gradient);
+  padding-bottom: 48px;
+  --mark-hole: transparent;
+}
+#top.minimal-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg, #09061908 0%, #0906190d 45%, #090619c7 100%);
+}
+/* The chapter rail continues below the hero, without decoration in this frame. */
+#top.minimal-hero > .page-netting,
+#top.minimal-hero > .scene-node { display: none; }
+#top.minimal-hero .atmosphere { opacity: .035; }
+html:not([data-scene]) .minimal-home .meeting-shortcut,
+html[data-scene="0"] .minimal-home .meeting-shortcut { visibility: hidden; }
+#top.minimal-hero .header {
+  height: 80px;
+  min-height: 80px;
+  border: 0;
+  z-index: 10;
+}
+#top.minimal-hero .brand svg { width: 34px; height: 34px; }
+#top.minimal-hero .brand > span { font-size: 25px; letter-spacing: -1.2px; }
+#top.minimal-hero .navigation { margin-left: auto; margin-right: 48px; }
+#top.minimal-hero .nav-cta { min-height: 44px; border-radius: 7px; gap: 20px; }
+#top.minimal-hero .hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  min-height: 0;
+  height: auto;
+  max-height: none;
+  padding-block: 50px 0;
+  text-align: center;
+}
+#top.minimal-hero .hero-copy {
+  width: 100%;
+  max-width: 1020px;
+  padding: 0;
+}
+#top.minimal-hero .hero-copy > * { animation: none; }
+#top.minimal-hero .eyebrow {
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  margin: 0 0 22px;
+  color: #fffefbe6;
+}
+#top.minimal-hero h1 {
+  max-width: none;
+  margin: 0;
+  font: 400 clamp(52px, 6.1vw, 88px)/1.02 var(--serif);
+  letter-spacing: -.025em;
+  color: var(--ink);
+}
+#top.minimal-hero .headline-lead,
+#top.minimal-hero .headline-result { display: block; }
+#top.minimal-hero h1 strong {
+  font: italic 400 1em/1.08 var(--serif);
+  letter-spacing: inherit;
+  padding-right: .04em;
+}
+#top.minimal-hero h1 .headline-close {
+  display: block;
+  margin-top: 14px;
+  font-size: .63em;
+  line-height: 1.12;
+  color: #fffefbd9;
+}
+#top.minimal-hero .hero-description {
+  max-width: 545px;
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #fffefbe6;
+}
+#top.minimal-hero .hero-actions {
+  justify-content: center;
+  flex-direction: row;
+  gap: 26px;
+  margin-top: 26px;
+}
+#top.minimal-hero .button-primary {
+  min-height: 48px;
+  padding: 5px 7px 5px 20px;
+  gap: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px #0906191a;
+}
+#top.minimal-hero .button-arrow { width: 32px; height: 32px; }
+#top.minimal-hero .button-text { font-size: 13px; gap: 10px; }
+#top.minimal-hero .hero-media {
+  width: min(100%, 1060px);
+  margin-top: 50px;
+  padding-bottom: 0;
+}
+#top.minimal-hero .film-frame {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  min-height: 290px;
+  border: 1px solid #ffffff45;
+  border-radius: 14px;
+  background: linear-gradient(120deg, #192750e6, #19112ff2);
+  box-shadow: 0 24px 65px #09061926, inset 0 1px 0 #ffffff0a;
+}
+#top.minimal-hero .film-topline {
+  inset: 22px 26px auto;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #fffefbb3;
+}
+#top.minimal-hero .film-topline > span:last-child { letter-spacing: 0; font-size: 11px; }
+#top.minimal-hero .film-placeholder {
+  position: absolute;
+  inset: 50px 20px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+#top.minimal-hero .film-play {
+  position: static;
+  transform: none;
+  width: 62px;
+  height: 62px;
+  flex: 0 0 62px;
+  border-color: #ffffff45;
+  background: #ffffff08;
+  backdrop-filter: none;
+  opacity: 1;
+  font-size: 28px;
+}
+#top.minimal-hero .film-play > span { margin-left: 3px; }
+#top.minimal-hero .film-status {
+  border: 0;
+  padding: 0;
+  font-size: 15px;
+  color: #fffefbd9;
+}
+#top.minimal-hero .film-caption {
+  inset: auto 20px 25px;
+  text-align: center;
+}
+#top.minimal-hero .film-caption > span { font-size: 17px; line-height: 1.4; letter-spacing: -.2px; color: #fffefbc7; }
+#top.minimal-hero .film-caption em { font: italic 1.2em var(--serif); }
+#top.minimal-hero .hero-principles {
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 11px;
+  color: #fffefbbf;
+}
+#top.minimal-hero .hero-video[hidden] { display: none; }
+#top.minimal-hero.has-video .film-topline,
+#top.minimal-hero.has-video .film-caption,
+#top.minimal-hero.has-video .film-status { display: none; }
+#top.minimal-hero.has-video .film-placeholder { inset: auto 20px 20px; align-items: flex-end; }
+#top.minimal-hero.has-video .film-play { width: 44px; height: 44px; flex-basis: 44px; font-size: 20px; }
+@media (max-width: 960px) {
+  #top.minimal-hero .header.wrap { height: 80px; min-height: 80px; }
+  #top.minimal-hero .hero { padding-top: 42px; }
+  #top.minimal-hero .hero-media { margin-top: 42px; }
+}
+@media (max-width: 700px) {
+  #top.minimal-hero { padding-bottom: 32px; }
+  #top.minimal-hero .hero.wrap { width: calc(100% - 40px); padding-top: 34px; }
+  #top.minimal-hero .brand svg { width: 30px; height: 30px; }
+  #top.minimal-hero .brand > span { font-size: 23px; }
+  #top.minimal-hero .eyebrow { font-size: 9px; letter-spacing: 1.4px; margin-bottom: 22px; }
+  #top.minimal-hero h1 { font-size: clamp(38px, 7.9vw, 55px); line-height: 1.08; }
+  #top.minimal-hero h1 .headline-close { font-size: .72em; margin-top: 14px; }
+  #top.minimal-hero .hero-description { max-width: 420px; font-size: 14px; margin-top: 22px; }
+  #top.minimal-hero .hero-actions { gap: 10px 20px; flex-wrap: wrap; margin-top: 22px; }
+  #top.minimal-hero .hero-media { margin-top: 34px; }
+  #top.minimal-hero .film-frame { aspect-ratio: 4 / 3; min-height: 250px; border-radius: 10px; }
+  #top.minimal-hero .film-topline { inset: 17px 17px auto; font-size: 8px; }
+  #top.minimal-hero .film-topline > span:last-child { display: none; }
+  #top.minimal-hero .film-placeholder { inset-block: 40px 56px; gap: 14px; }
+  #top.minimal-hero .film-play { width: 52px; height: 52px; flex-basis: 52px; font-size: 25px; }
+  #top.minimal-hero .film-status { font-size: 13px; }
+  #top.minimal-hero .film-caption { inset: auto 14px 18px; }
+  #top.minimal-hero .film-caption > span { font-size: 14px; }
+  #top.minimal-hero .film-caption em { display: block; }
+  #top.minimal-hero .hero-principles { font-size: 10px; gap: 12px; margin-top: 18px; }
+  #top.minimal-hero .hero-principles span + span { padding-left: 12px; }
+}
+@media (max-width: 380px) {
+  #top.minimal-hero .brand > span { font-size: 21px; }
+  #top.minimal-hero .brand svg { width: 28px; height: 28px; }
+  #top.minimal-hero h1 { font-size: 34px; }
+}

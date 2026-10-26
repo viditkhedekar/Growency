@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="landing.css?v=20261005-atmosphere-v11">
   <link rel="stylesheet" href="slides.css?v=20261020-infratex">
-  <link rel="stylesheet" href="premium.css?v=20261005-atmosphere-v11">
+  <link rel="stylesheet" href="premium.css?v=20261026-cursor-pill">
   <link rel="stylesheet" href="netting.css?v=20261006-mobile-scroll-v23">
   <link rel="stylesheet" href="backgrounds.css?v=20261006-mobile-scroll-v23">
   <link rel="stylesheet" href="pages.css?v=20261005-navigation-v14">
@@ -23,8 +23,9 @@
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="stylesheet" href="assets/vendor/lenis/lenis.css?v=1.3.26">
 <link rel="stylesheet" href="smooth-scroll.css?v=20261005-scroll-v15">
+  <link rel="stylesheet" href="hero.css?v=20261026-minimal">
 </head>
-<body>
+<body class="minimal-home">
 <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
   <defs>
     <clipPath id="markClip" clipPathUnits="userSpaceOnUse"><circle cx="60" cy="60" r="51.2"/></clipPath>
@@ -49,11 +50,8 @@
 <a class="skip" href="#main">Skip to content</a>
 <div class="site-rail" aria-hidden="true"><div class="site-rail-fill"></div><span class="site-traveller"><svg viewBox="0 0 120 120"><use href="#mark"/></svg></span></div>
 <main id="main">
-<div class="brand-world slide" id="top">
-  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/leads.webp" alt="" width="1536" height="1024" loading="eager" decoding="async"><span class="slide-photo-tint"></span></div>
+<div class="brand-world slide minimal-hero" id="top">
   <div class="atmosphere" aria-hidden="true"></div>
-  <div class="orbital orbital--one" aria-hidden="true"></div>
-  <div class="orbital orbital--two" aria-hidden="true"></div>
   <header class="header wrap">
     <a class="brand" href="#top" aria-label="Growency home">
       <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
@@ -69,22 +67,22 @@
   <details class="mobile-menu"><summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path class="menu-open" d="M4 8h16M4 16h16"/><path class="menu-close" d="m6 6 12 12M18 6 6 18"/></svg><span class="sr-only">Menu</span></summary><nav aria-label="Mobile navigation"><a href="#work">Worked with</a><a href="#approach">The workflow</a><a href="#pricing">Pricing</a><a href="/careers">Careers</a><a href="/contact">Contact us</a></nav></details></header>
   <section class="hero wrap" aria-labelledby="hero-heading">
     <div class="hero-copy">
-      <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>The hedge fund for sales</p>
-      <h1 id="hero-heading">Our salespeople get you <strong>booked calls</strong> in days.<span class="headline-close">You close the deal.</span></h1>
+      <p class="eyebrow">The hedge fund for sales</p>
+      <h1 id="hero-heading"><span class="headline-lead">Our salespeople get you</span> <span class="headline-result"><strong>booked calls</strong> in days.</span><span class="headline-close">You close the deal.</span></h1>
       <p class="hero-description">We scout for the right people. Start the right conversations. And get opportunities on your calendar.</p>
       <div class="hero-actions"><a class="button-primary" href="/book">Let’s talk growth <span class="button-arrow" aria-hidden="true">↗</span></a><a class="button-text" href="#approach">Explore the workflow <span aria-hidden="true">↓</span></a></div>
-      <div class="hero-principles"><span>Human-led.</span><span>Built around your business.</span></div>
     </div>
     <div class="hero-media">
-      <div class="film-frame" data-cursor="View">
-        <img class="film-poster" src="assets/editorial/meeting.webp" alt="Motion-blurred business meeting in Growency blue and violet" fetchpriority="high" width="1536" height="1024">
-        <video class="hero-video" id="hero-video" muted loop playsinline preload="none" poster="assets/editorial/meeting.webp" aria-label="Inside Growency"></video>
-        <div class="film-shade" aria-hidden="true"></div>
-        <div class="film-topline"><span>GROWENCY / THE FILM</span><span class="film-status">Coming soon</span></div>
-        <button class="film-play" type="button" id="film-play" disabled aria-label="Growency film coming soon"><span aria-hidden="true">▷</span></button>
-        <div class="film-caption"><span>From first contact.<br><em>To your next conversation.</em></span><small>Human-led sales in motion.</small></div>
+      <div class="film-frame">
+        <video class="hero-video" id="hero-video" muted loop playsinline preload="none" aria-label="Inside Growency" hidden></video>
+        <div class="film-topline"><span>GROWENCY / THE FILM</span><span>Human-led sales in motion.</span></div>
+        <div class="film-placeholder">
+          <button class="film-play" type="button" id="film-play" disabled aria-label="Growency demo video coming soon"><span aria-hidden="true">▷</span></button>
+          <p class="film-status">Demo video coming soon</p>
+        </div>
+        <div class="film-caption"><span>From first contact. <em>To your next conversation.</em></span></div>
       </div>
-
+      <div class="hero-principles"><span>Human-led.</span><span>Built around your business.</span></div>
     </div>
   </section>
 </div>
@@ -202,11 +200,11 @@ Vidit</span><i class="email-caret" aria-hidden="true"></i></div><div class="camp
 <footer class="site-footer">
   <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/leads.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap footer-layout"><div><a class="footer-brand" href="#top">Growency</a><p>The hedge fund for sales.</p></div><nav aria-label="Comparisons"><span>COMPARE</span><a href="/compare/apollo">Growency vs Apollo</a><a href="/compare/clay">Growency vs Clay</a><a href="/compare/11x">Growency vs 11x</a><a href="/compare/artisan">Growency vs Artisan</a><a href="/compare/belkins">Growency vs Belkins</a><a href="/compare/cience">Growency vs CIENCE</a></nav><nav aria-label="Company"><span>COMPANY</span><a href="/careers">Careers</a><a href="/contact">Contact us</a><a href="#pricing">Pricing</a><a href="#team">The team</a><a href="#pilot">The pilot</a><a href="#faq">Questions</a><a href="/privacy">Privacy policy</a><a href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></nav></div><div class="wrap footer-fine">© 2026 Growency. Campaign illustrations use fictional companies and contacts. Terms, pricing and scope are agreed in writing after the pilot.</div></footer>
 <a class="meeting-shortcut" href="/book" aria-label="Book a meeting with Growency" data-info="Let’s talk about your pipeline. Book a 30-minute call with Vidit."><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18m-13 5 3 3 5-5"/></svg></span><b>Book a meeting</b></a>
-<script src="media.js?v=20261005-atmosphere-v11" defer></script>
+<script src="media.js?v=20261026-minimal" defer></script>
 <script src="demo-scroll.js?v=20261006-mobile-scroll-v23" defer></script>
 <script src="landing.js?v=20261006-mobile-scroll-v23" defer></script>
 <script src="campaign.js?v=20261014-punctuation-v24" defer></script>
-<script src="rail.js?v=20261006-mobile-scroll-v23" defer></script>
+<script src="rail.js?v=20261026-cursor-pill" defer></script>
 <script src="interactions.js?v=20261005-atmosphere-v11" defer></script>
 <script src="fluid.js?v=20261006-mobile-scroll-v23" defer></script>
 <script src="netting.js?v=20261005-atmosphere-v11" defer></script>
