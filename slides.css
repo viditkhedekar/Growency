@@ -59,13 +59,7 @@
 .team-card h3 { font-size: 17px; font-weight: 600; letter-spacing: -.6px; }
 .team-card .team-role { font-size: 10px; letter-spacing: 1px; margin: 7px 0 10px; color: #9cafff; }
 .team-card p:last-child { font-size: 13px; line-height: 1.65; color: #aaa0c4; }
-.pilot-slide { background: #f8f7f3; padding-block: 100px; }
-.pilot-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 70px; align-items: end; margin-bottom: 65px; }
-.pilot-intro .section-label { grid-column: 1/-1; margin: 0; }
-.pilot-intro h2 { font-size: clamp(48px,5vw,72px); font-weight: 400; letter-spacing: -.055em; line-height: 1.02; }
-.pilot-intro h2 em { font: italic 1.17em var(--serif); color: #604b89; }
-.pilot-intro > p:last-child { font-size: 15px; line-height: 1.85; color: #7a6f86; max-width: 450px; padding-bottom: 8px; }
-.pilot-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 85px; align-items: center; }
+
 .term-sheet { position: relative; background: #fffefb; border: 1px solid #e0d9e6; border-radius: 8px; padding: 30px; box-shadow: 0 18px 35px -25px #49375855; }
 .term-sheet header { display: flex; justify-content: space-between; padding-bottom: 23px; border-bottom: 1px solid #e7e1ed; font-size: 12px; }
 .term-sheet header span:last-child { font-size: 10px; color: #8d799f; }
@@ -79,10 +73,7 @@
 .term-signature { display: flex; align-items: center; margin: 23px 0; justify-content: space-between; }
 .term-signature > span { font: italic 23px var(--serif); color: #796286; }
 .term-signature svg { width: 180px; height: 55px; fill: none; stroke: #827095; stroke-width: 1.4; }
-.pilot-fit h3 { font: italic 46px var(--serif); color: #514061; margin-bottom: 30px; }
-.pilot-fit ul { padding: 0; list-style: none; margin: 0; }
-.pilot-fit li { position: relative; padding: 17px 0 17px 28px; border-bottom: 1px solid #ded6e6; font-size: 14px; line-height: 1.7; color: #7a6a88; }
-.pilot-fit li::before { content: '↗'; position: absolute; left: 0; color: #8b70ac; }
+
 .restored-faq { background: #090619; color: var(--night-text); padding-block: 120px; display: flex; align-items: center; }
 .faq__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
 .section-heading { font: 400 clamp(46px,4.5vw,68px)/1.05 var(--serif); letter-spacing: -.03em; }
@@ -121,7 +112,7 @@
 .info-trigger { position: relative; }
 .info-popover { position: fixed; z-index: 30; max-width: 270px; padding: 16px 18px; border: 1px solid #dcd0e8; border-radius: 7px; background: #fffdf9; box-shadow: 0 10px 30px #25183422; color: #756083; font: 12px/1.7 var(--sans); pointer-events: auto; }
 .info-popover[hidden] { display: none; }
-@media (max-width: 1000px) { .team-layout { gap: 35px; grid-template-columns: .7fr 1.3fr; } .pilot-layout { gap: 45px; } .faq__grid { gap: 45px; } .team-card { padding: 20px; gap: 15px; } .team-monogram { flex-basis: 52px; width: 52px; height: 52px; } .pipeline-overview { gap: 8px; flex-wrap: wrap; } }
+@media (max-width: 1000px) { .team-layout { gap: 35px; grid-template-columns: .7fr 1.3fr; } .faq__grid { gap: 45px; } .team-card { padding: 20px; gap: 15px; } .team-monogram { flex-basis: 52px; width: 52px; height: 52px; } .pipeline-overview { gap: 8px; flex-wrap: wrap; } }
 @media (max-width: 700px) {
   .hero { min-height: calc(100svh - 86px); padding-top: 75px; }
   .clients-content { padding-block: 80px; }
@@ -147,17 +138,12 @@
   .team-card { padding: 20px 16px; gap: 13px; }
   .team-card h3 { font-size: 15px; }
   .team-card p:last-child { font-size: 12px; }
-  .pilot-slide { padding-block: 75px; }
-  .pilot-intro { grid-template-columns: 1fr; gap: 23px; margin-bottom: 40px; }
-  .pilot-intro h2 { font-size: 53px; }
-  .pilot-intro > p:last-child { font-size: 13px; }
-  .pilot-layout { grid-template-columns: 1fr; gap: 50px; }
+
   .term-sheet { padding: 23px; }
   .term-sheet dd { font-size: 12px; }
   .term-signature svg { width: 130px; }
   .term-signature > span { font-size: 21px; }
-  .pilot-fit h3 { font-size: 40px; margin-bottom: 20px; }
-  .pilot-fit li { font-size: 13px; }
+
   .restored-faq { padding-block: 80px; }
   .faq__grid { grid-template-columns: 1fr; gap: 40px; }
   .section-heading { font-size: 47px; }

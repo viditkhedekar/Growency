@@ -1,0 +1,4 @@
+interface:
+  display_name: "Growency Lead Research"
+  short_description: "Quick lead research in five useful bullets"
+  default_prompt: "Use $growency-lead-research with this client brief and lead input for quick research: about five concise, sourced bullets per company, including a useful angle and fit caveat."

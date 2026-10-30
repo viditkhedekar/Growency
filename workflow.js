@@ -244,7 +244,7 @@
     if (delivery !== 'replied' && delivery !== 'agreed') return;
     if (outcome.value !== 'interested' && document.querySelector('#reply-book').textContent.includes('handle')) {
       reply.querySelector('b').textContent = outcome.value === 'question'
-        ? '“Terms, pricing and scope are agreed after the pilot.”'
+        ? '“Terms, pricing and scope are agreed before work begins.”'
         : '“Thanks. We’ll take the introduction from here.”';
       document.querySelector('#reply-book').textContent = 'Pick a time →';
       activity('A person handles the reply and next step');

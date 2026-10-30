@@ -13,8 +13,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/landing.css?v=20261005-atmosphere-v11">
   <link rel="stylesheet" href="/book.css?v=20261021">
-  <script src="/book.js?v=20261021" defer></script>
+  <script src="/book.js?v=20261030-calendar-icon" defer></script>
   <noscript><style>.scheduler-stage { display: none; }</style></noscript>
+  <link rel="stylesheet" href="icons.css?v=20261030-custom-icons">
 </head>
 <body class="booking-page">
 <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
@@ -48,20 +49,20 @@
   </header>
   <main id="main" class="booking-wrap">
     <section class="booking-intro" aria-labelledby="booking-title">
-      <div><p class="booking-kicker"><span aria-hidden="true"></span> THE NEXT CONVERSATION</p><h1 id="booking-title">Let’s talk <em>growth.</em></h1></div>
+      <div><p class="booking-kicker"><img class="site-icon icon-label" src="assets/icons/message.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async"> THE NEXT CONVERSATION</p><h1 id="booking-title">Let’s talk <em>growth.</em></h1></div>
       <p>Your business. Your next move.<br> Thirty minutes to explore what’s possible.</p>
     </section>
     <section class="booking-card" aria-label="Book a 30-minute call with Growency">
       <aside class="booking-context" aria-labelledby="call-title">
         <div class="booking-host"><img src="/assets/team/vidit-khedekar.png" alt="" width="64" height="64"><div><span>YOUR CONVERSATION WITH</span><p>Vidit Khedekar</p><small>COO, Growency</small></div></div>
         <h2 id="call-title">Your next chapter.<br><em>Starts here.</em></h2>
-        <div class="booking-duration"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>30-minute introduction</span></div>
+        <div class="booking-duration"><img class="site-icon icon-title" src="assets/icons/clock.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async"><span>30-minute introduction</span></div>
         <p class="booking-summary">Tell us what you sell, who you want to reach, and where your pipeline needs to go. We’ll talk through how we could help.</p>
-        <div class="booking-agenda"><p class="booking-small-label">A LITTLE CONTEXT GOES A LONG WAY</p><ol><li><span>01</span>Your offer and ideal customers</li><li><span>02</span>What’s working. What’s missing.</li><li><span>03</span>Whether a one-week pilot fits</li></ol></div>
+        <div class="booking-agenda"><p class="booking-small-label">A LITTLE CONTEXT GOES A LONG WAY</p><ol><li><span>01</span><img class="site-icon icon-agenda" src="assets/icons/target.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Your offer and ideal customers</li><li><span>02</span><img class="site-icon icon-agenda" src="assets/icons/chart.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">What’s working. What’s missing.</li><li><span>03</span><img class="site-icon icon-agenda" src="assets/icons/spark.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">The right campaign for your business</li></ol></div>
         <div class="booking-note"><span aria-hidden="true">↗</span><p>A conversation, with no commitment.<br>Let’s see where it takes us.</p></div>
       </aside>
       <div class="booking-scheduler">
-        <div class="scheduler-heading"><h2 id="scheduler-title">Find a time that works.</h2><span class="scheduler-label">YOUR CALENDAR, YOUR TIME ZONE</span></div>
+        <div class="scheduler-heading"><h2 id="scheduler-title"><img class="site-icon icon-title" src="assets/icons/calendar.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async"><span class="scheduler-title-text">Find a time that works.</span></h2><span class="scheduler-label">YOUR CALENDAR, YOUR TIME ZONE</span></div>
         <div class="scheduler-stage" id="scheduler-stage" aria-busy="true">
           <div id="calendly-embed" class="booking-embed" data-url="https://calendly.com/vidit-khedekar/30min"></div>
           <div class="scheduler-feedback" id="scheduler-feedback"><span class="booking-spinner" aria-hidden="true"></span><p id="scheduler-status" role="status" aria-live="polite">Loading available times…</p><button class="booking-retry" id="booking-retry" type="button" hidden>Try again <span aria-hidden="true">↻</span></button><a class="feedback-direct" href="https://calendly.com/vidit-khedekar/30min" target="_blank" rel="noopener noreferrer">Open Calendly <span aria-hidden="true">↗</span></a></div>

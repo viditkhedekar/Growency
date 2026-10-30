@@ -1,0 +1,4 @@
+interface:
+  display_name: "Growency Email Writer"
+  short_description: "Draft short emails from supplied research in batches"
+  default_prompt: "Use $growency-email-writer to turn these briefs into short emails with one personal detail each."

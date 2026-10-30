@@ -1,0 +1,61 @@
+Kairos Health - sales and GTM campaign brief
+usekairoshealth.com
+[kairoshealth.net](http://kairoshealth.net)
+Kairos-health.app
+[kairos-health.net](http://kairos-health.net)
+Trykairoshealth.app
+getkairoshealth.app
+https://cal.com/tanush-chintala-vp3kke/15min
+kairoshealthai.com
+399/mo + $800 integration fee but 299/mo + integration fee waived for clinics 7 days after they demo
+US ONLY
+One US state at a time, for sake of filtering leads
+ICP: Independent general, pediatric, and some orthodontic dental practices, typically 1–4 dentists, including small privately owned groups of 2–11 locations, practices with an overloaded front desk, PPO/Medicaid verification work, missed calls, limited office hours, and a growing patient base. Spanish-speaking patient populations are another useful signal.
+
+Cold-email campaign targeting US dental clinics. We will lead with capturing patient enquiries when the front desk is busy or the clinic is closed, supported by the benefit of less administrative work. 
+
+
+Kairos is an AI front desk built for dental practices. It helps clinics handle patient calls and scheduling, with recall and reporting available as relevant parts of the wider product. For this campaign, let’s try to get the first conversation to focus on answering enquiries and helping patients book when the team is unavailable.
+The commercial case is strongest where the clinic already receives enquiries worth capturing. Position Kairos around better access to appointments and practical support for the existing front desk.
+Pecan Dental
+Pecan Dental in McAllen, Texas, reports more than 1,200 patient calls handled per month and over $21,000 in average monthly dental production.
+"Onboarding was simple. Afterward, I didn’t have to keep manually calling old recalls."
+Jose Rodriguez, Practice Manager, Pecan Dental
+The testimonial supports hands-on setup and reduced manual recall work. The published production figure should remain described as production; Kairos should confirm its attribution and measurement period before it is used as an incremental revenue claim.
+Website reference: [Pecan Dental case study](https://kairoshealthai.com/case-studies/pecan-dental)
+Other practice references and company credibility
+Barlow Family Dentistry acquired 7 new patients in a month, ran 400 eligibility checks for patients in the month
+Las Milpas Dentistry, Penitas Dentistry, San Juan Dental Clinic, Edinburg Dental Group and Barlow Family Dentistry. 
+Website references: [Customer references](https://kairoshealthai.com/) and [Kairos company story](https://kairoshealthai.com/about)
+
+- Answering when the team is busy or away, booking and rescheduling around providers, availability and appointment rules, and routing conversations that need a person.
+- English + Spanish.
+- Contacting overdue patients, following up on visits that still need booking, and helping cancelled or missed visits return to the schedule.
+- Call activity, appointments booked and conversations needing team attention. Use this to explain how a clinic can review outcomes - Analytics.
+Integrations: Open Dental, Dentrix, Eaglesoft, Denticon, Curve Hero and Dentrix Ascend
+Kairos handle implementation.
+Kairos will provide the approved subscription price, billing basis, usage limits, setup fees and contract length. The SDR can share those terms when relevant. Trial availability, discounts and multi-location arrangements remain subject to Kairos confirmation.
+Do not introduce a free trial, revenue guarantee or fixed implementation deadline. The initial offer is a demonstration, with any evaluation scoped afterward.
+Target established, owner-led general dental clinics with 1 to 5 locations, accepting new patients and generating existing enquiries. Practices offering restorative, cosmetic or implant services fit within the same audience. Prioritise reachable owners or managers and a workflow Kairos can support.
+Large DSOs, non-dental organisations and practices with no relevant call or scheduling need are lower priority.
+
+- An active new-patient offer or verified advertising activity - someone will need to handle enquiries.
+- A current receptionist, scheduling or patient-coordinator vacancy: call coverage can support the practice during hiring and afterward.
+- A new dentist, expanded opening hours or another location - any kind of  growth can make appointment access and consistent call handling important.
+- Obviously a stated recall backlog is the perfect signal.
+These are reasons to start a conversation.
+Start with the dentist-owner or practice owner for commercial decisions, and the practice or office manager for daily workflow fit. At a small group, contact the person responsible for operations across the locations. An associate dentist is useful when they can introduce the responsible owner or manager.
+Source accounts through clinic websites, map listings, current recruitment pages and practice announcements. Use the clinic's own website to confirm services, locations and patient offers. Record the source and date for the targeting observation. Confirm ownership where a practice may be part of a larger group.
+Main angle will be to help the clinic capture patient enquiries during busy periods and after hours. Connect the current call-handling process to suitable appointments and a smoother patient experience.
+Supporting angle is to reduce routine phone and scheduling work for the front desk. A hiring signal makes this more timely. 
+Use one specific observation about the clinic. For a live patient offer, ask how enquiries are handled after closing. For a reception vacancy, ask how calls are covered during hiring. Mention YC backing or a relevant customer reference briefly to support credibility.
+Keep lost appointments and financial impact as hypotheses until the practice confirms them. Lead with its workflow; expand into insurance, recall or other functions when the buyer raises a relevant need.
+Offer a short demonstration tailored to the clinic's call and booking workflow. Show how a patient enquiry becomes an appointment, how the practice's scheduling rules are applied, and when the team takes over. Use synthetic patient examples.
+Suggested CTA: "Would a short walkthrough of how this could work for your practice be useful?" If the clinic wants to evaluate further, Kairos agrees the location, software, coverage hours, appointment types and commercial terms.
+
+The strongest commercial fit combines existing patient enquiries with capacity to serve them. Consider whether the value of additional attended visits and reduced administrative effort can reasonably justify the approved subscription. A consultation enquiry should not be valued as a completed treatment sale.
+A clinic limited by clinical staffing may benefit from workload relief, but extra bookings do not automatically create extra completed visits. Practices with little incoming demand are less suitable for a call-coverage pitch.
+A relevant meeting includes an owner or operational evaluator, an established dental practice and a credible reason to assess call handling or scheduling support. Record the system, current process and main concern when available. Unknown budget or call volume need not prevent a useful introduction.
+Our team will own account research, cold-email outreach, reply handling, meeting qualification and campaign reporting. Kairos will own demonstrations, technical evaluation, security answers, pricing, pilots, onboarding and closing.
+Kairos should nominate a demonstration owner and a contact for product questions. Our team will pass the clinic's reason for interest and known workflow details with each introduction. Refer unusual scheduling, emergency handling and insurance requirements to Kairos.
+- 

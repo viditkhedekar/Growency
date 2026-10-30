@@ -1,0 +1,575 @@
+{
+  "schema_version": 1,
+  "client_id": "posting-machine",
+  "campaign_id": "three-company-research-test-2026-10-21",
+  "brief_version": "supplied-US-outbound-brief-2026-10-21",
+  "records": [
+    {
+      "lead_id": "company-001",
+      "source_rows": [
+        "user-message:Simulithic"
+      ],
+      "contact": {
+        "email": "",
+        "first_name": "Ryan",
+        "last_name": "Ning",
+        "job_title": "Founder/CEO",
+        "company_name": "Simulithic",
+        "website": "https://www.simulithic.com/",
+        "linkedin": "https://www.linkedin.com/in/ryan-ning"
+      },
+      "research": {
+        "disposition": "review_needed",
+        "reasons": [
+          "Strong B2B workflow match; customer maturity, economics and buyer-conversion gap remain unresolved."
+        ],
+        "identity_confidence": "high",
+        "fit_confidence": "medium",
+        "hard_filters": [
+          {
+            "rule": "US company",
+            "status": "pass",
+            "evidence_ids": [
+              "S1"
+            ]
+          },
+          {
+            "rule": "B2B company",
+            "status": "pass",
+            "evidence_ids": [
+              "S2"
+            ]
+          },
+          {
+            "rule": "Existing paying customers / maturity",
+            "status": "unknown",
+            "evidence_ids": [
+              "S3",
+              "S4"
+            ]
+          },
+          {
+            "rule": "Buyer presence on LinkedIn",
+            "status": "unknown",
+            "evidence_ids": []
+          },
+          {
+            "rule": "Founder audience and unsolved revenue-content gap",
+            "status": "unknown",
+            "evidence_ids": [
+              "S5",
+              "S6"
+            ]
+          },
+          {
+            "rule": "Economic fit",
+            "status": "unknown",
+            "evidence_ids": [
+              "S3"
+            ]
+          }
+        ],
+        "bullets": [
+          "Buyer-role inference: engineering leaders, technical founders and QA leaders; actual audience participation not verified.",
+          "Ryan formerly engineered at Uber/Shopify; Satyam at Ramp/Bree, per YC.",
+          "Founder-led demo funnel and design-partner onboarding are visible; no public ARR/ACV or named paid-customer proof established.",
+          "Ryan audience is near the upper end of the brief; Satyam appears outside the standard range."
+        ],
+        "evidence": [
+          {
+            "id": "S1",
+            "claim": "YC lists Fall 2026, San Francisco, team size two, Ryan Ning CEO and Satyam Singh CTO.",
+            "source_ref": "https://www.ycombinator.com/companies/simulithic",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "direct",
+            "confidence": "high",
+            "reason": "Inspected primary page supports the stated observation; performance not independently audited."
+          },
+          {
+            "id": "S2",
+            "claim": "Markets autonomous journey discovery and cross-device/browser checks in development, CI/CD and production.",
+            "source_ref": "https://www.simulithic.com/",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "direct",
+            "confidence": "high",
+            "reason": "Inspected primary page supports the stated observation; performance not independently audited."
+          },
+          {
+            "id": "S3",
+            "claim": "Pricing page says design partners are onboarding; Starter, Team and Enterprise prices require a founder call.",
+            "source_ref": "https://www.simulithic.com/pricing",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "direct",
+            "confidence": "high",
+            "reason": "Inspected primary page supports the stated observation; performance not independently audited."
+          },
+          {
+            "id": "S4",
+            "claim": "Satyam publicly says the first waitlist companies are being onboarded; no paid-customer count stated.",
+            "source_ref": "https://www.linkedin.com/posts/satyamsingh2003_we-have-worked-at-companies-like-bree-offstreet-activity-7511661332706828288-zH5S",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "direct",
+            "confidence": "high",
+            "reason": "Inspected primary page supports the stated observation; performance not independently audited."
+          },
+          {
+            "id": "S5",
+            "claim": "Indexed Ryan profile displays about 9K followers and a claim of over 1M impressions in under three months.",
+            "source_ref": "https://www.linkedin.com/in/ryan-ning",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "unverified",
+            "confidence": "medium",
+            "reason": "Search-index snapshot only; direct profile access blocked, count/date and performance unverified."
+          },
+          {
+            "id": "S6",
+            "claim": "Indexed Satyam profile displays about 13K followers.",
+            "source_ref": "https://www.linkedin.com/in/satyamsingh2003",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "unverified",
+            "confidence": "medium",
+            "reason": "Search-index snapshot only; direct profile access blocked."
+          }
+        ],
+        "best_angle": {
+          "text": "Test whether real cross-device failure demonstrations and a founder view on verification can turn existing attention into engineering-buyer conversations. Do not pitch basic follower growth.",
+          "kind": "hypothesis",
+          "evidence_ids": [
+            "S2",
+            "S3",
+            "S4"
+          ]
+        },
+        "unknowns": [
+          "Current exact followers and complete 30/90-day activity windows",
+          "Paying customers, retention, ARR and ACV",
+          "Audience buyer composition and existing content-attributed pipeline",
+          "Full funding history and current verified headcount"
+        ],
+        "counterevidence": [
+          "They already produce founder content; low following is not established.",
+          "YC lists two people, below the preferred 10-100 band, which is a preference rather than a hard exclusion."
+        ],
+        "coverage": {
+          "inspected": [
+            "https://www.ycombinator.com/companies/simulithic",
+            "https://www.simulithic.com/",
+            "https://www.simulithic.com/pricing",
+            "https://www.linkedin.com/posts/satyamsingh2003_we-have-worked-at-companies-like-bree-offstreet-activity-7511661332706828288-zH5S"
+          ],
+          "unverified_sources": [
+            "https://www.linkedin.com/in/ryan-ning",
+            "https://www.linkedin.com/in/satyamsingh2003"
+          ],
+          "unavailable": [
+            "Live LinkedIn founder profiles returned access errors; complete posting windows and current audience composition unavailable."
+          ],
+          "incremental_paid_provider_actions": 0
+        }
+      },
+      "draft": {
+        "subject": "",
+        "body": "",
+        "claim_checks": []
+      },
+      "qc": {
+        "status": "not_applicable_research_only",
+        "issues": []
+      },
+      "export_checks": {
+        "contact_policy": "pending",
+        "contact_check_ref": "",
+        "checked_at": "",
+        "suppression": "unknown",
+        "suppression_ref": ""
+      },
+      "human_review": {
+        "status": "pending",
+        "reviewer": "",
+        "reviewed_at": "",
+        "approval_ref": "",
+        "fingerprint": ""
+      }
+    },
+    {
+      "lead_id": "company-002",
+      "source_rows": [
+        "user-message:Moonshot"
+      ],
+      "contact": {
+        "email": "",
+        "first_name": "Ojas",
+        "last_name": "Kandhare",
+        "job_title": "Founder/CEO",
+        "company_name": "Moonshot",
+        "website": "https://moonshot.computer/",
+        "linkedin": "https://www.linkedin.com/in/ojaskandy"
+      },
+      "research": {
+        "disposition": "excluded",
+        "reasons": [
+          "Current observed offer is consumer personal AI, outside this B2B campaign; public Posting Machine testimonial requires relationship review."
+        ],
+        "identity_confidence": "high",
+        "fit_confidence": "high",
+        "hard_filters": [
+          {
+            "rule": "US company",
+            "status": "pass",
+            "evidence_ids": [
+              "M1"
+            ]
+          },
+          {
+            "rule": "B2B company",
+            "status": "fail",
+            "evidence_ids": [
+              "M1",
+              "M2"
+            ]
+          },
+          {
+            "rule": "Existing relevant B2B customers",
+            "status": "unknown",
+            "evidence_ids": []
+          },
+          {
+            "rule": "Buyer fit for supplied B2B campaign",
+            "status": "fail",
+            "evidence_ids": [
+              "M1",
+              "M2"
+            ]
+          }
+        ],
+        "bullets": [
+          "Identity resolved through the website link in the YC company profile; not Moonshot AI/Kimi.",
+          "Current offer and YC text emphasize individual memory, context and assistance rather than enterprise buyers.",
+          "Founder/growth storytelling and deliberate launch-video work already exist.",
+          "Public customer-reference flag takes precedence over treating the name as a net-new cold lead."
+        ],
+        "evidence": [
+          {
+            "id": "M1",
+            "claim": "YC lists Summer 2026, San Francisco, team size three, Ojas Kandhare CEO and Tario You CTO; consumer personal iPhone AI.",
+            "source_ref": "https://www.ycombinator.com/companies/moonshot-computer",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "direct",
+            "confidence": "high",
+            "reason": "Inspected primary page supports the stated observation; performance not independently audited."
+          },
+          {
+            "id": "M2",
+            "claim": "Current site advertises the Jalapeño personal-AI wearable for a $99 preorder, with expected early December 2026 shipping.",
+            "source_ref": "https://moonshot.computer/",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "direct",
+            "confidence": "high",
+            "reason": "Inspected primary page supports the stated observation; performance not independently audited."
+          },
+          {
+            "id": "M3",
+            "claim": "Dylan explains a launch-video strategy centered on a human moment before revealing the product; claims second video went viral.",
+            "source_ref": "https://www.linkedin.com/posts/dylan-pak_we-hid-moonshot-yc-s26-from-its-own-launch-activity-7504207647089385474-cD2K",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "direct",
+            "confidence": "high",
+            "reason": "Inspected primary page supports the stated observation; performance not independently audited."
+          },
+          {
+            "id": "M4",
+            "claim": "Posting Machine site displays Dylan Pak as Moonshot cofounder/CMO with a testimonial. The page also labels itself draft copy; current client status is not established.",
+            "source_ref": "https://www.postingmachine.ai/",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "direct",
+            "confidence": "high",
+            "reason": "Inspected primary page supports the stated observation; performance not independently audited."
+          },
+          {
+            "id": "M5",
+            "claim": "Indexed Tario profile shows approximately 7K followers; Ojas profile/post snapshots show inconsistent counts.",
+            "source_ref": "https://www.linkedin.com/in/tario-you",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "unverified",
+            "confidence": "medium",
+            "reason": "Search-index profile snapshots only; exact current counts cannot be established."
+          }
+        ],
+        "best_angle": {
+          "text": "Only under an explicitly different consumer campaign or existing-client discussion: explain practical use cases and privacy tradeoffs with founder evidence. Not a qualified angle for the supplied B2B campaign.",
+          "kind": "hypothesis",
+          "evidence_ids": [
+            "M2",
+            "M3"
+          ]
+        },
+        "unknowns": [
+          "Actual client/prospect relationship with Posting Machine",
+          "Current exact followers, complete posting window and LinkedIn-attributed sales",
+          "Shipped-product revenue, retention and enterprise offering, if any"
+        ],
+        "counterevidence": [
+          "Consumer offer is a supported hard-filter failure.",
+          "Do not transfer historical OpenTrade user counts to current Moonshot as paying customers.",
+          "A testimonial suggests a relationship but does not establish present CRM/customer status."
+        ],
+        "coverage": {
+          "inspected": [
+            "https://www.ycombinator.com/companies/moonshot-computer",
+            "https://moonshot.computer/",
+            "https://www.linkedin.com/posts/dylan-pak_we-hid-moonshot-yc-s26-from-its-own-launch-activity-7504207647089385474-cD2K",
+            "https://www.postingmachine.ai/"
+          ],
+          "unverified_sources": [
+            "https://www.linkedin.com/in/tario-you"
+          ],
+          "unavailable": [
+            "Live LinkedIn founder profiles returned access errors; complete posting windows and current audience composition unavailable."
+          ],
+          "incremental_paid_provider_actions": 0
+        }
+      },
+      "draft": {
+        "subject": "",
+        "body": "",
+        "claim_checks": []
+      },
+      "qc": {
+        "status": "not_applicable_research_only",
+        "issues": []
+      },
+      "export_checks": {
+        "contact_policy": "pending",
+        "contact_check_ref": "",
+        "checked_at": "",
+        "suppression": "unknown",
+        "suppression_ref": ""
+      },
+      "human_review": {
+        "status": "pending",
+        "reviewer": "",
+        "reviewed_at": "",
+        "approval_ref": "",
+        "fingerprint": ""
+      }
+    },
+    {
+      "lead_id": "company-003",
+      "source_rows": [
+        "user-message:Tsenta"
+      ],
+      "contact": {
+        "email": "",
+        "first_name": "Agnay",
+        "last_name": "Srivastava",
+        "job_title": "Founder/CEO",
+        "company_name": "Tsenta",
+        "website": "https://tsenta.com/",
+        "linkedin": "https://www.linkedin.com/in/agnay"
+      },
+      "research": {
+        "disposition": "excluded",
+        "reasons": [
+          "Current product sells to jobseekers, not B2B buyers; content and acquisition capabilities already exist."
+        ],
+        "identity_confidence": "high",
+        "fit_confidence": "high",
+        "hard_filters": [
+          {
+            "rule": "US company",
+            "status": "pass",
+            "evidence_ids": [
+              "T1"
+            ]
+          },
+          {
+            "rule": "B2B company",
+            "status": "fail",
+            "evidence_ids": [
+              "T1",
+              "T2"
+            ]
+          },
+          {
+            "rule": "Existing customer traction",
+            "status": "pass",
+            "evidence_ids": [
+              "T1"
+            ]
+          },
+          {
+            "rule": "Unsolved founder-content gap",
+            "status": "unknown",
+            "evidence_ids": [
+              "T3",
+              "T4"
+            ]
+          }
+        ],
+        "bullets": [
+          "Jobseekers are active on LinkedIn, but that does not make this a B2B product.",
+          "Founders describe building from their own 3,000-plus applications, a concrete founder story.",
+          "Revenue/user figures are company-reported; the source does not establish audited ARR or retention.",
+          "YC launch asks about a future employer side; an existing paid employer product is not established.",
+          "Follower snapshots broadly match the numerical band but cannot override buyer/business-model mismatch."
+        ],
+        "evidence": [
+          {
+            "id": "T1",
+            "claim": "YC lists Summer 2026, San Francisco, team size two; Agnay Srivastava CEO and Pulkit Gupta CTO. The company reports over 90K jobseekers and about $3M annualized in three months.",
+            "source_ref": "https://www.ycombinator.com/companies/tsenta",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "direct",
+            "confidence": "high",
+            "reason": "Inspected primary page supports the stated observation; performance not independently audited."
+          },
+          {
+            "id": "T2",
+            "claim": "Public product automates job finding, tailoring, applications and tracking; monthly prices shown are $19, $39 and $99.",
+            "source_ref": "https://tsenta.com/",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "direct",
+            "confidence": "high",
+            "reason": "Inspected primary page supports the stated observation; performance not independently audited."
+          },
+          {
+            "id": "T3",
+            "claim": "Agnay describes creators/affiliate payouts as the largest growth channel, with community, Reddit/search and paid amplification of successful creator videos.",
+            "source_ref": "https://www.linkedin.com/posts/activity-7496637788151373824-xJaN",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "direct",
+            "confidence": "high",
+            "reason": "Inspected primary page supports the stated observation; performance not independently audited."
+          },
+          {
+            "id": "T4",
+            "claim": "Arshia announced responsibility for short-form and day-to-day content across LinkedIn, X, Instagram and TikTok. Present employment not independently confirmed.",
+            "source_ref": "https://www.linkedin.com/posts/arshia-kathpalia-_excited-to-share-that-im-joining-tsenta-activity-7471445025105584128-0lt_",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "direct",
+            "confidence": "high",
+            "reason": "Inspected primary page supports the stated observation; performance not independently audited."
+          },
+          {
+            "id": "T5",
+            "claim": "Indexed Agnay profile shows approximately 7K followers.",
+            "source_ref": "https://www.linkedin.com/in/agnay",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "unverified",
+            "confidence": "medium",
+            "reason": "Search-index snapshot only; direct live profile blocked."
+          },
+          {
+            "id": "T6",
+            "claim": "Indexed Pulkit profile shows approximately 3K followers.",
+            "source_ref": "https://www.linkedin.com/in/pulkitgupta712",
+            "source_type": "primary",
+            "source_date": null,
+            "observed_at": "2026-10-21",
+            "verification": "unverified",
+            "confidence": "medium",
+            "reason": "Search-index snapshot only; direct live profile blocked."
+          }
+        ],
+        "best_angle": {
+          "text": "If the campaign is expanded deliberately: examine founder-owned trust and transparent application demonstrations as a complement to existing creator/content activity. For B2B, first establish a live employer offer and paying employer buyers.",
+          "kind": "hypothesis",
+          "evidence_ids": [
+            "T2",
+            "T3",
+            "T4"
+          ]
+        },
+        "unknowns": [
+          "Current employer-facing product and B2B customer proof",
+          "Current content ownership and performance",
+          "Exact current followers and complete posting cadence",
+          "Customer LTV/retention and audited financial metrics"
+        ],
+        "counterevidence": [
+          "Consumer monthly subscription economics differ from the brief's preferred high-value B2B sales.",
+          "Already has documented growth playbooks and an announced content owner; no evidence it lacks content capability."
+        ],
+        "coverage": {
+          "inspected": [
+            "https://www.ycombinator.com/companies/tsenta",
+            "https://tsenta.com/",
+            "https://www.linkedin.com/posts/activity-7496637788151373824-xJaN",
+            "https://www.linkedin.com/posts/arshia-kathpalia-_excited-to-share-that-im-joining-tsenta-activity-7471445025105584128-0lt_"
+          ],
+          "unverified_sources": [
+            "https://www.linkedin.com/in/agnay",
+            "https://www.linkedin.com/in/pulkitgupta712"
+          ],
+          "unavailable": [
+            "Live LinkedIn founder profiles returned access errors; complete posting windows and current audience composition unavailable."
+          ],
+          "incremental_paid_provider_actions": 0
+        }
+      },
+      "draft": {
+        "subject": "",
+        "body": "",
+        "claim_checks": []
+      },
+      "qc": {
+        "status": "not_applicable_research_only",
+        "issues": []
+      },
+      "export_checks": {
+        "contact_policy": "pending",
+        "contact_check_ref": "",
+        "checked_at": "",
+        "suppression": "unknown",
+        "suppression_ref": ""
+      },
+      "human_review": {
+        "status": "pending",
+        "reviewer": "",
+        "reviewed_at": "",
+        "approval_ref": "",
+        "fingerprint": ""
+      }
+    }
+  ],
+  "coverage": {
+    "supplied_companies": 3,
+    "qualified": 0,
+    "review_needed": 1,
+    "excluded_current_campaign": 2,
+    "scope": "Bounded public research on the three user-named companies; no paid enrichment, contact verification, outreach or exhaustive market search.",
+    "source_dates": "Observed 2026-10-21; exact publication dates unknown where sources show only relative dates."
+  }
+}

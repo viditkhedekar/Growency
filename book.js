@@ -5,7 +5,7 @@
   const feedback = document.getElementById('scheduler-feedback');
   const status = document.getElementById('scheduler-status');
   const retry = document.getElementById('booking-retry');
-  const heading = document.getElementById('scheduler-title');
+  const heading = document.querySelector('#scheduler-title .scheduler-title-text');
   let loadTimer;
   let script;
   let attempt = 0;

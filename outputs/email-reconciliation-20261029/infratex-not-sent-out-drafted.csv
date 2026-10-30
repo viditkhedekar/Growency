@@ -1,0 +1,967 @@
+﻿"client","section","company","recipient_name","email","subject","body","followup_1_body","followup_2_body","draft_source","draft_email_address","other_email_addresses","address_type","draft_notes","company_name_basis","crm_queued","crm_email","crm_campaign","crm_campaign_id","crm_campaign_status","crm_recipient_status","crm_initial_step_status","crm_queued_at_utc","crm_snapshot_utc","copy_differs_from_crm","crm_saved_subject","crm_saved_body","website","founders","batch","country","segment","contact_title","target_role","linkedin","linkedin_category","product_description","cool_feature","research_status","research_notes","document_workflow","workflow_option_1","workflow_option_2","source_urls","email_status","email_source","contact_purpose","missing_fields","source_files","source_details"
+"Infratex","not-sent-out-drafted","ACTIWARE","","","helping you work with client documents","Hi there,
+
+Saw ACTIWARE.IO IDP and its workflow for extracting and validating document data before sending it into business systems.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from client documents into the client’s business system if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":63,""data"":{""Company"":""ACTIWARE"",""SourceNumber"":""62""}}]"
+"Infratex","not-sent-out-drafted","AiDock","","","helping you work with commercial invoices and packing lists","Hello there,
+
+Saw AiDock’s International Trade & Customs workflow, which turns documents like commercial invoices, packing lists and bills of lading into structured CSV/JSON.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract item details, quantities and values from commercial invoices and packing lists into customs-review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":64,""data"":{""Company"":""AiDock"",""SourceNumber"":""63""}}]"
+"Infratex","not-sent-out-drafted","Amagno","","","helping you work with client document packs","Hey there,
+
+Saw Amagno’s document automation capabilities, including its AI-powered document processing.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from client document packs into document-review records if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":65,""data"":{""Company"":""Amagno"",""SourceNumber"":""64""}}]"
+"Infratex","not-sent-out-drafted","Architrave","","","helping you work with real-estate documents","Hi there,
+
+Saw Architrave’s Deep Extraction work, particularly the BImA example involving 12,500 consumption invoices and a reported 97.8% accuracy.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract property references and stated amounts from real-estate documents into a property-review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":66,""data"":{""Company"":""Architrave"",""SourceNumber"":""65""}}]"
+"Infratex","not-sent-out-drafted","Asterion International Group","Gerard","","helping you work with supplier invoices","Hello Gerard,
+
+Saw Exela’s announcement about acquiring Asterion, which highlighted Asterion’s accounts-payable and e-invoicing services alongside Exela’s automation capabilities.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract invoice numbers, amounts and due dates from supplier invoices into AP review records if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":4,""data"":{""FirstName"":""Gerard"",""Company"":""Asterion International Group"",""SourceNumber"":""3""}},{""source"":""infratex-78-rewritten (2).csv"",""row"":15,""data"":{""FirstName"":""Marco"",""Company"":""Asterion International Group"",""SourceNumber"":""14""}}]"
+"Infratex","not-sent-out-drafted","automaited","Patrick","","helping you work with supplier orders","Hey Patrick,
+
+Saw automaited’s guide to order-processing automation and how Ada validates incoming order information before triggering actions in ERP systems.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract product references and quantities from supplier orders into order-review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":5,""data"":{""FirstName"":""Patrick"",""Company"":""automaited"",""SourceNumber"":""4""}},{""source"":""infratex-78-rewritten (2).csv"",""row"":14,""data"":{""FirstName"":""Eric"",""Company"":""automaited"",""SourceNumber"":""13""}}]"
+"Infratex","not-sent-out-drafted","Basikon","","","helping you work with lending documents","Hello there,
+
+Saw Basikon’s work on digital lending workflows, including its PEPPOL connectivity and AI-driven document processing.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract borrower details and reporting periods from lending documents into lending review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":67,""data"":{""Company"":""Basikon"",""SourceNumber"":""66""}}]"
+"Infratex","not-sent-out-drafted","Brydg","Antonina","","helping you work with deal and investor documents","Hey Antonina,
+
+Saw Brydg’s Flow 2.0 supports secure sharing of Deal Documents and Investor Documents, alongside structured loan tracking.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract parties and investment terms from deal and investor documents into loan-review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":35,""data"":{""FirstName"":""Antonina"",""Company"":""Brydg"",""SourceNumber"":""34""}}]"
+"Infratex","not-sent-out-drafted","Bylaw","","","helping you work with client document packs","Hey there,
+
+Was looking into Bylaw and thought that we could help you turn document information into usable data.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from client document packs into the client’s application if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":68,""data"":{""Company"":""Bylaw"",""SourceNumber"":""67""}}]"
+"Infratex","not-sent-out-drafted","CAIGROUP","Firdaus","","helping you work with supplier invoices","Hello Firdaus,
+
+Saw CAIGROUP’s Converta AI Pack captures fields from documents and includes human review and validation before processing.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract invoice details and line items from supplier invoices into AP review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":10,""data"":{""FirstName"":""Firdaus"",""Company"":""CAIGROUP"",""SourceNumber"":""9""}},{""source"":""infratex-78-rewritten (2).csv"",""row"":32,""data"":{""FirstName"":""Radhika"",""Company"":""CAIGROUP"",""SourceNumber"":""31""}}]"
+"Infratex","not-sent-out-drafted","Caya","Alexander","","helping you work with incoming letters","Hi Alexander,
+
+Saw Caya’s online-bank case study describes training its machine-learning model on 100+ relevant keywords to classify incoming letters, including account cancellations, insolvency correspondence and garnishment notices.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract names, dates and case references from incoming letters into the appropriate review record if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":36,""data"":{""FirstName"":""Alexander"",""Company"":""Caya"",""SourceNumber"":""35""}}]"
+"Infratex","not-sent-out-drafted","ck.solution GmbH","Chris","","helping you work with supplier invoices","Hi Chris,
+
+Saw cks.ADC for SAP Business One, particularly its invoice capture and checks against master data and base documents.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract invoice references and line items from supplier invoices into SAP Business One review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":33,""data"":{""FirstName"":""Chris"",""Company"":""ck.solution GmbH"",""SourceNumber"":""32""}}]"
+"Infratex","not-sent-out-drafted","Cleardata","","","helping you work with client documents","Hi there,
+
+Saw SPS agreed to acquire Cleardata as part of expanding its information management and digital services capabilities.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from client documents into a document-review workflow if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":69,""data"":{""Company"":""Cleardata"",""SourceNumber"":""68""}}]"
+"Infratex","not-sent-out-drafted","Continuity","","","helping you work with underwriting submissions","Hello there,
+
+Saw Continuity’s work on AI-powered commercial property and casualty risk management, including its Underwriting Assistant.
+
+Infratex can read loss runs, schedules of values and scanned submissions and can turn them into structured Markdown, JSON and cited answers your underwriting agents can use, saving you loads of time.
+
+We could extract risk details and dates from underwriting submissions into a review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":70,""data"":{""Company"":""Continuity"",""SourceNumber"":""69""}}]"
+"Infratex","not-sent-out-drafted","Converta","Radhika","","helping you work with client invoices","Hello Radhika,
+
+Saw Converta’s AI Pack workflow, where extracted data is reviewed before processing and can then be sent directly into an ERP.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract invoice details and line items from client invoices into ERP review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":37,""data"":{""FirstName"":""Radhika"",""Company"":""Converta"",""SourceNumber"":""36""}}]"
+"Infratex","not-sent-out-drafted","Cred","Greg","","helping you work with borrower statements","Hey Greg,
+
+Saw Cred is expanding its Credit on Demand offering alongside an AI credit co-pilot.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract income and repayment figures from borrower statements into a credit-review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":38,""data"":{""FirstName"":""Greg"",""Company"":""Cred"",""SourceNumber"":""37""}}]"
+"Infratex","not-sent-out-drafted","Cross Ocean Partners","Andrew","","helping you work with financial statements","Hi Andrew,
+
+Saw Cross Ocean’s investment philosophy emphasizes fundamental research and detailed bottom-up analysis to identify assets trading below intrinsic value.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract financial figures and reporting periods from financial statements into investment-analysis tables if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":39,""data"":{""FirstName"":""Andrew"",""Company"":""Cross Ocean Partners"",""SourceNumber"":""38""}}]"
+"Infratex","not-sent-out-drafted","Dancerace","Elliot","","helping you work with onboarding documents","Hello Elliot,
+
+Saw Dancerace’s f3 Client Onboarding lets prospects upload key documents alongside connecting their accounting systems.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract company and ownership details from onboarding documents into client-review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":40,""data"":{""FirstName"":""Elliot"",""Company"":""Dancerace"",""SourceNumber"":""39""}}]"
+"Infratex","not-sent-out-drafted","Digital Bricks","","","helping you work with client documents","Hey there,
+
+Saw Digital Bricks offers IDP with OCR, structured data extraction and human validation.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from client documents into business-system review records if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":71,""data"":{""Company"":""Digital Bricks"",""SourceNumber"":""70""}}]"
+"Infratex","not-sent-out-drafted","Doxis","","","helping you work with client document packs","Hi there,
+
+Saw Klippa is now operating under the Doxis brand, with its document-processing technology becoming part of the wider platform.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from client document packs into document-processing review records if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":72,""data"":{""Company"":""Doxis"",""SourceNumber"":""71""}}]"
+"Infratex","not-sent-out-drafted","Dutch Mortgage Portfolio Management","Rishi","","helping you work with mortgage documents","Hey Rishi,
+
+Saw DMPM’s data-driven investor portal, which combines Posit and embedded Power BI reports to provide insights into mortgage portfolios.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract financial figures and reporting periods from mortgage documents into a portfolio-review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":41,""data"":{""FirstName"":""Rishi"",""Company"":""Dutch Mortgage Portfolio Management"",""SourceNumber"":""40""}}]"
+"Infratex","not-sent-out-drafted","Dylogy","Loris","","helping you work with contract versions","Hi Loris,
+
+Saw Dylogy’s Wording Analyzer work with Howden Re France, especially the comparison of contract versions and checks against a reference library.
+
+Infratex can read loss runs, schedules of values and scanned submissions and can turn them into structured Markdown, JSON and cited answers your underwriting agents can use, saving you loads of time.
+
+We could extract clauses and changes from contract versions into contract-comparison records if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":3,""data"":{""FirstName"":""Loris"",""Company"":""Dylogy"",""SourceNumber"":""2""}},{""source"":""infratex-78-rewritten (2).csv"",""row"":13,""data"":{""FirstName"":""Aurélien"",""Company"":""Dylogy"",""SourceNumber"":""12""}}]"
+"Infratex","not-sent-out-drafted","ECON Application","Hakan","","helping you work with lending documents","Hi Hakan,
+
+Saw the PSD Bank Nürnberg case study describing how ECON supports digital lending, including a file repository for exchanging documents between customers and bank staff.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract borrower information and dates from lending documents into a credit-review record if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":42,""data"":{""FirstName"":""Hakan"",""Company"":""ECON Application"",""SourceNumber"":""41""}}]"
+"Infratex","not-sent-out-drafted","Elba Technologies","Alush","","helping you work with client document packs","Hey Alush,
+
+Saw Elba combines OCR and AI-based extraction with RPA, so you already cover a large part of the document workflow.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract key fields from client document packs into project intake records if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":2,""data"":{""FirstName"":""Alush"",""Company"":""Elba Technologies"",""SourceNumber"":""1""}},{""source"":""infratex-78-rewritten (2).csv"",""row"":12,""data"":{""FirstName"":""David"",""Company"":""Elba Technologies"",""SourceNumber"":""11""}}]"
+"Infratex","not-sent-out-drafted","Evy Solutions","Michael","","helping you work with incoming invoices","Hello Michael,
+
+Saw Evy Xpact already classifies, extracts and validates data from emails and attachments before transferring structured information into ERP and DMS systems.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract invoice details and line items from incoming invoices into ERP review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":43,""data"":{""FirstName"":""Michael"",""Company"":""Evy Solutions"",""SourceNumber"":""42""}}]"
+"Infratex","not-sent-out-drafted","Exaloan AG","Julian","","helping you work with portfolio reports","Hello Julian,
+
+Saw Exaloan’s Analytics Toolbox supports API connections as well as manual data uploads for portfolio analysis.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract reporting periods and financial figures from portfolio reports into portfolio-review tables if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":7,""data"":{""FirstName"":""Julian"",""Company"":""Exaloan AG"",""SourceNumber"":""6""}},{""source"":""infratex-78-rewritten (2).csv"",""row"":23,""data"":{""FirstName"":""Luca"",""Company"":""Exaloan AG"",""SourceNumber"":""22""}}]"
+"Infratex","not-sent-out-drafted","ExB","Anna","","helping you work with transport documents","Hey Anna,
+
+Saw ExB handles document classification, data extraction and validation before passing structured data into systems like ERP and TMS.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract references and dates from transport documents into downstream review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":44,""data"":{""FirstName"":""Anna"",""Company"":""ExB"",""SourceNumber"":""43""}}]"
+"Infratex","not-sent-out-drafted","Exelmans","Stéphane","","helping you work with financial statements","Hi Stéphane,
+
+Saw Exelmans joining Endrix and the development of its financial advisory division, including buy-side and vendor due diligence.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract financial figures and reporting periods from financial statements into a due-diligence table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":45,""data"":{""FirstName"":""Stéphane"",""Company"":""Exelmans"",""SourceNumber"":""44""}}]"
+"Infratex","not-sent-out-drafted","FAP Group","Tobias","","helping you work with transaction documents","Hey Tobias,
+
+Saw FAP Group’s REDDI launch and the planned connection to FAP’s historical transaction database, alongside the work with Filament and MBytes.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract transaction terms and dates from transaction documents into a deal-comparison table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":26,""data"":{""FirstName"":""Tobias"",""Company"":""FAP Group"",""SourceNumber"":""25""}}]"
+"Infratex","not-sent-out-drafted","FELLOWPRO AG","Daniel","","helping you work with supplier invoices","Hi Daniel,
+
+Saw FELLOWPRO’s Chocolat Bernrain case study, where DocBits sends invoice data directly into Infor M3 rather than routing it through a suspense account.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract invoice numbers and line items from supplier invoices into an Infor review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":24,""data"":{""FirstName"":""Daniel"",""Company"":""FELLOWPRO AG"",""SourceNumber"":""23""}}]"
+"Infratex","not-sent-out-drafted","Fifth Dimension","Johnny","","helping you work with leases","Hello Johnny,
+
+Saw Fifth Dimension’s case study where Ellie extracted 176 lease data points from 1,729 scanned PDFs into structured Excel and JSON outputs.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract rent, dates and tenant details from leases into a property-review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":46,""data"":{""FirstName"":""Johnny"",""Company"":""Fifth Dimension"",""SourceNumber"":""45""}}]"
+"Infratex","not-sent-out-drafted","Finovox","Marc","","helping you work with supporting documents","Hey Marc,
+
+Saw Finovox’s document verification platform and its workflow for extracting key information before applying validation and fraud checks.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract names, dates and references from supporting documents into verification review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":47,""data"":{""FirstName"":""Marc"",""Company"":""Finovox"",""SourceNumber"":""46""}}]"
+"Infratex","not-sent-out-drafted","FST Technologies","","","helping you work with client documents","Hello there,
+
+Saw FST Technologies’ work helping organisations outsource their printed and electronic customer communications, as part of the wider CFH Docmail group.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from client documents into the client’s downstream system if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":73,""data"":{""Company"":""FST Technologies"",""SourceNumber"":""72""}}]"
+"Infratex","not-sent-out-drafted","future® Office","Richard","","helping you work with scanned business documents","Hi Richard,
+
+Saw future® Office’s guide covers OCR, scan-to-email and scan-to-folder.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from scanned business documents into downstream records if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":30,""data"":{""FirstName"":""Richard"",""Company"":""future® Office"",""SourceNumber"":""29""}}]"
+"Infratex","not-sent-out-drafted","i_Nova","Jyotendra","","helping you work with client documents","Hi Jyotendra,
+
+Saw i_Nova’s work on document extraction, schema generation, validation and enrichment.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from client documents into the client’s existing schema if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":6,""data"":{""FirstName"":""Jyotendra"",""Company"":""i_Nova"",""SourceNumber"":""5""}}]"
+"Infratex","not-sent-out-drafted","Infact","Andy","","helping you work with lender documents","Hi Andy,
+
+Saw Infact’s Delta helps lenders catch data-quality issues in CRA reporting files before submission.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract customer details and reporting periods from lender documents into a data-quality review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":48,""data"":{""FirstName"":""Andy"",""Company"":""Infact"",""SourceNumber"":""47""}}]"
+"Infratex","not-sent-out-drafted","Inhubber","Elena","","helping you work with contracts","Hello Elena,
+
+Saw Inhubber’s AI document analysis, which extracts contract details like deadlines, obligations and payment terms, including from scanned documents.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract deadlines, obligations and payment terms from contracts into contract-review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":49,""data"":{""FirstName"":""Elena"",""Company"":""Inhubber"",""SourceNumber"":""48""}}]"
+"Infratex","not-sent-out-drafted","Inpute Technologies","Aidan","","helping you work with multilingual invoices","Hey Aidan,
+
+Saw Inpute’s intelligent document capture work, including multilingual invoice automation and partnerships with ABBYY and OpenText.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract supplier names and invoice amounts from multilingual invoices into the client’s review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":11,""data"":{""FirstName"":""Aidan"",""Company"":""Inpute Technologies"",""SourceNumber"":""10""}},{""source"":""infratex-78-rewritten (2).csv"",""row"":34,""data"":{""FirstName"":""Alan"",""Company"":""Inpute Technologies"",""SourceNumber"":""33""}}]"
+"Infratex","not-sent-out-drafted","Jazyl","Marwen","","helping you work with handwritten forms","Hello Marwen,
+
+Saw Jazyl’s work extracting structured data from multipage handwritten documents.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract names, dates and other agreed fields from handwritten forms into a structured review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":28,""data"":{""FirstName"":""Marwen"",""Company"":""Jazyl"",""SourceNumber"":""27""}}]"
+"Infratex","not-sent-out-drafted","KNG Securities","Giorgio","","helping you work with certified invoices","Hey Giorgio,
+
+Saw KNG offers invoice certification for Italian Public Administration claims through the Credit Certification Platform.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract counterparties, invoice amounts and dates from certified invoices into a claims-review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":50,""data"":{""FirstName"":""Giorgio"",""Company"":""KNG Securities"",""SourceNumber"":""49""}}]"
+"Infratex","not-sent-out-drafted","Knowlix","Peter","","helping you work with vendor bills","Hi Peter,
+
+Saw Knowlix’s vendor-bill digitization workflow, where OCR extracts invoice header and line-item data, and bills can be matched against purchase orders.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract invoice header and line-item details from vendor bills into bill-review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":51,""data"":{""FirstName"":""Peter"",""Company"":""Knowlix"",""SourceNumber"":""50""}}]"
+"Infratex","not-sent-out-drafted","Letxbe SAS","Fabio","","helping you work with client document packs","Hello Fabio,
+
+Saw Letxbe’s involvement in ELLIOT, the European consortium working on multimodal AI for complex documents.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract required fields from client document packs into an agreed output format if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":25,""data"":{""FirstName"":""Fabio"",""Company"":""Letxbe SAS"",""SourceNumber"":""24""}}]"
+"Infratex","not-sent-out-drafted","MAIA / Prodlane","Sven","","helping you work with bills of materials and test reports","Hi Sven,
+
+Saw MAIA’s work on knowledge loss in mechanical engineering, linking technical documents such as bills of materials and test reports to traceable, source-backed answers.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract part references and test results from bills of materials and test reports into engineering records if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":21,""data"":{""FirstName"":""Sven"",""Company"":""MAIA / Prodlane"",""SourceNumber"":""20""}}]"
+"Infratex","not-sent-out-drafted","Mitek","","","helping you work with non-identity documents","Hey there,
+
+Saw Mitek’s document-processing capabilities through its work in identity verification.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from non-identity documents into a partner application if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":74,""data"":{""Company"":""Mitek"",""SourceNumber"":""73""}}]"
+"Infratex","not-sent-out-drafted","My DSO Manager","Bertrand","","helping you work with proofs of delivery","Hello Bertrand,
+
+Saw My DSO Manager lets teams attach proofs of delivery and other supporting documents to open accounting items.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract delivery dates and references from proofs of delivery into open-item review records if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":31,""data"":{""FirstName"":""Bertrand"",""Company"":""My DSO Manager"",""SourceNumber"":""30""}}]"
+"Infratex","not-sent-out-drafted","Netfira GmbH","Jim","","helping you work with supplier invoices","Hello Jim,
+
+Saw Netfira’s announcement that its platform is available on the SAP Store, bringing supplier-document extraction, validation and line-item matching into SAP workflows.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract item references, quantities and prices from supplier invoices into SAP review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":16,""data"":{""FirstName"":""Jim"",""Company"":""Netfira GmbH"",""SourceNumber"":""15""}}]"
+"Infratex","not-sent-out-drafted","Nexbotix","","","helping you work with client document packs","Hi there,
+
+Was looking into Nexbotix and thought that we could help you turn document information into usable data.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from client document packs into the client’s application if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":75,""data"":{""Company"":""Nexbotix"",""SourceNumber"":""74""}}]"
+"Infratex","not-sent-out-drafted","Pareto AI","","","helping you work with scanned documents","Hello there,
+
+Saw Pareto AI’s document-extraction offering and wanted to ask about the range of inputs its workflows need to support.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from scanned documents into the client’s output schema if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":76,""data"":{""Company"":""Pareto AI"",""SourceNumber"":""75""}}]"
+"Infratex","not-sent-out-drafted","PLANET AI","Welf","","helping you work with client document packs","Hey Welf,
+
+Saw PLANET AI offers IDA as an OEM component, so other software vendors can build document recognition into their products.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from client document packs into an OEM partner’s application if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":8,""data"":{""FirstName"":""Welf"",""Company"":""PLANET AI"",""SourceNumber"":""7""}},{""source"":""infratex-78-rewritten (2).csv"",""row"":27,""data"":{""FirstName"":""Jesper"",""Company"":""PLANET AI"",""SourceNumber"":""26""}}]"
+"Infratex","not-sent-out-drafted","Predium","","","helping you work with energy-related documents","Hey there,
+
+Saw Predium’s platform for real-estate sustainability management, including its use of energy-related documents and data.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract property details and stated figures from energy-related documents into a property-review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":77,""data"":{""Company"":""Predium"",""SourceNumber"":""76""}}]"
+"Infratex","not-sent-out-drafted","Probayes","Vincent","","helping you work with supplier invoices","Hello Vincent,
+
+Saw Probayes’ docIA uses confidence scoring to route uncertain invoice extractions for human review.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract invoice fields and line items from supplier invoices into a review queue if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":19,""data"":{""FirstName"":""Vincent"",""Company"":""Probayes"",""SourceNumber"":""18""}}]"
+"Infratex","not-sent-out-drafted","Savvy","Mark","","helping you work with payslips and bank statements","Hey Mark,
+
+Saw Savvy asks applicants for payslips and bank statements for affordability checks, alongside its bank-account review option.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract income figures and dates from payslips and bank statements into an affordability-review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":53,""data"":{""FirstName"":""Mark"",""Company"":""Savvy"",""SourceNumber"":""52""}}]"
+"Infratex","not-sent-out-drafted","Scribe","Rob","","helping you work with financial statements","Hey Rob,
+
+Saw Scribe’s API-first approach to turning private-company financial documents into structured data for analysis.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract financial figures and reporting periods from financial statements into company-analysis tables if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":20,""data"":{""FirstName"":""Rob"",""Company"":""Scribe"",""SourceNumber"":""19""}}]"
+"Infratex","not-sent-out-drafted","Selectec","Rob","","helping you work with client document packs","Hi Rob,
+
+Saw Selectec’s AIDA 20.0 webinar on AI agents for document automation.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from client document packs into the client’s application if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":54,""data"":{""FirstName"":""Rob"",""Company"":""Selectec"",""SourceNumber"":""53""}}]"
+"Infratex","not-sent-out-drafted","Selina Finance","Chris","","helping you work with financial documents","Hello Chris,
+
+Saw Selina Finance’s Operations Academy listing, which mentions reviewing financial documents and assessing applications before completion.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract income and repayment figures from financial documents into an underwriting-review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":55,""data"":{""FirstName"":""Chris"",""Company"":""Selina Finance"",""SourceNumber"":""54""}}]"
+"Infratex","not-sent-out-drafted","SERES","","","helping you work with supplier invoices","Hi there,
+
+Saw SERES’s DocuPost platform handles OCR, document-data extraction and validation, including invoice processing across multiple formats.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract invoice references, amounts and line items from supplier invoices into review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":78,""data"":{""Company"":""SERES"",""SourceNumber"":""77""}}]"
+"Infratex","not-sent-out-drafted","Smart Gevo","","","helping you work with insurance documents","Hello there,
+
+Saw Smart Gevo combines AI-driven document extraction with portfolio validation and BiPRO-standard data normalization.
+
+Infratex can read loss runs, schedules of values and scanned submissions and can turn them into structured Markdown, JSON and cited answers your underwriting agents can use, saving you loads of time.
+
+We could extract policy and portfolio details from insurance documents into review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":79,""data"":{""Company"":""Smart Gevo"",""SourceNumber"":""78""}}]"
+"Infratex","not-sent-out-drafted","Snap Finance UK","Andy","","helping you work with supporting income documents","Hey Andy,
+
+Saw Snap’s Income Portal combines Open Banking with Universal Credit and HMRC data to support income verification.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract income figures and dates from supporting income documents into a review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":56,""data"":{""FirstName"":""Andy"",""Company"":""Snap Finance UK"",""SourceNumber"":""55""}}]"
+"Infratex","not-sent-out-drafted","Talonic","Nikolas","","helping you work with customer documents","Hi Nikolas,
+
+Saw Talonic’s AI Data Registry and its use of schema-validated data, confidence scores and provenance.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract required fields from customer documents into the registry’s structured data if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":9,""data"":{""FirstName"":""Nikolas"",""Company"":""Talonic"",""SourceNumber"":""8""}}]"
+"Infratex","not-sent-out-drafted","Tellimer","Ian","","helping you work with financial and legal documents","Hi Ian,
+
+Saw Tellimer’s launch of Parsel 2.0, which extracts and digitises information from financial and legal documents into structured outputs.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract figures, dates and parties from financial and legal documents into structured analysis records if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":57,""data"":{""FirstName"":""Ian"",""Company"":""Tellimer"",""SourceNumber"":""56""}}]"
+"Infratex","not-sent-out-drafted","Tengo","Yoann","","helping you work with tender documents","Hi Yoann,
+
+Saw Tengo’s work analysing tender documents.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract submission dates and requirements from tender documents into a bid checklist if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":18,""data"":{""FirstName"":""Yoann"",""Company"":""Tengo"",""SourceNumber"":""17""}}]"
+"Infratex","not-sent-out-drafted","TheAssistant","Charles","","helping you work with invoices","Hey Charles,
+
+Saw TheAssistant’s Addingwell case study, particularly the invoice-management and reconciliation workflows.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract invoice numbers and amounts from invoices into reconciliation review records if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":29,""data"":{""FirstName"":""Charles"",""Company"":""TheAssistant"",""SourceNumber"":""28""}}]"
+"Infratex","not-sent-out-drafted","tradePhlo","Saurabh","","helping you work with commercial invoices and packing lists","Hello Saurabh,
+
+Saw tradePhlo captures data from commercial invoices and packing lists to help teams prepare customs declarations without manually re-entering everything.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract item descriptions, quantities and values from commercial invoices and packing lists into customs-review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":58,""data"":{""FirstName"":""Saurabh"",""Company"":""tradePhlo"",""SourceNumber"":""57""}}]"
+"Infratex","not-sent-out-drafted","Triver","Ben","","helping you work with invoice pdfs","Hey Ben,
+
+Saw Triver’s Xero integration lets businesses sync invoice data, while invoices can also be uploaded manually as PDFs.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract supplier names, amounts and due dates from invoice PDFs into a funding-review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":59,""data"":{""FirstName"":""Ben"",""Company"":""Triver"",""SourceNumber"":""58""}}]"
+"Infratex","not-sent-out-drafted","Twin Labs","Hugo","","helping you work with invoice pdfs","Hi Hugo,
+
+Saw Twin’s Invoice Operator retrieves missing invoice PDFs from supplier portals and attaches them to the right Qonto transactions.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract supplier names, dates and amounts from invoice PDFs into transaction review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":60,""data"":{""FirstName"":""Hugo"",""Company"":""Twin Labs"",""SourceNumber"":""59""}}]"
+"Infratex","not-sent-out-drafted","vc trade GmbH","Stefan","","helping you work with private-debt agreements","Hey Stefan,
+
+Saw vc trade supports collaborative document negotiation and e-signatures across private-debt transactions, as well as data transfer to the back office.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract parties, dates and financing terms from private-debt agreements into a deal-review table if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":17,""data"":{""FirstName"":""Stefan"",""Company"":""vc trade GmbH"",""SourceNumber"":""16""}}]"
+"Infratex","not-sent-out-drafted","Velmie","Slava","","helping you work with business onboarding documents","Hello Slava,
+
+Saw Velmie’s partnership with Sumsub to embed KYC, AML and fraud-prevention workflows into its payment infrastructure.
+
+Infratex can read stuff like financial statements, scanned reports and tables, and can turn them into structured Markdown, JSON and cited answers your financial AI agents can use, saving you loads of time.
+
+We could extract company and ownership details from business onboarding documents into KYC review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":22,""data"":{""FirstName"":""Slava"",""Company"":""Velmie"",""SourceNumber"":""21""}}]"
+"Infratex","not-sent-out-drafted","Whitevision","Frank","","helping you work with supplier invoices","Hello Frank,
+
+Saw Whitevision acquired Documation to expand its purchase-to-pay automation capabilities.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract invoice details and line items from supplier invoices into purchase-to-pay review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":61,""data"":{""FirstName"":""Frank"",""Company"":""Whitevision"",""SourceNumber"":""60""}}]"
+"Infratex","not-sent-out-drafted","Wirk","Daniel","","helping you work with kyc documents","Hey Daniel,
+
+Saw Wirk’s work with Crédit Agricole, where AI-powered document processing supports KYC checks alongside expert verification.
+
+Infratex can read your clients’ PDFs, scans, tables and handwriting and can turn them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract company names, addresses and ownership details from KYC documents into compliance-review fields if those files are part of your workflow, or make the documents searchable with answers linked to the original wording.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay","","","infratex-78-rewritten (2).csv","","","missing","","Supplied company name","no","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","recipient email","infratex-78-rewritten (2).csv","[{""source"":""infratex-78-rewritten (2).csv"",""row"":62,""data"":{""FirstName"":""Daniel"",""Company"":""Wirk"",""SourceNumber"":""61""}}]"

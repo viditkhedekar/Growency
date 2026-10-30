@@ -1,0 +1,208 @@
+diff --git a/docs/d1-read-fix.md b/docs/d1-read-fix.md
+new file mode 100644
+index 0000000..7783221
+--- /dev/null
++++ b/docs/d1-read-fix.md
+@@ -0,0 +1,46 @@
++# D1 read exhaustion fix
++
++Prepared on 29 October 2026. No production settings, campaigns, inboxes or billing were changed.
++
++The every-minute reply mailbox query can start from every sent step for each connected inbox. A synthetic SQLite fixture with 1,500 sent recipients assigned to one of 10 inboxes reproduced the repeated work. Recipient-first lookup and a covering steps index reduced the mailbox selector from 121,698 to 210 SQLite VM instructions while selecting the same mailbox. This is a local execution-work measurement, not a measurement of production D1 rows_read. Live Cloudflare query insights remain necessary to establish incident attribution.
++
++Changes:
++- Drive reply lookup from each inbox's recipients, then look up sent steps.
++- Scope campaign completion checks to each campaign's recipients.
++- Skip delivery selection when no running, non-test live/draft campaign is eligible.
++- Drive the scheduler's inbox-priority query from campaigns and recipients.
++- Add indexes for recipient/step state lookups and unresolved attempt checks.
++
++No schedule, sending cap, reply-stop, opt-out, reservation or uncertain-delivery behavior is relaxed. The free plan stays configured.
++
++Validation completed: TypeScript check; hosting preflight; SQLite query plans, mailbox choice and completion checks with pending, inflight, uncertain and failed work.
++
++Validation blocked: Miniflare/Vitest needs a localhost listener, which this task's sandbox rejects with EPERM. The original 90-test suite and new read-budget regression therefore need to run outside this sandbox. Remote query insights failed because the stored Cloudflare CLI session expired and its authentication server was unreachable here.
++
++## Apply and release
++
++From the real mailer repository, apply the supplied patch with `git apply --check` first, then `git apply`. Run:
++
++```sh
++npm run check
++npm test
++python3 scripts/check-d1-query-plans.py
++npm run preflight
++```
++
++Reconnect Cloudflare with `npx wrangler login` if needed. Inspect database read metrics and obtain query insights:
++
++```sh
++npx wrangler d1 insights DB --sort-by reads --sort-type sum --json
++```
++
++After daily quota resets (30 October, 00:00 GMT), apply the additive index migration before deploying the Worker:
++
++```sh
++npx wrangler d1 migrations apply DB --remote
++npm run deploy
++```
++
++The migration builds indexes and itself consumes read/write allowance. The Worker change uses ordinary SQL and is compatible with the previous schema if a deployment ordering issue occurs. Do not upgrade billing automatically. Review uncertain/inflight attempts in the app before manually resuming any paused inbox; never reset them to pending in bulk.
++
++Compare subsequent D1 row-read totals and query insights with the previous period. The free account has a shared 5-million-row daily budget across all its D1 databases, so inspect other databases too.
+diff --git a/migrations/0011_scheduler_read_indexes.sql b/migrations/0011_scheduler_read_indexes.sql
+new file mode 100644
+index 0000000..5a103b6
+--- /dev/null
++++ b/migrations/0011_scheduler_read_indexes.sql
+@@ -0,0 +1,7 @@
++-- Keep minute-by-minute mailbox and completion checks scoped to each recipient.
++-- The existing status/due index remains useful for due-message selection.
++CREATE INDEX steps_recipient_status_due ON steps(recipient_id,status,due_at,ordinal);
++CREATE INDEX attempts_status_created ON attempts(status,created_at);
++CREATE INDEX attempts_inbox_status ON attempts(inbox_id,status);
++CREATE INDEX manual_replies_inbox_status ON manual_replies(inbox_id,status);
++CREATE INDEX campaigns_status_mode ON campaigns(status,mode,is_test);
+diff --git a/scripts/check-d1-query-plans.py b/scripts/check-d1-query-plans.py
+new file mode 100644
+index 0000000..5c1ddcc
+--- /dev/null
++++ b/scripts/check-d1-query-plans.py
+@@ -0,0 +1,64 @@
++"""Offline SQLite regression checks. No production access or email sending."""
++from pathlib import Path
++import re
++import sqlite3
++
++root = Path(__file__).resolve().parent.parent
++
++def mailbox_query(text):
++    return re.search(r'prepare\("(SELECT \* FROM inboxes WHERE token!=.*?LIMIT 1)"\)', text).group(1)
++
++def measure(db, query):
++    instructions = 0
++    def tick():
++        nonlocal instructions
++        instructions += 1
++        return 0
++    db.set_progress_handler(tick, 1)
++    rows = db.execute(query).fetchall()
++    db.set_progress_handler(None, 0)
++    return rows, instructions
++
++old_query = "SELECT * FROM inboxes WHERE token!='' AND EXISTS(SELECT 1 FROM recipients r JOIN steps s ON s.recipient_id=r.id WHERE r.inbox_id=inboxes.id AND s.status='sent') ORDER BY last_checked LIMIT 1"
++new = (root/'src/replies.ts').read_text()
++db = sqlite3.connect(':memory:')
++for file in sorted((root/'migrations').glob('*.sql')):
++    if file.name < '0011':
++        db.executescript(file.read_text())
++db.execute("INSERT INTO campaigns(id,name,client,mode,created_at) VALUES('c','Fixture','PostingMachine','live',0)")
++for n in range(10):
++    db.execute("INSERT INTO inboxes(id,email,client,token,created_at,last_checked) VALUES(?,?,'PostingMachine','fake',0,?)", (f'i{n}',f'sender{n}@example.com',n))
++for n in range(1500):
++    db.execute("INSERT INTO recipients(id,campaign_id,email,mode,inbox_id,unsubscribe_token,created_at) VALUES(?,'c',?,'live','i0',?,0)",(f'r{n}',f'p{n}@example.com',f'u{n}'))
++    db.execute("INSERT INTO steps(id,recipient_id,ordinal,subject,body,status) VALUES(?,?,0,'hello','fixture','sent')",(f's{n}',f'r{n}'))
++before, before_cost = measure(db, old_query)
++for file in sorted((root/'migrations').glob('0011*.sql')):
++    db.executescript(file.read_text())
++after, after_cost = measure(db, mailbox_query(new))
++assert before == after and after[0][0] == 'i0'
++assert after_cost < before_cost / 10, (before_cost, after_cost)
++print(f'Mailbox selection: {before_cost:,} -> {after_cost:,} SQLite VM instructions ({before_cost/after_cost:.1f}x less work).')
++plan = [row[3] for row in db.execute('EXPLAIN QUERY PLAN '+mailbox_query(new))]
++assert any('recipient_inbox' in row for row in plan), plan
++assert any('steps_recipient_status_due' in row for row in plan), plan
++# Empty mailboxes must still be skipped when the populated mailbox is disconnected.
++db.execute("UPDATE inboxes SET token='' WHERE id='i0'")
++assert db.execute(mailbox_query(new)).fetchall() == []
++# Completion must preserve the status of campaigns with pending, failed or uncertain work.
++source=(root/'src/queue.ts').read_text()
++completion=re.search(r'export async function completeCampaigns.*?prepare\(`(.*?)`\)', source).group(1)
++db.execute("UPDATE campaigns SET status='running'")
++db.execute(completion)
++assert db.execute("SELECT status FROM campaigns").fetchone()[0] == 'complete'
++for status in ['pending','inflight','uncertain','failed']:
++    db.execute("UPDATE campaigns SET status='running'")
++    db.execute("UPDATE steps SET status=? WHERE id='s0'", (status,))
++    db.execute(completion)
++    assert db.execute('SELECT status FROM campaigns').fetchone()[0] == 'running',status
++# Held recipients do not allow an unresolved failed/uncertain attempt to be hidden.
++db.execute("UPDATE recipients SET status='held' WHERE id='r0'")
++for status in ['failed','uncertain']:
++    db.execute("UPDATE steps SET status=? WHERE id='s0'",(status,))
++    db.execute(completion)
++    assert db.execute('SELECT status FROM campaigns').fetchone()[0] == 'running'
++print('Mailbox choice, index use, empty mailboxes and campaign completion checks passed.')
+diff --git a/src/queue.ts b/src/queue.ts
+index c449f31..987e31c 100644
+--- a/src/queue.ts
++++ b/src/queue.ts
+@@ -134,7 +134,7 @@ export async function runPreview(env:Env,time=now()){
+   await execute(env,campaign,step,recipient,null,time);processed++;
+  }await completeCampaigns(env);return {processed};}finally{await env.DB.prepare("DELETE FROM leases WHERE name='preview' AND owner=?").bind(owner).run();}
+ }
+-export async function completeCampaigns(env:Env){await env.DB.prepare(`UPDATE campaigns SET status='complete' WHERE status='running' AND NOT EXISTS(SELECT 1 FROM steps s JOIN recipients r ON r.id=s.recipient_id WHERE r.campaign_id=campaigns.id AND r.status='active' AND s.status IN ('pending','inflight','uncertain')) AND NOT EXISTS(SELECT 1 FROM steps s JOIN recipients r ON r.id=s.recipient_id WHERE r.campaign_id=campaigns.id AND s.status IN ('uncertain','failed'))`).run();}
++export async function completeCampaigns(env:Env){await env.DB.prepare(`UPDATE campaigns SET status='complete' WHERE status='running' AND NOT EXISTS(SELECT 1 FROM recipients r CROSS JOIN steps s ON s.recipient_id=r.id WHERE r.campaign_id=campaigns.id AND r.status='active' AND s.status IN ('pending','inflight','uncertain')) AND NOT EXISTS(SELECT 1 FROM recipients r CROSS JOIN steps s ON s.recipient_id=r.id WHERE r.campaign_id=campaigns.id AND s.status IN ('uncertain','failed'))`).run();}
+ export function controlledAddress(env:Env,id:string){const [local,domain]=ownerEmail(env).split('@');return local.split('+')[0]+'+gm-test-'+id.replaceAll('-','')+'@'+domain;}
+ export async function controlledCampaign(env:Env,id:string){
+  const campaign=await env.DB.prepare('SELECT * FROM campaigns WHERE id=? AND is_test=1').bind(id).first<Campaign>();
+@@ -182,10 +182,12 @@ export async function runScheduled(env:Env,time=now()){
+   await completeCampaigns(env);
+   if(!withinWindow(time))return {outsideWindow:true};
+   await activateWaitingCampaigns(env,time);
++  // Imported drafts, paused campaigns and preview campaigns need no delivery selection.
++  if(!await env.DB.prepare(`SELECT 1 FROM campaigns c WHERE c.is_test=0 AND c.status='running' AND c.mode IN ('live','draft') AND (c.mode!='live' OR ?='true') AND ${campaignReady}`).bind(env.ENABLE_LIVE_SENDING).first())return {processed:0};
+   const inbox=await env.DB.prepare(`SELECT i.* FROM inboxes i WHERE i.enabled=1 AND i.blocked_until<=? AND i.last_attempt<=?
+    AND NOT EXISTS(SELECT 1 FROM attempts a WHERE a.inbox_id=i.id AND a.status IN ('uncertain','inflight')) AND NOT EXISTS(SELECT 1 FROM manual_replies mr WHERE mr.inbox_id=i.id AND mr.status IN ('uncertain','inflight'))
+    AND (SELECT count(*) FROM delivery_usage a WHERE a.inbox_id=i.id AND a.created_at>=?)<i.cap
+-   ORDER BY CASE WHEN EXISTS(SELECT 1 FROM steps s JOIN recipients r ON r.id=s.recipient_id JOIN campaigns c ON c.id=r.campaign_id WHERE c.is_test=0 AND c.client=i.client AND c.status='running' AND ${campaignReady} AND c.mode IN ('live','draft') AND (c.mode!='live' OR ?='true') AND s.status='pending' AND s.due_at<=? AND r.status='active' AND (r.inbox_id=i.id OR r.inbox_id IS NULL) AND (SELECT count(*) FROM attempts ca JOIN steps cs ON cs.id=ca.step_id JOIN recipients cr ON cr.id=cs.recipient_id WHERE cr.campaign_id=c.id AND ca.inbox_id=i.id AND ca.mode IN ('live','draft') AND ca.status!='cancelled' AND ca.created_at>=?)<c.effective_cap) THEN 0 ELSE 1 END,i.last_checked LIMIT 1`).bind(time,time-960000,capStart(time),env.ENABLE_LIVE_SENDING,time,capStart(time)).first<Inbox>();
++   ORDER BY CASE WHEN EXISTS(SELECT 1 FROM campaigns c CROSS JOIN recipients r ON r.campaign_id=c.id CROSS JOIN steps s ON s.recipient_id=r.id WHERE c.is_test=0 AND c.client=i.client AND c.status='running' AND ${campaignReady} AND c.mode IN ('live','draft') AND (c.mode!='live' OR ?='true') AND s.status='pending' AND s.due_at<=? AND r.status='active' AND (r.inbox_id=i.id OR r.inbox_id IS NULL) AND (SELECT count(*) FROM attempts ca JOIN steps cs ON cs.id=ca.step_id JOIN recipients cr ON cr.id=cs.recipient_id WHERE cr.campaign_id=c.id AND ca.inbox_id=i.id AND ca.mode IN ('live','draft') AND ca.status!='cancelled' AND ca.created_at>=?)<c.effective_cap) THEN 0 ELSE 1 END,i.last_checked LIMIT 1`).bind(time,time-960000,capStart(time),env.ENABLE_LIVE_SENDING,time,capStart(time)).first<Inbox>();
+   if(!inbox)return {processed:0};
+   if(!await allowedSender(env,inbox.email,inbox.client)){await env.DB.prepare("UPDATE inboxes SET enabled=0,health='Removed from allowed sender list' WHERE id=?").bind(inbox.id).run();return {paused:true};}
+   await env.DB.prepare('UPDATE inboxes SET last_checked=? WHERE id=?').bind(time,inbox.id).run();
+diff --git a/src/replies.ts b/src/replies.ts
+index 53b23b0..88c6b33 100644
+--- a/src/replies.ts
++++ b/src/replies.ts
+@@ -23,7 +23,7 @@ replies.get('/',async c=>c.json((await c.env.DB.prepare(`SELECT r.id,r.email,r.s
+ export async function syncReplyMailbox(env:import('./types').Env){
+  const lock=uid(),time=now();if(!await env.DB.prepare("INSERT INTO leases(name,owner,expires_at) VALUES('delivery',?,?) ON CONFLICT(name) DO UPDATE SET owner=excluded.owner,expires_at=excluded.expires_at WHERE leases.expires_at<? RETURNING owner").bind(lock,time+600000,time).first())return {detail:'Another mailbox check is running.'};
+  try{
+-  const inbox=await env.DB.prepare("SELECT * FROM inboxes WHERE token!='' AND EXISTS(SELECT 1 FROM recipients r JOIN steps s ON s.recipient_id=r.id WHERE r.inbox_id=inboxes.id AND s.status='sent') ORDER BY last_checked LIMIT 1").first<Inbox>();
++  const inbox=await env.DB.prepare("SELECT * FROM inboxes WHERE token!='' AND EXISTS(SELECT 1 FROM recipients r CROSS JOIN steps s ON s.recipient_id=r.id WHERE r.inbox_id=inboxes.id AND s.status='sent') ORDER BY last_checked LIMIT 1").first<Inbox>();
+   if(!inbox)return {detail:'No sent conversations to check.'};
+   await env.DB.prepare('UPDATE inboxes SET last_checked=? WHERE id=?').bind(time,inbox.id).run();
+   if(!await allowedSender(env,inbox.email,inbox.client))return {detail:'Sender access removed.'};
+diff --git a/tests/d1-reads.test.ts b/tests/d1-reads.test.ts
+new file mode 100644
+index 0000000..776c852
+--- /dev/null
++++ b/tests/d1-reads.test.ts
+@@ -0,0 +1,27 @@
++import { it, expect } from 'vitest';
++import { Miniflare, convertV4MiniflareOptions } from 'miniflare';
++import { readFileSync, readdirSync } from 'node:fs';
++import { syncReplyMailbox } from '../src/replies';
++import { runScheduled } from '../src/queue';
++import type { Env } from '../src/types';
++
++it('keeps an idle scheduler below the daily free read budget with imported campaigns',async()=>{
++ const mf=new Miniflare(convertV4MiniflareOptions({modules:true,script:'export default { fetch(){ return new Response("ok") } }',compatibilityDate:'2026-10-01',d1Databases:['DB']}));
++ try {
++ const db=await mf.getD1Database('DB');
++ await db.exec(readdirSync('migrations').sort().map(f=>readFileSync('migrations/'+f,'utf8')).join('\n').replace(/\n/g,' '));
++ await db.exec("INSERT INTO campaigns(id,name,client,mode,created_at) VALUES('c','Imported','PostingMachine','live',0);");
++ await db.exec("WITH RECURSIVE n(x) AS (VALUES(1) UNION ALL SELECT x+1 FROM n WHERE x<1500) INSERT INTO recipients(id,campaign_id,email,mode,unsubscribe_token,created_at) SELECT 'r'||x,'c','person'||x||'@example.com','live','u'||x,0 FROM n;");
++ await db.exec("INSERT INTO steps(id,recipient_id,ordinal,subject,body,due_at) SELECT id||'-0',id,0,'hello','body',0 FROM recipients;");
++ for(let n=0;n<10;n++)await db.prepare("INSERT INTO inboxes(id,email,client,token,created_at) VALUES(?,?,'PostingMachine','unused',0)").bind('i'+n,'sender'+n+'@example.com').run();
++ let reads=0;
++ const raw=Symbol('statement');
++ function statement(s:any):any {return new Proxy(s,{get(target,key){if(key===raw)return target;if(key==='bind')return (...args:any[])=>statement(target.bind(...args));if(key==='first')return async(column?:string)=>{const result=await target.all();reads+=result.meta.rows_read;const row=result.results[0];return row?(column?row[column]:row):null;};if(key==='all'||key==='run')return async(...args:any[])=>{const result=await target[key](...args);reads+=result.meta.rows_read;return result;};return Reflect.get(target,key);}});}
++ const measured=new Proxy(db,{get(target,key){if(key==='prepare')return (sql:string)=>statement(target.prepare(sql));if(key==='batch')return async(stmts:any[])=>{const result=await target.batch(stmts.map(s=>s[raw]));reads+=result.reduce((n:number,r:any)=>n+r.meta.rows_read,0);return result;};const value=Reflect.get(target,key);return typeof value==='function'?value.bind(target):value;}});
++ const env={DB:measured,ENABLE_LIVE_SENDING:'false'} as unknown as Env;
++ await syncReplyMailbox(env);
++ await runScheduled(env,Date.parse('2026-10-29T10:00:00Z'));
++ console.log('Idle scheduler rows read per minute:',reads,'daily projection:',reads*1440);
++ expect(reads).toBeLessThan(1000);
++ }finally{await mf.dispose();}
++},30000);

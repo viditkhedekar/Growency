@@ -1,0 +1,196 @@
+Posting Machine
+US Outbound Agency Brief
+Objective
+Build and contact a highly targeted list of approximately 2,000 US B2B founders through cold email and LinkedIn messaging.
+Target
+US-based B2B founders
+Stage
+Seed to Series A
+Company maturity
+Existing customers + evidence of PMF
+Founder LinkedIn
+500-10,000 followers; 1,000-5,000 ideal
+Buyer fit
+ICP is active and identifiable on LinkedIn
+Economics
+Able to justify $1,000-$3,000/month
+Channels
+Cold email + LinkedIn DM
+Primary goal
+Qualified conversations and pipeline, not vanity impressions
+
+North-star question: Would we genuinely want to cold email and LinkedIn-message this founder tomorrow?
+
+1. What Posting Machine does
+Posting Machine helps B2B founders turn LinkedIn into a revenue-generating channel. We are not selling "more posts" as the end product; the outcome we care about is relevant buyer attention, qualified conversations, and pipeline.
+Our workflow: turn founder and company context into content, learn what resonates with the ICP, increase relevant engagement, and use that attention to create qualified sales opportunities.
+Core thesis: the ideal customer already has product-market fit, but has not yet found content-market fit on LinkedIn.
+What we are not: a solution for companies with no customers, no clear ICP, or no functioning GTM motion.
+2. Customer proof points
+Use these as credibility proof in strategy and, where appropriate, in outbound copy. Keep claims precise and do not embellish beyond the facts below.
+Customer
+Result
+David - LunaBill (YC)
+~200K LinkedIn impressions in the first month working together, plus several sales attributed during that period.
+
+
+~
+Dylan - Opentrade (YC)
+Generated thousands of LinkedIn impressions during the first month working together.
+
+Messaging note: Lead with business outcomes where available. Impressions are supporting proof, not the core value proposition.
+3. Pricing & commercial structure
+Current offer: $499/month. This is discounted early-stage pricing and should be positioned as the current entry offer, not as our long-term price ceiling.
+Standard structure: $499/month with a three-month contract.
+The first month is base-fee only. Do not introduce or promise performance-based fees for month one.
+From month two onward, we may add a performance-based component on top of the monthly base fee when there is a clear, mutually agreed definition of performance.
+Potential performance metrics may include qualified ICP engagement, qualified conversations, meetings, or customers generated, depending on the account and what can be measured reliably.
+The agency should not position performance pricing as guaranteed or standardized. Treat it as a potential expansion of the commercial model after the first month.
+For outbound, lead with the business outcome and customer proof. Pricing can be introduced as: $499/month on a three-month engagement, with the possibility of aligning part of future pricing to performance once we have baseline data.
+4. Core ICP
+Target founders of US B2B companies that already know how to sell and need another distribution channel.
+Founder / Co-founder / Founder & CEO; CEO only if clearly a founder.
+US-based company and preferably a US-based founder.
+Seed to Series A preferred.
+Existing paying customers and clear evidence of PMF.
+B2B software, SaaS, AI, infrastructure, or technology-enabled B2B.
+Clear ICP with hundreds or thousands of potential buyers identifiable on LinkedIn.
+Founder still matters to sales, trust, positioning, customer relationships, or GTM.
+Company can comfortably afford the current $499/month offer and has enough customer value that a $1,000-$3,000/month relationship could make sense as results and scope expand.
+5. Strong-fit company signals
+$1M-$15M total funding raised.
+10-100 employees.
+Roughly $500K-$10M ARR where estimable.
+$5K+ ACV; $10K+ is ideal.
+Named customers, case studies, testimonials, or clear traction.
+Already has at least one working GTM channel: outbound, founder-led sales, referrals, partnerships, events, SEO, paid acquisition, SDRs or AEs.
+Recent Seed/Series A raise, GTM hiring, product launch, market expansion, or entry into a new vertical.
+Product requires education, trust, expertise, or senior stakeholder buy-in.
+6. Founder LinkedIn profile
+Follower range: 500-10,000. The strongest sweet spot is 1,000-5,000.
+500-1,000: include when company fit is excellent and the founder shows some activity.
+1,000-5,000: highest priority.
+5,000-10,000: include if content is inconsistent, generic, weakly engaged, or not generating pipeline.
+10,000+: generally exclude unless there is a clear content-to-revenue gap.
+Ideal current LinkedIn behavior
+Posts roughly 1-4 times per month or irregularly.
+Has expertise and credibility but weak consistency.
+Some posts perform well, showing latent channel potential.
+Content is dominated by company announcements rather than buyer-relevant insight.
+Reasonable follower base but limited ICP engagement.
+No obvious mature content team, creator operation, or repeatable LinkedIn inbound engine.
+7. Buyer / LinkedIn fit
+This is a hard qualification dimension. The company should sell to professional buyers who actively use LinkedIn and can be identified at scale.
+Strong buyer examples: CEOs, CFOs, CTOs, CIOs, CISOs, CROs, CMOs, CHROs, VPs, engineering leaders, finance leaders, HR leaders, recruiters, healthcare executives, operations leaders, logistics leaders, security professionals, legal professionals, and SaaS operators.
+Strong category examples: enterprise AI, developer tools, cybersecurity, data/cloud infrastructure, HR/recruiting tech, sales/marketing tech, fintech infrastructure, B2B healthtech, legaltech, logistics/supply-chain software, vertical SaaS, compliance, risk, procurement, and operations software.
+8. Economic fit
+The current $499/month offer should be easy to justify economically, and the account should have enough upside to support $1,000-$3,000/month over time if LinkedIn creates qualified opportunities or pipeline.
+Ideal: $10K+ ACV, mid-market or enterprise sales, founder-led or sales-assisted motion.
+Acceptable: $5K-$10K ACV with strong LTV or fast deal velocity.
+Lower priority: below $5K ACV.
+Avoid businesses where many incremental customers would be required to justify even the current $499/month fee or where a future $1K-$3K relationship would never make economic sense.
+9. Exclusions
+Pre-product, idea-stage, or obviously pre-PMF companies.
+No paying customers or unclear ICP.
+Consumer apps, gaming, or primarily local SMB products.
+Products whose buyers are rarely active on LinkedIn.
+Very low-ticket products.
+Professional creators / LinkedIn influencers.
+Founders posting daily with consistently strong engagement and obvious mature content systems.
+Founders whose personal brand is already a major acquisition engine.
+10. Account sourcing priorities
+Accelerators and VC affiliation are sourcing signals, not qualification criteria. Every account still needs to pass the ICP filters above.
+Primary source: YC
+US-based B2B companies.
+Recent and reasonably recent batches.
+Evidence of customers / traction.
+Founder still central to GTM.
+Exclude companies that are clearly still searching for PMF.
+US VC portfolio sources
+Prioritize: Pear VC, Uncork Capital, Wing Venture Capital, Craft Ventures, First Round Capital, Costanoa Ventures, Floodgate, SignalFire, Work-Bench, Heavybit, Menlo Ventures, Bessemer Venture Partners, Contrary.
+Also search selectively: Accel, Index Ventures, a16z, General Catalyst, Lightspeed, Sequoia. Filter large multi-stage funds aggressively.
+Accelerators / ecosystems
+Prioritize: Alchemist Accelerator, relevant Techstars B2B / enterprise / AI programs, South Park Commons.
+Secondary: 500 Global, Forum Ventures, ERA, Berkeley SkyDeck.
+Suggested first 2,000-account mix
+Source
+Approx. accounts
+YC
+500
+US Seed / Series A VC portfolios
+900
+Alchemist
+250
+Selected Techstars
+150
+SPC / 500 / Forum / ERA
+100
+Other high-confidence US B2B
+100
+
+11. Qualification tiers
+Tier A - Contact first: strong fit across PMF, economics, LinkedIn-active ICP, founder follower range, content gap, and founder-led GTM relevance.
+Tier B - Good target: strong overall fit with one or two uncertain dimensions, such as ACV or PMF evidence.
+Tier C - Borderline: only use if needed after higher-quality pools are exhausted. Do not pad the list with weak accounts.
+12. Outbound execution
+Use a dual-channel motion wherever possible: cold email + LinkedIn. The agency should optimize for qualified conversations, not send volume.
+Prioritize founders where both a work email and LinkedIn profile are available.
+Verify emails before sending and track deliverability.
+Use account-specific personalization rather than generic compliments.
+Use the same core hypothesis across channels, but do not duplicate the exact message verbatim.
+Prioritize Tier A accounts first and feed campaign learnings back into list-building.
+Good personalization signals
+Recent Seed or Series A raise.
+Recent product launch.
+Hiring sales/GTM roles.
+Major customer announcement.
+Founder recently posted about a buyer problem.
+Founder has strong expertise but posts inconsistently.
+One recent post performed unusually well.
+Content is mostly company announcements.
+Company is expanding GTM or entering a new vertical.
+Avoid: generic personalization such as "Love what you are building." The opening should contain a concrete reason this founder was selected.
+13. Required account data
+Company name
+Website
+Company LinkedIn URL
+Founder full name
+Founder title
+Founder LinkedIn URL
+Approximate LinkedIn follower count
+Approximate posting frequency
+Founder work email
+Email verification/confidence
+Headquarters
+Industry
+Short product description
+Funding stage
+Total funding
+Latest funding round/date
+Key investors
+Accelerator if applicable
+Employee count
+Estimated ARR/revenue if available
+Estimated ACV/pricing if available
+Primary ICP
+Example buyer titles
+Evidence of customers/PMF
+Existing GTM channels if identifiable
+Why founder-led content could influence revenue
+Current LinkedIn/content gap
+Tier A/B/C
+Source
+Cold email personalization hook
+LinkedIn DM personalization hook
+14. Final account acceptance test
+Is this definitely a B2B company?
+Is it US-based?
+Does it have real customers or strong PMF evidence?
+Can it comfortably afford $499/month now, with room to support $1,000-$3,000/month if the channel works?
+Are its buyers active on LinkedIn?
+Could founder credibility influence those buyers?
+Does the founder have roughly 500-10,000 followers?
+Has the founder NOT already solved LinkedIn content?
+Could LinkedIn realistically become a meaningful GTM channel?
+Can we reach the founder through email and/or LinkedIn?
+The final list of people you email should be 2,000 US B2B founders we would genuinely want to contact - not 2,000 venture-backed founders who happen to exist.

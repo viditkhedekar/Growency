@@ -1,0 +1,53 @@
+{
+  "postingmachine": [
+    {
+      "body": "At Posting Machine, we run founders’ and businesses’ LinkedIn. We have generated over 2 million impressions for our clients, including multiple YC ones.",
+      "cta": "Give us 12 minutes on a call next week to persuade you. You’ll be getting inbounds like crazy within weeks."
+    }
+  ],
+  "kairos": [
+    {
+      "body": "Kairos is an AI front desk built for dental practices. It helps clinics handle patient calls and scheduling. For one of our clients, Pecan Dental, we handled 1200+ calls per month.",
+      "cta": "Let me know if you would like to schedule a 12-minute call with our team to help set it up."
+    },
+    {
+      "body": "Pecan Dental reported $21,000 a month in dental production, and practice manager Jose Rodriguez said, ‘Onboarding was simple. Afterward, I didn’t have to keep manually calling old recalls’.",
+      "cta": "If we could get on a 12-minute call, we could save you hours in receptionist time."
+    },
+    {
+      "body": "At Kairos Health YC F26, we provide AI receptionists to handle patient calls and scheduling. Pecan Dental reported $21,000 a month in dental production.",
+      "cta": "You got 12 minutes this week for a quick call?"
+    }
+  ],
+  "infratex": [
+    {
+      "id": "product-intro",
+      "title": "Product opening",
+      "opening_template": "Saw that [company] is building [product].",
+      "help_template": "We could [option 1] or [option 2].",
+      "proof": "We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.",
+      "cta": "Give us 12 minutes next week and we can tailor an entire workflow around your systems in place."
+    },
+    {
+      "id": "help-intro",
+      "title": "Help opening",
+      "opening_template": "Was looking into [company] and thought that we could help you [opening help].",
+      "help_template": "We could [option 1] or [option 2].",
+      "proof": "We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.",
+      "cta": "Give us 12 minutes next week and we can tailor an entire workflow around your systems in place."
+    }
+  ],
+  "infratex_service_by_icp": {
+    "financial-software": "Infratex reads financial statements, scanned reports and tables, turning them into structured Markdown, JSON and cited answers your financial AI agents can use.",
+    "insurance-software": "Infratex reads loss runs, schedules of values and scanned submissions, turning them into structured Markdown, JSON and cited answers your underwriting agents can use.",
+    "ai-implementation-partner": "Infratex reads your clients’ PDFs, scans, tables and handwriting, turning them into structured Markdown, JSON and cited answers for the AI applications you build."
+  },
+  "postingmachine_followups": [
+    "Hey there,\n\nQuick follow-up. We use the same LinkedIn system to grow Posting Machine ourselves. It's generated 1M impressions in 90 days and 50+ sales calls.\n\nWe help B2B founders turn their ideas into LinkedIn content that gets conversations started.\n\nYou got 12 minutes next week for a quick call?",
+    "Hey there,\n\nA bit more context on Posting Machine. We help founders get their ideas into LinkedIn posts without losing what they're trying to say.\n\nDylan Pak at Moonshot, YC S26, put it this way: “You guys were able to nail down a lot of the core ideas.”\n\nYou got 12 minutes next week for a quick call?",
+    "Hey there,\n\nWe work on founders' LinkedIn content at Posting Machine, helping turn the ideas behind their business into posts.\n\n“You guys were able to nail down a lot of the core ideas,” was how Dylan Pak at Moonshot, YC S26, described the work.\n\nYou got 12 minutes next week for a quick call?",
+    "Hey there,\n\nThought I'd share a quick note from David Day at LunaBill, YC F25: “You guys have smooth onboarding and deliver amazing results.”\n\nAt Posting Machine, we run LinkedIn content for founders and businesses. We use the same system ourselves, where it's generated 50+ sales calls.\n\nYou got 12 minutes next week to see how it works?",
+    "Hey there,\n\nFollowing up on my earlier note. Posting Machine runs LinkedIn content for founders and businesses, with a focus on making it straightforward to get started.\n\nDavid Day at LunaBill, YC F25, said: “Every startup needs your service. You guys have smooth onboarding and deliver amazing results.”\n\nYou got 12 minutes next week for a quick call?",
+    "Hey there,\n\nThe point of Posting Machine is to help turn LinkedIn into a source of sales conversations.\n\nUsing the same system for our own business, we generated 1M impressions in 90 days and 50+ sales calls. That's the approach we bring to the founders we work with.\n\nYou got 12 minutes next week to talk through it?"
+  ]
+}

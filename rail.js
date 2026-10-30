@@ -66,7 +66,7 @@
     if(!geometry)return;
     const {height,entry,exit,centre,right,radius}=geometry;
     const clearance=innerWidth<=700?16:32,intervals=[];
-    const selector='.minimal-hero,.header,.hero-copy,.film-frame,.client-monument,.founder-content,.team-card,.term-sheet,.qa,.workflow-stage,.footer-layout,h1,h2,h3,p,a,button,label,figcaption,.footer-fine,.hero-actions,.hero-principles,.pilot-fit li';
+    const selector='.minimal-hero,.header,.hero-copy,.film-frame,.client-monument,.founder-content,.team-card,.term-sheet,.qa,.workflow-stage,.footer-layout,h1,h2,h3,p,a,button,label,figcaption,.footer-fine,.hero-actions,.hero-principles';
     document.querySelectorAll(selector).forEach(el=>{
       if(el.closest('[hidden],[inert],.site-rail,.scene-node,.step-node,.journey-dock,.meeting-shortcut') || el.getAttribute('aria-hidden')==='true')return;
       const r=el.getBoundingClientRect(),top=r.top+scrollY,bottom=r.bottom+scrollY;

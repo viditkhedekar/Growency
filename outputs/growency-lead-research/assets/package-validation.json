@@ -1,0 +1,23 @@
+{
+  "checked_on": "2026-10-24",
+  "skill_validation": "passed after bulk supplied-first update",
+  "original_briefs": "all three byte-identical to supplied attachments",
+  "relative_links": "all file links resolved",
+  "formatter_checks": 25,
+  "formatter_scope": "synthetic local records, no real approvals or leads",
+  "live_provider_exports_tested": false,
+  "live_instantly_import_tested": false,
+  "unresolved_campaign_settings": [
+    "Kairos US state",
+    "Kairos 1-5 vs 2-11 location scope",
+    "Kairos current pricing approval",
+    "Infratex chosen segment and proposed test-offer adoption",
+    "Approved email examples and per-client writing rules"
+  ],
+  "formatter_checked_on": "2026-10-21",
+  "quick_mode": "About five short bullets; usually 2-3 sources; at most one targeted follow-up; artifacts and detailed research only when requested.",
+  "posting_machine_linkedin": "Prioritize up to 3-5 visible founder posts from the last 30 days, retain post dates/URLs, one bounded fallback, summarize within five bullets; live retrieval not tested in this edit.",
+  "infratex_framing": "Five bullets including one simple, document-specific sentence explaining how Infratex could help; three fictional examples supplied.",
+  "bulk_preparation_test": "1,000 synthetic rows split/reassembled with original order and values preserved; web-light sizing, duplicate preservation, malformed rows and overwrite protection checked.",
+  "daily_throughput": "Not benchmarked; 1,000 leads/day is a design target, not a verified research result."
+}

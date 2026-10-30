@@ -1,0 +1,91 @@
+Infratex sales and campaign brief
+EUROPE ONLY
+We will run three angles to begin with: financial software companies, insurance software companies, and AI implementation partners. 
+Initially, we will prioritise targeting the financial software as their work is much more document heavy. Insurance software will run alongside.
+
+
+Growency will work on account research, outreach, reply handling, meeting qualification, and campaign reporting. Infratex will work on product demonstrations, technical evaluation, security answers, pricing, pilots, and closing. 
+Testimonials
+In the following, “we” refers to Infratex.
+1. We have worked with a private credit lending firm in Sweden with about $4 billion of AUM. We built a deal flow management dashboard, or a data management dashboard, for them, which ingested the borrower data from multiple quarterly filings that they reported. The data is to be canonically put into the company's own structured formats and be representable in the form of a chatbot, which enables management to query that borrower data to understand what's happening with the companies that they've lent money to. They tried building a similar platform through a freelancer but it did not work out and it didn't go through as per their expectations. Infratex was able to deliver them the required infrastructure as per their needs because we lay a special emphasis on customization when it comes to building workflows and we have the technical capabilities in-house to build all of that stuff, we don't need to outsource it. 
+2. We are working with an italian legal firm currently. I have attached the photo below as well. They were previously using Mistral in a Rube and they had already tried 12 other parsers but Infratex solved problems for them that no other parser could solve. I have attached the exact words below as well in the photo.
+3. We were working with a software consultancy firm in Canada and they were using Claude for extraction of their clients' documents. Given the sensitivity of the documents, we built a VPC for them and provided them with a much more cost-effective solution than what they were already using. They said that for a self-hosted and on-prem system, it worked much better than anything else that they had previously used.
+4. We are also part of Tech Europe Foundation's Foundry Accelerator. We had previously participated in the Ignition program and had won a special prize at the demo day as well. It's a pretty prestigious program. If you can definitely mention that if it helps to push the product.
+Details from the client
+We work one-on-one with each of our clients to take time to first understand the set of documents they're dealing with and only then do we recommend and build the model for them. Every deployment is fine-tuned to the enterprise's own documents so there's no parser that can match that level of accuracy. We spend a lot of time understanding the kind of documents our model would encounter so that when it goes into the client's production environment, it is not only reliable but provides unmatched accuracy and matches the expectation of the client with as few edge cases as possible.
+
+Infratex does designated workflows that they can make for a specific client. Mention that if you think it is appropriate to the given client
+Infratex turns information in PDFs, PPTs, Excel, Docx and scanned pages into structured output that another application can use (maybe focus on AI). P, extracting specific fields, searching document content, and producing answers with source references. It provides an API and Python and Node SDKs. An API lets a customer's software connect to Infratex. Other connections include MCP, VPC and On Prem
+For these campaigns, begin talking abt the document workflow. Explain the wider product ONLY when the buyer asks or it helps the evaluation. A financial buyer should hear about financial documents; an insurance buyer should hear about insurance documents.
+Offer a small document comparison covering one document type and an agreed output. Proposed scope: up to 20 documents, capped at 200 pages, with a scorecard showing correctness, missing information, processing time, and estimated cost. Include ordinary examples and difficult cases. Compare with the buyer's current output when available.
+Start with public or authorized redacted samples. Infratex agrees the transfer method before private documents are shared. Proposed turnaround is three business days after scope and data arrangements are agreed, subject to available capacity. The SDR should promise only the turnaround confirmed by Infratex.
+If the free scope is not adopted, use the alternative CTA: “Would a short technical walkthrough on a public sample be useful?” Adjust every sequence consistently.
+- Extracted output they can inspect against the source document.
+- A scorecard using agreed criteria and including failures.
+- A practical explanation of what integration would involve.
+- A next-step recommendation based on the result and workload.
+Describe the documented product and offer a test. Say that the purpose is to establish whether Infratex improves the buyer's workflow. Use savings or accuracy figures only with their scope and approved evidence.
+Escalate questions about certifications, data retention, hosting location, private deployment, throughput, service guarantees, or commercial discounts to Infratex. Claims must be specific to the product method and deployment being offered. The self-deployable Phi model does not by itself establish that every part of the platform runs privately. 
+
+
+Approach companies whose software uses financial documents repeatedly: lending and credit platforms, CRE underwriting products, and financial research or data products. Start around 10-100 employees with a live product and an identifiable engineering team.
+Keep the three financial subsegments tagged separately. A lender's supporting documents, a property rent roll, and a financial report need different language and evaluation criteria.
+Financial statements contain numbers across tables, reporting periods, and footnotes. Rent rolls list tenants, rents, occupancy, and other property information. Operating statements record property income and expenses. The comparison should check whether values retain their correct row, period, label, and unit.
+Possible problems to investigate include manual corrections, missing rows, mismatched reporting periods, inconsistent scans, and a new document type that requires engineering work. Frame these as questions unless the prospect has described them publicly.
+Start with the CTO, VP or Head of Engineering, Head of AI, or the engineering lead responsible for document ingestion. At smaller companies, a technical founder may own the decision. A product owner can explain the customer workflow and introduce the technical team.
+Find a product page, help article, launch, engineering vacancy, or case study that identifies a financial document workflow. Record the exact source and the document type. Personalize around that fact. A funding announcement alone is not good at all. 
+
+B2B - Manufacturers and Distributors
+What we sell
+Sell businesses a finished document workflow: extraction plus the checks, approvals and system handoff needed to complete a task. In B2B2B, a software company builds that workflow around Infratex. In direct B2B, Infratex or a named delivery partner supplies it.
+Who we target
+Start with manufacturers and distributors that manually check supplier invoices.. Prioritise recurring document volumes, varied supplier formats, an identifiable process owner and enough manual work to justify the cost. 
+Logistics is a second segment to test. Lenders, clinics and hospitals can also fit, but need separately scoped document intake or administrative workflows and confirmed data handling readiness.
+Contact finance controllers, accounts payable managers, heads of finance or operations managers. Bring the budget owner and ERP or IT owner into the evaluation.
+The first offer
+Supplier invoice validation and approved ERP entry:
+- Extract agreed invoice fields and line items.
+- Check against agreed rules and available supplier, purchase order or receipt records.
+- Route missing information, possible duplicates and mismatches to an employee.
+- Prepare approved data for an export or supported system entry.
+Start with one process and one destination system. Confirm integrations, implementation effort and support ownership before promising scope, timing or pricing. These are proposed workflow packages, not claims that every function already exists in Infratex.
+How SDRs position it
+Lead with less invoice checking and rekeying. Use a verified company observation, then ask about the current process. Avoid promising accuracy or savings before testing.
+
+
+
+
+Approach software companies serving commercial underwriting and submission workflows. Prioritize products that ingest broker documents and have an engineering owner able to integrate an external component. Direct sales to insurers and brokers can follow when Infratex has the workflow, integrations, and proof required for those buyers.
+Use an initial size filter of approximately 20–250 employees. Review ownership: an acquired business may use a parent company's procurement and supplier arrangements.
+Loss runs summarize previous insurance claims and losses. Schedules of values list insured properties or assets and their values. These contain repeated records and financial figures, making row completeness and field correctness useful evaluation criteria.
+Begin with one of these document types. Add policy schedules, application forms, or larger submission packages only after Infratex has demonstrated support and agreed the scope. A document parser does not automatically provide an entire underwriting system.
+Start with CTOs, Heads of Engineering or AI, and product owners for submissions or underwriting. The workflow owner should help identify the fields and acceptable review process. Security and the budget owner join before a private-data pilot or purchase.
+Ask which submission documents recur, which fields are needed, how many records/pages are processed, and whether users rekey or correct information. Establish existing extraction tools and review controls. Check whether testing can begin with redacted or public examples.
+The meeting goal is to agree one document type, one schema of required fields, an evaluation owner, and an appropriate review process. Route sensitive-data and compliance requirements to Infratex before sample transfer.
+Approach consultancies and agencies that build AI applications or document automation for business clients. Look for evidence of deployed work involving PDFs, structured extraction, document search, or financial/insurance workflows. Prioritize firms with technical delivery capability and an identifiable practice or project owner.
+Start around 10–50 employees. A small specialist with a live project can be more relevant than a large consultancy with only generic AI positioning. Marketing agencies selling chatbot websites without document-heavy business projects are lower priority.
+The partner uses Infratex as a document-processing component while delivering and owning the wider client solution. The initial conversation should focus on one active project. A successful implementation may lead to further usage across other clients.
+Discuss referral, resale, white-label arrangements, revenue share, or discounts only when Infratex has established terms. Infratex and the partner must agree who contracts, pays, supports the client, and controls the data. Do not promise exclusivity or client ownership arrangements in outreach.
+Start with founders, delivery directors, Heads of AI or Data, and practice leads. A technical architect can evaluate the component but may not own a partner agreement. Ask who oversees the live client project and commercial relationship.
+Ask about the current project, document type, client deadline, technical owner, likely production volume, and who can authorize evaluation. A general wish to “partner” is an introductory relationship. A live project with an owner and next step is a qualified opportunity.
+The meeting goal is to scope one project and establish the commercial/data responsibilities. Log later partnership potential separately from the first project's verified value.
+Ask to call
+First provide something and then ask follow ups.
+Log an information request as interest. Upgrade it when the prospect confirms a relevant workflow or agrees a substantive next step.
+“Understood. Is there a document type or new requirement you are currently evaluating? If your existing setup meets your needs, there may be no reason to run a comparison.” Understand what they are using.
+“We can begin with an offline comparison. That would let your team inspect the result before deciding whether integration deserves time.”
+“We can start with a public or redacted example. For private files, the Infratex team can discuss the data-handling requirements with the responsible person first.” Also mention that Infratex can create a VPC and deploy on prem for trial purposes if needed.
+Follow up at a later date.
+For a wrong person, ask which team handles the workflow and contact the referral accurately. For an objection or opt-out, suppress further marketing promptly. Any reply stops the automated sequence while the SDR handles the conversation.
+
+
+A direct-buyer meeting needs a relevant recurring workflow, an owner who can assess it or introduce that owner, a reason to evaluate now, and plausible commercial value. A partner meeting needs a relevant live client project and a credible route to its technical/commercial owner. Unknown budget or volume can be established in the meeting, but record the gap explicitly.
+Use “exploratory” when fit is plausible but the workload or owner is unclear. Use “qualified held” only after the conversation verifies the required criteria. An SDR should not force a prospect through a long questionnaire before booking a relevant call.
+- What document type are you processing, and what output is needed?
+- What happens to the data after extraction?
+- What is the approximate monthly document/page volume?
+- What creates review or correction work today?
+- Which tool or internal process is currently used?
+- Who would evaluate the result and integrate a successful solution?
+- What is the relevant project or buying timeline?
+For partners, add who owns the end-client relationship, project budget, and data permission. Record total volume and expected Infratex volume separately.

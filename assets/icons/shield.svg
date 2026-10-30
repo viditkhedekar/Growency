@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none"><defs>
+ <linearGradient id="pearl" x1=".18" y1="0" x2=".78" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#fff"/><stop offset=".38" stop-color="#edf4ff"/><stop offset="1" stop-color="#b5c2e8"/></linearGradient>
+ <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#77c7ff"/><stop offset=".45" stop-color="#5a8cf4"/><stop offset="1" stop-color="#6350bd"/></linearGradient>
+ <linearGradient id="lilac" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#e0e7ff"/><stop offset=".45" stop-color="#b3b7ed"/><stop offset="1" stop-color="#8385c9"/></linearGradient>
+ <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9daddc"/><stop offset="1" stop-color="#5a579a"/></linearGradient>
+ <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f2faff"/><stop offset="1" stop-color="#a8caf7"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-25%" width="160%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="1.2" flood-color="#16143e" flood-opacity=".2"/></filter>
+</defs><g transform="translate(2 1)" filter="url(#shadow)"><path d="M33 5c7 7 15 9 24 10v17c0 16-15 26-24 30C24 58 9 48 9 32V15c9-1 17-3 24-10Z" fill="url(#edge)"/><path d="M31 2c7 7 15 9 24 10v17c0 16-15 26-24 30C22 55 7 45 7 29V12c9-1 17-3 24-10Z" fill="url(#pearl)" stroke="#fff"/><path d="M31 10c5 4 11 6 17 7v12c0 10-9 19-17 23-8-4-17-13-17-23V17c6-1 12-3 17-7Z" fill="url(#blue)"/><path d="m22 30 6 6 12-13" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g></svg>

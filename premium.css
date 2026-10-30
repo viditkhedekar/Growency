@@ -178,7 +178,7 @@
 /* Shared tones change when the traveller reaches each chapter milestone. */
 :root { --scene-paper: #f8f7f3; --scene-night: #090619; }
 html { scroll-padding-top: 0; }
-.journey,.pilot-slide { background-color: var(--scene-paper); transition: background-color 900ms ease; }
+.journey { background-color: var(--scene-paper); transition: background-color 900ms ease; }
 .clients-slide,.pitch-slide,.founder-slide,.team-slide,.restored-faq,.closing-slide,.site-footer { background-color: var(--scene-night); transition: background-color 900ms ease; }
 .scene-node { position: absolute; top: 40px; left: 50%; transform: translateX(-50%); z-index: 4; width: 54px; height: 54px; border: 1px solid #b7a4d0; border-radius: 16px; display: grid; place-items: center; background: linear-gradient(145deg,#e4dbee,#b9a8d5); color: #684990; box-shadow: 0 5px 0 -1px #856d9e,0 10px 22px #30204225,inset 0 1px 1px #fff; transition: background .45s,box-shadow .45s,color .45s; }
 .scene-node > svg { width: 30px; height: 30px; --mark-hole: #c4b1dc; }
@@ -206,8 +206,8 @@ html { scroll-padding-top: 0; }
 @keyframes activity-light { 50% { box-shadow: 0 0 0 4px #9575be14; opacity: .5; } }
 .motion-enabled .is-live-preview .research-connection { animation: activity-light 2.4s infinite; }
 @media (max-width:700px) { .scene-node { width: 42px; height: 42px; top: 24px; border-radius: 12px; } .scene-node > svg { width: 27px; height: 27px; } #top > .scene-node { top: 95px; } .demo-stream { padding: 10px; } }
-@media (prefers-reduced-motion:reduce) { .journey,.pilot-slide,.clients-slide,.pitch-slide,.founder-slide,.team-slide,.restored-faq,.closing-slide,.site-footer { transition: none; } }
-.motion-paused .journey,.motion-paused .pilot-slide,.motion-paused .clients-slide,.motion-paused .pitch-slide,.motion-paused .founder-slide,.motion-paused .team-slide,.motion-paused .restored-faq,.motion-paused .closing-slide,.motion-paused .site-footer { transition: none; }
+@media (prefers-reduced-motion:reduce) { .journey,.clients-slide,.pitch-slide,.founder-slide,.team-slide,.restored-faq,.closing-slide,.site-footer { transition: none; } }
+.motion-paused .journey,.motion-paused .clients-slide,.motion-paused .pitch-slide,.motion-paused .founder-slide,.motion-paused .team-slide,.motion-paused .restored-faq,.motion-paused .closing-slide,.motion-paused .site-footer { transition: none; }
 /* The cursor follows the ordered sample workflow; rings only mark actions. */
 .demo-pointer { position: absolute; left: clamp(8px,var(--demo-x,28px),calc(100% - 32px)); top: clamp(8px,var(--demo-y,60px),calc(100% - 40px)); width: 29px; height: 35px; z-index: 9; pointer-events: none; opacity: 0; transition: left .42s cubic-bezier(.2,.8,.25,1),top .42s cubic-bezier(.2,.8,.25,1),opacity .2s; filter: drop-shadow(0 3px 4px #2b18584a); }
 .is-live-preview .demo-pointer { opacity: 1; }

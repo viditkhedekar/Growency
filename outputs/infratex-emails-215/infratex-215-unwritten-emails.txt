@@ -1,0 +1,4300 @@
+1. HES FinTech | info@hesfintech.com | IR27-251
+Subject: helping you review borrower documents
+
+Hey there,
+
+Saw that HES FinTech is building LoanBox for lender onboarding, where applicants upload bank statements and ID scans.
+
+Infratex reads financial statements, scanned reports and tables, turning them into structured Markdown, JSON and cited answers your financial AI agents can use.
+
+We could extract agreed fields from borrower statements for application review or make uploaded evidence searchable with answers tied to the original file.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+2. Oper Credits | sales@opercredits.com | IR27-252
+Subject: let us automate your mortgage document review
+
+Hi there,
+
+Was looking into Oper Credits and thought that we could help you test document extraction within Herman's mortgage underwriting flow.
+
+Infratex reads financial statements, scanned reports and tables, turning them into structured Markdown, JSON and cited answers your financial AI agents can use.
+
+We could read payslip income and tax figures into a reviewable case or return cited answers from the supporting mortgage file.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+3. CityFALCON | contact@cityfalcon.ai | IR27-253
+Subject: helping you structure company filings
+
+Hello there,
+
+Saw that CityFALCON is building financial-content tools that include company filings and analysis of customers' own content.
+
+Infratex reads financial statements, scanned reports and tables, turning them into structured Markdown, JSON and cited answers your financial AI agents can use.
+
+We could structure tables from company filings for your content tools or return cited answers across filings for research users.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+4. Fignum | steven.carruthers@fignum.com | IR27-254
+Subject: helping you handle mortgage documents
+
+Hey Steve,
+
+Was looking into Fignum and thought that we could help you test document handling in your mortgage origination workflow.
+
+Infratex reads financial statements, scanned reports and tables, turning them into structured Markdown, JSON and cited answers your financial AI agents can use.
+
+We could extract agreed income and property fields from application documents or let underwriters trace figures back to the original files.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+5. LendingMetrics | info@lendingmetrics.com | IR27-255
+Subject: helping you work with lender documents
+
+Hi there,
+
+Was looking into LendingMetrics and thought that we could help you test document-derived inputs if your lenders receive financial statements.
+
+Infratex reads financial statements, scanned reports and tables, turning them into structured Markdown, JSON and cited answers your financial AI agents can use.
+
+We could structure agreed figures from financial statements if lenders submit them or make supporting files searchable with source links if they are part of the process.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+6. Northdoor | info@northdoor.co.uk | IR27-256
+Subject: helping you use insurance documents
+
+Hello there,
+
+Saw that Northdoor is building NdexInsure with a document repository and insurance workflow modules.
+
+Infratex reads loss runs, schedules of values and scanned submissions, turning them into structured Markdown, JSON and cited answers your underwriting agents can use.
+
+We could structure broker-submission fields if those PDFs enter NdexInsure or make claims files searchable with cited answers if your clients review them.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+7. Buckhill | sales@buckhill.co.uk | IR27-257
+Subject: helping you review underwriting files
+
+Hey there,
+
+Saw that Buckhill is building C2MS with an underwriting workbench and quote-and-bind tools.
+
+Infratex reads loss runs, schedules of values and scanned submissions, turning them into structured Markdown, JSON and cited answers your underwriting agents can use.
+
+We could capture fields from broker submissions if they arrive as PDFs or make claims dates and amounts searchable against source files.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+8. Concirrus | info@concirrus.com | IR27-258
+Subject: helping you process specialty submissions
+
+Hi there,
+
+Was looking into Concirrus and thought that we could help you test a difficult document type inside specialty-risk intake.
+
+Infratex reads loss runs, schedules of values and scanned submissions, turning them into structured Markdown, JSON and cited answers your underwriting agents can use.
+
+We could structure fields from one agreed broker-submission format or make its supporting documents searchable with citations for underwriters.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+9. ChainThat | info@chainthat.com | IR27-259
+Subject: helping you work with policy documents
+
+Hello there,
+
+Was looking into ChainThat and thought that we could help you test document intake alongside your policy workflows.
+
+Infratex reads loss runs, schedules of values and scanned submissions, turning them into structured Markdown, JSON and cited answers your underwriting agents can use.
+
+We could structure broker forms if your clients receive submissions or surface cited answers if claims schedules are part of a client workflow.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+10. Insurwave | info@insurwave.com | IR27-260
+Subject: helping you check exposure schedules
+
+Hey there,
+
+Saw that Insurwave is building exposure-management software with pre-quote data checks and submission processing.
+
+Infratex reads loss runs, schedules of values and scanned submissions, turning them into structured Markdown, JSON and cited answers your underwriting agents can use.
+
+We could extract fields from one exposure-schedule format for pre-quote checks or return source-linked answers from supporting submission files.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+11. Fuzzy Labs | talk@fuzzylabs.ai | IR27-261
+Subject: helping you structure case files
+
+Hi there,
+
+Saw that Fuzzy Labs is building a case-file assistant that helps officers prepare complex records.
+
+Infratex reads your clients’ PDFs, scans, tables and handwriting, turning them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could pull dates, people and events from case-file documents into a timeline or return cited answers across the source files.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+12. Kortical | contact@kortical.com | IR27-262
+Subject: helping you handle client documents
+
+Hello there,
+
+Saw that Kortical is building bespoke AI agents connected to clients' data and systems.
+
+Infratex reads your clients’ PDFs, scans, tables and handwriting, turning them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could turn a client's scanned tables into fields an agent can use or return cited answers from client PDFs inside an agent workflow.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+13. Eli5 | kishan@eli5.io | IR27-263
+Subject: helping you process contracts and quotes
+
+Hey Kishan,
+
+Was looking into Eli5 and thought that we could help you handle document data in projects like your contract-and-quote workflow.
+
+Infratex reads your clients’ PDFs, scans, tables and handwriting, turning them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could extract agreed fields from contracts and quotes into the target system or give reviewers cited answers from the original files.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+14. Brainpool AI | contact@brainpool.ai | IR27-264
+Subject: helping you work with client reports
+
+Hi there,
+
+Was looking into Brainpool AI and thought that we could help you add document extraction to a live client project if one needs it.
+
+Infratex reads your clients’ PDFs, scans, tables and handwriting, turning them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could structure fields from client reports or scans for a data workflow or add cited answers over client PDFs to an information-finding app.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+15. Leftshift One | contact@leftshift.one | IR27-265
+Subject: helping you search scanned documents
+
+Hello there,
+
+Saw that Leftshift One is building MyGPT for searching internal company knowledge.
+
+Infratex reads your clients’ PDFs, scans, tables and handwriting, turning them into structured Markdown, JSON and cited answers for the AI applications you build.
+
+We could structure scanned tables before a client's files enter search or return source-linked answers across a client's document set.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+16. Marine Power Engines | info@marinepowerengines.com | IR27-266
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Marine Power Engines and thought that we could help you test a supplier-invoice workflow for your marine engines and generators business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+17. Simtec Systems | info@simtec.de | IR27-267
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Simtec Systems and thought that we could help you test a supplier-invoice workflow for your simulation equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+18. Safety Products Holdings GmbH | info@safetyproductsholdings.com | IR27-268
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Safety Products Holdings GmbH and thought that we could help you test a supplier-invoice workflow for your industrial safety products business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+19. Norck | info@norck.com | IR27-269
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Norck and thought that we could help you test a supplier-invoice workflow for your precision machined components business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+20. Chip 1 Exchange | info@chip1.com | IR27-270
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Chip 1 Exchange and thought that we could help you test a supplier-invoice workflow for your electronic component distribution business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+21. Condor Pressure Control GmbH | info@condor-werke.com | IR27-271
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Condor Pressure Control GmbH and thought that we could help you test a supplier-invoice workflow for your industrial pressure controls business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+22. LYNXTechnik AG | info@lynx-technik.com | IR27-272
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into LYNXTechnik AG and thought that we could help you test a supplier-invoice workflow for your broadcast equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+23. Phocos | info@phocos.com | IR27-273
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Phocos and thought that we could help you test a supplier-invoice workflow for your solar power equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+24. ZOPF Energieanlagen GmbH | info@zopf-energie.de | IR27-274
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into ZOPF Energieanlagen GmbH and thought that we could help you test a supplier-invoice workflow for your industrial power electronics business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+25. EFD Elektrotechnische Fabrik Düsseldorf GmbH - Sitec | info@sitec-components.com | IR27-275
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into EFD Elektrotechnische Fabrik Düsseldorf GmbH - Sitec and thought that we could help you test a supplier-invoice workflow for your electrical manufacturing business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+26. EMSsourcing e.K. | info@emssourcing.de | IR27-276
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into EMSsourcing e.K. and thought that we could help you test a supplier-invoice workflow for your cable assembly and electronic equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+27. Ei Electronics Deutschland | kundendienst@eielectronics.de | IR27-277
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Ei Electronics Deutschland and thought that we could help you test a supplier-invoice workflow for your smoke alarm products business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+28. Lunux Lighting GmbH | info@lunux-lighting.com | IR27-278
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Lunux Lighting GmbH and thought that we could help you test a supplier-invoice workflow for your lighting products business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+29. NEL GmbH Leipzig | info@nel.de | IR27-279
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into NEL GmbH Leipzig and thought that we could help you test a supplier-invoice workflow for your energy and lighting equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+30. Intratone GmbH | info@intratone.de | IR27-280
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Intratone GmbH and thought that we could help you test a supplier-invoice workflow for your access control equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+31. Candus GmbH | info@candus.eu | IR27-281
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Candus GmbH and thought that we could help you test a supplier-invoice workflow for your lighting equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+32. ACS Electronics Germany gmbH | info@acs.com.de | IR27-282
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into ACS Electronics Germany gmbH and thought that we could help you test a supplier-invoice workflow for your electronic component distribution business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+33. Rudolf Kiesewetter Messtechnik GmbH | info@kiesewetter-mt.de | IR27-283
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Rudolf Kiesewetter Messtechnik GmbH and thought that we could help you test a supplier-invoice workflow for your measurement instruments business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+34. EaVy Charging GmbH | info@eavycharging.com | IR27-284
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into EaVy Charging GmbH and thought that we could help you test a supplier-invoice workflow for your charging equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+35. Enerelektronik GmbH | kontakt@ener.de | IR27-285
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Enerelektronik GmbH and thought that we could help you test a supplier-invoice workflow for your energy management equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+36. AUTARK-HERO UG | info@autark-hero.de | IR27-286
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into AUTARK-HERO UG and thought that we could help you test a supplier-invoice workflow for your power equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+37. ELMICRO Computer GmbH & Co. KG | sales@elmicro.com | IR27-287
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into ELMICRO Computer GmbH & Co. KG and thought that we could help you test a supplier-invoice workflow for your embedded electronic equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+38. MARO Coffee Engineering GmbH | info@maro.coffee | IR27-288
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into MARO Coffee Engineering GmbH and thought that we could help you test a supplier-invoice workflow for your coffee machines business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+39. Seiler Batterien, Leipzig | info@seiler-batterien.de | IR27-289
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Seiler Batterien, Leipzig and thought that we could help you test a supplier-invoice workflow for your battery supply business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+40. NEONMONKI | info@neonmonki.com | IR27-290
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into NEONMONKI and thought that we could help you test a supplier-invoice workflow for your custom illuminated signs business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+41. Deutsche Zählergesellschaft Oranienburg | info@dzg.de | IR27-291
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Deutsche Zählergesellschaft Oranienburg and thought that we could help you test a supplier-invoice workflow for your electricity meters business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+42. RINETA | cottbus@rineta.de | IR27-292
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into RINETA and thought that we could help you test a supplier-invoice workflow for your control equipment supply business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+43. new enerday GmbH | info@new-enerday.com | IR27-293
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into new enerday GmbH and thought that we could help you test a supplier-invoice workflow for your fuel cell power systems business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+44. Leukhardt Schaltanlagen Systemtechnik GmbH | peq@leukhardt-system.de | IR27-294
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Leukhardt Schaltanlagen Systemtechnik GmbH and thought that we could help you test a supplier-invoice workflow for your electrical control panels business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+45. DER Elektronik GmbH | info@der-elektronik.de | IR27-295
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into DER Elektronik GmbH and thought that we could help you test a supplier-invoice workflow for your electronics production business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+46. HASYTEC Scandinavia GmbH | info@hasytec.com | IR27-296
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into HASYTEC Scandinavia GmbH and thought that we could help you test a supplier-invoice workflow for your ultrasonic antifouling equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+47. Faber Group | info@faberkabel.de | IR27-297
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Faber Group and thought that we could help you test a supplier-invoice workflow for your cable supply business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+48. Taschenlampenwerk ARTAS GmbH | info@taschenlampenwerk.de | IR27-298
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Taschenlampenwerk ARTAS GmbH and thought that we could help you test a supplier-invoice workflow for your portable lighting manufacture business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+49. PRO DESIGN Electronic GmbH | info@prodesign-europe.com | IR27-299
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into PRO DESIGN Electronic GmbH and thought that we could help you test a supplier-invoice workflow for your electronic hardware business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+50. Acoustic Control Systems - ACS Group | sales@acs-international.com | IR27-300
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Acoustic Control Systems - ACS Group and thought that we could help you test a supplier-invoice workflow for your ultrasonic testing equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+51. EAW Relaistechnik GmbH | eaw@eaw-relaistechnik.de | IR27-301
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into EAW Relaistechnik GmbH and thought that we could help you test a supplier-invoice workflow for your electrical relays business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+52. JK electronic GmbH | info@jkelectronic.de | IR27-302
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into JK electronic GmbH and thought that we could help you test a supplier-invoice workflow for your electromechanical component distribution business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+53. mateligent GmbH | email@mateligent.de | IR27-303
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into mateligent GmbH and thought that we could help you test a supplier-invoice workflow for your mechatronic materials and systems business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+54. FEAG GmbH | info@feag.de | IR27-304
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into FEAG GmbH and thought that we could help you test a supplier-invoice workflow for your electrical switchgear business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+55. flextem GmbH | info@flextem.de | IR27-305
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into flextem GmbH and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+56. Deltron | info@deltron.de | IR27-306
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Deltron and thought that we could help you test a supplier-invoice workflow for your security equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+57. Alfons Schmidt GmbH | info@schmidt-lebach.de | IR27-307
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Alfons Schmidt GmbH and thought that we could help you test a supplier-invoice workflow for your industrial electrical equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+58. LAP Laser Projection | info@lap-laser.com | IR27-308
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into LAP Laser Projection and thought that we could help you test a supplier-invoice workflow for your laser projection equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+59. Pan Acoustics GmbH | kontakt@pan-acoustics.de | IR27-309
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Pan Acoustics GmbH and thought that we could help you test a supplier-invoice workflow for your audio equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+60. RCS AUDIO-SYSTEMS GmbH | info@rcs-audio.com | IR27-310
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into RCS AUDIO-SYSTEMS GmbH and thought that we could help you test a supplier-invoice workflow for your audio systems business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+61. Dr. Mergenthaler GmbH & Co. KG | info@mergenthaler-laser.com | IR27-311
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Dr. Mergenthaler GmbH & Co. KG and thought that we could help you test a supplier-invoice workflow for your laser-processing components business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+62. Müller Elektronik | info@mueller-ekt.de | IR27-312
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Müller Elektronik and thought that we could help you test a supplier-invoice workflow for your electronics production business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+63. TKD KABEL GmbH | info@tkd-kabel.de | IR27-313
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into TKD KABEL GmbH and thought that we could help you test a supplier-invoice workflow for your cable distribution business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+64. GfS Gesellschaft für Sensorik mbH | info@gfsgermany.de | IR27-314
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into GfS Gesellschaft für Sensorik mbH and thought that we could help you test a supplier-invoice workflow for your pressure sensing components business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+65. fothermo System AG | info@fothermo.com | IR27-315
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into fothermo System AG and thought that we could help you test a supplier-invoice workflow for your solar water-heating equipment business.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+66. Weighwell Engineering Ltd | info@weighwell.com | IR27-316
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Weighwell Engineering Ltd and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+67. YellowScan | contact@yellowscan.com | IR27-317
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into YellowScan and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+68. Keraglass | info@keraglass.com | IR27-318
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Keraglass and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+69. colorFabb | sales@colorfabb.com | IR27-319
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into colorFabb and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+70. Microdis Electronics | ubloxfae@microdis.net | IR27-320
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Microdis Electronics and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+71. FB Trading - FRIGG & Mushie | info@fbtrading.com | IR27-321
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into FB Trading - FRIGG & Mushie and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+72. Tielman Group | tsemail@tielman.com | IR27-322
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Tielman Group and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+73. Technical Touch BV | info@technical-touch.com | IR27-323
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Technical Touch BV and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+74. Siconnex | online@siconnex.com | IR27-324
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Siconnex and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+75. UN1F1ED² Global Packaging Group - Unified2 Ireland | info@ugpg2.eu | IR27-325
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into UN1F1ED² Global Packaging Group - Unified2 Ireland and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+76. GBE UK | sales@gbeuk.co.uk | IR27-326
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into GBE UK and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+77. TAGSYS RFID | info@tagsysrfid.com | IR27-327
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into TAGSYS RFID and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+78. CAEN SpA | info@caen.it | IR27-328
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into CAEN SpA and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+79. Sun Test Systems B.V. | info@suntestsystems.com | IR27-329
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Sun Test Systems B.V. and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+80. Design Light Sp. z o.o. | sklep@designlight.pl | IR27-330
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Design Light Sp. z o.o. and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+81. Elcor A/S (Eegholm a/s) | eegholm@eegholm.dk | IR27-331
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Elcor A/S (Eegholm a/s) and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+82. SENAB | kundservice@senab.com | IR27-332
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into SENAB and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+83. CMC | info@cmcnv.com | IR27-333
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into CMC and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+84. XLOCK Group | info@xlockgroup.com | IR27-334
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into XLOCK Group and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+85. X-Celeprint | info@x-celeprint.com | IR27-335
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into X-Celeprint and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+86. Fleet Packs | hello@fleetpacks.co.uk | IR27-336
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Fleet Packs and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+87. celduc® relais | info@celduc-relais.com | IR27-337
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into celduc® relais and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+88. SOLARI SPA | info@solari.it | IR27-338
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into SOLARI SPA and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+89. Mek Europe BV / Mek Americas LLC / Marantz Electronics Ltd | info@marantz-electronics.com | IR27-339
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Mek Europe BV / Mek Americas LLC / Marantz Electronics Ltd and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+90. Weber-Stephen Nordic | service-dk@weber.com | IR27-340
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Weber-Stephen Nordic and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+91. ALIARO | info@aliaro.com | IR27-341
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into ALIARO and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+92. Ucamco NV | info@ucamco.com | IR27-342
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Ucamco NV and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+93. Durakool | sales@durakool.com | IR27-343
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Durakool and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+94. Testwall Ltd | info@testwall.com | IR27-344
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Testwall Ltd and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+95. Hawke Optics | info@hawkeoptics.com | IR27-345
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Hawke Optics and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+96. Designplan Lighting | sales@designplan.co.uk | IR27-346
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Designplan Lighting and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+97. MG iTALY | info@mgitaly.it | IR27-347
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into MG iTALY and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+98. TKH Security Siqura B.V. | info@tkhsecurity.com | IR27-348
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into TKH Security Siqura B.V. and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+99. Fossflakes A/S | info@fossflakes.com | IR27-349
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Fossflakes A/S and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+100. Comsys | info@comsys.se | IR27-350
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Comsys and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+101. XenomatiX - TRUE SOLID STATE LIDAR | info@xenomatix.com | IR27-351
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into XenomatiX - TRUE SOLID STATE LIDAR and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+102. Fronius International | info@fronius.com | IR27-352
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Fronius International and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+103. Euro Sales Limited | info@eurosales.ie | IR27-353
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Euro Sales Limited and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+104. Bond Chemicals | info@bondchemicals.co.uk | IR27-354
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Bond Chemicals and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+105. TTK | info@ttk.fr | IR27-355
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into TTK and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+106. Seb - COL Group | servizio-clienti@seb-barlassina.it | IR27-356
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Seb - COL Group and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+107. Hirose Electric Europe B.V. | info@hirose.com | IR27-357
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Hirose Electric Europe B.V. and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+108. Fabrika A/S | info@fabrika.dk | IR27-358
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Fabrika A/S and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+109. Panasonic Fire & Security Europe AB | info@panasonic-fire-security.com | IR27-359
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Panasonic Fire & Security Europe AB and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+110. Domintell | info@domintell.com | IR27-360
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Domintell and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+111. Origin Enterprises Plc | info@originenterprises.com | IR27-361
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Origin Enterprises Plc and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+112. Emuge-Franken UK | info@emuge-franken-group.com | IR27-362
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Emuge-Franken UK and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+113. SOPIL | info@sopil.fr | IR27-363
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into SOPIL and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+114. Eurogi | info@eurogi.net | IR27-364
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Eurogi and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+115. Delta Elektronika - DC Power Supplies | info@delta-elektronika.nl | IR27-365
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Delta Elektronika - DC Power Supplies and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+116. THÜRMER TOOLS | info@thurmer.com | IR27-366
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into THÜRMER TOOLS and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+117. SAMON | info@samon.com | IR27-367
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into SAMON and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+118. ArtSound | info@artsound.be | IR27-368
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into ArtSound and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+119. Impedans Ltd | chanel.linnane@impedans.com | IR27-369
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Impedans Ltd and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+120. NDS Tooling Solutions | info@ndstools.com | IR27-370
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into NDS Tooling Solutions and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+121. ATOMELEC | contact@atomelec.fr | IR27-371
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into ATOMELEC and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+122. Buxton Lime | marketing@buxtonlime.com | IR27-372
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Buxton Lime and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+123. Eysing | info@eysing.com | IR27-373
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Eysing and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+124. Eico A/S | salg@eico.dk | IR27-374
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Eico A/S and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+125. Sigicom AB | info@sigicom.com | IR27-375
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Sigicom AB and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+126. MSY Invest SPRL | info@msy.be | IR27-376
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into MSY Invest SPRL and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+127. HY-MAC | info@hy-mac.com | IR27-377
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into HY-MAC and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+128. Hi-Rel Solutions by Steliau Technology | info@steliau-hirel.com | IR27-378
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Hi-Rel Solutions by Steliau Technology and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+129. EuroHeat Srl | info@euroheat.it | IR27-379
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into EuroHeat Srl and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+130. STOER Bikes | info@stoerbikes.com | IR27-380
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into STOER Bikes and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+131. TAKT | info@taktcph.com | IR27-381
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into TAKT and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+132. SMS Smart Media Solutions | info@smartmediasolutions.com | IR27-382
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into SMS Smart Media Solutions and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+133. Velo-Boxx® | info@velo-boxx.com | IR27-383
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Velo-Boxx® and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+134. Flowplant Group Limited | info@flowplant.com | IR27-384
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Flowplant Group Limited and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+135. FAVIER GROUP | info@favier-group.com | IR27-385
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into FAVIER GROUP and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+136. ValvoleTech S.p.A | info@valvoletech.com | IR27-386
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into ValvoleTech S.p.A and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+137. Airtender Works B.V. | info@airtender.com | IR27-387
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Airtender Works B.V. and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+138. ALTEQ as | info@alteq.dk | IR27-388
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into ALTEQ as and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+139. Rapid | info@rapid.com | IR27-389
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Rapid and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+140. Ligne Pure | sales@lignepure.com | IR27-390
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Ligne Pure and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+141. elumatec UK | mail@elumatec.com | IR27-391
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into elumatec UK and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+142. CCI Eurolam Group | info@ccieurolam.com | IR27-392
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into CCI Eurolam Group and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+143. T.D.S. S.P.A. - TECHNOLOGICAL DEVELOPMENT SYSTEMS | info@tds-spa.it | IR27-393
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into T.D.S. S.P.A. - TECHNOLOGICAL DEVELOPMENT SYSTEMS and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+144. Dutch ID e-bikes | info@dutch-id.nl | IR27-394
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Dutch ID e-bikes and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+145. Blue-Tech A/S | post@blue-tech.dk | IR27-395
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Blue-Tech A/S and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+146. Dinbox | info@dinbox.se | IR27-396
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Dinbox and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+147. Finn-Power | info@finnpower.co.uk | IR27-397
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Finn-Power and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+148. NEXVISION SAS | contact@nexvision.fr | IR27-398
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into NEXVISION SAS and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+149. R.C.V. srl | info@rcv-srl.it | IR27-399
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into R.C.V. srl and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+150. BenQ Europe | reviews.bqa@benq.com | IR27-400
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into BenQ Europe and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+151. Storm Textil | storm@stormtextil.dk | IR27-401
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Storm Textil and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+152. Skårebo Energi AB | kontakt@skarebo.se | IR27-402
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Skårebo Energi AB and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+153. Centreline Machine Guards Ltd | info@centrelineguards.co.uk | IR27-403
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Centreline Machine Guards Ltd and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+154. TEQOYA | contact@teqoya.com | IR27-404
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into TEQOYA and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+155. A.S.I.T. Instruments Srl | info@asitinstruments.it | IR27-405
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into A.S.I.T. Instruments Srl and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+156. Nearfield Instruments | roland.vanvliet@nearfieldinstruments.com | IR27-406
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Nearfield Instruments and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+157. OBH Nordica Group | info@obhnordica.com | IR27-407
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into OBH Nordica Group and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+158. Audion Elektro Uk - Packaging Machinery and Materials Solutions | info@audionelektro.co.uk | IR27-408
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Audion Elektro Uk - Packaging Machinery and Materials Solutions and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+159. BÉABA | info@beaba.com | IR27-409
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into BÉABA and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+160. Elmiti, riscaldatori elettrici | info@elmiti.com | IR27-410
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Elmiti, riscaldatori elettrici and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+161. Builder 3D Printers | sales@builder3dprinters.com | IR27-411
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Builder 3D Printers and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+162. WILLAB GARDEN AB | info@willabgarden.se | IR27-412
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into WILLAB GARDEN AB and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+163. Haas Automation UK | sales@haas.co.uk | IR27-413
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Haas Automation UK and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+164. EMBODME | contact@embodme.com | IR27-414
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into EMBODME and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+165. ELMAB srl | info@elmab.it | IR27-415
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into ELMAB srl and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+166. Skånska Byggvaror AB | internsupport@skanskabyggvaror.se | IR27-416
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Skånska Byggvaror AB and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+167. HORN CUTTING TOOLS LIMITED | info@horn-group.com | IR27-417
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into HORN CUTTING TOOLS LIMITED and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+168. STELT 2 Srl | info@stelt2.it | IR27-418
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into STELT 2 Srl and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+169. Personlig Almanacka Nordic AB | hej@personligalmanacka.se | IR27-419
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Personlig Almanacka Nordic AB and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+170. ePowerTrucks - Street Cleaning Solutions | info@epowertrucks.co.uk | IR27-420
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into ePowerTrucks - Street Cleaning Solutions and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+171. FLEXBALL ITALIANA S.R.L. | info@flexballitaliana.com | IR27-421
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into FLEXBALL ITALIANA S.R.L. and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+172. Skyltmax.se, SignMax AB | info@skyltmax.se | IR27-422
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Skyltmax.se, SignMax AB and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+173. technotrans thermal technology limited | info@technotrans.com | IR27-423
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into technotrans thermal technology limited and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+174. PhoenixPCB | info@phoenixpcb.it | IR27-424
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into PhoenixPCB and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+175. Orbital Systems | social@orbital-systems.com | IR27-425
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Orbital Systems and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+176. Reliant Machinery | info@reliant-machinery.com | IR27-426
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Reliant Machinery and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+177. Lupo srl | info@lupo.it | IR27-427
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Lupo srl and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+178. Modvion | info@modvion.com | IR27-428
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Modvion and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+179. Lester Controls | info@lestercontrols.co.uk | IR27-429
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Lester Controls and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+180. Microlys Srl | info@microlys.it | IR27-430
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Microlys Srl and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+181. Lignin Industries AB | contact@lignin.se | IR27-431
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Lignin Industries AB and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+182. Christy Turner | info@christy-turner.com | IR27-432
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Christy Turner and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+183. Urmet Solutions Glt | info@glt.it | IR27-433
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Urmet Solutions Glt and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+184. Elonroad | contact@elonroad.com | IR27-434
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Elonroad and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+185. Advanced Turf Technology LTD | info@infinicut.com | IR27-435
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Advanced Turf Technology LTD and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+186. Beinat S.r.l. | info@beinat.com | IR27-436
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Beinat S.r.l. and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+187. A1 PRECISION ENGINEERING (2015) LTD | info@a1precision.co.uk | IR27-437
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into A1 PRECISION ENGINEERING (2015) LTD and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+188. Enecom Srl | info@enecompower.com | IR27-438
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Enecom Srl and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+189. Lissett Homes | info@lissetthomes.com | IR27-439
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Lissett Homes and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+190. Reco Group | info@recogroup.it | IR27-440
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Reco Group and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+191. Eurobake Limited | info@eurobake.co.uk | IR27-441
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Eurobake Limited and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+192. Bruno Conductors | info@brunoconductors.it | IR27-442
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Bruno Conductors and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+193. NEWARC | sales@newarc.co.uk | IR27-443
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into NEWARC and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+194. DIGITEC | info@digitecingegneria.com | IR27-444
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into DIGITEC and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+195. RASCO UK | info@rasco.co.uk | IR27-445
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into RASCO UK and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+196. Sicme Orange1 s.r.l | info@orange1.eu | IR27-446
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Sicme Orange1 s.r.l and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+197. Cowie Engineering Ltd | enquiries@cowieengineering.com | IR27-447
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into Cowie Engineering Ltd and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+198. Ghisalba S.p.A. | info@ghisalba.com | IR27-448
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into Ghisalba S.p.A. and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+199. NEY LTD | sales@ney.co.uk | IR27-449
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into NEY LTD and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+200. Art Tech - Led Wall Solutions | info@maxischermiled.it | IR27-450
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Art Tech - Led Wall Solutions and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+201. Karmelle Ltd | enquiries@karmelle.com | IR27-451
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into Karmelle Ltd and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+202. ITALWATT | info@italwatt.it | IR27-452
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into ITALWATT and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+203. NIKKEN Kosakusho Europe Ltd | info@nikken-world.com | IR27-453
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into NIKKEN Kosakusho Europe Ltd and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+204. PRODEL | info@prodeltorino.it | IR27-454
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into PRODEL and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+205. Hako Machines Ltd | info@hako.co.uk | IR27-455
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into Hako Machines Ltd and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+206. High Tech Elettronica Srl | info@hightechelettronica.com | IR27-456
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into High Tech Elettronica Srl and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+207. BANCE | info@bance.com | IR27-457
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into BANCE and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+208. Rame Service s.r.l. | info@rameservice.com | IR27-458
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into Rame Service s.r.l. and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+209. RENOWN RAIL WELDING LIMITED | info@renownrailwelding.co.uk | IR27-459
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into RENOWN RAIL WELDING LIMITED and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+210. CSI safe living | info@csispa.it | IR27-460
+Subject: let us automate your invoice checks
+
+Hello there,
+
+Was looking into CSI safe living and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+
+211. CEMB Hofmann UK Ltd | sales@cembhofmann.co.uk | IR27-461
+Subject: helping you check supplier invoices
+
+Hey there,
+
+Was looking into CEMB Hofmann UK Ltd and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best regards,
+Chinmay
+
+============================================================
+
+212. Silentron | info@silentron.com | IR27-462
+Subject: let us automate your invoice checks
+
+Hi there,
+
+Was looking into Silentron and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Kind regards,
+Chinmay
+
+============================================================
+
+213. BCH Ltd | info@bchltd.com | IR27-463
+Subject: helping you check supplier invoices
+
+Hello there,
+
+Was looking into BCH Ltd and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Best,
+Chinmay
+
+============================================================
+
+214. DUEVI | info@duevi.eu | IR27-464
+Subject: let us automate your invoice checks
+
+Hey there,
+
+Was looking into DUEVI and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Thanks,
+Chinmay
+
+============================================================
+
+215. ViaLite Communications | sales@vialite.com | IR27-465
+Subject: helping you check supplier invoices
+
+Hi there,
+
+Was looking into ViaLite Communications and thought that we could help you test a supplier-invoice workflow for your team.
+
+Infratex reads stuff like supplier invoices, purchase orders and delivery notes and can turn them into structured information your finance team can check and use, saving you loads of time.
+
+We could extract invoice line items for purchase-order checks or turn delivery notes into quantities your team can review, if you use those notes.
+
+We've already worked for a private credit lending firm in Sweden with about $4 billion of AUM and many many other companies around the globe.
+
+Give us 12 minutes next week and we can tailor an entire workflow around your systems in place.
+
+Cheers,
+Chinmay
+
+============================================================
+

@@ -1,0 +1,53 @@
+/* Original Growency illustrations: pearl faces, blue edges and violet depth.
+   Icons are decorative; the accompanying text always carries the meaning. */
+img.site-icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  max-width: none;
+  flex-shrink: 0;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-inline-end: 9px;
+}
+img.icon-nav { width: 21px; height: 21px; margin-inline-end: 7px; }
+img.icon-eyebrow { width: 26px; height: 26px; margin: 0; }
+img.icon-headline {
+  width: .72em;
+  height: .72em;
+  margin-inline-end: .14em;
+  vertical-align: -.02em;
+}
+img.icon-principle { width: 21px; height: 21px; margin-inline-end: 5px; }
+img.icon-heading { width: .82em; height: .82em; margin-inline-end: .16em; vertical-align: -.03em; }
+img.icon-title { width: 34px; height: 34px; margin-inline-end: 10px; }
+img.icon-small { width: 22px; height: 22px; margin-inline-end: 5px; }
+img.icon-question { width: 26px; height: 26px; margin-inline-end: 9px; }
+img.icon-tab { width: 30px; height: 30px; margin-inline-end: 9px; }
+img.icon-stage { width: 25px; height: 25px; margin-inline-end: 6px; }
+img.icon-agenda { width: 25px; height: 25px; margin: 0; }
+#top.minimal-hero .eyebrow { gap: 8px; }
+#top.minimal-hero .hero-principles { align-items: center; }
+#top.minimal-hero .hero-principles > span { display: inline-flex; align-items: center; }
+.demo-progress li b { display: inline-flex; align-items: center; }
+.career-tab { gap: 0; }
+.booking-agenda li { align-items: center; }
+.booking-agenda li > img.icon-agenda { flex: 0 0 25px; }
+.booking-duration > img.icon-title { width: 30px; height: 30px; margin: 0; }
+.scheduler-heading h2 { display: flex; align-items: center; }
+.qa__q { padding-left: 35px; }
+.qa__q > .icon-question { position: absolute; left: 0; top: 0; }
+@media (max-width: 700px) {
+  img.icon-tab { width: 25px; height: 25px; margin: 0 0 4px; }
+  .career-tab { flex-direction: column; }
+  img.icon-stage { width: 19px; height: 19px; margin-inline-end: 3px; }
+  img.icon-title { width: 29px; height: 29px; }
+  img.icon-eyebrow { width: 23px; height: 23px; }
+  img.icon-principle { width: 18px; height: 18px; }
+  #top.minimal-hero .hero-principles { gap: 10px; }
+  #top.minimal-hero .hero-principles span + span { padding-left: 10px; }
+}
+@media (max-width: 380px) {
+  .demo-progress li b { flex-direction: column; gap: 3px; text-align: center; }
+  .demo-progress img.icon-stage { margin: 0; }
+}

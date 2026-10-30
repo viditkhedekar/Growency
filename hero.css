@@ -46,6 +46,44 @@ html[data-scene="0"] .minimal-home .meeting-shortcut { visibility: hidden; }
   padding: 0;
 }
 #top.minimal-hero .hero-copy > * { animation: none; }
+/* Each word keeps its natural spacing and a little room for serif descenders
+   and italic overhang. All content remains visible without JavaScript. */
+#top.minimal-hero .hero-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding: 0 .08em .22em;
+  margin: 0 -.08em -.22em;
+}
+#top.minimal-hero .hero-word > span { display: inline-block; }
+@keyframes hero-word-rise {
+  from { opacity: 0; transform: translateY(110%); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.motion-paused) #top.minimal-hero .hero-word > span {
+    animation: hero-word-rise 1.05s cubic-bezier(.22, 1, .36, 1) both;
+    animation-delay: calc(.24s + var(--word-order) * .13s);
+  }
+  html:not(.motion-paused) #top.minimal-hero .hero-copy > .eyebrow,
+  html:not(.motion-paused) #top.minimal-hero .hero-copy > .hero-description,
+  html:not(.motion-paused) #top.minimal-hero .hero-copy > .hero-actions,
+  html:not(.motion-paused) #top.minimal-hero .hero-media {
+    animation: hero-fade-up 1.1s cubic-bezier(.22, 1, .36, 1) both;
+  }
+  html:not(.motion-paused) #top.minimal-hero .hero-copy > .eyebrow { animation-delay: .08s; }
+  html:not(.motion-paused) #top.minimal-hero .hero-copy > .hero-description { animation-delay: 1.85s; }
+  html:not(.motion-paused) #top.minimal-hero .hero-copy > .hero-actions { animation-delay: 2.12s; }
+  html:not(.motion-paused) #top.minimal-hero .hero-media { animation-delay: 2.4s; }
+  /* Keyboard users can reach the actions immediately, even during the reveal. */
+  html:not(.motion-paused) #top.minimal-hero .hero-copy > .hero-actions:focus-within {
+    animation: none;
+  }
+}
 #top.minimal-hero .eyebrow {
   justify-content: center;
   font-size: 11px;

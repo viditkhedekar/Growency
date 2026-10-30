@@ -19,7 +19,7 @@
   const mix = (a,b,t) => a.map((v,i) => v+(b[i]-v)*t);
   const colour = values => `rgb(${values.map(v=>Math.round(v)).join(' ')})`;
   const descriptors = surfaces.map(el => ({
-    el, paper: !!el.closest('.journey,.pilot-slide,.pricing-slide'),
+    el, paper: !!el.closest('.journey,.pricing-slide'),
     initial: rgb(getComputedStyle(el).backgroundColor)
   }));
   const anchors = [...document.querySelectorAll('.scene-node,.step-node')].map(node => {
