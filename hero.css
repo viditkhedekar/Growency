@@ -105,6 +105,12 @@ html[data-scene="0"] .minimal-home .meeting-shortcut { visibility: hidden; }
   letter-spacing: inherit;
   padding-right: .04em;
 }
+#top.minimal-hero h1 strong .hero-word > span {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: .045em;
+  text-underline-offset: .12em;
+}
 #top.minimal-hero h1 .headline-close {
   display: block;
   margin-top: 14px;

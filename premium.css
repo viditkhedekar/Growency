@@ -167,7 +167,7 @@
 .founder-orbit { opacity: .19; }
 .team-art img { opacity: .38; filter: saturate(.45); }
 .meeting-shortcut { position: fixed; right: 25px; bottom: 25px; z-index: 25; display: flex; align-items: center; gap: 11px; min-height: 57px; padding: 8px 17px 8px 8px; border: 1px solid #bda9e58f; border-radius: 18px; background: linear-gradient(145deg,#302041,#1d152d); color: #f6f1ff; box-shadow: 0 10px 30px #120b2738,inset 0 1px 0 #ffffff27; font-size: 11px; }
-.meeting-shortcut > span { display: grid; place-items: center; width: 41px; height: 41px; border-radius: 12px; background: linear-gradient(145deg,#81aafb,#7352bd); border: 1px solid #c7b9eb; box-shadow: 0 4px 0 -1px #4e3484,inset 0 1px 1px #ffffff8f; }
+.meeting-shortcut > span { display: grid; place-items: center; width: 41px; height: 41px; border-radius: 12px; background: var(--accent); color: var(--accent-ink); border: 1px solid var(--accent-hover); box-shadow: 0 4px 0 -1px #a94843,inset 0 1px 1px #ffffff8f; }
 .meeting-shortcut svg { width: 24px; height: 24px; }
 .motion-enabled .meeting-shortcut > span { animation: meeting-nudge 5.5s ease-in-out infinite; }
 .meeting-shortcut:hover { border-color: #d9c5ff; background: #302242; }
