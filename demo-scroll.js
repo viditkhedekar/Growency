@@ -16,8 +16,8 @@
   const progress = document.createElement('aside');
   progress.className = 'demo-progress';
   progress.setAttribute('aria-label', 'Workflow stages');
-  const labels = ['Find', 'Research', 'Reach out', 'Book'];
-  const stageIcons = ['target', 'search', 'mail', 'calendar'];
+  const labels = ['Plan', 'Create', 'Test', 'Scale'];
+  const stageIcons = ['target', 'spark', 'chart', 'route'];
   progress.innerHTML = `<ol>${labels.map((label, i) => `<li><span>${String(i + 1).padStart(2, '0')}</span><b><img class="site-icon icon-stage" src="assets/icons/${stageIcons[i]}.svg" alt="" aria-hidden="true" width="68" height="68">${label}</b><i aria-hidden="true"></i></li>`).join('')}</ol><div class="demo-progress-total" role="progressbar" aria-label="Workflow progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="demo-progress-count">01 / 04</span><span>Scroll to continue ↓</span></div>`;
   pin.prepend(progress);
   const rows = [...progress.querySelectorAll('li')];
@@ -112,7 +112,7 @@
     enabled = desktop.matches && !preference.matches;
     root.classList.toggle('has-pinned-demos', enabled);
     viewportWidth = innerWidth; viewportHeight = innerHeight;
-    distance = innerHeight * 1.1;
+    distance = innerHeight * .82;
     scene.style.setProperty('--demo-viewport-height', `${innerHeight}px`);
     scene.style.setProperty('--demo-scroll-height', `${innerHeight + distance * steps.length}px`);
     start = scene.getBoundingClientRect().top + scrollY;

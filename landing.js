@@ -9,8 +9,8 @@
   let frame = 0;
   let observer;
   const dock = document.querySelector('.journey-dock');
-  const chapters = [...document.querySelectorAll('#top,#work,#pitch,.journey-intro,.story-step,#founder,#team,#pricing,#faq,#contact')];
-  const labels = ['The first conversation', 'Worked with', 'The hedge fund for sales', 'The workflow', 'Finding your people', 'Doing the homework', 'Starting conversations', 'Getting you booked', 'Why we started', 'The team', 'Pricing', 'Your questions', 'The next trade'];
+  const chapters = [...document.querySelectorAll('#top,#work,.journey-intro,.story-step,#founder,#team,#pricing,#faq,#contact')];
+  const labels = ['Meta ads', 'Worked with', 'The workflow', 'Campaign brief', 'Creative development', 'Launch and measurement', 'Budget allocation', 'How we think', 'The team', 'Pricing', 'Your questions', 'The next trade'];
   let currentChapter = 0;
   let currentScene = -1;
   let chapterGeometry = [], milestonePositions = [], stepPositions = [], pageHeight = 1;
@@ -20,7 +20,7 @@
   const scenePalettes = [
     // Distinct, restrained chapter colours: blue, lilac, periwinkle and teal.
     // Keep light fields pale enough for ink copy and dark fields behind white copy.
-    ['#f8f7f3','#090619'], ['#eee3f4','#241833'], ['#e2eafb','#162747'],
+    ['#f8f7f3','#090619'], ['#eee3f4','#241833'],
     ['#efe8f4','#201930'], ['#d3e6f7','#172d48'], ['#e5d5ee','#2b1c3b'],
     ['#dce0f5','#202549'], ['#d5e9e7','#153438'], ['#e9ddef','#2a1a38'],
     ['#dde7f3','#182d40'], ['#dbe9ee','#1a303e'], ['#e5dff1','#252039'],

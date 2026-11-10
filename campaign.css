@@ -1,13 +1,6 @@
 /* Passive campaign films: the same people move from fit to research to a call. */
 .hero-media { padding-bottom: 0; }
 .film-caption { bottom: 38px; }
-.pitch-content h2 { font-size: clamp(62px,7.4vw,110px); line-height: .98; }
-.pitch-content .alpha-copy { margin: 35px 0 0; font-size: 19px; color: #d4cde5; }
-.alpha-strategy { border: 0; border-bottom: 1px solid #a6a0d5; padding: 0 0 4px; background: transparent; color: #a3b5ff; font: inherit; cursor: pointer; }
-.alpha-strategy span { font-size: 13px; margin-left: 5px; }
-.alpha-conversion { display: flex; align-items: center; justify-content: center; gap: 30px; margin: 18px 0 0; }
-.alpha-conversion strong { font: 500 clamp(110px,13vw,196px)/1 var(--sans); letter-spacing: -.08em; background: linear-gradient(105deg,#49afff,#9680ff); background-clip: text; color: transparent; }
-.alpha-conversion > span { font: 400 clamp(26px,3.2vw,43px)/1.14 var(--serif); text-align: left; color: #e4dff1; }
 .journey-intro .campaign-journey-title { font: italic 400 clamp(65px,8.2vw,123px)/.98 var(--serif); letter-spacing: -.035em; padding-block: 20px; }
 .journey-intro .campaign-journey-title em { font: inherit; }
 .campaign-stage { padding: 20px; min-height: 580px; }
@@ -34,6 +27,27 @@
 }
 .campaign-stage h4 { font-size: 17px; font-weight: 500; margin: 0; letter-spacing: -.5px; }
 .campaign-stage p { margin: 0; }
+.campaign-stage.demo-draft { min-height: 0; }
+.campaign-body.demo-preview {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  min-height: clamp(265px,33vw,490px);
+  padding: clamp(20px,3.5vw,56px);
+}
+.demo-preview dl { display: grid; gap: 8px; margin: 0; }
+.demo-preview dl > div {
+  display: grid;
+  grid-template-columns: minmax(72px,.55fr) minmax(0,1fr);
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #ded5ea;
+  border-radius: 7px;
+  background: #f1edf8;
+  font-size: clamp(12px,1.25vw,17px);
+}
+.demo-preview dt { color: #59449a; font-weight: 600; }
+.demo-preview dd { margin: 0; }
 .find-scene { display: grid; grid-template-columns: 1fr; gap: 14px; min-height: 425px; align-items: start; }
 .find-scene.criteria-compact { grid-template-columns: .55fr 1fr; }
 .criteria-card { padding: 16px; background: #f1edf8; border: 1px solid #ded5ea; border-radius: 7px; transition: padding .4s; }
@@ -147,11 +161,6 @@
   .candidate-card h4 { font-size: 14px; }
 }
 @media(max-width:700px) {
-  .pitch-content h2 { font-size: clamp(49px,13.8vw,80px); }
-  .pitch-content .alpha-copy { font-size: 16px; }
-  .alpha-conversion { gap: 22px; }
-  .alpha-conversion strong { font-size: 128px; }
-  .alpha-conversion > span { font-size: 28px; }
   .journey-intro .campaign-journey-title { font-size: clamp(52px,14.5vw,78px); }
   .campaign-stage { padding: 12px; min-height: 0; }
   .campaign-bar { padding-inline: 15px; gap: 10px; height: 53px; }
