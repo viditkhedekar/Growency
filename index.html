@@ -18,13 +18,14 @@
   <link rel="stylesheet" href="pages.css?v=20261005-navigation-v14">
   <link rel="stylesheet" href="campaign.css?v=20261110-hero-positioning">
   <link rel="stylesheet" href="demo-scroll.css?v=20261006-responsive-v21">
-  <link rel="stylesheet" href="demo-film.css?v=20261110-landscape">
+  <link rel="stylesheet" href="demo-film.css?v=20261111-dm-sans">
   <link rel="stylesheet" href="team.css?v=20261005-portraits-v18">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32-v2.png">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="stylesheet" href="assets/vendor/lenis/lenis.css?v=1.3.26">
 <link rel="stylesheet" href="smooth-scroll.css?v=20261005-scroll-v15">
   <link rel="stylesheet" href="hero.css?v=20261101-coral">
+  <link rel="stylesheet" href="ad-gallery.css?v=20261111">
   <link rel="stylesheet" href="icons.css?v=20261111-hover">
 </head>
 <body class="minimal-home">
@@ -79,15 +80,37 @@
       <div class="hero-actions"><a class="button-primary" href="/book">Let’s talk ads <span class="button-arrow" aria-hidden="true">↗</span></a><a class="button-text" href="#approach">Explore the workflow <span aria-hidden="true">↓</span></a></div>
     </div>
     <div class="hero-media">
-      <div class="film-frame">
-        <video class="hero-video" id="hero-video" muted loop playsinline preload="none" aria-label="Inside Growency" hidden></video>
-        <div class="film-topline"><span>GROWENCY / THE FILM</span><span>Meta ads in motion.</span></div>
-        <div class="film-placeholder">
-          <button class="film-play" type="button" id="film-play" disabled aria-label="Growency demo video coming soon"><span aria-hidden="true">▷</span></button>
-          <p class="film-status">Demo video coming soon</p>
+      <section class="ad-gallery" aria-labelledby="ad-gallery-heading">
+        <div class="ad-gallery-header">
+          <h2 id="ad-gallery-heading">Sample ads</h2>
+          <div class="ad-gallery-controls" hidden>
+            <button type="button" data-ad-direction="-1" aria-label="Previous ad" disabled>←</button>
+            <button type="button" data-ad-direction="1" aria-label="Next ad">→</button>
+          </div>
         </div>
-        <div class="film-caption"><span>From the first test. <em>To the next budget decision.</em></span></div>
-      </div>
+        <ul class="ad-gallery-track" tabindex="0" aria-label="Scroll horizontally to browse the sample ads" data-lenis-prevent-wheel data-lenis-prevent-touch>
+          <li class="sample-ad sample-ad-school">
+            <span class="sample-ad-sector">School admissions</span>
+            <img src="assets/icons/calendar.svg" width="68" height="68" alt="" draggable="false">
+            <div><h3>What does week one look like?</h3><p>Book a Year 7 tour.</p></div>
+          </li>
+          <li class="sample-ad sample-ad-software">
+            <span class="sample-ad-sector">B2B software</span>
+            <img src="assets/icons/chart.svg" width="68" height="68" alt="" draggable="false">
+            <div><h3>Close the books before Friday.</h3><p>See the demo.</p></div>
+          </li>
+          <li class="sample-ad sample-ad-retail">
+            <span class="sample-ad-sector">Ecommerce</span>
+            <img src="assets/icons/route.svg" width="68" height="68" alt="" draggable="false">
+            <div><h3>Wet trail. Dry feet.</h3><p>Shop all-weather trail shoes.</p></div>
+          </li>
+          <li class="sample-ad sample-ad-service">
+            <span class="sample-ad-sector">Local services</span>
+            <img src="assets/icons/target.svg" width="68" height="68" alt="" draggable="false">
+            <div><h3>A kitchen that fits your mornings.</h3><p>Get a renovation quote.</p></div>
+          </li>
+        </ul>
+      </section>
       <div class="hero-principles"><span><img class="site-icon icon-principle" src="assets/icons/people.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">A limit for every test.</span><span><img class="site-icon icon-principle" src="assets/icons/target.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">A pass mark before launch.</span></div>
     </div>
   </section>
@@ -387,9 +410,9 @@
 <footer class="site-footer">
   <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/leads.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap footer-layout"><div><a class="footer-brand" href="#top">Growency</a><p>The hedge fund for Meta ads.</p></div><nav aria-label="Outbound comparisons"><span>OUTBOUND ARCHIVE</span><a href="/compare/apollo">Growency vs Apollo</a><a href="/compare/clay">Growency vs Clay</a><a href="/compare/11x">Growency vs 11x</a><a href="/compare/artisan">Growency vs Artisan</a><a href="/compare/belkins">Growency vs Belkins</a><a href="/compare/cience">Growency vs CIENCE</a></nav><nav aria-label="Company"><span>COMPANY</span><a href="/careers"><img class="site-icon icon-nav" src="assets/icons/briefcase.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Careers</a><a href="/contact"><img class="site-icon icon-nav" src="assets/icons/message.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Contact us</a><a href="#pricing">Pricing</a><a href="#team">The team</a><a href="#faq">Questions</a><a href="/privacy">Privacy policy</a><a href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></nav></div><div class="wrap footer-fine">© 2026 Growency. Workflow demos show an illustrative campaign. Terms, pricing and scope are agreed in writing before work begins.</div></footer>
 <a class="meeting-shortcut" href="/book" aria-label="Book a meeting with Growency" data-info="Let’s talk about your Meta ads. Book a 30-minute call with Vidit."><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18m-13 5 3 3 5-5"/></svg></span><b>Book a meeting</b></a>
-<script src="media.js?v=20261026-minimal" defer></script>
+<script src="ad-gallery.js?v=20261111" defer></script>
 <script src="demo-scroll.js?v=20261110-workspace" defer></script>
-<script src="demo-film.js?v=20261110-geist-films" defer></script>
+<script src="demo-film.js?v=20261111-motion" defer></script>
 <script src="landing.js?v=20261110-hero-positioning" defer></script>
 <script src="rail.js?v=20261030-campaign-copy" defer></script>
 <script src="interactions.js?v=20261005-atmosphere-v11" defer></script>

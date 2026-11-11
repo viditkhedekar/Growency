@@ -1,0 +1,60 @@
+.ad-gallery { text-align: left; }
+.ad-gallery-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
+.ad-gallery-header h2 { margin: 0; color: #fff; font: 600 16px/1.25 var(--sans); }
+.ad-gallery-controls { display: flex; gap: 6px; }
+.ad-gallery-controls[hidden] { display: none; }
+.ad-gallery-controls button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #ffffff59;
+  border-radius: 50%;
+  background: #211740b3;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+.ad-gallery-controls button:hover:not(:disabled) { background: #4c367b; }
+.ad-gallery-controls button:disabled { opacity: .45; cursor: default; }
+.ad-gallery :focus-visible { outline: 2px solid #fff; outline-offset: -2px; }
+.ad-gallery-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(78%, 350px);
+  gap: 14px;
+  overflow-x: auto;
+  margin: 0;
+  padding: 4px 3px 13px;
+  list-style: none;
+  scrollbar-color: #c8b6f2 #2a2154;
+}
+.sample-ad {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  align-content: space-between;
+  gap: 34px;
+  aspect-ratio: 4 / 3;
+  min-width: 0;
+  padding: clamp(16px, 3vw, 24px);
+  border: 1px solid #ffffff45;
+  border-radius: 13px;
+  background: var(--ad-background);
+  color: var(--ad-text);
+}
+.sample-ad-school { --ad-background: #e9dffd; --ad-text: #251641; --ad-rotation: -8deg; }
+.sample-ad-software { --ad-background: #231d42; --ad-text: #f0eaff; --ad-rotation: 6deg; }
+.sample-ad-retail { --ad-background: #d7eddd; --ad-text: #163d29; --ad-rotation: -8deg; }
+.sample-ad-service { --ad-background: #f4d4ca; --ad-text: #4e2723; --ad-rotation: 8deg; }
+.sample-ad-sector { font-size: 11px; font-weight: 650; }
+.sample-ad h3 { margin: 0; max-width: 13ch; font: 600 clamp(23px, 3vw, 36px)/.99 var(--sans); letter-spacing: -.05em; }
+.sample-ad p { margin: 9px 0 0; font-size: 12px; }
+.sample-ad img { position: absolute; z-index: -1; top: 13%; right: 6%; width: 31%; height: auto; opacity: .56; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  html:not(.motion-paused) .sample-ad img { transition: transform .45s cubic-bezier(.2,.7,.2,1), opacity .35s ease; }
+  html:not(.motion-paused) .sample-ad:hover img { transform: translateY(-6px) rotate(var(--ad-rotation)) scale(1.2); opacity: .82; }
+}
+@media (pointer: coarse) {
+  .ad-gallery-track { scroll-snap-type: x proximity; }
+  .sample-ad { scroll-snap-align: start; }
+}

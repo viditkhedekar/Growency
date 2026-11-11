@@ -144,6 +144,10 @@
     const cue = cues[index];
     const values = Object.assign({}, ...cues.map(item => item.values));
     const metric = cues.findLast(item => item.metric)?.metric;
+    const priorMetric = film.stage.dataset.filmMetricMode;
+    const rankChanges = index > 0 && metric && priorMetric && metric !== priorMetric && !staticFrame && !still;
+    const rows = rankChanges ? [...film.stage.querySelectorAll('.film-bar-row')] : [];
+    const rowTops = rows.map(row => row.getBoundingClientRect().top);
     film.cue = index;
     film.stage.dataset.filmShot = staticFrame ? '' : cue.shot || '';
     film.reveals.forEach(item => item.toggleAttribute('data-film-pending', Number(item.dataset.filmReveal) > index));
@@ -152,6 +156,16 @@
       const value = values[field.dataset.filmValue];
       if (value && field.textContent !== value) field.textContent = value;
     });
+    if (rows.length && film.screen.offsetHeight) {
+      const scale = film.screen.getBoundingClientRect().height / film.screen.offsetHeight || 1;
+      rows.forEach((row, i) => {
+        const delta = (rowTops[i] - row.getBoundingClientRect().top) / scale;
+        row.animate([{ translate: `0 ${delta}px` }, { translate: '0 0' }], {
+          duration: 290,
+          easing: 'cubic-bezier(.22,1,.36,1)',
+        });
+      });
+    }
     film.focus = staticFrame ? null : film.targets.find(target => target.dataset.filmTarget === cue.target);
     film.targets.forEach(target => target.toggleAttribute('data-film-focus', target === film.focus));
     positionCamera(film);
