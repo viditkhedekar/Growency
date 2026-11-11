@@ -37,6 +37,37 @@ img.icon-agenda { width: 25px; height: 25px; margin: 0; }
 .scheduler-heading h2 { display: flex; align-items: center; }
 .qa__q { padding-left: 35px; }
 .qa__q > .icon-question { position: absolute; left: 0; top: 0; }
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html:not(.motion-paused) :is(img.site-icon, .brand svg, .wordmark__mark, .button-arrow, .nav-cta > span, .meeting-shortcut svg, .mobile-menu summary svg, .film-control > span:first-child) {
+    transition: translate .26s cubic-bezier(.2,.8,.3,1.25), rotate .26s cubic-bezier(.2,.8,.3,1.25), scale .26s cubic-bezier(.2,.8,.3,1.25), filter .24s ease;
+  }
+
+  img.site-icon:is([src$="/spark.svg"], [src$="/target.svg"]) { --icon-turn: 16deg; }
+  img.site-icon:is([src$="/chart.svg"], [src$="/calendar.svg"], [src$="/shield.svg"]) { --icon-turn: 0deg; --icon-lift: -5px; }
+  img.site-icon:is([src$="/mail.svg"], [src$="/message.svg"], [src$="/route.svg"]) { --icon-drift: 3px; }
+
+  html:not(.motion-paused) :is(
+    img.site-icon:hover,
+    :where(a, button, summary, h2, h3, p, b, .hero-principles > span, .hero-word > span):is(:hover, :focus-visible) > img.site-icon,
+    .brand:is(:hover, :focus-visible) svg,
+    .wordmark:is(:hover, :focus-visible) .wordmark__mark,
+    .meeting-shortcut:is(:hover, :focus-visible) svg,
+    .mobile-menu summary:is(:hover, :focus-visible) svg,
+    .film-control:is(:hover, :focus-visible) > span:first-child
+  ) {
+    translate: var(--icon-drift, 0px) var(--icon-lift, -3px);
+    rotate: var(--icon-turn, -9deg);
+    scale: 1.13;
+    filter: drop-shadow(0 3px 5px #7050b250);
+  }
+
+  html:not(.motion-paused) :is(.button-primary, .nav-cta):is(:hover, :focus-visible) > :is(.button-arrow, [aria-hidden="true"]) {
+    translate: 2px -2px;
+    scale: 1.08;
+  }
+}
+
 @media (max-width: 700px) {
   img.icon-tab { width: 25px; height: 25px; margin: 0 0 4px; }
   .career-tab { flex-direction: column; }
