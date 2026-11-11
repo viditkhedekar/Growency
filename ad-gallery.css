@@ -1,6 +1,7 @@
+#top.minimal-hero .hero-media-spec { width: 100%; }
 .ad-gallery { text-align: left; }
 .ad-gallery-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
-.ad-gallery-header h2 { margin: 0; color: #fff; font: 600 16px/1.25 var(--sans); }
+.ad-gallery-header h2 { margin: 0; color: #fff; font: 600 19px/1.25 var(--sans); }
 .ad-gallery-controls { display: flex; gap: 6px; }
 .ad-gallery-controls[hidden] { display: none; }
 .ad-gallery-controls button {
@@ -19,8 +20,8 @@
 .ad-gallery-track {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: min(78%, 310px);
-  gap: 14px;
+  grid-auto-columns: min(88%, 420px);
+  gap: 16px;
   overflow-x: auto;
   margin: 0;
   padding: 4px 3px 13px;
@@ -38,10 +39,13 @@
 }
 .sample-ad img { display: block; width: 100%; height: auto; }
 .sample-ad figcaption {
-  padding: 8px 2px 0;
+  display: grid;
+  gap: 4px;
+  padding: 10px 2px 0;
   color: #f2edf9;
   font: 500 12px/1.35 var(--sans);
 }
+.sample-ad figcaption strong { color: #fff; font-size: 15px; font-weight: 650; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   html:not(.motion-paused) .sample-ad img { transition: transform .45s cubic-bezier(.22,1,.36,1); }
   html:not(.motion-paused) .sample-ad-image:hover img { transform: scale(1.025); }
