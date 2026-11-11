@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="assets/vendor/lenis/lenis.css?v=1.3.26">
 <link rel="stylesheet" href="smooth-scroll.css?v=20261005-scroll-v15">
   <link rel="stylesheet" href="hero.css?v=20261101-coral">
-  <link rel="stylesheet" href="ad-gallery.css?v=20261111">
+  <link rel="stylesheet" href="ad-gallery.css?v=20261111-spec-ads">
   <link rel="stylesheet" href="icons.css?v=20261111-hover">
 </head>
 <body class="minimal-home">
@@ -80,7 +80,7 @@
       <div class="hero-actions"><a class="button-primary" href="/book">Let’s talk ads <span class="button-arrow" aria-hidden="true">↗</span></a><a class="button-text" href="#approach">Explore the workflow <span aria-hidden="true">↓</span></a></div>
     </div>
     <div class="hero-media">
-      <section class="ad-gallery" aria-labelledby="ad-gallery-heading">
+      <section class="ad-gallery" id="sample-ads" aria-labelledby="ad-gallery-heading">
         <div class="ad-gallery-header">
           <h2 id="ad-gallery-heading">Sample ads</h2>
           <div class="ad-gallery-controls" hidden>
@@ -89,25 +89,53 @@
           </div>
         </div>
         <ul class="ad-gallery-track" tabindex="0" aria-label="Scroll horizontally to browse the sample ads" data-lenis-prevent-wheel data-lenis-prevent-touch>
-          <li class="sample-ad sample-ad-school">
-            <span class="sample-ad-sector">School admissions</span>
-            <img src="assets/icons/calendar.svg" width="68" height="68" alt="" draggable="false">
-            <div><h3>What does week one look like?</h3><p>Book a Year 7 tour.</p></div>
+          <li class="sample-ad">
+            <figure>
+              <div class="sample-ad-image"><img src="assets/spec-ads/posthog.webp" width="880" height="1100" alt="The drop-off has a replay button. An orange funnel line drops to a play button." decoding="async" draggable="false"></div>
+              <figcaption>Growency Spec · Not commissioned by PostHog</figcaption>
+            </figure>
           </li>
-          <li class="sample-ad sample-ad-software">
-            <span class="sample-ad-sector">B2B software</span>
-            <img src="assets/icons/chart.svg" width="68" height="68" alt="" draggable="false">
-            <div><h3>Close the books before Friday.</h3><p>See the demo.</p></div>
+          <li class="sample-ad">
+            <figure>
+              <div class="sample-ad-image"><img src="assets/spec-ads/gems.webp" width="880" height="1100" alt="Rehearse the first day. A yellow route leads to a Year 7 classroom on an illustrative floor plan." decoding="async" draggable="false"></div>
+              <figcaption>Growency Spec · Not commissioned by GEMS Wellington Academy – Dubai Hills</figcaption>
+            </figure>
           </li>
-          <li class="sample-ad sample-ad-retail">
-            <span class="sample-ad-sector">Ecommerce</span>
-            <img src="assets/icons/route.svg" width="68" height="68" alt="" draggable="false">
-            <div><h3>Wet trail. Dry feet.</h3><p>Shop all-weather trail shoes.</p></div>
+          <li class="sample-ad">
+            <figure>
+              <div class="sample-ad-image"><img src="assets/spec-ads/ooni.webp" width="880" height="1100" alt="The last slice has witnesses. Hands reach for the last slice of pizza." decoding="async" draggable="false"></div>
+              <figcaption>Growency Spec · Not commissioned by Ooni</figcaption>
+            </figure>
           </li>
-          <li class="sample-ad sample-ad-service">
-            <span class="sample-ad-sector">Local services</span>
-            <img src="assets/icons/target.svg" width="68" height="68" alt="" draggable="false">
-            <div><h3>A kitchen that fits your mornings.</h3><p>Get a renovation quote.</p></div>
+          <li class="sample-ad">
+            <figure>
+              <div class="sample-ad-image"><img src="assets/spec-ads/linear.webp" width="880" height="1100" alt="The status meeting could’ve been this card. One short project update sits in front of a crowded calendar." loading="lazy" decoding="async" draggable="false"></div>
+              <figcaption>Growency Spec · Not commissioned by Linear</figcaption>
+            </figure>
+          </li>
+          <li class="sample-ad">
+            <figure>
+              <div class="sample-ad-image"><img src="assets/spec-ads/allbirds.webp" width="880" height="1100" alt="Give your feet a window seat. Sunlight falls across a grey knit sneaker." loading="lazy" decoding="async" draggable="false"></div>
+              <figcaption>Growency Spec · Not commissioned by Allbirds</figcaption>
+            </figure>
+          </li>
+          <li class="sample-ad">
+            <figure>
+              <div class="sample-ad-image"><img src="assets/spec-ads/ikea.webp" width="880" height="1100" alt="Your wardrobe starts with a tape measure. A yellow tape measure spans an empty alcove." loading="lazy" decoding="async" draggable="false"></div>
+              <figcaption>Growency Spec · Not commissioned by IKEA</figcaption>
+            </figure>
+          </li>
+          <li class="sample-ad">
+            <figure>
+              <div class="sample-ad-image"><img src="assets/spec-ads/careem.webp" width="880" height="1100" alt="One less thing to arrange at 4 a.m. A suitcase waits by a front door before dawn." loading="lazy" decoding="async" draggable="false"></div>
+              <figcaption>Growency Spec · Not commissioned by Careem</figcaption>
+            </figure>
+          </li>
+          <li class="sample-ad">
+            <figure>
+              <div class="sample-ad-image"><img src="assets/spec-ads/too-good-to-go.webp" width="880" height="1100" alt="The bakery’s closing. The good stuff’s still here. A croissant peeks out of a bag under a bakery shutter." loading="lazy" decoding="async" draggable="false"></div>
+              <figcaption>Growency Spec · Not commissioned by Too Good To Go</figcaption>
+            </figure>
           </li>
         </ul>
       </section>

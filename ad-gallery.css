@@ -19,7 +19,7 @@
 .ad-gallery-track {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: min(78%, 350px);
+  grid-auto-columns: min(78%, 310px);
   gap: 14px;
   overflow-x: auto;
   margin: 0;
@@ -27,32 +27,24 @@
   list-style: none;
   scrollbar-color: #c8b6f2 #2a2154;
 }
-.sample-ad {
-  position: relative;
-  isolation: isolate;
+.sample-ad { min-width: 0; }
+.sample-ad figure { margin: 0; }
+.sample-ad-image {
+  display: block;
   overflow: hidden;
-  display: grid;
-  align-content: space-between;
-  gap: 34px;
-  aspect-ratio: 4 / 3;
-  min-width: 0;
-  padding: clamp(16px, 3vw, 24px);
-  border: 1px solid #ffffff45;
-  border-radius: 13px;
-  background: var(--ad-background);
-  color: var(--ad-text);
+  border: 1px solid #ffffff38;
+  border-radius: 10px;
+  background: #171129;
 }
-.sample-ad-school { --ad-background: #e9dffd; --ad-text: #251641; --ad-rotation: -8deg; }
-.sample-ad-software { --ad-background: #231d42; --ad-text: #f0eaff; --ad-rotation: 6deg; }
-.sample-ad-retail { --ad-background: #d7eddd; --ad-text: #163d29; --ad-rotation: -8deg; }
-.sample-ad-service { --ad-background: #f4d4ca; --ad-text: #4e2723; --ad-rotation: 8deg; }
-.sample-ad-sector { font-size: 11px; font-weight: 650; }
-.sample-ad h3 { margin: 0; max-width: 13ch; font: 600 clamp(23px, 3vw, 36px)/.99 var(--sans); letter-spacing: -.05em; }
-.sample-ad p { margin: 9px 0 0; font-size: 12px; }
-.sample-ad img { position: absolute; z-index: -1; top: 13%; right: 6%; width: 31%; height: auto; opacity: .56; }
+.sample-ad img { display: block; width: 100%; height: auto; }
+.sample-ad figcaption {
+  padding: 8px 2px 0;
+  color: #f2edf9;
+  font: 500 12px/1.35 var(--sans);
+}
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  html:not(.motion-paused) .sample-ad img { transition: transform .45s cubic-bezier(.2,.7,.2,1), opacity .35s ease; }
-  html:not(.motion-paused) .sample-ad:hover img { transform: translateY(-6px) rotate(var(--ad-rotation)) scale(1.2); opacity: .82; }
+  html:not(.motion-paused) .sample-ad img { transition: transform .45s cubic-bezier(.22,1,.36,1); }
+  html:not(.motion-paused) .sample-ad-image:hover img { transform: scale(1.025); }
 }
 @media (pointer: coarse) {
   .ad-gallery-track { scroll-snap-type: x proximity; }
