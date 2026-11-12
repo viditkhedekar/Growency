@@ -1,75 +1,46 @@
-.demo-progress { display: none; }
-/* A native sticky frame holds the four films; scrolling never locks the page. */
-.journey { overflow: visible; }
-.has-pinned-demos .demo-scroll { position: relative; height: var(--demo-scroll-height); }
-.has-pinned-demos .demo-pin { position: sticky; top: 0; height: var(--demo-viewport-height,100svh); isolation: isolate; }
-.has-pinned-demos .journey-track.wrap { height: 100%; padding: 0; margin-inline: 32px 96px; width: calc(100% - 128px); }
-.has-pinned-demos .journey-track .story-step {
-  position: absolute; inset: 0; padding: 70px 0 55px;
-  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,3fr);
-  gap: 40px; align-items: center; opacity: 0; visibility: hidden;
-  transition: opacity 200ms ease; isolation: isolate;
+/* Each workflow chapter sits in the page's normal scroll flow. */
+.journey-track .story-step {
+  gap: clamp(36px, 4vw, 72px);
+  padding-block: clamp(48px, 7vw, 102px);
+  scroll-margin-top: 72px;
 }
-.has-pinned-demos .journey-track .story-step.demo-active { opacity: 1; visibility: visible; }
-.has-pinned-demos .story-step > .step-node { display: none; }
-.has-pinned-demos .story-step .story-copy { align-self: start; margin-top: 32px; padding-bottom: 170px; }
-.has-pinned-demos .story-copy h3.campaign-heading { font-size: clamp(27px,2.6vw,42px); }
-.has-pinned-demos .story-step .story-visual { height: calc(var(--demo-viewport-height,100svh) - 145px); align-self: start; }
-.has-pinned-demos .story-visual .campaign-stage {
-  position: absolute; width: 100%; top: 50%; left: 0;
-  transform: translateY(-50%) scale(var(--demo-scale,1)); transform-origin: center;
+.journey-track .story-copy h3.campaign-heading {
+  font-size: clamp(30px, 3.2vw, 49px);
+  max-width: 17ch;
 }
-.has-pinned-demos .story-visual figcaption {
-  position: absolute; left: 0; right: 0;
-  top: calc(50% + var(--demo-scaled-height,500px) / 2 + 12px); margin: 0;
+.journey-track .story-visual {
+  width: 100%;
+  max-width: 900px;
+  align-self: center;
 }
-.has-pinned-demos .story-step > .slide-photo { inset: 0 calc((100% - 100vw) / 2); mask-image: linear-gradient(transparent,#000 20%,#000 80%,transparent); }
-.has-pinned-demos .demo-progress { display: block; position: absolute; left: 32px; bottom: 42px; width: calc((100% - 248px) / 4); max-width: 260px; color: #433454; }
-.demo-progress ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 13px; }
-.demo-progress li { display: grid; grid-template-columns: 23px 1fr 52px; align-items: center; gap: 9px; color: #8e809b; font-size: 12px; }
-.demo-progress li > span { font-size: 9px; font-variant-numeric: tabular-nums; }
-.demo-progress li b { font-weight: 400; }
-.demo-progress li i { height: 2px; background: #6f5b9226; position: relative; }
-.demo-progress li i::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,#4e99e7,#7860b5); transform: scaleX(var(--step-progress,0)); transform-origin: left; }
-.demo-progress .is-current { color: #514092; }
-.demo-progress .is-current b { font-weight: 600; }
-.demo-progress .is-complete { color: #6b6180; }
-.demo-progress-total { display: flex; justify-content: space-between; gap: 8px; margin-top: 22px; font-size: 9px; color: #82718f; }
-.demo-progress-count { font-variant-numeric: tabular-nums; color: #59449a; }
-html.demo-pinned .journey-dock { opacity: 0; visibility: hidden; pointer-events: none; }
-html.motion-paused .story-step { transition: none; }
-/* A readable sticky stage meter follows the native flow on compact screens. */
-html:not(.has-pinned-demos) .demo-pin { position: relative; }
-html:not(.has-pinned-demos) .demo-progress {
-  display: block; position: sticky; top: 68px; z-index: 8;
-  width: calc(100% - 84px); max-width: 720px; margin: 0 auto;
-  padding: 12px 15px; border: 1px solid #d8cce6; border-radius: 8px;
-  background: #fcfbfef2; box-shadow: 0 5px 20px #30234b12;
-}
-html:not(.has-pinned-demos) .demo-progress ol { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; }
-html:not(.has-pinned-demos) .demo-progress li { display: flex; flex-wrap: wrap; gap: 5px; font-size: 11px; }
-html:not(.has-pinned-demos) .demo-progress li > span { font-size: 9px; }
-html:not(.has-pinned-demos) .demo-progress li i { flex: 0 0 100%; height: 3px; margin-top: 4px; }
-html:not(.has-pinned-demos) .demo-progress-total { margin-top: 10px; font-size: 10px; }
-html:not(.has-pinned-demos) .journey-track.wrap { padding-top: 30px; }
-html:not(.has-pinned-demos) .journey-track .story-step { display: flex; flex-direction: column; align-items: stretch; gap: 28px; }
-html:not(.has-pinned-demos) .story-copy { order: 0; }
-html:not(.has-pinned-demos) .story-visual { order: 1; }
-/* Keep the chapter entrance from moving the illustration's playback geometry. */
-.motion-enabled .journey-track .story-visual { opacity: 1; transform: none; transition: none; }
-@media(max-width:700px) {
-  html:not(.has-pinned-demos) .demo-progress { width: calc(100% - 54px); margin-inline: 14px 40px; padding: 10px 12px; }
-  html:not(.has-pinned-demos) .demo-progress ol { gap: 8px; }
-  html:not(.has-pinned-demos) .demo-progress li { font-size: 10px; }
-  html:not(.has-pinned-demos) .demo-progress li > span { font-size: 8px; }
-  html:not(.has-pinned-demos) .demo-progress-total { font-size: 9px; }
+.journey-track .story-visual figcaption {
+  display: block;
+  margin-top: 12px;
+  text-align: right;
+  font-size: 11px;
+  color: #53475f;
 }
 
-html:not(.has-pinned-demos) .story-step { scroll-margin-top: 150px; }
+/* Film visibility is based on its stable layout box. */
+.motion-enabled .journey-track .story-visual {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
 
-@media(max-width:360px) {
-  html:not(.has-pinned-demos) .demo-progress li > span { display: none; }
+@media (min-width: 1101px) {
+  .journey-track .story-step { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+  .journey-track .story-step--reverse { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+  .journey-track .story-step--reverse .story-copy { grid-column: 2; }
+  .journey-track .story-step--reverse .story-visual { grid-column: 1; }
+}
+@media (max-width: 1100px) {
+  .journey-track .story-step { gap: clamp(24px, 4vw, 42px); }
+  .journey-track .story-copy h3.campaign-heading { max-width: 24ch; }
+  .journey-track .story-copy { order: 0; }
+  .journey-track .story-visual { order: 1; }
+}
+@media (max-width: 700px) {
+  .journey-track .story-step { padding-block: 34px 60px; }
 }
 html { overflow-x: clip; }
-html:not(.has-pinned-demos) .campaign-stage { min-height: 0; }
-html:not(.has-pinned-demos) .story-visual { width: 100%; max-width: 980px; align-self: center; }

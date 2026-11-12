@@ -43,7 +43,7 @@
   function measure() {
     measureFrame = 0;
     pageHeight = document.body.scrollHeight;
-    const milestoneY = node => window.GROWENCY_DEMOS?.milestoneY(node) ?? node.getBoundingClientRect().top + scrollY + node.offsetHeight / 2;
+    const milestoneY = node => node.getBoundingClientRect().top + scrollY + node.offsetHeight / 2;
     milestonePositions = milestones.map(milestoneY);
     stepPositions = steps.map(step => milestoneY(step.querySelector('.step-node')));
     chapterGeometry = chapters.map(chapter => {
@@ -113,7 +113,6 @@
       if (distance < nearest) { nearest = distance; currentChapter = index; }
     });
     if (containing !== -1) currentChapter = containing;
-    if (window.GROWENCY_DEMOS?.pinned) currentChapter = chapters.indexOf(window.GROWENCY_DEMOS.activeStep);
     dock.hidden = scrollY < 140;
     if (currentChapter !== displayedChapter) {
       displayedChapter = currentChapter;
@@ -154,7 +153,6 @@
   }
   dock.addEventListener('click', () => {
     const target = chapters[currentChapter + 1] || chapters[0];
-    if (window.GROWENCY_DEMOS?.scrollToStep(target)) return;
     target.scrollIntoView({ behavior: userPaused || preference.matches ? 'instant' : 'smooth', block: 'center' });
   });
   document.querySelectorAll('.replay').forEach(button => {
@@ -169,7 +167,6 @@
   toggle.addEventListener('click', () => { userPaused = !userPaused; configure(); });
   preference.addEventListener('change', configure);
   window.addEventListener('scroll', schedule, { passive: true });
-  document.addEventListener('growency:demo-layout', scheduleMeasure);
   document.addEventListener('toggle', scheduleMeasure, true);
   window.addEventListener('resize', scheduleMeasure, { passive: true });
   window.addEventListener('load', scheduleMeasure, { once: true });

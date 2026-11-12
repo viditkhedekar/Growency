@@ -29,9 +29,8 @@
   function measureRoute() {
     if(!progress)return;
     const width=innerWidth,height=Math.max(document.body.offsetHeight,innerHeight);
-    const pinned=window.GROWENCY_DEMOS?.enabled;
-    const r=(pinned?track.closest('.demo-scroll'):track).getBoundingClientRect();
-    const entry=r.top+scrollY+(pinned?-90:width<=700?48:width<=1100?65:90);
+    const r=track.getBoundingClientRect();
+    const entry=r.top+scrollY+(width<=700?48:width<=1100?65:90);
     const exit=r.bottom+scrollY+(width<=700?48:70);
     const centre=width/2,right=width-(width<=700?14:width<=1100?24:32);
     const radius=width<=700?16:24;
@@ -116,9 +115,7 @@
     addEventListener('resize',scheduleMeasure);addEventListener('load',scheduleMeasure);
     addEventListener('scroll',scheduleScroll,{passive:true});
     document.addEventListener('toggle',scheduleMeasure,true);
-    document.addEventListener('growency:demo-layout', scheduleMeasure);
-    // Demo pointer/cursor and milestone animations do not change page layout.
-    // ResizeObserver, disclosures and demo-layout events cover real changes.
+    // Film and milestone animations leave the rail geometry unchanged.
     document.addEventListener('visibilitychange',scheduleScroll);
     preference.addEventListener('change',scheduleScroll);
     mobile.addEventListener('change',scheduleMeasure);
@@ -162,7 +159,9 @@
     }
     document.addEventListener('pointermove',e=>{
       if(e.pointerType==='touch')return;
-      x=e.clientX;y=e.clientY;target(e.target);halo.classList.add('is-visible');
+      x=e.clientX;y=e.clientY;
+      if(e.target.closest('.demo-film')){hide();return;}
+      target(e.target);halo.classList.add('is-visible');
       if(!frame)frame=requestAnimationFrame(()=>{halo.style.transform=`translate3d(${x}px,${y}px,0)`;frame=0;});
     },{passive:true});
     const release=()=>halo.classList.remove('is-pressed');
@@ -175,6 +174,10 @@
     document.addEventListener('keydown',e=>{if(e.key==='Tab')hide();});
     document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});
     window.addEventListener('blur',hide);
-    window.addEventListener('scroll',()=>{const el=document.elementFromPoint(x,y);if(el)target(el);},{passive:true});
+    window.addEventListener('scroll',()=>{
+      const el=document.elementFromPoint(x,y);
+      if(el?.closest('.demo-film'))hide();
+      else if(el)target(el);
+    },{passive:true});
   }
 })();

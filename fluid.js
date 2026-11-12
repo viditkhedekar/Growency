@@ -39,7 +39,7 @@
   let lastPaint = '';
   document.body.classList.add('fluid-backgrounds');
   function measure() {
-    geometry = anchors.filter(anchor => !anchor.node.closest('[hidden]')).map(anchor => ({...anchor,y:window.GROWENCY_DEMOS?.milestoneY(anchor.node) ?? anchor.node.getBoundingClientRect().top+scrollY+anchor.node.offsetHeight/2}));
+    geometry = anchors.filter(anchor => !anchor.node.closest('[hidden]')).map(anchor => ({...anchor,y:anchor.node.getBoundingClientRect().top+scrollY+anchor.node.offsetHeight/2}));
     // Measure normal flow, so the absolute colour layer cannot keep the page
     // artificially tall after an accordion closes or the viewport grows wider.
     const height = Math.max(document.body.offsetHeight,innerHeight);
@@ -104,7 +104,6 @@
   addEventListener('resize',scheduleMeasure,{passive:true});
   addEventListener('load',scheduleMeasure,{once:true});
   document.addEventListener('toggle',scheduleMeasure,true);
-  document.addEventListener('growency:demo-layout', scheduleMeasure);
   preference.addEventListener('change',schedule);
   new MutationObserver(schedule).observe(root,{attributes:true,attributeFilter:['class']});
   new ResizeObserver(scheduleMeasure).observe(document.body);
