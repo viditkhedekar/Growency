@@ -1,5 +1,13 @@
 #top.minimal-hero .hero-media-spec { width: 100%; }
+#top.minimal-hero:has(.ad-gallery[data-scroll-linked]) { overflow: clip; }
 .ad-gallery { text-align: left; }
+.ad-gallery[data-scroll-linked] {
+  min-height: calc(var(--ad-panel-height, 0px) + var(--ad-scroll-distance, 0px));
+}
+.ad-gallery[data-scroll-linked] .ad-gallery-panel {
+  position: sticky;
+  top: max(16px, calc((100dvh - var(--ad-panel-height, 100dvh)) / 2));
+}
 .ad-gallery-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
 .ad-gallery-header h2 { margin: 0; color: #fff; font: 600 19px/1.25 var(--sans); }
 .ad-gallery-controls { display: flex; gap: 6px; }
@@ -28,6 +36,31 @@
   list-style: none;
   scrollbar-color: #c8b6f2 #2a2154;
 }
+.ad-gallery[data-scroll-linked] .ad-gallery-track {
+  grid-auto-columns: min(88%, 420px, calc(80svh - 124px));
+  overflow: hidden;
+  overflow-anchor: none;
+  padding-bottom: 10px;
+}
+.ad-gallery-progress { display: none; }
+.ad-gallery[data-scroll-linked] .ad-gallery-progress {
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin: 8px auto 0;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #fff4;
+}
+.ad-gallery-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: #fff;
+  transform: scaleX(var(--ad-progress, 0));
+  transform-origin: left;
+}
 .sample-ad { min-width: 0; }
 .sample-ad figure { margin: 0; }
 .sample-ad-image {
@@ -47,8 +80,19 @@
 }
 .sample-ad figcaption strong { color: #fff; font-size: 15px; font-weight: 650; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  html:not(.motion-paused) .sample-ad img { transition: transform .45s cubic-bezier(.22,1,.36,1); }
-  html:not(.motion-paused) .sample-ad-image:hover img { transform: scale(1.025); }
+  .sample-ad[data-ad="allbirds"] { --ad-hover: scale(1.035) rotate(-1deg); }
+  .sample-ad[data-ad="sandwich"] { --ad-hover: scale(1.04) translateX(-1.2%); --ad-ease: cubic-bezier(.24,1.5,.48,1); }
+  .sample-ad[data-ad="ikea"] { --ad-hover: scale(1.045); --ad-origin: 50% 80%; }
+  .sample-ad[data-ad="aside"] { --ad-hover: scale(1.04) translateY(-1%); --ad-saturation: 1.08; }
+  .sample-ad[data-ad="gems-modern"] { --ad-hover: scale(1.045) translateY(1%); --ad-origin: 50% 78%; }
+  html:not(.motion-paused) .sample-ad img {
+    transform-origin: var(--ad-origin, center);
+    transition: transform .34s var(--ad-ease, cubic-bezier(.22,1,.36,1)), filter .34s ease;
+  }
+  html:not(.motion-paused) .sample-ad-image:hover img {
+    transform: var(--ad-hover, scale(1.025));
+    filter: saturate(var(--ad-saturation, 1));
+  }
 }
 @media (pointer: coarse) {
   .ad-gallery-track { scroll-snap-type: x proximity; }

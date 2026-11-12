@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="assets/vendor/lenis/lenis.css?v=1.3.26">
 <link rel="stylesheet" href="smooth-scroll.css?v=20261005-scroll-v15">
   <link rel="stylesheet" href="hero.css?v=20261101-coral">
-  <link rel="stylesheet" href="ad-gallery.css?v=20261111-larger-ads">
+  <link rel="stylesheet" href="ad-gallery.css?v=20261112-scroll">
   <link rel="stylesheet" href="icons.css?v=20261111-hover">
 </head>
 <body class="minimal-home">
@@ -81,51 +81,48 @@
     </div>
     <div class="hero-media hero-media-spec">
       <section class="ad-gallery" id="sample-ads" aria-labelledby="ad-gallery-heading">
-        <div class="ad-gallery-header">
-          <h2 id="ad-gallery-heading">Sample ads</h2>
-          <div class="ad-gallery-controls" hidden>
-            <button type="button" data-ad-direction="-1" aria-label="Previous ad" disabled>←</button>
-            <button type="button" data-ad-direction="1" aria-label="Next ad">→</button>
+        <div class="ad-gallery-panel">
+          <div class="ad-gallery-header">
+            <h2 id="ad-gallery-heading">Sample ads</h2>
+            <div class="ad-gallery-controls" hidden>
+              <button type="button" data-ad-direction="-1" aria-label="Previous ad" disabled>←</button>
+              <button type="button" data-ad-direction="1" aria-label="Next ad">→</button>
+            </div>
           </div>
+          <ul class="ad-gallery-track" tabindex="0" aria-label="Sample ad artwork">
+            <li class="sample-ad" data-ad="allbirds">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/allbirds.webp?v=2" width="880" height="1100" alt="Breathable sneakers. Your socks can thank us later. Sunlight catches the mesh of a grey sneaker beside an open window." decoding="async" draggable="false"></div>
+                <figcaption><strong>Tree Runner sneakers</strong><span>Growency Spec · Not commissioned by Allbirds</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="sandwich">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/sandwich.webp" width="880" height="1100" alt="Videos you just can’t scroll past. A physical stop bearing Sandwich’s logo blocks a finger from swiping up on a phone." decoding="async" draggable="false"></div>
+                <figcaption><strong>Video production</strong><span>Growency Spec · Not commissioned by Sandwich</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="ikea">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/ikea.webp?v=2" width="880" height="1100" alt="Design a wardrobe around your clothes. Yes, all of them. A modular wardrobe has space for coats, folded clothes and shoes." decoding="async" draggable="false"></div>
+                <figcaption><strong>PAX wardrobe planner</strong><span>Growency Spec · Not commissioned by IKEA</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="aside">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/aside.webp" width="880" height="1100" alt="Nobody: Absolutely nobody: Me, still thinking about hiring a personal assistant: Aside can handle the browser busywork. Go do what you love. A person paints at an easel." loading="lazy" decoding="async" draggable="false"></div>
+                <figcaption><strong>AI browser assistant</strong><span>Growency Spec · Not commissioned by Aside</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="gems-modern">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/gems-modern.webp" width="880" height="1100" alt="GEMS Modern Academy is… School ×. Academy ×. An elite institute. Two academic pathways, one extraordinary campus. The school’s facade is shown below." loading="lazy" decoding="async" draggable="false"></div>
+                <figcaption><strong>School admissions in Dubai</strong><span>Growency Spec · Not commissioned by GEMS Modern Academy</span></figcaption>
+              </figure>
+            </li>
+          </ul>
+          <div class="ad-gallery-progress" aria-hidden="true"><span></span></div>
         </div>
-        <ul class="ad-gallery-track" tabindex="0" aria-label="Scroll horizontally to browse the sample ads" data-lenis-prevent-wheel data-lenis-prevent-touch>
-          <li class="sample-ad">
-            <figure>
-              <div class="sample-ad-image"><img src="assets/spec-ads/gems-modern.webp" width="880" height="1100" alt="GEMS Modern Academy is… School ×. Academy ×. An elite institute. Two academic pathways, one extraordinary campus. The school’s facade is shown below." decoding="async" draggable="false"></div>
-              <figcaption><strong>School admissions in Dubai</strong><span>Growency Spec · Not commissioned by GEMS Modern Academy</span></figcaption>
-            </figure>
-          </li>
-          <li class="sample-ad">
-            <figure>
-              <div class="sample-ad-image"><img src="assets/spec-ads/allbirds.webp?v=2" width="880" height="1100" alt="Breathable sneakers. Your socks can thank us later. Sunlight catches the mesh of a grey sneaker beside an open window." decoding="async" draggable="false"></div>
-              <figcaption><strong>Tree Runner sneakers</strong><span>Growency Spec · Not commissioned by Allbirds</span></figcaption>
-            </figure>
-          </li>
-          <li class="sample-ad">
-            <figure>
-              <div class="sample-ad-image"><img src="assets/spec-ads/ikea.webp?v=2" width="880" height="1100" alt="Design a wardrobe around your clothes. Yes, all of them. A modular wardrobe has space for coats, folded clothes and shoes." decoding="async" draggable="false"></div>
-              <figcaption><strong>PAX wardrobe planner</strong><span>Growency Spec · Not commissioned by IKEA</span></figcaption>
-            </figure>
-          </li>
-          <li class="sample-ad">
-            <figure>
-              <div class="sample-ad-image"><img src="assets/spec-ads/sandwich.webp" width="880" height="1100" alt="Videos you just can’t scroll past. A physical stop bearing Sandwich’s logo blocks a finger from swiping up on a phone." loading="lazy" decoding="async" draggable="false"></div>
-              <figcaption><strong>Video production</strong><span>Growency Spec · Not commissioned by Sandwich</span></figcaption>
-            </figure>
-          </li>
-          <li class="sample-ad">
-            <figure>
-              <div class="sample-ad-image"><img src="assets/spec-ads/too-good-to-go.webp?v=2" width="880" height="1100" alt="The bakery’s closing. Pick up a Surprise Bag. A croissant peeks out of a bag marked Surprise Bag." loading="lazy" decoding="async" draggable="false"></div>
-              <figcaption><strong>Surplus food pickup</strong><span>Growency Spec · Not commissioned by Too Good To Go</span></figcaption>
-            </figure>
-          </li>
-          <li class="sample-ad">
-            <figure>
-              <div class="sample-ad-image"><img src="assets/spec-ads/aside.webp" width="880" height="1100" alt="Nobody: Absolutely nobody: Me, still thinking about hiring a personal assistant: Aside can handle the browser busywork. Go do what you love. A person paints at an easel." loading="lazy" decoding="async" draggable="false"></div>
-              <figcaption><strong>AI browser assistant</strong><span>Growency Spec · Not commissioned by Aside</span></figcaption>
-            </figure>
-          </li>
-        </ul>
       </section>
       <div class="hero-principles"><span><img class="site-icon icon-principle" src="assets/icons/people.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">A limit for every test.</span><span><img class="site-icon icon-principle" src="assets/icons/target.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">A pass mark before launch.</span></div>
     </div>
@@ -426,7 +423,7 @@
 <footer class="site-footer">
   <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/leads.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap footer-layout"><div><a class="footer-brand" href="#top">Growency</a><p>The hedge fund for Meta ads.</p></div><nav aria-label="Outbound comparisons"><span>OUTBOUND ARCHIVE</span><a href="/compare/apollo">Growency vs Apollo</a><a href="/compare/clay">Growency vs Clay</a><a href="/compare/11x">Growency vs 11x</a><a href="/compare/artisan">Growency vs Artisan</a><a href="/compare/belkins">Growency vs Belkins</a><a href="/compare/cience">Growency vs CIENCE</a></nav><nav aria-label="Company"><span>COMPANY</span><a href="/careers"><img class="site-icon icon-nav" src="assets/icons/briefcase.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Careers</a><a href="/contact"><img class="site-icon icon-nav" src="assets/icons/message.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Contact us</a><a href="#pricing">Pricing</a><a href="#team">The team</a><a href="#faq">Questions</a><a href="/privacy">Privacy policy</a><a href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></nav></div><div class="wrap footer-fine">© 2026 Growency. Workflow demos show an illustrative campaign. Terms, pricing and scope are agreed in writing before work begins.</div></footer>
 <a class="meeting-shortcut" href="/book" aria-label="Book a meeting with Growency" data-info="Let’s talk about your Meta ads. Book a 30-minute call with Vidit."><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18m-13 5 3 3 5-5"/></svg></span><b>Book a meeting</b></a>
-<script src="ad-gallery.js?v=20261111" defer></script>
+<script src="ad-gallery.js?v=20261112-scroll" defer></script>
 <script src="demo-scroll.js?v=20261110-workspace" defer></script>
 <script src="demo-film.js?v=20261111-motion" defer></script>
 <script src="landing.js?v=20261110-hero-positioning" defer></script>
