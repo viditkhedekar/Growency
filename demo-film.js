@@ -10,17 +10,6 @@
         { at: 5200 },
       ],
     },
-    create: {
-      duration: 10000,
-      cues: [
-        { at: 0, target: 'control' },
-        { at: 1500, target: 'ad-a' },
-        { at: 3100, target: 'relocation' },
-        { at: 4800, target: 'challenger' },
-        { at: 6250, target: 'ad-b' },
-        { at: 7650 },
-      ],
-    },
     measure: {
       duration: 11000,
       cues: [

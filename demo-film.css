@@ -9,7 +9,7 @@
 .journey-track .story-step > .slide-photo { opacity: .09; }
 .journey-track .story-step > .page-netting { opacity: .07; }
 
-.campaign-stage.demo-film {
+.campaign-stage:is(.demo-film, .creative-stage) {
   --film-font: "DM Sans", system-ui, sans-serif;
   --film-ease: cubic-bezier(.22, 1, .36, 1);
   --film-ink: #23233a;
@@ -28,7 +28,7 @@
     linear-gradient(140deg, #26254e, #3a3375 52%, #322b61);
   box-shadow: 0 35px 64px -40px #2b205c80, inset 0 1px 0 #ffffff40;
 }
-.demo-film.workflow-stage::before { content: none; }
+.workflow-stage:is(.demo-film, .creative-stage)::before { content: none; }
 
 .film-window {
   position: relative;
@@ -82,7 +82,7 @@
 }
 
 .film-title { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.demo-film .film-title h4 {
+:is(.demo-film, .creative-stage) .film-title h4 {
   margin: 0;
   font: 670 clamp(19px, 4cqi, 33px)/1.12 var(--film-font);
   letter-spacing: -.045em;
@@ -165,30 +165,93 @@
 .film-metrics dt { color: var(--film-muted); font-size: 10px; }
 .film-metrics dd { margin: 3px 0 0; font-size: clamp(12px, 2.5cqi, 19px); line-height: 1.15; font-weight: 750; font-variant-numeric: tabular-nums; }
 
-.film-builder { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
-.film-builder > div { display: grid; align-content: start; gap: 3px; padding: clamp(6px, 1.5cqi, 11px); border: 1px solid var(--film-border); border-radius: 7px; background: white; }
-.film-builder span { color: var(--film-muted); font-size: 10px; }
-.film-builder b { font-size: clamp(11px, 1.9cqi, 14px); line-height: 1.2; }
-.film-ad-grid, .film-compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
-.film-ad { overflow: hidden; border: 1px solid var(--film-border); border-radius: 9px; background: white; }
-.film-ad-label { display: flex; align-items: center; gap: 6px; padding: 7px; }
-.film-ad-label > b { font-size: clamp(11px, 1.85cqi, 14px); line-height: 1.2; }
-.film-ad-art {
-  display: flex;
-  align-items: end;
-  min-height: clamp(85px, 19cqi, 154px);
-  padding: clamp(8px, 2cqi, 16px);
-  color: white;
-  background: linear-gradient(78deg, #141426df, #17172c78 65%, #17172c15), url("assets/demos/year-7-campus.jpg") 70% center / cover;
+.film-compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+.demo-film .film-chart-note { color: var(--film-muted); font-size: 11px; }
+
+.creative-stage .creative-content {
+  align-content: start;
+  min-height: 0;
+  padding: clamp(14px, 3.6cqi, 30px);
 }
-.film-ad-art strong {
-  font: 680 clamp(13px, 3.25cqi, 27px)/1.02 var(--film-font);
-  letter-spacing: -.05em;
-  text-shadow: 0 1px 12px #161728ad;
+.variant-toggle {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid #d8cfee;
+  border-radius: 8px;
+  background: #fff;
+  color: #51418d;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
 }
-.film-ad-cta { display: flex; justify-content: space-between; gap: 4px; padding: 7px; color: #49387d; font-size: 10px; }
-.demo-film .film-inline-note, .demo-film .film-chart-note { color: var(--film-muted); font-size: 11px; }
-.film-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--film-mint); margin-right: 4px; }
+.variant-toggle[aria-pressed="true"] { background: #ede9fb; border-color: #8d77c7; }
+.variant-fallback { width: fit-content; color: #51418d; text-decoration: underline; }
+.variant-stack[hidden], .variant-toggle[hidden], .variant-fallback[hidden] { display: none; }
+.variant-stack {
+  --card-width: clamp(122px, 28cqi, 206px);
+  display: grid;
+  place-items: center;
+  min-height: calc(var(--card-width) * 1.25 + 76px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  isolation: isolate;
+}
+.variant-card {
+  --spread-x: 12cqi;
+  --spread-angle: 13deg;
+  --stack-drop: 5px;
+  --stack-scale: .94;
+  grid-area: 1 / 1;
+  z-index: var(--card-layer);
+  width: var(--card-width);
+  transform: translate(calc(var(--card-position) * var(--spread-x)), var(--stack-drop))
+    rotate(calc(var(--card-position) * var(--spread-angle))) scale(var(--stack-scale));
+  transition: transform .5s var(--film-ease);
+}
+.variant-card:first-child {
+  --spread-x: 0px;
+  --spread-angle: -3deg;
+  --stack-drop: -4px;
+  --stack-scale: 1;
+}
+.variant-card a {
+  display: block;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 12px 20px #1f16442e;
+}
+.variant-card img { display: block; width: 100%; height: auto; border-radius: 9px; }
+.creative-stage[data-stack-spread] .variant-card,
+.variant-stack:focus-within .variant-card {
+  --spread-x: 29cqi;
+  --spread-angle: 7deg;
+  --stack-drop: 0px;
+  --stack-scale: .93;
+}
+@media (hover: hover) and (pointer: fine) {
+  .variant-stack:hover .variant-card {
+    --spread-x: 29cqi;
+    --spread-angle: 7deg;
+    --stack-drop: 0px;
+    --stack-scale: .93;
+  }
+  .variant-stack:hover .variant-card:hover { --stack-drop: -18px; --stack-scale: 1.05; z-index: 20; }
+}
+.variant-stack .variant-card:focus-within { --stack-drop: -18px; --stack-scale: 1.05; z-index: 20; }
+@media (hover: none), (pointer: coarse), (max-width: 600px) {
+  .creative-stage[data-stack-spread] .variant-stack,
+  .variant-stack:focus-within {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding-block: 12px;
+  }
+  .creative-stage[data-stack-spread] .variant-card,
+  .variant-stack:focus-within .variant-card { grid-area: auto; width: 100%; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .variant-card { transition: none; } }
+.motion-paused .variant-card { transition: none; }
 
 .film-select {
   display: flex;
@@ -314,7 +377,6 @@ html body .demo-film button.film-control {
 @container campaign-film (max-width: 490px) {
   .film-content { gap: 9px; padding: 10px; min-height: 0; }
   .film-title .film-tag { white-space: normal; text-align: center; }
-  .film-ad-label .film-key { flex-basis: 18px; width: 18px; height: 18px; }
   .film-decision { font-size: 11px; }
 }
 @container campaign-film (max-width: 350px) {

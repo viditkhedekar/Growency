@@ -5,6 +5,37 @@
   const root = document.documentElement;
   const panel = gallery.querySelector('.ad-gallery-panel');
   const track = gallery.querySelector('.ad-gallery-track');
+  const creative = document.querySelector('[data-ad-stack]');
+  if (creative && track.children.length) {
+    const stack = creative.querySelector('.variant-stack');
+    const toggle = creative.querySelector('.variant-toggle');
+    const ads = Array.from(track.querySelectorAll('.sample-ad img'));
+    const center = (ads.length - 1) / 2;
+
+    stack.append(...ads.map((art, index) => {
+      const card = document.createElement('li');
+      const link = document.createElement('a');
+      card.className = 'variant-card';
+      card.style.setProperty('--card-position', center ? (index - center) / center : 0);
+      card.style.setProperty('--card-layer', ads.length - index);
+      link.href = art.src;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      const image = art.cloneNode();
+      image.loading = 'lazy';
+      link.append(image);
+      card.append(link);
+      return card;
+    }));
+
+    toggle.addEventListener('click', () => {
+      const spread = creative.toggleAttribute('data-stack-spread');
+      toggle.setAttribute('aria-pressed', String(spread));
+    });
+    creative.querySelector('.variant-fallback').hidden = true;
+    stack.hidden = false;
+    toggle.hidden = false;
+  }
   const controls = gallery.querySelector('.ad-gallery-controls');
   const [previous, next] = controls.querySelectorAll('button');
   const desktop = matchMedia('(min-width: 800px) and (min-height: 510px) and (pointer: fine)');
