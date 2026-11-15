@@ -27,7 +27,7 @@ ${SWEEP}
 ${SD_POLY}
 uniform sampler2D map;
 uniform float uHasMap, uTexAspect, uPlaneAspect, uRadius;
-uniform float uFront, uClip, uSweep, uChrome, uOpacity;
+uniform float uFront, uClip, uSweep, uChrome, uOpacity, uQuiet;
 uniform float uPlay, uHov, uTime;
 uniform vec2 uPtr, uBlobC;
 uniform vec3 uFallback;
@@ -132,6 +132,9 @@ void main() {
 
   // depth clarity: back of the orbit fades toward the white page
   col = mix(vec3(1.0), col, mix(0.36, 1.0, uFront));
+  float edge = (1.0 - smoothstep(0.001, 0.004, -rd)) * cardMask * (1.0 - uClip);
+  col = mix(col, vec3(0.21, 0.17, 0.11), edge * mix(0.065, 0.18, uFront));
+  col = mix(col, vec3(1.0), uQuiet * 0.84);
 
   // reflection sweep: footage dissolves into the chrome behind it
   float s = sweepCoord(vMark) + (vnoise(vMark * 38.0) - 0.5) * 0.05 + (vnoise(vMark * 9.0) - 0.5) * 0.04;
@@ -166,7 +169,8 @@ export class Card {
       uClip: { value: 0 },
       uSweep: { value: -1 },
       uChrome: { value: 0 },
-      uOpacity: { value: 1 },
+      uOpacity: { value: 0 },
+      uQuiet: { value: 0 },
       uFallback: { value: new THREE.Vector3(0.93, 0.935, 0.945) },
       uLogoInv: { value: new THREE.Matrix4() },
       uAspect: { value: 1 },

@@ -1,4 +1,4 @@
-// Scroll-controlled studio lighting over a softly bevelled liquid-silver face.
+// Scroll-controlled studio lighting over a softly bevelled gold face.
 // The type silhouette never changes weight; only the reflected light moves.
 export const TEXT_METAL = /* glsl */ `
 vec3 liquidMetal(vec2 uv, float progress, float sd, vec2 gradient) {
@@ -12,8 +12,8 @@ vec3 liquidMetal(vec2 uv, float progress, float sd, vec2 gradient) {
   float glint = exp(-pow((reflection - front) / 0.018, 2.0));
   float darkWake = exp(-pow((reflection - front + 0.19) / 0.075, 2.0));
   float facingLight = max(dot(normal, normalize(vec3(-0.5, 0.8, 0.9))), 0.0);
-  vec3 steel = mix(vec3(0.075, 0.09, 0.12), vec3(0.28, 0.32, 0.38), facingLight);
-  steel += bevel * facingLight * 0.15;
-  steel *= 1.0 - darkWake * 0.48;
-  return steel + softbox * vec3(0.40, 0.46, 0.52) + glint * vec3(0.42, 0.45, 0.49);
+  vec3 gold = mix(vec3(0.22, 0.115, 0.022), vec3(0.61, 0.38, 0.10), facingLight);
+  gold += bevel * facingLight * vec3(0.20, 0.15, 0.065);
+  gold *= 1.0 - darkWake * 0.48;
+  return gold + softbox * vec3(0.40, 0.27, 0.115) + glint * vec3(0.55, 0.43, 0.22);
 }`;

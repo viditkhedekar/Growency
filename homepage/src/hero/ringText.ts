@@ -1,6 +1,6 @@
-// Fixed-weight tagline with a scroll-controlled liquid-silver light reveal.
+// Fixed-weight tagline with a scroll-controlled gold light reveal.
 // It waits for the wordmark to clear, holds for reading, then makes a short
-// mechanical snap before its edges dissolve into silver fragments.
+// mechanical snap before its edges dissolve into gold fragments.
 import * as THREE from 'three';
 import { TEXT_METAL } from './textMetal';
 
@@ -42,7 +42,7 @@ void main() {
   float coord = vUv.x + (1.0 - vUv.y) * 0.06;
   float m = 1.0 - smoothstep(front - 0.02, front + 0.025, coord);
 
-  // Left-to-right, edge-first erosion, with fine silver grit at the boundary.
+  // Left-to-right, edge-first erosion, with fine gold grit at the boundary.
   float letter = floor(vUv.x * 26.0) / 26.0;
   float noise = grain(floor(vUv * vec2(780.0, 180.0)));
   float threshold = 0.08 + letter * 0.46 + clamp(sd, 0.0, 1.0) * 0.30 + noise * 0.12;
@@ -163,7 +163,7 @@ export class RingText {
         void main() {
           float a = vAlpha * uOpacity * (1.0 - smoothstep(0.15, 0.5, length(gl_PointCoord - 0.5)));
           if (a < 0.003) discard;
-          gl_FragColor = vec4(mix(vec3(0.19, 0.22, 0.27), vec3(0.77, 0.81, 0.86), vSeed), a);
+          gl_FragColor = vec4(mix(vec3(0.40, 0.24, 0.064), vec3(0.91, 0.71, 0.32), vSeed), a);
         }`,
     }));
     this.dust.frustumCulled = false;

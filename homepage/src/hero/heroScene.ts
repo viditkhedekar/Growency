@@ -19,7 +19,7 @@ const FOV = 30;
 const CAM_Z = 20;
 const BASE_DRIFT = 0.1; // rad/s at rest
 const TAU = Math.PI * 2;
-const INTRO_MS = 1900;
+const INTRO_MS = 2600;
 const INTRO_POSTER_WAIT_MS = 950;
 
 interface Els {
@@ -108,7 +108,6 @@ export class HeroScene {
   private videoTick = 0;
   private startTime: number | null = null;
   private introDeadline = 0;
-  private introOrder: number[] = [];
   private frontPosters: number[] = [];
   private time = 0;
 
@@ -165,8 +164,6 @@ export class HeroScene {
       .map((c) => ({ i: c.index, f: Math.cos(this.angleOf(c.index)) }))
       .sort((a, b) => b.f - a.f)
       .map((o) => o.i);
-    this.introOrder = Array.from({ length: order.length });
-    order.forEach((id, rank) => { this.introOrder[id] = rank; });
     this.frontPosters = order.slice(0, 3);
     this.introDeadline = performance.now() + INTRO_POSTER_WAIT_MS;
     this.posters.request(order);
@@ -549,6 +546,8 @@ export class HeroScene {
     const logoM = this.logo.matrixWorld;
     const logoInv = _m2.copy(logoM).invert();
     const sweep = this.chrome.u.uSweep.value;
+    const quiet = smooth(seg(this.p, T.taglineStart, T.taglineEnd))
+      * (1 - smooth(seg(this.p, T.erodeStart, T.erodeEnd)));
 
     // Which video card (if any) is under the pointer → play blob reacts.
     let hit: { i: number; uv: THREE.Vector2 } | null = null;
@@ -566,21 +565,21 @@ export class HeroScene {
 
     for (const card of this.cards) {
       const i = card.index;
-      // Deal the front cards first, then fan the remaining cards out to each side.
-      const arrival = easeOut(seg(intro, this.introOrder[i] / N * .48, this.introOrder[i] / N * .48 + .52));
+      // Abhiram's entrance deals the cards sequentially along a wider ellipse.
+      const delayOnLoad = i / N * .42;
+      const arrival = easeOut(clamp01((intro - delayOnLoad) / .58));
       const entering = 1 - arrival;
-      const orbitAngle = i / N * TAU;
-      const side = i <= N / 2 ? 1 : -1;
-      const a = orbitAngle + this.spin + boost + side * entering * .82;
+      const a = i / N * TAU + this.spin + boost - entering * 1.6;
       const front = (Math.cos(a) + 1) / 2;
-      const fs = lerp(L.frontMin, lerp(L.frontMax, 1, o), smooth(front)) * lerp(.68, 1, arrival);
-      const r = radius * lerp(1.52, 1, arrival);
+      const fs = lerp(L.frontMin, lerp(L.frontMax, 1, o), smooth(front)) * lerp(.6, 1, arrival);
+      const r = radius * lerp(1.9, 1, arrival);
 
-      // Lift and turn each poster into its final position.
-      _p0.set(Math.sin(a) * r, -entering * L.ringR * .32, Math.cos(a) * r).applyMatrix4(ringM);
-      _q0.setFromEuler(_e.set(tilt, 0, -0.07 * (1 - o)))
-        .multiply(_q1.setFromEuler(_e.set(-tilt * .55 + entering * .21, a, side * entering * .16)));
-      _s0.set(L.cardW * fs, L.cardH * fs, 1);
+      // Keep the posters parallel so successive layers overlap at their edges
+      // without the planes slicing through each other.
+      _p0.set(Math.sin(a) * r, entering * L.ringR * .7, Math.cos(a) * r).applyMatrix4(ringM);
+      _q0.setFromEuler(_e.set(0, 0, Math.sin(a) * (.07 + entering * .11)));
+      const sideProfile = lerp(.72, 1, Math.abs(Math.cos(a)));
+      _s0.set(L.cardW * fs * sideProfile, L.cardH * fs, 1);
 
       // Cards leave in one wave around the ring, in angular order.
       const delay = (this.leaveRank[i] / (N - 1)) * 0.26;
@@ -609,7 +608,7 @@ export class HeroScene {
       const u = card.u;
       const aspect = _s0.x / _s0.y;
       u.uFront.value = front2;
-      u.uPlaneAspect.value = aspect;
+      u.uPlaneAspect.value = lerp(L.cardW / L.cardH, aspect, smooth(seg(m, 0, 1)));
       u.uClip.value = smooth(seg(m, 0.72, 1));
       u.uRadius.value = 0.045 * (1 - smooth(seg(m, 0.8, 1)));
       u.uLogoInv.value.copy(logoInv);
@@ -617,7 +616,9 @@ export class HeroScene {
       u.uChrome.value = ph.chrome > 0 ? 1 : 0;
       u.uAspect.value = MARK_ASPECT;
       const tex = this.videos.textureFor(i) ?? this.posters.textures.get(i);
-      u.uOpacity.value = lerp(u.uOpacity.value, tex ? smooth(arrival) : 0, 1 - Math.exp(-dt * 24));
+      const opacity = lerp(u.uOpacity.value, tex ? smooth(arrival) : 0, 1 - Math.exp(-dt * 24));
+      u.uOpacity.value = opacity > .995 ? 1 : opacity;
+      u.uQuiet.value = quiet;
       u.uTime.value = this.time;
       card.mesh.visible = Boolean(tex) && sweep < 1.19 && arrival > .001;
 
