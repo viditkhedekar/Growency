@@ -19,7 +19,8 @@ const FOV = 30;
 const CAM_Z = 20;
 const BASE_DRIFT = 0.1; // rad/s at rest
 const TAU = Math.PI * 2;
-const INTRO_MS = 2600; // carousel arrival + tagline reveal on load
+const INTRO_MS = 1900;
+const INTRO_POSTER_WAIT_MS = 950;
 
 interface Els {
   hero: HTMLElement;
@@ -105,7 +106,10 @@ export class HeroScene {
   private raf = 0;
   private prevTime = 0;
   private videoTick = 0;
-  private startTime = performance.now();
+  private startTime: number | null = null;
+  private introDeadline = 0;
+  private introOrder: number[] = [];
+  private frontPosters: number[] = [];
   private time = 0;
 
   // pointer for the play blobs
@@ -161,6 +165,10 @@ export class HeroScene {
       .map((c) => ({ i: c.index, f: Math.cos(this.angleOf(c.index)) }))
       .sort((a, b) => b.f - a.f)
       .map((o) => o.i);
+    this.introOrder = Array.from({ length: order.length });
+    order.forEach((id, rank) => { this.introOrder[id] = rank; });
+    this.frontPosters = order.slice(0, 3);
+    this.introDeadline = performance.now() + INTRO_POSTER_WAIT_MS;
     this.posters.request(order);
 
     this.bindInput();
@@ -417,7 +425,7 @@ export class HeroScene {
     this.renderer.render(this.scene, this.camera);
     this.renderer.render(this.ui, this.uiCam);
     this.viewer.open(this.campaigns[index], () => this.cardBounds(card), () => {
-      this.startTime += performance.now() - openedAt;
+      if (this.startTime !== null) this.startTime += performance.now() - openedAt;
       card.mesh.visible = true;
       this.videoTick = 0;
     });
@@ -440,7 +448,11 @@ export class HeroScene {
     this.p += (this.target - this.p) * k;
     if (Math.abs(this.target - this.p) < 1e-4) this.p = this.target;
     const ph = phases(this.p);
-    const intro = clamp01((now - this.startTime) / INTRO_MS);
+    if (this.startTime === null && (now >= this.introDeadline
+      || this.frontPosters.every(index => this.posters.textures.has(index)))) {
+      this.startTime = now;
+    }
+    const intro = this.startTime === null ? 0 : clamp01((now - this.startTime) / INTRO_MS);
 
     // Ring spin: slow drift + drag inertia (scroll acceleration is added in updateCards).
     const movement = this.pendingSpin * (1 - Math.exp(-dt * 28));
@@ -554,16 +566,20 @@ export class HeroScene {
 
     for (const card of this.cards) {
       const i = card.index;
-      // Arrival: cards are dealt around the orbit, sweeping in from wide and above.
-      const ie = easeOut(clamp01((intro - (i / N) * 0.42) / 0.58));
-      const a = (i / N) * TAU + this.spin + boost - (1 - ie) * 1.6;
+      // Deal the front cards first, then fan the remaining cards out to each side.
+      const arrival = easeOut(seg(intro, this.introOrder[i] / N * .48, this.introOrder[i] / N * .48 + .52));
+      const entering = 1 - arrival;
+      const orbitAngle = i / N * TAU;
+      const side = i <= N / 2 ? 1 : -1;
+      const a = orbitAngle + this.spin + boost + side * entering * .82;
       const front = (Math.cos(a) + 1) / 2;
-      const fs = lerp(L.frontMin, lerp(L.frontMax, 1, o), smooth(front)) * lerp(0.6, 1, ie);
-      const r = radius * lerp(1.9, 1, ie);
+      const fs = lerp(L.frontMin, lerp(L.frontMax, 1, o), smooth(front)) * lerp(.68, 1, arrival);
+      const r = radius * lerp(1.52, 1, arrival);
 
-      // Orbit pose
-      _p0.set(Math.sin(a) * r, (1 - ie) * L.ringR * 0.7, Math.cos(a) * r).applyMatrix4(ringM);
-      _q0.setFromEuler(_e.set(tilt, 0, -0.07 * (1 - o))).multiply(_q1.setFromEuler(_e.set(-tilt * 0.55, a, 0)));
+      // Lift and turn each poster into its final position.
+      _p0.set(Math.sin(a) * r, -entering * L.ringR * .32, Math.cos(a) * r).applyMatrix4(ringM);
+      _q0.setFromEuler(_e.set(tilt, 0, -0.07 * (1 - o)))
+        .multiply(_q1.setFromEuler(_e.set(-tilt * .55 + entering * .21, a, side * entering * .16)));
       _s0.set(L.cardW * fs, L.cardH * fs, 1);
 
       // Cards leave in one wave around the ring, in angular order.
@@ -600,13 +616,14 @@ export class HeroScene {
       u.uSweep.value = sweep;
       u.uChrome.value = ph.chrome > 0 ? 1 : 0;
       u.uAspect.value = MARK_ASPECT;
-      u.uOpacity.value = smooth(ie);
+      const tex = this.videos.textureFor(i) ?? this.posters.textures.get(i);
+      u.uOpacity.value = lerp(u.uOpacity.value, tex ? smooth(arrival) : 0, 1 - Math.exp(-dt * 24));
       u.uTime.value = this.time;
-      card.mesh.visible = sweep < 1.19 && ie > 0.001;
+      card.mesh.visible = Boolean(tex) && sweep < 1.19 && arrival > .001;
 
       // Play blob: visible in orbit, melts away as cards leave for the mark.
       if (card.hasVideo) {
-        u.uPlay.value = (1 - smooth(seg(ph.fly, 0, 0.22))) * smooth(seg(ie, 0.5, 1));
+        u.uPlay.value = (1 - smooth(seg(ph.fly, 0, 0.22))) * smooth(seg(arrival, 0.5, 1));
         const b = this.blobs[i];
         let hovT = 0;
         if (hit?.i === i) {
@@ -624,7 +641,6 @@ export class HeroScene {
         u.uBlobC.value.copy(b.ptr).multiplyScalar(len > 1e-4 ? (Math.min(len, 0.3) / len) * 0.2 * b.hov : 0);
       }
 
-      const tex = this.videos.textureFor(i) ?? this.posters.textures.get(i);
       if (tex) card.setTexture(tex.tex, tex.aspect);
     }
     this.els.hero.classList.toggle('is-blob', blobHot && !this.dragging);

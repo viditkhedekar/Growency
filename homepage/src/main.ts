@@ -96,7 +96,8 @@ async function initMotion() {
 
   if (jump === null && location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
   st.update();
-  if (st.progress > 0) scene.snap();
+  // ScrollTrigger can report a fractional advance even at the very top.
+  if (window.scrollY > 2) scene.snap();
 
   (window as unknown as { __hero: unknown }).__hero = { scene, st };
 }

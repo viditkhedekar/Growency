@@ -25,7 +25,7 @@
         <svg class="site-nav__mark" data-mark-icon aria-hidden="true" focusable="false"></svg>
         <span class="site-nav__name">growency</span>
       </a>
-      <a class="button button--primary home-book" href="/book">Book a call ↗</a>
+      <a class="button button--primary home-book" href="/book">Book a call <span aria-hidden="true" class="motion-glyph motion-glyph--up"><span>↗</span></span></a>
     </header>
 
     <nav class="milestones" aria-label="Page sections"><a href="#hero">Intro</a><a href="#reel">Ads</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#team">Team</a></nav>
@@ -56,7 +56,7 @@
             <svg class="hero__static-mark" data-static-mark role="img" aria-label="The Growency mark, filled with campaign work"></svg>
           </div>
 
-          <div class="intro-cue"><strong>Scroll down to explore ↓</strong><a href="#reel">Skip to the ads</a></div>
+          <div class="intro-cue"><strong>Scroll down to explore <span aria-hidden="true" class="motion-glyph motion-glyph--down"><span>↓</span></span></strong><a href="#reel">Skip to the ads</a></div>
         </div>
       </section>
 
@@ -78,8 +78,8 @@
               </h2>
               <p class="reel__lede">We run Facebook and Instagram ads. Before each test, we agree how much it can spend and what a sale or qualified lead can cost.</p>
               <div class="reel__actions">
-                <a class="pill pill--light" href="/book">Let’s talk ads <span aria-hidden="true">↗</span></a>
-                <a class="pill pill--ghost" href="#services">What we do <span aria-hidden="true">↓</span></a>
+                <a class="pill pill--light" href="/book">Let’s talk ads <span aria-hidden="true" class="motion-glyph motion-glyph--up"><span>↗</span></span></a>
+                <a class="pill pill--ghost" href="#services">What we do <span aria-hidden="true" class="motion-glyph motion-glyph--down"><span>↓</span></span></a>
               </div>
             </div>
             <button type="button" class="reel-toggle" aria-label="Play sample ads" hidden>Play</button>
@@ -97,7 +97,7 @@
 
           <div class="bento" data-bento>
             <article class="tile svc svc--strategy" style="--i:0">
-              <div class="svc__top"><span class="svc__num">01</span><svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg></div>
+              <div class="svc__top"><span class="svc__num">01</span><svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path class="icon-rest" d="M12 3v3M12 18v3M3 12h3M18 12h3M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/><path class="icon-hover" d="M4 4h16v16H4zM7.5 12l3 3 6-6"/></svg></div>
               <h3>Campaign strategy</h3>
               <p>Bring us a problem. We’ll turn it into an ad plan: who to reach, what to say and what a result is worth.</p>
               <div class="ui ui--brief">
@@ -126,17 +126,20 @@
                 <img data-creative-slot="2" width="880" height="1100" loading="lazy" src="/assets/spec-ads/moonshot-good-memory.jpg" alt="Jewellery with a good memory" aria-hidden="true">
               </div>
               <div class="creative-caption">
-                <div><h3>Creative development</h3><p>Luna jewellery · Growency spec work</p></div>
+                <div class="creative-caption__title">
+                  <svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path class="icon-rest" d="M4 5h11v14H4zM15 8l5-2v12l-5-2"/><path class="icon-hover" d="M12 2l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/></svg>
+                  <div><h3>Creative development</h3><p>Luna jewellery · Growency spec work</p></div>
+                </div>
                 <div class="creative-controls">
-                  <a data-creative-view href="/assets/spec-ads/moonshot-for-everything.jpg">View ad ↗</a>
-                  <button type="button" data-creative-next hidden>Next ad <span aria-hidden="true">→</span></button>
+                  <a data-creative-view href="/assets/spec-ads/moonshot-for-everything.jpg">View ad <span aria-hidden="true" class="motion-glyph motion-glyph--up"><span>↗</span></span></a>
+                  <button type="button" data-creative-next hidden>Next ad <span aria-hidden="true" class="motion-glyph motion-glyph--right"><span>→</span></span></button>
                 </div>
                 <span class="visually-hidden" role="status" data-creative-status></span>
               </div>
             </article>
 
             <article class="tile svc svc--test" data-test style="--i:2">
-              <div class="svc__top"><span class="svc__num">03</span><svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+              <div class="svc__top"><span class="svc__num">03</span><svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path class="icon-rest" d="M4 20V10M10 20V4M16 20v-7M22 20H2"/><path class="icon-hover" d="M3 19l6-6 4 3 8-10M16 6h5v5M3 5v14h18"/></svg></div>
               <h3>Testing &amp; measurement</h3>
               <p>We gather and process Meta’s data to understand what’s working and what isn’t.</p>
               <div class="ui metrics-ads">
@@ -148,7 +151,7 @@
             </article>
 
             <article class="tile svc svc--budget" data-budget style="--i:3">
-              <div class="svc__top"><span class="svc__num">04</span><svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+              <div class="svc__top"><span class="svc__num">04</span><svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path class="icon-rest" d="M3 12h4l3-8 4 16 3-8h4"/><path class="icon-hover" d="M12 20V9m0 0L6 3m6 6 6-6M6 3v4M6 3h4m8 0v4m0-4h-4"/></svg></div>
               <h3>Budget allocation</h3>
               <p>We use the data to decide where your next pound goes. Winners get more. Losers get cut.</p>
               <div class="ui ui--alloc">
@@ -179,7 +182,7 @@
                 <li><b>Media budget</b><span>Ad spend set aside for the first round of tests.</span></li>
                 <li><b>Success criteria</b><span>What counts as a conversion and what it can cost.</span></li>
               </ol>
-              <a class="tile__link" href="/book">Talk through your budget <span aria-hidden="true">↗</span></a>
+              <a class="tile__link" href="/book">Talk through your budget <span aria-hidden="true" class="motion-glyph motion-glyph--up"><span>↗</span></span></a>
             </article>
 
             <article class="tile svc--faq" style="--i:7">
@@ -187,7 +190,7 @@
               <details open><summary>What do you test?</summary><p>We start with the biggest open question: which hook gets attention, which offer converts, or which format brings in customers at the right cost.</p></details>
               <details><summary>When do you scale an ad?</summary><p>When it hits the cost target with enough conversions to pass the test, and it stays within target as spend goes up.</p></details>
               <details><summary>How do we get started?</summary><p>Tell us what you sell, who buys it and what you want the campaign to achieve. If you already run ads, we’ll use what you’ve learned to plan the first tests.</p></details>
-              <div class="faq__more"><span>Still have questions?</span><a class="pill pill--ink" href="/book">Talk to us <span aria-hidden="true">↗</span></a></div>
+              <div class="faq__more"><span>Still have questions?</span><a class="pill pill--ink" href="/book">Talk to us <span aria-hidden="true" class="motion-glyph motion-glyph--up"><span>↗</span></span></a></div>
             </article>
 
             <article class="tile svc--clients" style="--i:8" id="team">
@@ -201,7 +204,7 @@
             <article class="tile tile--ink svc--cta" style="--i:9">
               <p class="tile__eyebrow">Work with us</p>
               <h3 class="cta__title">What should your next customer <span class="mute">cost?</span></h3>
-              <a class="pill pill--light pill--large" href="/book">Let’s talk ads <span aria-hidden="true">↗</span></a>
+              <a class="pill pill--light pill--large" href="/book">Let’s talk ads <span aria-hidden="true" class="motion-glyph motion-glyph--up"><span>↗</span></span></a>
             </article>
           </div>
           <p class="services__fine">Campaign examples and metrics are illustrative.</p>
@@ -222,7 +225,7 @@
             <svg data-footer-mark aria-hidden="true"></svg><span>growency<span class="brand-dot">.</span></span>
           </a>
           <p>The hedge fund for marketing.</p>
-          <div class="world-footer__socials"><a href="https://www.linkedin.com/company/growency/" aria-label="Growency on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM2 9h4v12H2zm7 0h4v2c1-2 3-2 4-2 4 0 5 2 5 6v6h-4v-6c0-2-1-3-2-3-2 0-3 1-3 3v6H9z"/></svg></a></div>
+          <div class="world-footer__socials"><a href="https://www.linkedin.com/company/growency/" aria-label="Growency on LinkedIn"><svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM2 9h4v12H2zm7 0h4v2c1-2 3-2 4-2 4 0 5 2 5 6v6h-4v-6c0-2-1-3-2-3-2 0-3 1-3 3v6H9z"/></svg></a></div>
         </div>
         <nav class="footer-navigation" aria-label="Footer"><a href="#hero">Back to top</a><a href="#reel">Sample ads</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#team">Team</a><a href="/book">Book a call</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a></nav>
       </div>

@@ -1,0 +1,75 @@
+.motion-glyph {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 1em;
+  flex: none;
+}
+.motion-glyph::after {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translate(-.17em, .17em);
+}
+.motion-glyph--up::after { content: '⤴'; }
+.motion-glyph--down::after { content: '⤓'; }
+.motion-glyph--right::after { content: '➜'; }
+:is(a, button, .intro-cue):is(:hover, :focus-visible) .motion-glyph > span {
+  opacity: 0;
+  transform: translate(.17em, -.17em);
+}
+:is(a, button, .intro-cue):is(:hover, :focus-visible) .motion-glyph::after {
+  opacity: 1;
+  transform: none;
+}
+
+.svc__icon .icon-rest, .svc__icon .icon-hover {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.svc__icon .icon-hover { opacity: 0; transform: scale(.72) rotate(-12deg); }
+.svc:is(:hover, :focus-within) .icon-rest { opacity: 0; transform: scale(.8) rotate(12deg); }
+.svc:is(:hover, :focus-within) .icon-hover { opacity: 1; transform: none; }
+.creative-caption__title { display: flex; align-items: center; gap: 10px; }
+.creative-caption__title .svc__icon { flex: none; }
+
+:is(.site-nav__brand, .world-footer__brand) svg path {
+  stroke: currentColor;
+  stroke-width: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+:is(.site-nav__brand, .world-footer__brand):is(:hover, :focus-visible) path {
+  fill: transparent;
+  stroke-width: 1.75px;
+}
+:is(.site-nav__brand, .world-footer__brand):is(:hover, :focus-visible) path:nth-child(odd) {
+  transform: translateX(4px);
+}
+.simple-nav a:first-child:is(:hover, :focus-visible) img {
+  transform: rotate(-12deg) scale(1.12);
+  filter: drop-shadow(2px 2px 0 #d9bf87);
+}
+
+.world-footer__socials a .social-icon {
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 0;
+}
+.world-footer__socials a:is(:hover, :focus-visible) .social-icon {
+  fill: transparent;
+  stroke-width: .85;
+  color: var(--gold-ink);
+  transform: scale(1.08);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .motion-glyph > span, .motion-glyph::after, .svc__icon path {
+    transition: opacity .18s ease, transform .23s ease;
+  }
+  :is(.site-nav__brand, .world-footer__brand) svg path, .simple-nav a:first-child img,
+  .world-footer__socials a .social-icon {
+    transition: fill .2s ease, transform .24s ease, stroke-width .2s ease, filter .22s ease;
+  }
+}
