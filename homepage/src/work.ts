@@ -81,38 +81,100 @@ export function initWork(motion: boolean) {
     }),
   );
 
-  // ── Reel: plays while on screen (or while the hero's window shows it) ──
   const reel = work.querySelector<HTMLElement>('[data-reel]');
   const video = work.querySelector<HTMLVideoElement>('[data-reel-video]');
-  if (reel && video) {
-    const toggle = reel.querySelector<HTMLButtonElement>('.reel-toggle')!;
-    let wantsPlay = motion;
-    let visible = false;
-    video.defaultPlaybackRate = .6;
-    video.playbackRate = .6;
+  const frame = reel?.querySelector<HTMLElement>('[data-reel-frame]');
+  if (!reel || !video || !frame) return;
 
-    function sync() {
-      if (visible && wantsPlay && !document.hidden) void video!.play().catch(() => {});
-      else video!.pause();
-    }
-    function updateButton() {
-      const label = video!.paused ? 'Play' : 'Pause';
-      toggle.textContent = label;
-      toggle.setAttribute('aria-label', label + ' sample ads');
-    }
-    toggle.hidden = false;
-    toggle.addEventListener('click', () => { wantsPlay = video.paused; sync(); });
-    video.addEventListener('play', updateButton);
-    video.addEventListener('pause', updateButton);
-    document.addEventListener('visibilitychange', sync);
-    new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      sync();
-    }, { threshold: .2 }).observe(reel);
+  const controls = reel.querySelector<HTMLElement>('[data-reel-controls]')!;
+  const toggle = controls.querySelector<HTMLButtonElement>('.reel-toggle')!;
+  const scrubber = controls.querySelector<HTMLInputElement>('[data-reel-scrub]')!;
+  let wantsPlay = motion;
+  let visible = false;
+  let drag: { id: number; x: number; time: number; width: number; active: boolean } | null = null;
+  let seekFrame = 0;
+  let targetTime = 0;
+  video.defaultPlaybackRate = .6;
+  video.playbackRate = .6;
+
+  function sync() {
+    if (visible && wantsPlay && !document.hidden) void video!.play().catch(() => {});
+    else video!.pause();
   }
 
-  if (!motion || !reel) return;
-  const frame = reel.querySelector<HTMLElement>('[data-reel-frame]')!;
+  function pauseForScrub() {
+    wantsPlay = false;
+    video!.pause();
+  }
+
+  function updateButton() {
+    const label = video!.paused ? 'Play' : 'Pause';
+    toggle.textContent = label;
+    toggle.setAttribute('aria-label', label + ' sample ads');
+  }
+
+  function syncScrubber() {
+    if (!Number.isFinite(video!.duration) || video!.duration <= 0) return;
+    scrubber.max = String(video!.duration);
+    scrubber.value = String(video!.currentTime);
+    scrubber.disabled = false;
+    frame!.classList.add('is-draggable');
+  }
+
+  controls.hidden = false;
+  toggle.addEventListener('click', () => {
+    wantsPlay = video.paused;
+    sync();
+  });
+  scrubber.addEventListener('input', () => {
+    pauseForScrub();
+    video.currentTime = scrubber.valueAsNumber;
+  });
+  video.addEventListener('play', updateButton);
+  video.addEventListener('pause', updateButton);
+  video.addEventListener('loadedmetadata', syncScrubber);
+  video.addEventListener('timeupdate', () => {
+    if (!drag?.active) scrubber.value = String(video.currentTime);
+  });
+  syncScrubber();
+
+  frame.addEventListener('pointerdown', event => {
+    if (event.button !== 0 || scrubber.disabled || drag) return;
+    drag = { id: event.pointerId, x: event.clientX, time: video.currentTime, width: frame.clientWidth, active: false };
+    frame.setPointerCapture(event.pointerId);
+  });
+  frame.addEventListener('pointermove', event => {
+    if (drag?.id !== event.pointerId) return;
+    const distance = drag.x - event.clientX;
+    if (!drag.active) {
+      if (Math.abs(distance) < 6) return;
+      drag.active = true;
+      pauseForScrub();
+      frame.classList.add('is-dragging');
+    }
+    const cycle = video.duration;
+    const offset = drag.time + distance / drag.width * cycle * .45;
+    targetTime = (offset % cycle + cycle) % cycle;
+    scrubber.value = String(targetTime);
+    if (seekFrame) return;
+    seekFrame = requestAnimationFrame(() => {
+      video.currentTime = targetTime;
+      seekFrame = 0;
+    });
+  });
+  frame.addEventListener('lostpointercapture', event => {
+    if (drag?.id !== event.pointerId) return;
+    drag = null;
+    frame.classList.remove('is-dragging');
+  });
+
+  document.addEventListener('visibilitychange', sync);
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    sync();
+  }, { threshold: .2 }).observe(reel);
+
+  if (!motion) return;
   const sticky = reel.querySelector<HTMLElement>('.reel__sticky')!;
   const page = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#ffffff';
   const shade = reel.querySelector<HTMLElement>('[data-reel-shade]')!;

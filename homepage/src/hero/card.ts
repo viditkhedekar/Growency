@@ -134,7 +134,7 @@ void main() {
   col = mix(vec3(1.0), col, mix(0.36, 1.0, uFront));
   float edge = (1.0 - smoothstep(0.001, 0.004, -rd)) * cardMask * (1.0 - uClip);
   col = mix(col, vec3(0.21, 0.17, 0.11), edge * mix(0.065, 0.18, uFront));
-  col = mix(col, vec3(1.0), uQuiet * 0.84);
+  col = mix(col, vec3(1.0), uQuiet * 0.16);
 
   // reflection sweep: footage dissolves into the chrome behind it
   float s = sweepCoord(vMark) + (vnoise(vMark * 38.0) - 0.5) * 0.05 + (vnoise(vMark * 9.0) - 0.5) * 0.04;

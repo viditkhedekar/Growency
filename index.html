@@ -82,7 +82,13 @@
                 <a class="pill pill--ghost" href="#services">What we do <span aria-hidden="true" class="motion-glyph motion-glyph--down"><span>↓</span></span></a>
               </div>
             </div>
-            <button type="button" class="reel-toggle" aria-label="Play sample ads" hidden>Play</button>
+            <div class="reel-controls" data-reel-controls hidden>
+              <button type="button" class="reel-toggle" aria-label="Play sample ads">Play</button>
+              <label class="reel-scrub">
+                <span>Drag ads <span aria-hidden="true">↔</span></span>
+                <input type="range" data-reel-scrub min="0" max="1" step=".1" value="0" aria-label="Drag or use the arrow keys to browse sample ads" disabled>
+              </label>
+            </div>
             <p class="reel__note">Spec reel · Growency spec work, not commissioned by the brands shown</p>
           </div>
         </div>

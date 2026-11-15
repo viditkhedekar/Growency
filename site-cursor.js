@@ -16,13 +16,14 @@ if (finePointer.matches) {
   let y = 0;
   let width = 40;
   let active = null;
-  const actions = 'a[href],button,summary,[data-hero-canvas]';
+  const actions = 'a[href],button,summary,[data-hero-canvas],.reel__frame.is-draggable';
 
   function actionLabel(element) {
     const href = element.getAttribute('href') || '';
     if (/^\/book(?:[?#/]|$)|calendly\.com/.test(href)) return 'Book';
     if (element.matches('summary')) return element.closest('details')?.open ? 'Close' : 'Open';
     if (element.matches('[data-hero-canvas]')) return 'Explore';
+    if (element.matches('.reel__frame')) return 'Drag ads';
     if (element.matches('[data-creative-next]')) return 'Next ad';
     if (element.matches('.reel-toggle')) return element.textContent.trim();
     if (href === '/' || href === '#hero') return 'Home';

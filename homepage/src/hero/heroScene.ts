@@ -246,7 +246,7 @@ export class HeroScene {
     // Keep the tagline in the clear centre of the raised orbit. It renders
     // above the cards as a final safeguard during the opening transition.
     this.tagline.place(
-      _c.copy(ringCenter),
+      _c.copy(ringCenter).add(_v.set(0, ringR * .07, 0)),
       Math.min(ringR * (small ? 1.25 : 1.12), visW * 0.86),
     );
 
@@ -435,7 +435,7 @@ export class HeroScene {
   // ── Frame ──────────────────────────────────────────────
   private frame = (now: number) => {
     this.raf = requestAnimationFrame(this.frame);
-    const dt = Math.min(0.05, (now - this.prevTime) / 1000);
+    const dt = THREE.MathUtils.clamp((now - this.prevTime) / 1000, 0, .05);
     this.prevTime = now;
     if (!this.visible || this.viewer.active) return;
     this.time += dt;
@@ -548,8 +548,9 @@ export class HeroScene {
     const logoM = this.logo.matrixWorld;
     const logoInv = _m2.copy(logoM).invert();
     const sweep = this.chrome.u.uSweep.value;
-    const quiet = smooth(seg(this.p, T.taglineStart, T.taglineEnd))
+    const textOpening = smooth(seg(this.p, T.typeEnd, T.taglineStart + .012))
       * (1 - smooth(seg(this.p, T.erodeStart, T.erodeEnd)));
+    const text = this.tagline.mesh;
 
     // Which video card (if any) is under the pointer → play blob reacts.
     let hit: { i: number; uv: THREE.Vector2 } | null = null;
@@ -579,9 +580,28 @@ export class HeroScene {
       // Keep the posters parallel so successive layers overlap at their edges
       // without the planes slicing through each other.
       _p0.set(Math.sin(a) * r, entering * L.ringR * .7, Math.cos(a) * r).applyMatrix4(ringM);
-      _q0.setFromEuler(_e.set(0, 0, Math.sin(a) * (.07 + entering * .11)));
+      const roll = Math.sin(a) * (.07 + entering * .11);
+      _q0.setFromEuler(_e.set(0, 0, roll));
       const sideProfile = lerp(.72, 1, Math.abs(Math.cos(a)));
       _s0.set(L.cardW * fs * sideProfile, L.cardH * fs, 1);
+
+      if (textOpening > 0) {
+        // Leave the middle of the ellipse open for the gold lettering.
+        // Match the text bounds at each poster's distance from the camera.
+        const depth = (CAM_Z - _p0.z) / CAM_Z;
+        const cos = Math.abs(Math.cos(roll));
+        const sin = Math.abs(Math.sin(roll));
+        const halfWidth = (_s0.x * cos + _s0.y * sin) / 2;
+        const halfHeight = (_s0.x * sin + _s0.y * cos) / 2;
+        const edge = text.scale.x * depth / 2 + halfWidth;
+        const crossesText = 1 - smooth(seg(Math.abs(_p0.x), edge, edge + radius * .16));
+        const centreY = text.position.y * depth;
+        const clearance = text.scale.y * depth / 2 + halfHeight + radius * .028;
+        const outsideY = front >= .5
+          ? Math.min(_p0.y, centreY - clearance)
+          : Math.max(_p0.y, centreY + clearance);
+        _p0.y = lerp(_p0.y, outsideY, textOpening * crossesText);
+      }
 
       // Cards leave in one wave around the ring, in angular order.
       const delay = (this.leaveRank[i] / (N - 1)) * 0.26;
@@ -620,7 +640,7 @@ export class HeroScene {
       const tex = this.videos.textureFor(i) ?? this.posters.textures.get(i);
       const opacity = lerp(u.uOpacity.value, tex ? smooth(arrival) : 0, 1 - Math.exp(-dt * 24));
       u.uOpacity.value = opacity > .995 ? 1 : opacity;
-      u.uQuiet.value = quiet;
+      u.uQuiet.value = textOpening;
       u.uTime.value = this.time;
       card.mesh.visible = Boolean(tex) && sweep < 1.19 && arrival > .001;
 
