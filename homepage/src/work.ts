@@ -18,6 +18,35 @@ export function initWork(motion: boolean) {
     tile.style.setProperty('--my', `${e.clientY - r.top}px`);
   });
 
+  const creative = work.querySelector<HTMLElement>('.svc--creative');
+  if (creative) {
+    const art = creative.querySelector<HTMLElement>('.creative-ads')!;
+    const ads = [...art.querySelectorAll<HTMLImageElement>('[data-creative-slot]')];
+    const next = creative.querySelector<HTMLButtonElement>('[data-creative-next]')!;
+    const view = creative.querySelector<HTMLAnchorElement>('[data-creative-view]')!;
+    const status = creative.querySelector<HTMLElement>('[data-creative-status]')!;
+    let current = 0;
+
+    const advance = (announce: boolean) => {
+      current = (current + 1) % ads.length;
+      ads.forEach((ad, index) => {
+        const slot = (index - current + ads.length) % ads.length;
+        ad.dataset.creativeSlot = String(slot);
+        if (slot === 0) ad.removeAttribute('aria-hidden');
+        else ad.setAttribute('aria-hidden', 'true');
+      });
+      view.href = ads[current].src;
+      art.style.setProperty('--creative-image', `url("${ads[current].src}")`);
+      if (announce) status.textContent = ads[current].alt + ', ad ' + (current + 1) + ' of ' + ads.length;
+    };
+
+    next.hidden = false;
+    next.addEventListener('click', () => advance(true));
+    if (motion) creative.addEventListener('pointerenter', event => {
+      if (event.pointerType === 'mouse' && !creative.contains(document.activeElement)) advance(false);
+    });
+  }
+
   // ── Reveal + count-ups ──
   const countUp = (el: HTMLElement) => {
     const to = Number(el.dataset.count);

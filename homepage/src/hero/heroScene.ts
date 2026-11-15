@@ -94,6 +94,7 @@ export class HeroScene {
   private p = 0; // smoothed progress actually rendered
   private spin = 0;
   private spinVel = 0;
+  private pendingSpin = 0;
   private dragging = false;
   private lastX = 0;
   private lastY = 0;
@@ -219,7 +220,7 @@ export class HeroScene {
     const zoneTop = rect.y + rect.h + (small ? 12 : 8);
     const zoneBottom = h - (small ? 64 : 56);
     const zoneH = Math.max(120, zoneBottom - zoneTop);
-    const cardRatio = small ? 0.40 : 0.36; // card width relative to radius (lower = more space between cards)
+    const cardRatio = small ? 0.46 : 0.42; // card width relative to radius (lower = more space between cards)
     const frontMax = small ? 1.16 : 1.22;
     const tilt0 = small ? 0.42 : 0.3; // how much of the ring's face we see
     // Fit by width (ring diameter + a front card) and by height (tilted ellipse + card).
@@ -265,6 +266,7 @@ export class HeroScene {
         e.preventDefault();
         this.keyboardCard = (this.keyboardCard + (e.key === 'ArrowRight' ? 1 : -1) + this.cards.length) % this.cards.length;
         this.spin = -this.keyboardCard / this.cards.length * TAU;
+        this.pendingSpin = 0;
         this.spinVel = 0;
         canvas.setAttribute('aria-label', `${this.campaigns[this.keyboardCard].title}. Press Enter to preview; arrow keys choose another campaign.`);
       } else if (e.key === 'Enter' || e.key === ' ') {
@@ -322,8 +324,10 @@ export class HeroScene {
       const dt = Math.max(1, now - this.lastT) / 1000;
       if (this.dragging) {
         const k = (TAU / Math.max(600, this.L.w)) * 0.9;
-        this.spin += dx * k;
-        this.spinVel = lerp(this.spinVel, (dx * k) / dt, 0.4);
+        const delta = dx * k;
+        this.pendingSpin += delta;
+        const speed = THREE.MathUtils.clamp(delta / dt, -5, 5);
+        this.spinVel = lerp(this.spinVel, speed, 1 - Math.exp(-dt * 16));
       } else {
         const k = (TAU / Math.max(500, this.L.w)) * 1.3;
         this.logoMoved += Math.abs(dx) + Math.abs(dy);
@@ -342,8 +346,7 @@ export class HeroScene {
       const held = performance.now() - this.lastT > 90; // released after holding still
       if (this.dragging) {
         this.dragging = false;
-        if (held) this.spinVel = 0;
-        this.spinVel = THREE.MathUtils.clamp(this.spinVel, -6, 6);
+        if (held || event.type === 'pointercancel') this.spinVel = 0;
       }
       if (this.logoDragging) {
         this.logoDragging = false;
@@ -440,9 +443,13 @@ export class HeroScene {
     const intro = clamp01((now - this.startTime) / INTRO_MS);
 
     // Ring spin: slow drift + drag inertia (scroll acceleration is added in updateCards).
+    const movement = this.pendingSpin * (1 - Math.exp(-dt * 28));
+    this.spin += movement;
+    this.pendingSpin -= movement;
     if (!this.dragging) {
-      this.spin += (BASE_DRIFT + this.spinVel) * dt;
-      this.spinVel *= Math.exp(-dt * 2.2);
+      const decay = Math.exp(-dt * 3.4);
+      this.spin += BASE_DRIFT * dt + this.spinVel * (1 - decay) / 3.4;
+      this.spinVel *= decay;
     }
     // Mark rotation: inertia, then a soft spring back to facing front.
     if (!this.logoDragging) {
