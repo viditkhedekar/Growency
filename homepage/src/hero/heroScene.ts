@@ -114,7 +114,7 @@ export class HeroScene {
 
   // grab-and-rotate for the finished mark
   private markActive = false;
-  /** How fully the rotating mark fits in the viewport. */
+  /** 1 while the whole mark is on screen, easing to 0 as the zoom starts cropping it. */
   private markFit = 1;
   private markBox = { x0: 0, y0: 0, x1: 0, y1: 0 };
   private logoDragging = false;
@@ -166,10 +166,7 @@ export class HeroScene {
     new ResizeObserver(() => this.resize()).observe(els.stage);
     new IntersectionObserver(([e]) => {
       this.visible = e.isIntersecting;
-      if (!this.visible) {
-        this.videos.pauseAll();
-        this.portal.update(0);
-      }
+      if (!this.visible) this.videos.pauseAll();
     }).observe(els.hero);
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) this.videos.pauseAll();
@@ -199,7 +196,7 @@ export class HeroScene {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     this.renderer.setPixelRatio(dpr);
     this.renderer.setSize(w, h, false);
-    this.portal.setResolution(w * dpr, h * dpr);
+    this.portal?.setResolution(w * dpr, h * dpr);
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
     this.uiCam.right = w;
@@ -219,16 +216,16 @@ export class HeroScene {
 
     // Ring sits in the space under the wordmark.
     const navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 64;
-    const zoneTop = rect.y + rect.h + (small ? 42 : 8);
-    const zoneBottom = h - (small ? 140 : 102);
+    const zoneTop = rect.y + rect.h + (small ? 12 : 8);
+    const zoneBottom = h - (small ? 64 : 56);
     const zoneH = Math.max(120, zoneBottom - zoneTop);
-    const cardRatio = small ? 0.46 : 0.365; // card width relative to radius (lower = more space between cards)
+    const cardRatio = small ? 0.27 : 0.245; // card width relative to radius (lower = more space between cards)
     const frontMax = small ? 1.16 : 1.22;
     const tilt0 = small ? 0.42 : 0.3; // how much of the ring's face we see
     // Fit by width (ring diameter + a front card) and by height (tilted ellipse + card).
-    const rByW = (visW * (small ? 1.25 : 0.98)) / (2 + cardRatio * 0.7); // phones: ring spills past the edges
+    const rByW = (visW * (small ? 1.12 : 0.9)) / (2 + cardRatio * 0.7); // phones: ring spills past the edges
     const rByH = (zoneH * pxToW) / (2 * Math.sin(tilt0) + cardRatio * 1.25 * frontMax + 0.24);
-    const ringR = Math.min(rByW, rByH, 8.2);
+    const ringR = Math.min(rByW, rByH, 7.8);
     const cardW = ringR * cardRatio;
     const zoneMid = (zoneTop + zoneBottom) / 2;
     const ringCenter = new THREE.Vector3(0, (h / 2 - zoneMid) * pxToW + ringR * 0.19, 0);
@@ -290,7 +287,7 @@ export class HeroScene {
       this.lastT = performance.now();
       // Finished mark: grab to rotate.
       if (this.markActive && e.target === markHit) {
-        if (e.pointerType !== 'touch') e.preventDefault();
+        e.preventDefault();
         markHit.setPointerCapture(e.pointerId);
         this.logoDragging = true;
         this.logoMoved = 0;
@@ -513,7 +510,9 @@ export class HeroScene {
     // As the push-in magnifies the reflections into blurry bands, flatten the
     // surface to one constant colour so the zoom lands cleanly.
     this.chrome.setFill(smooth(seg(ph.zoom, 0.28, 0.72)));
-    // The middle facet opens onto the same reel rendered in the next section.
+    // The middle facet opens into a window onto the spec-ad reel, which fills
+    // the screen as the zoom completes; then the hero hands over to the DOM
+    // reel underneath (identical frame), and the canvas steps aside.
     this.portal.setFocus(-0.22, 0);
     this.portal.update(smooth(seg(ph.zoom, 0.04, 0.5)));
     this.els.hero.classList.toggle('is-through', this.p >= T.zoomEnd - 0.0015);
@@ -712,10 +711,13 @@ export class HeroScene {
   private updateUi(ph: Phases) {
     const { hint, markHit } = this.els;
     if (hint) {
-      const fading = seg(this.p, T.zoomStart, T.zoomStart + 0.025);
-      hint.style.opacity = String(1 - fading);
-      hint.inert = fading >= 0.99;
+      const finished = ph.chrome > 0 && this.markFit >= 0.999;
+      hint.style.opacity = String(finished ? 1 : 1 - seg(this.p, 0.005, 0.05));
+      const dragHint = hint.querySelector<HTMLElement>('.hero__hint-drag');
+      if (dragHint) dragHint.textContent = finished ? 'Drag to rotate · Arrow keys to spin' : 'Drag to explore';
     }
+    // Grab and rotate whenever the chrome mark is fully on screen; stop once
+    // the zoom starts cropping it.
     const active = ph.chrome > 0 && this.markFit >= 0.999;
     this.markActive = active;
     if (active !== markHit.classList.contains('is-active')) {

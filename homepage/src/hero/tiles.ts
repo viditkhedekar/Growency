@@ -62,16 +62,15 @@ function facetTiles(facet: number, count: number): Tile[] {
 }
 
 /**
- * Distribute cards evenly across the facets. Within a facet, the cards with
+ * Card i belongs to facet floor(i / perFacet). Within a facet, the cards with
  * video (and then earlier cards) take the tiles with the most visible area.
  */
 export function assignTiles(cards: { video?: string }[]): Tile[] {
   const facets = MARK_FACETS_UNIT.length;
+  const per = Math.ceil(cards.length / facets);
   const out: Tile[] = new Array(cards.length);
   for (let f = 0; f < facets; f++) {
-    const start = Math.ceil(f * cards.length / facets);
-    const end = Math.ceil((f + 1) * cards.length / facets);
-    const ids = Array.from({ length: end - start }, (_, i) => start + i);
+    const ids = cards.map((_, i) => i).filter((i) => Math.floor(i / per) === f);
     const tiles = facetTiles(f, ids.length).sort((a, b) => b.coverage - a.coverage);
     const ranked = [...ids].sort((a, b) => Number(!!cards[b].video) - Number(!!cards[a].video) || a - b);
     ranked.forEach((id, k) => (out[id] = tiles[k]));

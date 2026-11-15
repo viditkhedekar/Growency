@@ -1,11 +1,11 @@
 /* ── The work: reel + services bento ────────────────────────────────────
-   Matches the landing: white page, ink type, Rethink Sans. Emphasis uses a
+   Matches the landing: white page, ink type, Geist only. Emphasis uses a
    muted tone rather than a second typeface. */
 
 .work {
   --night: #111114;
   --paper: #fffefb;
-  --muted: rgb(255 254 251 / 0.85);
+  --muted: rgb(255 254 251 / 0.62);
   --ink-muted: #6b6b73;
   --ink-soft: #9a9aa2;
   --tile: #f5f4f0;
@@ -39,11 +39,11 @@
 }
 .hero.is-gl + .work {
   margin-top: -100vh;
-  margin-top: -100svh;
+  margin-top: -100lvh;
 }
-.hero.is-through,
-.hero.is-through .hero__stage { pointer-events: none; }
-.hero.is-through .hero__stage { background: transparent; }
+.hero.is-through .hero__stage {
+  background: transparent;
+}
 .hero.is-through .hero__canvas,
 .hero.is-through .hero__mark-hit,
 .hero.is-through .hero__hint {
@@ -53,16 +53,14 @@
 /* ── Reel ── */
 .reel {
   position: relative;
-}
-.reel.is-motion-reel {
-  height: 157vh;
-  height: 157svh;
+  height: 280vh;
+  height: 280svh;
 }
 .reel__sticky {
   position: sticky;
   top: 0;
   height: 100vh;
-  height: 100svh;
+  height: 100lvh; /* large viewport: no strip when the mobile address bar hides */
   overflow: hidden;
   background: var(--night);
 }
@@ -94,10 +92,8 @@
   bottom: clamp(72px, 13vh, 150px);
   max-width: 1240px;
   color: var(--paper);
-  opacity: 1;
+  opacity: 0;
 }
-.reel.is-motion-reel .reel__copy { opacity: 0; }
-.reel:not(.is-motion-reel) .reel__shade { opacity: 1; }
 .eyebrow,
 .tile__eyebrow {
   margin: 0 0 14px;
@@ -116,7 +112,7 @@
   font-size: clamp(40px, 7.2vw, 116px);
   font-weight: 600;
   line-height: 0.96;
-  letter-spacing: -0.043em;
+  letter-spacing: -0.055em;
 }
 .reel__line {
   display: block;
@@ -140,54 +136,19 @@
   gap: 12px;
   margin-top: 28px;
 }
-.reel__continue {
-  position: absolute;
-  z-index: 1;
-  top: max(16px, env(safe-area-inset-top));
-  right: clamp(16px, 6vw, 96px);
-}
-.hero:not(.is-gl) + .work .reel__continue { top: calc(var(--nav-h) + 14px); }
-.reel__controls:not([hidden]) {
-  position: absolute;
-  z-index: 1;
-  right: clamp(16px, 6vw, 96px);
-  bottom: 38px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: min(342px, calc(100% - 32px));
-  padding: 4px 12px 4px 4px;
-  border-radius: 999px;
-  background: rgb(17 17 20 / 0.91);
-  color: #fff;
-}
-.reel__controls button {
-  min-width: 68px;
-  min-height: 44px;
-  padding: 0 12px;
-  border: 0;
-  border-radius: 999px;
-  background: #fff;
-  color: var(--ink);
-  font: 700 13px var(--font);
-  cursor: pointer;
-}
-.reel__controls button:hover { background: #eaeaec; }
-.reel__controls input { min-width: 0; height: 44px; flex: 1; accent-color: #fff; cursor: pointer; }
-.reel__controls :focus-visible,
-.reel .pill:focus-visible { outline-color: #fff; }
-.reel__time { min-width: 3ch; font-size: 12px; font-variant-numeric: tabular-nums; }
 .reel__note {
   position: absolute;
-  right: clamp(16px, 6vw, 96px);
-  bottom: 14px;
+  right: clamp(16px, 3vw, 40px);
+  bottom: 18px;
   margin: 0;
-  color: #fff;
-  text-shadow: 0 1px 3px #000;
   font-size: 11px;
-  text-align: right;
+  letter-spacing: 0.02em;
+  color: rgb(255 254 251 / 0.55);
+  transition: color 0.4s;
 }
-.reel.is-framed .reel__note { color: var(--ink); text-shadow: none; }
+.reel.is-framed .reel__note {
+  color: var(--ink-muted);
+}
 
 .pill {
   display: inline-flex;
@@ -209,6 +170,15 @@
 }
 .pill--light:hover {
   background: rgb(255 255 255 / 0.86);
+}
+.pill--ghost {
+  color: var(--paper);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.pill--ghost:hover {
+  background: rgb(255 255 255 / 0.1);
 }
 .pill--large {
   min-height: 56px;
@@ -259,7 +229,7 @@
     'test budget creative'
     'report report statement'
     'price faq faq'
-    'quote quote quote'
+    'clients faq faq'
     'cta cta cta';
   gap: 14px;
 }
@@ -274,17 +244,14 @@
   background: var(--tile);
   box-shadow: inset 0 0 0 1px var(--tile-line);
   color: var(--ink);
-}
-.has-reveal .tile {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(32px);
   transition:
     opacity 0.9s cubic-bezier(.2,.7,.2,1) calc(var(--i, 0) * 60ms),
     transform 0.9s cubic-bezier(.2,.7,.2,1) calc(var(--i, 0) * 60ms),
     box-shadow 0.4s;
 }
-.has-reveal .tile.is-in,
-.has-reveal .tile:focus-within {
+.tile.is-in {
   opacity: 1;
   transform: none;
 }
@@ -356,8 +323,7 @@
   background: #fff;
   box-shadow: 0 1px 0 rgb(17 17 20 / 0.06), 0 6px 16px -10px rgb(17 17 20 / 0.4);
   fill: none;
-  color: var(--ink);
-  stroke: currentColor;
+  stroke: var(--ink);
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -714,7 +680,7 @@
   font-size: clamp(46px, 4.6vw, 68px);
   font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.043em;
+  letter-spacing: -0.055em;
   color: var(--ink);
   font-variant-numeric: tabular-nums;
 }
@@ -833,22 +799,13 @@
   background: #2a2b31;
 }
 
-/* Client logos and quote */
+/* clients */
 .svc--clients {
-  margin: 0 0 clamp(38px, 6vw, 78px);
-  padding: clamp(22px, 3vw, 38px);
-  border-radius: 24px;
-  background: var(--tile);
-}
-.svc--clients h2,
-.services__workflow {
-  margin: 0 0 18px;
-  font-size: clamp(28px, 3vw, 44px);
-  font-weight: 650;
+  grid-area: clients;
 }
 .clients {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   margin: 0;
   padding: 0;
@@ -857,37 +814,41 @@
 .clients a {
   display: grid;
   place-items: center;
-  min-height: 112px;
+  align-content: center;
+  gap: 4px;
+  min-height: 96px;
   padding: 10px;
-  border-radius: 12px;
-  background: #fff;
-  color: var(--ink);
+  border-radius: 14px;
+  background: var(--night);
+  color: var(--paper);
+  text-align: center;
   text-decoration: none;
-  transition: background-color .25s ease, transform .25s ease;
+  transition: transform 0.3s, background-color 0.3s;
 }
-.clients a:hover,
-.clients a:focus-visible {
-  background: #fffefb;
+.clients a:hover {
+  background: #26262d;
   transform: translateY(-3px);
 }
-.clients .client-logo { font-size: clamp(16px, 1.7vw, 26px); }
-.svc--quote { grid-area: quote; margin: 0; }
-.svc--quote blockquote {
-  margin: 12px 0 0;
-  max-width: 30ch;
-  font-size: clamp(24px, 3.7vw, 54px);
-  line-height: 1.15;
-  letter-spacing: -.04em;
+.clients__posting {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
 }
-.svc--quote blockquote strong { font-weight: 750; }
-#work, #approach, #faq, #pricing { scroll-margin-top: 28px; }
-
-.svc__icon { transition: transform .28s ease, color .28s ease; }
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .svc:hover .svc__icon { color: #9f4b2f; transform: translateY(-4px); }
-  .svc--strategy:hover .svc__icon { transform: rotate(45deg) scale(1.12); }
-  .svc--creative:hover .svc__icon { transform: translateX(4px) rotate(-12deg); }
-  .svc--test:hover .svc__icon { transform: scale(1.18) translateY(-2px); }
+.clients__kairos {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.clients small {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: rgb(255 254 251 / 0.6);
+}
+.clients img {
+  width: 100%;
+  max-width: 110px;
+  height: auto;
 }
 
 /* CTA */
@@ -917,25 +878,25 @@
       'report report'
       'statement price'
       'faq faq'
-      'quote quote'
+      'clients clients'
       'cta cta';
   }
 }
 @media (max-width: 680px) {
   .bento {
     grid-template-columns: 1fr;
-    grid-template-areas: 'strategy' 'creative' 'test' 'budget' 'report' 'statement' 'price' 'faq' 'quote' 'cta';
+    grid-template-areas: 'strategy' 'creative' 'test' 'budget' 'report' 'statement' 'price' 'faq' 'clients' 'cta';
     gap: 12px;
   }
   .ui--brief dl {
     grid-template-columns: 1fr;
   }
-  .reel.is-motion-reel { height: 143svh; }
-  .reel__copy { bottom: 108px; }
-  .reel__continue { font-size: 13px; min-height: 44px; padding-inline: 16px; }
-  .clients { grid-template-columns: 1fr; }
-  .clients a { min-height: 72px; }
-  .clients .client-logo { font-size: clamp(18px, 5vw, 24px); }
+  .reel {
+    height: 220svh;
+  }
+  .reel__copy {
+    bottom: 64px;
+  }
   .reel__title {
     font-size: 8.1vw;
   }
@@ -947,8 +908,7 @@
 
 /* No motion: everything visible, reel is a calm full panel. */
 @media (prefers-reduced-motion: reduce) {
-  .work.has-reveal .tile,
-  .reel.is-motion-reel .reel__copy,
+  .tile,
   .reel__copy,
   .ui {
     opacity: 1;
@@ -956,7 +916,7 @@
     transition: none;
     animation: none !important;
   }
-  .reel.is-motion-reel {
+  .reel {
     height: auto;
   }
   .reel__sticky {

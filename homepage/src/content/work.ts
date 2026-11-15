@@ -1,7 +1,7 @@
 // Real Growency spec ads, from trygrowency.com (assets/spec-ads).
 // Each is Growency's own speculative work and was NOT commissioned by the
 // brand shown, so every place an ad appears must keep its `note`.
-// Both carousels use the images already in assets/spec-ads/.
+// Files live in public/media/work/. Edit, reorder or add entries here.
 
 export interface SpecAd {
   id: string;
@@ -15,7 +15,7 @@ export interface SpecAd {
   alt: string;
 }
 
-const BASE = `${import.meta.env.BASE_URL}assets/spec-ads/`;
+const BASE = `${import.meta.env.BASE_URL}media/work/`;
 
 export const SPEC_ADS: SpecAd[] = [
   {
@@ -109,3 +109,12 @@ export const SPEC_ADS: SpecAd[] = [
     alt: "Design a wardrobe around your clothes. Yes, all of them. A modular wardrobe has space for coats, folded clothes and shoes.",
   },
 ];
+
+/** The full-bleed reel composed from these ads (scripts/gen-reel.py). */
+export const SPEC_REEL = {
+  video: `${import.meta.env.BASE_URL}media/reel/spec-reel.mp4`,
+  poster: `${import.meta.env.BASE_URL}media/reel/spec-reel.jpg`,
+};
+
+/** Where every "Let's talk" button goes (the live booking page). */
+export const BOOK_URL = 'https://www.trygrowency.com/book';

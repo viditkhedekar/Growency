@@ -1,4 +1,5 @@
 import './styles.css';
+import 'lenis/dist/lenis.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CAMPAIGNS } from './content/campaigns';
@@ -17,8 +18,43 @@ fillMarkIcon($<SVGSVGElement>('[data-footer-mark]'));
 // Static mark is always built: it's the reduced-motion / no-WebGL layout.
 buildStaticMark($<SVGSVGElement>('[data-static-mark]'), CAMPAIGNS);
 
-const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const forceStatic = new URLSearchParams(location.search).has('static');
+
+// Glide wheel scrolling throughout the page while leaving touch and
+// reduced-motion scrolling native. Keep ScrollTrigger tied to actual scroll.
+void import('lenis').then(({ default: Lenis }) => {
+  const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  let scrolling: InstanceType<typeof Lenis> | undefined;
+  const sync = () => {
+    scrolling?.destroy();
+    scrolling = undefined;
+    if (preference.matches) return;
+    scrolling = new Lenis({ autoRaf: true, duration: 1.05, lerp: 0, smoothWheel: true, syncTouch: false, anchors: false });
+    scrolling.on('scroll', ScrollTrigger.update);
+    if (document.documentElement.classList.contains('has-campaign-viewer')) scrolling.stop();
+  };
+  document.addEventListener('click', (event) => {
+    if (!scrolling || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = (event.target as Element).closest<HTMLAnchorElement>('a[href^="#"]');
+    const hash = link?.getAttribute('href');
+    if (!hash || hash === '#') return;
+    const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+    if (!target) return;
+    event.preventDefault();
+    // Numeric destinations stay accurate after keyboard focus or native
+    // scroll-into-view moves, even before Lenis sees the next scroll event.
+    const top = hash === '#hero' ? 0 : target.getBoundingClientRect().top + window.scrollY;
+    history.pushState(null, '', hash);
+    scrolling.scrollTo(top);
+  });
+  document.addEventListener('campaign-viewer-change', event => {
+    if ((event as CustomEvent<{ open: boolean }>).detail.open) scrolling?.stop();
+    else scrolling?.start();
+  });
+  preference.addEventListener('change', sync);
+  sync();
+});
 
 function webglAvailable() {
   try {
@@ -29,16 +65,16 @@ function webglAvailable() {
   }
 }
 
-if (!motionPreference.matches && !forceStatic && webglAvailable()) {
+if (!reduceMotion && !forceStatic && webglAvailable()) {
   initMotion()
-    .then(() => initWork(motionPreference, true))
-    .catch((error) => {
-      console.error('Hero animation failed, using static layout', error);
+    .catch((err) => {
+      console.error('Hero animation failed, using static layout', err);
       $('[data-hero]').classList.remove('is-gl');
-      initWork(motionPreference, false);
-    });
+    })
+    // The work section measures its scroll positions after the hero pin exists.
+    .finally(() => initWork(!reduceMotion));
 } else {
-  initWork(motionPreference, false);
+  initWork(!reduceMotion);
 }
 
 async function initMotion() {
@@ -60,57 +96,17 @@ async function initMotion() {
   );
 
   ScrollTrigger.config({ ignoreMobileResize: true });
-  const progress = $<HTMLProgressElement>('[data-hero-progress]');
-  const ticker = $<HTMLElement>('[data-hero-clients]');
-  const next = $<HTMLButtonElement>('[data-hero-next]');
-  const instruction = $<HTMLElement>('[data-hero-instruction]');
-  const syncProgress = (value: number) => {
-    scene.setProgress(value);
-    progress.value = value;
-    const showClients = value < T.taglineStart;
-    ticker.classList.toggle('is-away', !showClients);
-    ticker.inert = !showClients;
-    const showWork = value >= T.chromeStart - 0.03;
-    if (next.dataset.destination !== (showWork ? 'work' : 'logo')) {
-      next.dataset.destination = showWork ? 'work' : 'logo';
-      next.firstChild!.textContent = showWork ? 'See the sample ads ' : 'Reveal the logo ';
-      instruction.textContent = showWork ? 'Keep scrolling to see the ads' : 'Scroll down to reveal the logo';
-    }
-  };
   const st = ScrollTrigger.create({
     trigger: hero,
     start: 'top top',
-    end: () => `+=${Math.round(stage.clientHeight * (window.innerWidth < 700 ? PIN_LENGTH_VH.mobile : PIN_LENGTH_VH.desktop))}`,
+    end: () => `+=${Math.round(window.innerHeight * PIN_LENGTH_VH)}`,
     pin: stage,
     pinSpacing: true,
     anticipatePin: 1,
     invalidateOnRefresh: true,
-    onUpdate: (self) => syncProgress(self.progress),
-    onRefresh: (self) => syncProgress(self.progress),
+    onUpdate: (self) => scene.setProgress(self.progress),
   });
-  syncProgress(st.progress);
-
-  const reel = $<HTMLElement>('#sample-ads');
-  const reachReel = () => {
-    reel.scrollIntoView({ block: 'start' });
-    st.update();
-    scene.snap();
-    reel.tabIndex = -1;
-    reel.focus({ preventScroll: true });
-  };
-  next.addEventListener('click', () => {
-    if (next.dataset.destination === 'work') {
-      reachReel();
-    } else {
-      window.scrollTo({ top: st.start + (st.end - st.start) * (T.chromeEnd + 0.003), behavior: 'smooth' });
-    }
-  });
-  $<HTMLAnchorElement>('[data-hero-skip]').addEventListener('click', (event) => {
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();
-    history.pushState(null, '', '#sample-ads');
-    reachReel();
-  });
+  scene.setProgress(st.progress);
 
   // Remove navigation from the immersive zoom and everything after it.
   // This trigger is independent of the scene RAF, so reversing from the
@@ -128,16 +124,20 @@ async function initMotion() {
 
   // Debug / review helper: ?p=0.7 jumps to a point in the sequence.
   const jump = new URLSearchParams(location.search).get('p');
-  if (jump !== null) {
-    window.scrollTo(0, st.start + (st.end - st.start) * Number(jump));
-  } else {
-    // The browser may have already followed the fragment before the pin
-    // added its scroll space. Re-align deep links after the layout changes.
-    document.getElementById(location.hash.slice(1))?.scrollIntoView();
-  }
-  st.update();
-  if (st.progress > 0) scene.snap();
-  syncNav();
+  if (jump !== null) window.scrollTo(0, st.start + (st.end - st.start) * Number(jump));
 
   (window as unknown as { __hero: unknown }).__hero = { scene, st };
+}
+
+// Optional loop video loads only as the footer approaches.
+const footer = document.querySelector<HTMLElement>('.world-footer');
+if (footer) {
+  const observer = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    observer.disconnect();
+    import('./footerMedia').then(({ initFooterVideo }) => initFooterVideo(footer)).catch(() => {
+      // Responsive still images remain available if video cannot play.
+    });
+  }, { rootMargin: '300px' });
+  observer.observe(footer);
 }

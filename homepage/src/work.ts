@@ -5,11 +5,9 @@ import './work.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export function initWork(motionPreference: MediaQueryList, animatedHero: boolean) {
-  const motion = !motionPreference.matches;
+export function initWork(motion: boolean) {
   const work = document.querySelector<HTMLElement>('[data-work]');
   if (!work) return;
-  if (motion) work.classList.add('has-reveal');
   // ── Cursor spotlight on every tile ──
   const bento = work.querySelector<HTMLElement>('[data-bento]');
   bento?.addEventListener('pointermove', (e) => {
@@ -54,12 +52,17 @@ export function initWork(motionPreference: MediaQueryList, animatedHero: boolean
     }),
   );
 
-  const reel = work.querySelector<HTMLElement>('[data-reel]')!;
-  const video = reel.querySelector<HTMLVideoElement>('[data-reel-video]')!;
-  initReel(reel, video, motionPreference);
-  if (!animatedHero) return;
+  // ── Reel: plays while on screen (or while the hero's window shows it) ──
+  const reel = work.querySelector<HTMLElement>('[data-reel]');
+  const video = work.querySelector<HTMLVideoElement>('[data-reel-video]');
+  if (reel && video) {
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) void video.play().catch(() => {});
+      else if (video.dataset.portal !== 'open') video.pause();
+    }).observe(reel);
+  }
 
-  reel.classList.add('is-motion-reel');
+  if (!motion || !reel) return;
   const frame = reel.querySelector<HTMLElement>('[data-reel-frame]')!;
   const sticky = reel.querySelector<HTMLElement>('.reel__sticky')!;
   const page = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#ffffff';
@@ -67,7 +70,6 @@ export function initWork(motionPreference: MediaQueryList, animatedHero: boolean
   const copy = reel.querySelector<HTMLElement>('[data-reel-copy]')!;
   const lines = copy.querySelectorAll<HTMLElement>('.reel__line > span');
   const rest = copy.querySelectorAll<HTMLElement>('.eyebrow, .reel__lede, .reel__actions');
-  copy.inert = true;
   gsap.set(lines, { yPercent: 110 });
   gsap.set(rest, { opacity: 0, y: 24 });
   gsap
@@ -76,12 +78,9 @@ export function initWork(motionPreference: MediaQueryList, animatedHero: boolean
         trigger: reel,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 0.22,
+        scrub: 0.6,
         refreshPriority: -1,
-        onUpdate: (self) => {
-          reel.classList.toggle('is-framed', self.progress > 0.8);
-          copy.inert = self.progress < 0.24;
-        },
+        onUpdate: (self) => reel.classList.toggle('is-framed', self.progress > 0.8),
       },
       defaults: { ease: 'none' },
     })
@@ -101,88 +100,4 @@ export function initWork(motionPreference: MediaQueryList, animatedHero: boolean
     // …and the page around it brightens to match the rest of the landing.
     .to(sticky, { backgroundColor: page, duration: 0.3, ease: 'power2.inOut' }, 0.68);
   ScrollTrigger.refresh();
-}
-
-function initReel(reel: HTMLElement, video: HTMLVideoElement, preference: MediaQueryList) {
-  const controls = reel.querySelector<HTMLElement>('[data-reel-controls]')!;
-  const toggle = reel.querySelector<HTMLButtonElement>('[data-reel-toggle]')!;
-  const seek = reel.querySelector<HTMLInputElement>('[data-reel-seek]')!;
-  const time = reel.querySelector<HTMLElement>('[data-reel-time]')!;
-  const landscape = { src: video.dataset.reelSrc!, poster: video.poster };
-  const portrait = { src: video.dataset.portraitSrc!, poster: video.dataset.portraitPoster! };
-  const portraitMedia = matchMedia('(max-aspect-ratio: 3/4)');
-  let format = landscape;
-  let pendingSeek = 0;
-  let wantsPlay = !preference.matches;
-  let inView = false;
-  video.defaultPlaybackRate = 0.5;
-  video.playbackRate = 0.5;
-
-  function syncPlayback() {
-    if (wantsPlay && !document.hidden && (inView || video.dataset.portal === 'open')) {
-      if (!video.hasAttribute('src')) video.src = format.src;
-      void video.play().catch(() => {});
-    } else {
-      video.pause();
-    }
-  }
-
-  function syncControls() {
-    const playing = !video.paused;
-    toggle.textContent = playing ? 'Pause' : 'Play';
-    toggle.setAttribute('aria-label', playing ? 'Pause sample ads' : 'Play sample ads');
-  }
-
-  function syncTime() {
-    seek.value = String(video.currentTime);
-    const seconds = Math.floor(video.currentTime);
-    time.textContent = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
-  }
-
-  function setFormat() {
-    format = portraitMedia.matches ? portrait : landscape;
-    video.poster = format.poster;
-    if (!video.hasAttribute('src') || new URL(format.src, location.href).href === video.src) return;
-    pendingSeek = video.currentTime || pendingSeek;
-    if (video.readyState > 0) video.preload = 'metadata';
-    seek.disabled = true;
-    video.src = format.src;
-    syncPlayback();
-  }
-
-  video.addEventListener('loadedmetadata', () => {
-    seek.max = String(video.duration);
-    if (pendingSeek > 0) video.currentTime = Math.min(pendingSeek, video.duration);
-    pendingSeek = 0;
-    seek.disabled = false;
-    syncTime();
-  });
-  video.addEventListener('timeupdate', syncTime);
-  video.addEventListener('play', syncControls);
-  video.addEventListener('pause', syncControls);
-  video.addEventListener('reel-portal-change', syncPlayback);
-  toggle.addEventListener('click', () => {
-    wantsPlay = video.paused;
-    syncPlayback();
-  });
-  seek.addEventListener('input', () => {
-    wantsPlay = false;
-    video.pause();
-    video.currentTime = seek.valueAsNumber;
-    syncTime();
-  });
-  preference.addEventListener('change', () => {
-    if (preference.matches) {
-      wantsPlay = false;
-      syncPlayback();
-    }
-  });
-  document.addEventListener('visibilitychange', syncPlayback);
-  portraitMedia.addEventListener('change', setFormat);
-  setFormat();
-  new IntersectionObserver(([entry]) => {
-    inView = entry.isIntersecting && entry.intersectionRatio >= 0.25;
-    syncPlayback();
-  }, { threshold: 0.25 }).observe(reel.querySelector('.reel__sticky')!);
-  controls.hidden = false;
 }

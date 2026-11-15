@@ -3,12 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Growency | The hedge fund for Meta ads</title>
+    <title>Growency</title>
     <meta name="description" content="Growency builds growth campaigns: strategy, creative and performance, under one roof." />
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="preload" href="/assets/fonts/rethink-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon-v2.png">
+    <link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- First visible ring cards load first -->
+    <link rel="preload" href="/media/work/aside-invoice-matching.png" as="image" fetchpriority="high" />
+    <link rel="preload" href="/media/work/wispr-flow-brand.jpg" as="image" />
+    <link rel="preload" href="/media/work/sandwich.webp" as="image" />
+    <link rel="prefetch" href="/media/reel/spec-reel.mp4" as="video" type="video/mp4" />
     <script>
       document.documentElement.classList.replace('no-js', 'js');
     </script>
@@ -21,7 +25,6 @@
         <svg class="site-nav__mark" data-mark-icon aria-hidden="true" focusable="false"></svg>
         <span class="site-nav__name">growency</span>
       </a>
-      <a class="button button--primary site-nav__cta" href="/book">Book a call <span aria-hidden="true">↗</span></a>
     </header>
 
     <main id="main-content" tabindex="-1">
@@ -31,7 +34,7 @@
             <span class="visually-hidden">growency</span>
             <!--WORDMARK-->
           </h1>
-          <p class="visually-hidden">We are the hedge fund for Meta ads.</p>
+          <p class="visually-hidden">The only growth agency you’ll ever need. Strategy, creative and performance.</p>
 
           <canvas
             class="hero__canvas"
@@ -50,35 +53,21 @@
             <svg class="hero__static-mark" data-static-mark role="img" aria-label="The Growency mark, filled with campaign work"></svg>
           </div>
 
-          <div class="hero__clients" data-hero-clients>
-            <p>Worked with</p>
-            <span class="visually-hidden">Posting Machine, Kairos Health (YC F26), and Infratex</span>
-            <div class="hero__clients-names" aria-hidden="true">
-              <span class="client-logo client-logo--posting"><img src="/media/clients/posting-machine-logo.png" alt="" width="52" height="52" /><b>Posting Machine</b></span>
-              <span class="client-logo client-logo--kairos"><img src="/media/clients/kairos-logo.png" alt="" width="52" height="52" /><b>Kairos Health</b><small>YC F26</small></span>
-              <span class="client-logo client-logo--infratex"><img src="/media/clients/infratex-logo.svg" alt="Infratex" width="224" height="56" /></span>
-            </div>
-          </div>
-
-          <div class="hero__hint" data-hero-hint>
-            <div class="hero__hint-inner">
-              <p data-hero-instruction>Scroll down to reveal the logo</p>
-              <progress class="hero__progress" data-hero-progress max="1" value="0" aria-label="Intro scroll progress"></progress>
-              <div class="hero__hint-actions">
-                <button type="button" data-hero-next>Reveal the logo <span aria-hidden="true">↓</span></button>
-                <a href="#sample-ads" data-hero-skip>Skip intro</a>
-              </div>
-            </div>
-          </div>
+          <p class="hero__hint" data-hero-hint aria-hidden="true">
+            <span class="hero__hint-drag">Drag to explore</span>
+            <span class="hero__hint-scroll">Scroll</span>
+          </p>
         </div>
       </section>
 
-      <section class="work" aria-labelledby="work-title" data-work>
+      <section class="work" id="work" aria-labelledby="work-title" data-work>
         <!-- The hero's final zoom flies through the mark into this reel. -->
-        <div class="reel" id="sample-ads" data-reel>
+        <div class="reel" data-reel>
           <div class="reel__sticky">
             <div class="reel__frame" data-reel-frame>
-              <video class="reel__video" data-reel-video muted loop playsinline preload="none" poster="/media/reel/spec-reel.jpg" data-reel-src="/media/reel/spec-reel.mp4" data-portrait-src="/media/reel/spec-reel-portrait.mp4" data-portrait-poster="/media/reel/spec-reel-portrait.jpg" aria-hidden="true"></video>
+              <video class="reel__video" data-reel-video muted loop playsinline preload="metadata" poster="/media/reel/spec-reel.jpg" aria-hidden="true">
+                <source src="/media/reel/spec-reel.mp4" type="video/mp4" />
+              </video>
               <div class="reel__shade" data-reel-shade></div>
             </div>
             <div class="reel__copy" data-reel-copy>
@@ -89,16 +78,11 @@
               </h2>
               <p class="reel__lede">We run Facebook and Instagram ads. Before each test, we agree how much it can spend and what a sale or qualified lead can cost.</p>
               <div class="reel__actions">
-                <a class="pill pill--light" href="/book">Let’s talk ads <span aria-hidden="true">↗</span></a>
+                <a class="pill pill--light" href="https://www.trygrowency.com/book">Let’s talk ads <span aria-hidden="true">↗</span></a>
+                <a class="pill pill--ghost" href="#services">What we do <span aria-hidden="true">↓</span></a>
               </div>
             </div>
-            <a class="pill pill--light reel__continue" href="#services">Scroll for services <span aria-hidden="true">↓</span></a>
-            <div class="reel__controls" data-reel-controls hidden>
-              <button type="button" data-reel-toggle aria-label="Play sample ads">Play</button>
-              <input type="range" data-reel-seek min="0" max="1" step="0.01" value="0" aria-label="Seek through the sample ads" disabled />
-              <span class="reel__time" data-reel-time aria-hidden="true">0:00</span>
-            </div>
-            <p class="reel__note">Growency spec work · Not commissioned by the brands shown</p>
+            <p class="reel__note">Spec reel · Growency spec work, not commissioned by the brands shown</p>
           </div>
         </div>
 
@@ -109,16 +93,6 @@
             <p class="services__lede">We create and run ads on Facebook and Instagram. Every test gets a spending limit and a cost target we agree with you, and the results decide what we scale, pause or try next.</p>
           </header>
 
-          <section class="svc--clients" id="work" aria-labelledby="clients-title">
-            <h2 id="clients-title">Worked with</h2>
-            <ul class="clients">
-              <li><a href="https://www.postingmachine.ai/" target="_blank" rel="noopener noreferrer"><span class="client-logo client-logo--posting"><img src="/media/clients/posting-machine-logo.png" alt="" width="52" height="52" /><b>Posting Machine</b></span></a></li>
-              <li><a href="https://kairoshealthai.com/" target="_blank" rel="noopener noreferrer"><span class="client-logo client-logo--kairos"><img src="/media/clients/kairos-logo.png" alt="" width="52" height="52" /><b>Kairos Health</b><small>YC F26</small></span></a></li>
-              <li><a href="https://www.infratex.ai/" target="_blank" rel="noopener noreferrer"><span class="client-logo client-logo--infratex"><img src="/media/clients/infratex-logo.svg" alt="Infratex" width="224" height="56" /></span></a></li>
-            </ul>
-          </section>
-
-          <h2 class="services__workflow" id="approach">Plan. Create. Test. Scale.</h2>
           <div class="bento" data-bento>
             <article class="tile svc svc--strategy" style="--i:0">
               <div class="svc__top"><span class="svc__num">01</span><svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg></div>
@@ -191,34 +165,38 @@
               <p class="statement">A limit for every test.<br /><span class="mute">A pass mark before launch.</span></p>
             </article>
 
-            <article class="tile svc--price" id="pricing" style="--i:6">
+            <article class="tile svc--price" style="--i:6">
               <p class="tile__eyebrow">Pricing</p>
-              <p class="price">Engagements start at <strong>$999</strong> per month.</p>
+              <p class="price">From <strong>£<span data-count="1000">1,000</span></strong> per month</p>
               <ol class="price__list">
                 <li><b>Campaign scope</b><span>Which campaigns we manage and what creative you need.</span></li>
                 <li><b>Media budget</b><span>Ad spend set aside for the first round of tests.</span></li>
                 <li><b>Success criteria</b><span>What counts as a conversion and what it can cost.</span></li>
               </ol>
-              <a class="tile__link" href="/book">Talk through your budget <span aria-hidden="true">↗</span></a>
+              <a class="tile__link" href="https://www.trygrowency.com/book">Talk through your budget <span aria-hidden="true">↗</span></a>
             </article>
 
-            <article class="tile svc--faq" id="faq" style="--i:7">
+            <article class="tile svc--faq" style="--i:7">
               <p class="tile__eyebrow">Questions</p>
               <details open><summary>What do you test?</summary><p>We start with the biggest open question: which hook gets attention, which offer converts, or which format brings in customers at the right cost.</p></details>
               <details><summary>When do you scale an ad?</summary><p>When it hits the cost target with enough conversions to pass the test, and it stays within target as spend goes up.</p></details>
               <details><summary>How do we get started?</summary><p>Tell us what you sell, who buys it and what you want the campaign to achieve. If you already run ads, we’ll use what you’ve learned to plan the first tests.</p></details>
-              <div class="faq__more"><span>Still have questions?</span><a class="pill pill--ink" href="/book">Talk to us <span aria-hidden="true">↗</span></a></div>
+              <div class="faq__more"><span>Still have questions?</span><a class="pill pill--ink" href="https://www.trygrowency.com/book">Talk to us <span aria-hidden="true">↗</span></a></div>
             </article>
 
-            <figure class="tile tile--ink svc--quote">
-              <figcaption class="tile__eyebrow">How we think</figcaption>
-              <blockquote>We are ruthless with our ads. We cut what doesn’t work and pump more into what <strong>the data says is working.</strong></blockquote>
-            </figure>
+            <article class="tile svc--clients" style="--i:8">
+              <p class="tile__eyebrow">Worked with</p>
+              <ul class="clients">
+                <li><a href="https://www.postingmachine.ai/" target="_blank" rel="noopener noreferrer"><span class="clients__posting">posting<br />machine.</span></a></li>
+                <li><a href="https://kairoshealthai.com" target="_blank" rel="noopener noreferrer"><span class="clients__kairos">Kairos Health</span><small>YC F26</small></a></li>
+                <li><a href="https://www.infratex.ai/" target="_blank" rel="noopener noreferrer"><img src="/media/clients/infratex-dark.svg" alt="Infratex" width="168" height="50" /></a></li>
+              </ul>
+            </article>
 
             <article class="tile tile--ink svc--cta" style="--i:9">
               <p class="tile__eyebrow">The next trade</p>
               <h3 class="cta__title">What should your next customer <span class="mute">cost?</span></h3>
-              <a class="pill pill--light pill--large" href="/book">Let’s talk ads <span aria-hidden="true">↗</span></a>
+              <a class="pill pill--light pill--large" href="https://www.trygrowency.com/book">Let’s talk ads <span aria-hidden="true">↗</span></a>
             </article>
           </div>
           <p class="services__fine">Examples show an illustrative campaign for a fictional school. Terms, pricing and scope are agreed in writing before work begins.</p>
@@ -238,14 +216,19 @@
           <a class="world-footer__brand" href="#hero" aria-label="Growency home">
             <svg data-footer-mark aria-hidden="true"></svg><span>growency<span class="brand-dot">.</span></span>
           </a>
-          <p>The hedge fund for Meta ads.</p>
+          <p>The only growth agency you’ll ever need.<br>Strategy, creative and performance,<br>under one roof.</p>
+          <div class="world-footer__socials" aria-label="Social platforms">
+            <a href="https://www.instagram.com/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r=".8" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.tiktok.com/" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v11a4 4 0 1 1-4-4M14 4c0 4 3 5 5 5"/></svg></a>
+          </div>
         </div>
         <div class="world-footer__columns">
-          <nav aria-label="Homepage"><h3>Explore</h3><ul><li><a href="#hero">Back to top</a></li><li><a href="#sample-ads">Sample ads</a></li><li><a href="#work">Worked with</a></li><li><a href="#approach">The workflow</a></li><li><a href="#pricing">Pricing</a></li></ul></nav>
-          <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/book">Book a call</a></li><li><a href="/careers">Careers</a></li><li><a href="/contact">Contact us</a></li><li><a href="/privacy">Privacy policy</a></li></ul></nav>
+          <div><h3>Services</h3><ul><li>Strategy</li><li>Creative</li><li>Performance</li><li>Campaigns</li></ul></div>
+          <div><h3>Studio</h3><ul><li>Growency</li><li>Our approach</li><li>Our people</li><li>Our story</li></ul></div>
+          <nav aria-label="Footer"><h3>Explore</h3><ul><li><a href="#hero">Back to top</a></li><li><a href="#content">Content</a></li></ul></nav>
         </div>
       </div>
-      <div class="world-footer__bottom"><p>© 2026 Growency.</p></div>
+      <div class="world-footer__bottom"><p>© 2026 Growency. Made for brands ready to grow.</p><p>Strategy. Creative. Performance.</p></div>
     </footer>
 
     <script type="module" src="/homepage/src/main.ts"></script>

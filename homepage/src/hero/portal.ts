@@ -74,8 +74,6 @@ export class Portal {
     uFocus: { value: new THREE.Vector2(-0.22, 0) },
   };
   private tex?: THREE.VideoTexture;
-  private poster?: THREE.Texture;
-  private posterUrl = '';
 
   constructor(private video: HTMLVideoElement | null) {
     const pts = insetConvex(MARK_FACETS_UNIT[MIDDLE], RIM);
@@ -103,39 +101,21 @@ export class Portal {
     this.mesh.visible = open > 0.001;
     const v = this.video;
     if (!v) return;
-    const active = this.mesh.visible;
-    const wasActive = v.dataset.portal === 'open';
-    if (active !== wasActive) {
-      v.dataset.portal = active ? 'open' : '';
-      v.dispatchEvent(new Event('reel-portal-change'));
-    }
-    if (!active) return;
-
-    if (this.posterUrl !== v.poster) {
-      const url = v.poster;
-      this.posterUrl = url;
-      this.poster?.dispose();
-      this.poster = undefined;
-      this.tex?.dispose();
-      this.u.uHasMap.value = 0;
-      this.tex = new THREE.VideoTexture(v);
-      this.tex.colorSpace = THREE.NoColorSpace;
-      this.tex.minFilter = THREE.LinearFilter;
-      this.tex.generateMipmaps = false;
-      new THREE.TextureLoader().load(url, (texture) => {
-        if (this.posterUrl === url) this.poster = texture;
-        else texture.dispose();
-      });
-    }
-    if (this.tex && v.readyState >= 2) {
-      this.u.map.value = this.tex;
-      this.u.uHasMap.value = 1;
-      this.u.uTexAspect.value = v.videoWidth / v.videoHeight || 16 / 9;
-    } else if (this.poster) {
-      this.u.map.value = this.poster;
-      this.u.uHasMap.value = 1;
-      const image = this.poster.image as HTMLImageElement;
-      this.u.uTexAspect.value = image.width / image.height;
+    v.dataset.portal = open > 0.001 ? 'open' : '';
+    if (open > 0.001) {
+      if (!this.tex) {
+        v.preload = 'auto';
+        this.tex = new THREE.VideoTexture(v);
+        this.tex.colorSpace = THREE.NoColorSpace;
+        this.tex.minFilter = THREE.LinearFilter;
+        this.tex.generateMipmaps = false;
+      }
+      if (v.paused) void v.play().catch(() => {});
+      if (v.readyState >= 2) {
+        this.u.map.value = this.tex;
+        this.u.uHasMap.value = 1;
+        this.u.uTexAspect.value = v.videoWidth / v.videoHeight || 16 / 9;
+      }
     }
   }
 }

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224 66" width="224" height="66">
+  <g transform="translate(6 14)">
+    <rect x="0" y="0" width="28" height="38" rx="1" fill="none" stroke="#f1ebde" stroke-width="2"></rect>
+    <line x1="5" y1="9" x2="22" y2="9" stroke="#f1ebde" stroke-width="1.6" opacity="0.5"></line>
+    <line x1="5" y1="15" x2="22" y2="15" stroke="#f1ebde" stroke-width="1.6" opacity="0.5"></line>
+    <line x1="5" y1="21" x2="18" y2="21" stroke="#f1ebde" stroke-width="1.6" opacity="0.5"></line>
+    <path d="M32 19 L46 19 M40 14 L46 19 L40 24" fill="none" stroke="#b8552b" stroke-width="2"></path>
+    <g transform="translate(50 0)">
+      <rect x="0" y="0" width="22" height="11" fill="#f1ebde"></rect>
+      <rect x="0" y="14" width="14" height="11" fill="#f1ebde" opacity="0.55"></rect>
+      <rect x="16" y="14" width="6" height="11" fill="#b8552b"></rect>
+      <rect x="0" y="28" width="22" height="10" fill="#f1ebde" opacity="0.35"></rect>
+    </g>
+  </g>
+  <text x="88" y="52" font-family="&#39;Geist&#39;,&#39;Inter&#39;,ui-sans-serif,system-ui,sans-serif" font-weight="500" font-size="32" letter-spacing="-0.04em" fill="#f1ebde">infratex</text>
+</svg>

@@ -2,7 +2,7 @@
 // All phase boundaries live here so timing can be tuned in one place.
 
 /** How long the hero stays pinned, in viewport heights of scrolling. */
-export const PIN_LENGTH_VH = { desktop: 3.4, mobile: 2.65 };
+export const PIN_LENGTH_VH = 14;
 
 export const T = {
   // 1. Plain black wordmark erodes completely before the tagline appears.
@@ -20,7 +20,7 @@ export const T = {
   // …and the cards fly out into the mark's three facets.
   flyStart: 0.45,
   flyEnd: 0.68,
-  // 3b. Briefly hold the assembled image-filled mark.
+  // 3b. Briefly hold the assembled video-filled mark.
   chromeStart: 0.70,
   // 4. Slow, front-facing chrome reveal.
   chromeEnd: 0.88,
