@@ -75,6 +75,7 @@ export class Portal {
   };
   private tex?: THREE.VideoTexture;
   private poster?: THREE.Texture;
+  private posterUrl = '';
 
   constructor(private video: HTMLVideoElement | null) {
     const pts = insetConvex(MARK_FACETS_UNIT[MIDDLE], RIM);
@@ -110,16 +111,23 @@ export class Portal {
     }
     if (!active) return;
 
-    if (!this.tex) {
+    if (this.posterUrl !== v.poster) {
+      const url = v.poster;
+      this.posterUrl = url;
+      this.poster?.dispose();
+      this.poster = undefined;
+      this.tex?.dispose();
+      this.u.uHasMap.value = 0;
       this.tex = new THREE.VideoTexture(v);
       this.tex.colorSpace = THREE.NoColorSpace;
       this.tex.minFilter = THREE.LinearFilter;
       this.tex.generateMipmaps = false;
-      new THREE.TextureLoader().load(v.poster, (texture) => {
-        this.poster = texture;
+      new THREE.TextureLoader().load(url, (texture) => {
+        if (this.posterUrl === url) this.poster = texture;
+        else texture.dispose();
       });
     }
-    if (v.readyState >= 2) {
+    if (this.tex && v.readyState >= 2) {
       this.u.map.value = this.tex;
       this.u.uHasMap.value = 1;
       this.u.uTexAspect.value = v.videoWidth / v.videoHeight || 16 / 9;
