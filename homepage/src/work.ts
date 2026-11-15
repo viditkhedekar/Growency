@@ -108,10 +108,10 @@ function initReel(reel: HTMLElement, video: HTMLVideoElement, preference: MediaQ
   const toggle = reel.querySelector<HTMLButtonElement>('[data-reel-toggle]')!;
   const seek = reel.querySelector<HTMLInputElement>('[data-reel-seek]')!;
   const time = reel.querySelector<HTMLElement>('[data-reel-time]')!;
-  const source = video.querySelector('source')!;
-  const landscape = { src: source.src, poster: video.poster };
+  const landscape = { src: video.dataset.reelSrc!, poster: video.poster };
   const portrait = { src: video.dataset.portraitSrc!, poster: video.dataset.portraitPoster! };
   const portraitMedia = matchMedia('(max-aspect-ratio: 3/4)');
+  let format = landscape;
   let pendingSeek = 0;
   let wantsPlay = !preference.matches;
   let inView = false;
@@ -120,6 +120,7 @@ function initReel(reel: HTMLElement, video: HTMLVideoElement, preference: MediaQ
 
   function syncPlayback() {
     if (wantsPlay && !document.hidden && (inView || video.dataset.portal === 'open')) {
+      if (!video.hasAttribute('src')) video.src = format.src;
       void video.play().catch(() => {});
     } else {
       video.pause();
@@ -139,14 +140,13 @@ function initReel(reel: HTMLElement, video: HTMLVideoElement, preference: MediaQ
   }
 
   function setFormat() {
-    const format = portraitMedia.matches ? portrait : landscape;
-    if (new URL(format.src, location.href).href === source.src) return;
+    format = portraitMedia.matches ? portrait : landscape;
+    video.poster = format.poster;
+    if (!video.hasAttribute('src') || new URL(format.src, location.href).href === video.src) return;
     pendingSeek = video.currentTime || pendingSeek;
     if (video.readyState > 0) video.preload = 'metadata';
     seek.disabled = true;
-    video.poster = format.poster;
-    source.src = format.src;
-    video.load();
+    video.src = format.src;
     syncPlayback();
   }
 
