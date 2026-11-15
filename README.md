@@ -3,10 +3,12 @@
 Static landing page. Run locally with:
 
 ```sh
+npm ci
+npm run build
 python3 dev_server.py 4341
 ```
 
-Open http://localhost:4341. No build step is required. `landing.js` and `campaign.js` progressively add scroll and campaign animations; the content and navigation remain usable without JavaScript.
+Open http://localhost:4341 to preview the build with clean URLs. For live homepage edits, run `npm run dev`. The root homepage uses the scroll sequence from [the Growency reference](https://github.com/Abhiram-745/trygrowency/tree/42b36bd2eff191b9306f2977b7d852a9f6412f59). The previous homepage is preserved at `/landing-page-2026-11-15`.
 
 ## Page URLs
 

@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Growency | The hedge fund for Meta ads</title>
+  <meta name="description" content="Growency runs Meta ads with a spending limit and a pass mark for every test. We increase budgets when ads meet the targets we agree with you.">
+  <meta name="theme-color" content="#291064">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-v2.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="landing.css?v=20261101-coral">
+  <link rel="stylesheet" href="slides.css?v=20261110-meta-ads">
+  <link rel="stylesheet" href="premium.css?v=20261101-coral">
+  <link rel="stylesheet" href="netting.css?v=20261006-mobile-scroll-v23">
+  <link rel="stylesheet" href="backgrounds.css?v=20261030-campaign-copy">
+  <link rel="stylesheet" href="pages.css?v=20261005-navigation-v14">
+  <link rel="stylesheet" href="campaign.css?v=20261110-hero-positioning">
+  <link rel="stylesheet" href="demo-scroll.css?v=20261112-workflow">
+  <link rel="stylesheet" href="demo-film.css?v=20261113-ad-stack">
+  <link rel="stylesheet" href="team.css?v=20261005-portraits-v18">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32-v2.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="stylesheet" href="assets/vendor/lenis/lenis.css?v=1.3.26">
+<link rel="stylesheet" href="smooth-scroll.css?v=20261005-scroll-v15">
+  <link rel="stylesheet" href="hero.css?v=20261101-coral">
+  <link rel="stylesheet" href="ad-gallery.css?v=20261112-scroll">
+  <link rel="stylesheet" href="icons.css?v=20261111-hover">
+</head>
+<body class="minimal-home">
+<svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="markClip" clipPathUnits="userSpaceOnUse"><circle cx="60" cy="60" r="51.2"/></clipPath>
+    <!-- the cover gradient's bright half, for dots, rings and the sparkline (styles.css: --grad-ui) -->
+    <linearGradient id="gradUi" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2AA3FC"/><stop offset=".5" stop-color="#4B6DF3"/><stop offset="1" stop-color="#5A3FD8"/>
+    </linearGradient>
+    <filter id="ink" x="-15%" y="-25%" width="130%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <symbol id="mark" viewBox="0 0 120 120">
+      <!-- A hand trace of the brand image. script.js reads the lattice from the first
+           path, the network from .mark__net, and the dots from the small circles. -->
+      <g clip-path="url(#markClip)" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M27.78 -14.40L11.68 -5.10 M27.78 -14.40L43.89 -5.10 M27.78 -14.40L27.78 4.20 M60.00 -14.40L43.89 -5.10 M60.00 -14.40L76.11 -5.10 M60.00 -14.40L60.00 4.20 M92.22 -14.40L76.11 -5.10 M92.22 -14.40L108.32 -5.10 M92.22 -14.40L92.22 4.20 M11.68 -5.10L11.68 13.50 M43.89 -5.10L43.89 13.50 M76.11 -5.10L76.11 13.50 M108.32 -5.10L108.32 13.50 M27.78 4.20L11.68 13.50 M27.78 4.20L43.89 13.50 M60.00 4.20L43.89 13.50 M60.00 4.20L76.11 13.50 M92.22 4.20L76.11 13.50 M92.22 4.20L108.32 13.50 M11.68 13.50L-4.43 22.80 M11.68 13.50L27.78 22.80 M11.68 13.50L11.68 32.10 M43.89 13.50L27.78 22.80 M43.89 13.50L60.00 22.80 M43.89 13.50L43.89 32.10 M76.11 13.50L60.00 22.80 M76.11 13.50L92.22 22.80 M76.11 13.50L76.11 32.10 M108.32 13.50L92.22 22.80 M108.32 13.50L124.43 22.80 M108.32 13.50L108.32 32.10 M-4.43 22.80L-4.43 41.40 M27.78 22.80L27.78 41.40 M60.00 22.80L60.00 41.40 M92.22 22.80L92.22 41.40 M124.43 22.80L124.43 41.40 M11.68 32.10L-4.43 41.40 M11.68 32.10L27.78 41.40 M43.89 32.10L27.78 41.40 M43.89 32.10L60.00 41.40 M76.11 32.10L60.00 41.40 M76.11 32.10L92.22 41.40 M108.32 32.10L92.22 41.40 M108.32 32.10L124.43 41.40 M-4.43 41.40L-20.54 50.70 M-4.43 41.40L11.68 50.70 M-4.43 41.40L-4.43 60.00 M27.78 41.40L11.68 50.70 M27.78 41.40L43.89 50.70 M27.78 41.40L27.78 60.00 M60.00 41.40L43.89 50.70 M60.00 41.40L76.11 50.70 M60.00 41.40L60.00 60.00 M92.22 41.40L76.11 50.70 M92.22 41.40L108.32 50.70 M92.22 41.40L92.22 60.00 M124.43 41.40L108.32 50.70 M124.43 41.40L140.54 50.70 M124.43 41.40L124.43 60.00 M-20.54 50.70L-20.54 69.30 M11.68 50.70L11.68 69.30 M43.89 50.70L43.89 69.30 M76.11 50.70L76.11 69.30 M108.32 50.70L108.32 69.30 M140.54 50.70L140.54 69.30 M-4.43 60.00L-20.54 69.30 M-4.43 60.00L11.68 69.30 M27.78 60.00L11.68 69.30 M27.78 60.00L43.89 69.30 M60.00 60.00L43.89 69.30 M60.00 60.00L76.11 69.30 M92.22 60.00L76.11 69.30 M92.22 60.00L108.32 69.30 M124.43 60.00L108.32 69.30 M124.43 60.00L140.54 69.30 M-20.54 69.30L-4.43 78.60 M11.68 69.30L-4.43 78.60 M11.68 69.30L27.78 78.60 M11.68 69.30L11.68 87.90 M43.89 69.30L27.78 78.60 M43.89 69.30L60.00 78.60 M43.89 69.30L43.89 87.90 M76.11 69.30L60.00 78.60 M76.11 69.30L92.22 78.60 M76.11 69.30L76.11 87.90 M108.32 69.30L92.22 78.60 M108.32 69.30L124.43 78.60 M108.32 69.30L108.32 87.90 M140.54 69.30L124.43 78.60 M-4.43 78.60L-4.43 97.20 M27.78 78.60L27.78 97.20 M60.00 78.60L60.00 97.20 M92.22 78.60L92.22 97.20 M124.43 78.60L124.43 97.20 M11.68 87.90L-4.43 97.20 M11.68 87.90L27.78 97.20 M43.89 87.90L27.78 97.20 M43.89 87.90L60.00 97.20 M76.11 87.90L60.00 97.20 M76.11 87.90L92.22 97.20 M108.32 87.90L92.22 97.20 M108.32 87.90L124.43 97.20 M-4.43 97.20L11.68 106.50 M27.78 97.20L11.68 106.50 M27.78 97.20L43.89 106.50 M27.78 97.20L27.78 115.80 M60.00 97.20L43.89 106.50 M60.00 97.20L76.11 106.50 M60.00 97.20L60.00 115.80 M92.22 97.20L76.11 106.50 M92.22 97.20L108.32 106.50 M92.22 97.20L92.22 115.80 M124.43 97.20L108.32 106.50 M11.68 106.50L11.68 125.10 M43.89 106.50L43.89 125.10 M76.11 106.50L76.11 125.10 M108.32 106.50L108.32 125.10 M27.78 115.80L11.68 125.10 M27.78 115.80L43.89 125.10 M60.00 115.80L43.89 125.10 M60.00 115.80L76.11 125.10 M92.22 115.80L76.11 125.10 M92.22 115.80L108.32 125.10 M11.68 125.10L27.78 134.40 M43.89 125.10L27.78 134.40 M43.89 125.10L60.00 134.40 M76.11 125.10L60.00 134.40 M76.11 125.10L92.22 134.40 M108.32 125.10L92.22 134.40"/></g>
+      <path class="mark__net" d="M27.78 78.60L43.89 69.30L60.00 97.20L76.11 69.30L92.22 60.00L92.22 41.40" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="mark__nodes" fill="var(--mark-hole,#06060C)" stroke="currentColor" stroke-width="1.7"><circle cx="27.78" cy="78.60" r="3.8"/><circle cx="43.89" cy="69.30" r="3.8"/><circle cx="60.00" cy="97.20" r="3.8"/><circle cx="76.11" cy="69.30" r="3.8"/><circle cx="92.22" cy="60.00" r="3.8"/><circle cx="92.22" cy="41.40" r="3.8"/></g>
+      <circle cx="60" cy="60" r="53" fill="none" stroke="currentColor" stroke-width="3"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+<div class="site-rail" aria-hidden="true"><div class="site-rail-fill"></div><span class="site-traveller"><svg viewBox="0 0 120 120"><use href="#mark"/></svg></span></div>
+<main id="main">
+<div class="brand-world slide minimal-hero" id="top">
+  <div class="atmosphere" aria-hidden="true"></div>
+  <header class="header wrap">
+    <a class="brand" href="#top" aria-label="Growency home">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>
+      <span>Growency</span>
+    </a>
+    <nav class="navigation" aria-label="Primary navigation">
+      <a href="#work">Worked with</a>
+      <a href="#approach">The workflow</a>
+      <a href="#pricing">Pricing</a>
+      <details class="company-menu"><summary>Company</summary><nav aria-label="Company pages"><a href="/careers"><img class="site-icon icon-nav" src="assets/icons/briefcase.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Careers</a><a href="/contact"><img class="site-icon icon-nav" src="assets/icons/message.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Contact us</a></nav></details>
+    </nav>
+    <a class="nav-cta" href="/book">Let’s talk <span aria-hidden="true">↗</span></a>
+  <details class="mobile-menu"><summary aria-label="Menu"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path class="menu-open" d="M4 8h16M4 16h16"/><path class="menu-close" d="m6 6 12 12M18 6 6 18"/></svg><span class="sr-only">Menu</span></summary><nav aria-label="Mobile navigation"><a href="#work">Worked with</a><a href="#approach">The workflow</a><a href="#pricing">Pricing</a><a href="/careers"><img class="site-icon icon-nav" src="assets/icons/briefcase.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Careers</a><a href="/contact"><img class="site-icon icon-nav" src="assets/icons/message.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Contact us</a></nav></details></header>
+  <section class="hero wrap" aria-labelledby="hero-heading">
+    <div class="hero-copy">
+      <p class="eyebrow"><img class="site-icon icon-eyebrow" src="assets/icons/target.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Paid social</p>
+      <h1 id="hero-heading">
+        <span class="headline-lead"><span class="hero-word"><span style="--word-order: 0">We</span></span> <span class="hero-word"><span style="--word-order: 1">are</span></span> <span class="hero-word"><span style="--word-order: 2">the</span></span></span>
+        <span class="headline-result"><strong><span class="hero-word"><span style="--word-order: 3"><img class="site-icon icon-headline" src="assets/icons/chart.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">hedge</span></span> <span class="hero-word"><span style="--word-order: 4">fund</span></span></strong></span>
+        <span class="headline-close"><span class="hero-word"><span style="--word-order: 5">for</span></span> <span class="hero-word"><span style="--word-order: 6">Meta</span></span> <span class="hero-word"><span style="--word-order: 7">ads.</span></span></span>
+      </h1>
+      <p class="hero-description">We run Facebook and Instagram ads. Before each test, we agree how much it can spend and what a sale or qualified lead can cost.</p>
+      <div class="hero-actions"><a class="button-primary" href="/book">Let’s talk ads <span class="button-arrow" aria-hidden="true">↗</span></a><a class="button-text" href="#approach">Explore the workflow <span aria-hidden="true">↓</span></a></div>
+    </div>
+    <div class="hero-media hero-media-spec">
+      <section class="ad-gallery" id="sample-ads" aria-labelledby="ad-gallery-heading">
+        <div class="ad-gallery-panel">
+          <div class="ad-gallery-header">
+            <h2 id="ad-gallery-heading">Sample ads</h2>
+            <div class="ad-gallery-controls" hidden>
+              <button type="button" data-ad-direction="-1" aria-label="Previous ad" disabled>←</button>
+              <button type="button" data-ad-direction="1" aria-label="Next ad">→</button>
+            </div>
+          </div>
+          <ul class="ad-gallery-track" tabindex="0" aria-label="Sample ad artwork">
+            <li class="sample-ad" data-ad="aside">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/aside-invoice-matching.png" width="1080" height="1350" alt="Personal assistant for my other 31 tabs. Open every invoice in these tabs. Match each one to a payment in my spreadsheet. Flag anything that doesn’t match, and link back to the invoice. Hire your browser." decoding="async" draggable="false"></div>
+                <figcaption><strong>AI browser assistant</strong><span>Growency Spec · Not commissioned by Aside</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="instinct">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/instinct-tennis.jpg" width="880" height="1100" alt="An overhead view of a tennis court. The group chat is still deciding. Find us a court for Saturday. Somewhere nobody can call ‘too far’. Text Instinct. Get a court booked." decoding="async" draggable="false"></div>
+                <figcaption><strong>Personal assistant by text</strong><span>Growency Spec · Not commissioned by Instinct</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="wispr-flow">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/wispr-flow-brand.jpg" width="880" height="1100" alt="A finger in a cast marked ‘per my last email’ rests on a keyboard. Your fingers can take a sick day. Dictate your emails with Wispr Flow." decoding="async" draggable="false"></div>
+                <figcaption><strong>Voice dictation</strong><span>Growency Spec · Not commissioned by Wispr Flow</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="granola">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/granola-brand.jpg" width="880" height="1100" alt="Dan brought a plus-one. A cardboard robot with a ‘Dan’s AI notetaker’ badge sits in a meeting. Granola takes notes without a meeting bot." loading="lazy" decoding="async" draggable="false"></div>
+                <figcaption><strong>AI meeting notes</strong><span>Growency Spec · Not commissioned by Granola</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="moonshot-for-everything">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/moonshot-for-everything.jpg" width="880" height="1100" alt="For everything after ‘i’ll’. A silver crescent necklace casts a shadow on white. Moonshot: a little moon for the little things." loading="lazy" decoding="async" draggable="false"></div>
+                <figcaption><strong>Moonshot Luna · For everything after ‘i’ll’</strong><span>Growency Spec · Not commissioned by Moonshot</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="moonshot-bring-flowers">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/moonshot-bring-flowers.jpg" width="880" height="1100" alt="You said you’d bring flowers. A crescent necklace drapes over a small bouquet against black. Moonshot: a little moon for the little things." loading="lazy" decoding="async" draggable="false"></div>
+                <figcaption><strong>Moonshot Luna · Bring flowers</strong><span>Growency Spec · Not commissioned by Moonshot</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="moonshot-good-memory">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/moonshot-good-memory.jpg" width="880" height="1100" alt="Jewellery with a good memory. A silver crescent necklace is worn against black cotton. Moonshot: a little moon for the little things." loading="lazy" decoding="async" draggable="false"></div>
+                <figcaption><strong>Moonshot Luna · A good memory</strong><span>Growency Spec · Not commissioned by Moonshot</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="allbirds">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/allbirds.webp?v=2" width="880" height="1100" alt="Breathable sneakers. Your socks can thank us later. Sunlight catches the mesh of a grey sneaker beside an open window." loading="lazy" decoding="async" draggable="false"></div>
+                <figcaption><strong>Tree Runner sneakers</strong><span>Growency Spec · Not commissioned by Allbirds</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="sandwich">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/sandwich.webp" width="880" height="1100" alt="Videos you just can’t scroll past. A physical stop bearing Sandwich’s logo blocks a finger from swiping up on a phone." loading="lazy" decoding="async" draggable="false"></div>
+                <figcaption><strong>Video production</strong><span>Growency Spec · Not commissioned by Sandwich</span></figcaption>
+              </figure>
+            </li>
+            <li class="sample-ad" data-ad="ikea">
+              <figure>
+                <div class="sample-ad-image"><img src="assets/spec-ads/ikea.webp?v=2" width="880" height="1100" alt="Design a wardrobe around your clothes. Yes, all of them. A modular wardrobe has space for coats, folded clothes and shoes." loading="lazy" decoding="async" draggable="false"></div>
+                <figcaption><strong>PAX wardrobe planner</strong><span>Growency Spec · Not commissioned by IKEA</span></figcaption>
+              </figure>
+            </li>
+          </ul>
+          <div class="ad-gallery-progress" aria-hidden="true"><span></span></div>
+        </div>
+      </section>
+      <div class="hero-principles"><span><img class="site-icon icon-principle" src="assets/icons/people.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">A limit for every test.</span><span><img class="site-icon icon-principle" src="assets/icons/target.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">A pass mark before launch.</span></div>
+    </div>
+  </section>
+</div>
+<section class="clients-slide slide" id="work" aria-labelledby="work-heading">
+  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/handover.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div>
+  <div class="wrap clients-content"><p class="section-label" id="work-heading"><img class="site-icon icon-label" src="assets/icons/handshake.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">WORKED WITH</p><div class="client-monuments">
+    <a class="client-monument" href="https://www.postingmachine.ai/" target="_blank" rel="noopener noreferrer" aria-label="Visit Posting Machine"><span class="client-monument-name posting-monument">posting<span>machine</span><b>.</b></span><span class="monument-arrow" aria-hidden="true">↗</span></a>
+    <a class="client-monument" href="https://kairoshealthai.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Kairos Health"><span class="client-monument-name kairos-monument">Kairos <span>Health</span></span><span class="monument-yc">YC F26</span><span class="monument-arrow" aria-hidden="true">↗</span></a>
+    <a class="client-monument" href="https://www.infratex.ai/" target="_blank" rel="noopener noreferrer" aria-label="Visit Infratex"><img class="client-monument-name infratex-monument" src="assets/clients/infratex-dark.svg" alt="Infratex" width="224" height="66" loading="lazy" decoding="async"><span class="monument-arrow" aria-hidden="true">↗</span></a>
+  </div></div>
+</section>
+<button class="journey-dock" type="button" hidden aria-label="Next: creative development"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg><span class="dock-count">01 / 04</span><span class="dock-label">Campaign brief</span><span class="dock-next" aria-hidden="true">↓</span></button>
+<section class="journey" id="approach" aria-labelledby="journey-heading">
+  <div class="journey-intro wrap">
+  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/strategy.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div>
+    <h2 id="journey-heading" class="campaign-journey-title"><em>Plan. Create.<br>Test. Scale.</em></h2>
+    <button class="motion-toggle" type="button" aria-pressed="false" hidden><span aria-hidden="true">Ⅱ</span> <span class="motion-label">Pause motion</span></button>
+  </div>
+  <div class="journey-track wrap">
+
+    <article class="story-step" id="find" aria-labelledby="find-heading">
+  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/leads.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div>
+      <span class="step-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+      <div class="story-copy">
+        <p class="section-label"><img class="site-icon icon-label" src="assets/icons/target.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">CAMPAIGN BRIEF</p>
+        <h3 id="find-heading" class="campaign-heading">Bring us a problem. We’ll turn it into <em>an ad plan</em>.</h3>
+      </div>
+      <figure class="story-visual">
+        <div class="workflow-stage campaign-stage demo-film" data-film="plan">
+          <div class="film-window">
+            <header class="film-chrome">
+              <span class="film-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg> Growency</span>
+              <span class="film-campaign">Year 7 admissions</span>
+              <span class="film-sample">Sample data</span>
+            </header>
+            <div class="film-shell">
+              <div class="film-content">
+                <div class="film-title"><h4>Build the brief</h4><span class="film-tag">September intake</span></div>
+                <div class="film-prompt">
+                  <span class="film-kicker">Campaign objective</span>
+                  <strong class="film-goal" data-film-target="goal">Fill six Year 7 places</strong>
+                  <span class="film-demo-action" data-film-target="build" data-film-value="build">Brief created</span>
+                </div>
+                <section class="film-box film-brief" data-film-reveal="3">
+                  <div class="film-box-title"><span class="film-check" aria-hidden="true">✓</span><div><h5>Year 7 admissions plan</h5><p>Dubai · Example independent school</p></div></div>
+                  <dl class="film-metrics">
+                    <div><dt>Open places</dt><dd>6</dd></div>
+                    <div><dt>Spend cap per ad</dt><dd>AED 2,400</dd></div>
+                    <div data-film-target="brief"><dt>Success metric</dt><dd>Attended tours</dd></div>
+                  </dl>
+                </section>
+              </div>
+            </div>
+            <footer class="film-controls" hidden>
+              <button class="film-control" type="button" aria-label="Play brief demo"><span aria-hidden="true">▶</span><span>Play</span></button>
+              <div class="film-progress" aria-hidden="true"><i></i></div>
+              <span class="film-time" aria-hidden="true">0:00</span>
+            </footer>
+          </div>
+        </div>
+        <figcaption>Illustrative campaign · Fictional Dubai school</figcaption>
+      </figure>
+    </article>
+    <article class="story-step story-step--reverse" id="research" aria-labelledby="research-heading">
+  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/outreach.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div>
+      <span class="step-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M8 10h4M10 8v4"/></svg></span>
+      <div class="story-copy">
+        <p class="section-label"><img class="site-icon icon-label" src="assets/icons/spark.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">CREATIVE DEVELOPMENT</p>
+        <h3 id="research-heading" class="campaign-heading">We build a portfolio of ads <em>around different angles</em>.</h3>
+      </div>
+      <figure class="story-visual">
+        <div class="workflow-stage campaign-stage creative-stage" data-ad-stack>
+          <div class="film-window">
+            <div class="film-content creative-content">
+              <div class="film-title">
+                <h4>Ad variants</h4>
+                <button class="variant-toggle" type="button" aria-controls="creative-ad-cards" aria-pressed="false" hidden>Spread cards</button>
+              </div>
+              <a class="variant-fallback" href="#sample-ads">Browse sample ads</a>
+              <ul class="variant-stack" id="creative-ad-cards" aria-label="Sample ad variants" hidden></ul>
+            </div>
+          </div>
+        </div>
+        <figcaption>Growency spec ads</figcaption>
+      </figure>
+    </article>
+    <article class="story-step" id="conversation" aria-labelledby="conversation-heading">
+  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/call.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div>
+      <span class="step-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-8-8 18-2-8-8-2Z"/><path d="m11 13 10-10"/></svg></span>
+      <div class="story-copy">
+        <p class="section-label"><img class="site-icon icon-label" src="assets/icons/chart.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">LAUNCH &amp; MEASUREMENT</p>
+        <h3 id="conversation-heading" class="campaign-heading">We run controlled tests and track <em>what happens after the click</em>.</h3>
+      </div>
+      <figure class="story-visual">
+        <div class="workflow-stage campaign-stage demo-film" data-film="measure">
+          <div class="film-window">
+            <header class="film-chrome">
+              <span class="film-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg> Growency</span>
+              <span class="film-campaign">Year 7 admissions</span>
+              <span class="film-sample">Sample data</span>
+            </header>
+            <div class="film-shell">
+              <div class="film-content">
+                <div class="film-title"><h4>Read the results</h4><span class="film-tag">Test 01 · Complete</span></div>
+                <div class="film-compare">
+                  <section class="film-box film-source">
+                    <div class="film-box-title"><span class="film-key">A</span><div><h5>Campus overview</h5><p>AED 2,400 spent</p></div></div>
+                    <dl class="film-metrics">
+                      <div data-film-reveal="1"><dt>Year 7 match</dt><dd>5%</dd></div>
+                      <div data-film-reveal="1" data-film-target="results-a"><dt>Tours attended</dt><dd>2</dd></div>
+                    </dl>
+                  </section>
+                  <section class="film-box film-source">
+                    <div class="film-box-title"><span class="film-key film-key-b">B</span><div><h5>First week of Year 7</h5><p>AED 2,400 spent</p></div></div>
+                    <dl class="film-metrics">
+                      <div data-film-reveal="2"><dt>Year 7 match</dt><dd>50%</dd></div>
+                      <div data-film-reveal="2" data-film-target="results-b"><dt>Tours attended</dt><dd>8</dd></div>
+                    </dl>
+                  </section>
+                </div>
+                <section class="film-box film-chart">
+                  <div class="film-box-title"><div><h5>Growency Data</h5></div><span class="film-select" data-film-target="metric"><span data-film-value="metric">Cost per attended tour</span><span aria-hidden="true">⌄</span></span></div>
+                  <div class="film-bars">
+                    <div class="film-bar-row film-bar-a"><span class="film-key">A</span><span class="film-bar-track"><i></i></span><b data-film-value="cost-a">AED 1,200</b></div>
+                    <div class="film-bar-row film-bar-b"><span class="film-key film-key-b">B</span><span class="film-bar-track"><i></i></span><b data-film-value="cost-b">AED 300</b></div>
+                  </div>
+                  <p class="film-chart-note" data-film-value="result">Ad B costs 75% less per attended Year 7 tour</p>
+                </section>
+              </div>
+            </div>
+            <footer class="film-controls" hidden>
+              <button class="film-control" type="button" aria-label="Play results demo"><span aria-hidden="true">▶</span><span>Play</span></button>
+              <div class="film-progress" aria-hidden="true"><i></i></div>
+              <span class="film-time" aria-hidden="true">0:00</span>
+            </footer>
+          </div>
+        </div>
+        <figcaption>Illustrative campaign · Fictional Dubai school</figcaption>
+      </figure>
+    </article>
+    <article class="story-step story-step--reverse" id="booked" aria-labelledby="booked-heading">
+  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/meeting.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div>
+      <span class="step-node" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18m-13 5 3 3 5-5"/></svg></span>
+      <div class="story-copy">
+        <p class="section-label"><img class="site-icon icon-label" src="assets/icons/route.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">BUDGET ALLOCATION</p>
+        <h3 id="booked-heading" class="campaign-heading">We use the results to decide <em>where your next pound goes</em>.</h3>
+        <a class="approach-link" href="/book">Talk through your campaign <span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="story-visual">
+        <div class="workflow-stage campaign-stage demo-film" data-film="decide">
+          <div class="film-window">
+            <header class="film-chrome">
+              <span class="film-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg> Growency</span>
+              <span class="film-campaign">Year 7 admissions</span>
+              <span class="film-sample">Sample data</span>
+            </header>
+            <div class="film-shell">
+              <div class="film-content">
+                <div class="film-title"><h4>Move the next AED 2,400</h4><span class="film-tag film-green" data-film-value="review">Reviewed</span></div>
+                <div class="film-decision-table">
+                  <div class="film-decision">
+                    <div class="film-evidence"><strong>AED 300 per tour</strong><span>First week of Year 7</span></div>
+                    <span class="film-arrow" aria-hidden="true">→</span>
+                    <div class="film-action" data-film-reveal="1" data-film-target="scale"><span class="film-tag film-green">Scale</span><strong>AED 1,800</strong></div>
+                  </div>
+                  <div class="film-decision">
+                    <div class="film-evidence"><strong>5% Year 7 match</strong><span>Campus overview</span></div>
+                    <span class="film-arrow" aria-hidden="true">→</span>
+                    <div class="film-action" data-film-reveal="2" data-film-target="pause"><span class="film-tag film-coral">Pause</span><strong>AED 0</strong></div>
+                  </div>
+                  <div class="film-decision">
+                    <div class="film-evidence"><strong>New relocation hook</strong><span>Next creative experiment</span></div>
+                    <span class="film-arrow" aria-hidden="true">→</span>
+                    <div class="film-action" data-film-reveal="3" data-film-target="test"><span class="film-tag film-violet">Test</span><strong>AED 600</strong></div>
+                  </div>
+                </div>
+                <section class="film-box film-allocation" data-film-reveal="4">
+                  <div class="film-box-title"><div><h5>Next round</h5><p>Budget reviewed by Growency</p></div><strong data-film-target="allocation">AED 2,400</strong></div>
+                  <div class="film-budget-bar" aria-hidden="true"><i></i><i></i></div>
+                  <p>75% scale · 25% next test</p>
+                </section>
+              </div>
+            </div>
+            <footer class="film-controls" hidden>
+              <button class="film-control" type="button" aria-label="Play budget demo"><span aria-hidden="true">▶</span><span>Play</span></button>
+              <div class="film-progress" aria-hidden="true"><i></i></div>
+              <span class="film-time" aria-hidden="true">0:00</span>
+            </footer>
+          </div>
+        </div>
+        <figcaption>Illustrative campaign · Fictional Dubai school</figcaption>
+      </figure>
+    </article>
+  </div>
+  <div class="journey-end wrap">
+  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/handover.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><span class="end-point" aria-hidden="true">↗</span><p><img class="site-icon icon-label" src="assets/icons/route.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">YOUR NEXT CHAPTER</p><h2><img class="site-icon icon-heading" src="assets/icons/message.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Find the ads<br><em>worth scaling.</em></h2><a class="button-primary" href="/book">Let’s talk ads <span class="button-arrow" aria-hidden="true">↗</span></a></div>
+</section>
+<section class="founder-slide slide" id="founder" aria-labelledby="founder-heading">
+  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/conversation.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap founder-content"><p class="section-label">HOW WE THINK</p><div class="founder-statement"><p id="founder-heading">We are ruthless with our ads. We cut what doesn’t work and <em class="brand-text">pump more into what the data says is working.</em></p><footer><span class="quote-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mark"/></svg>Growency</span></footer></div></div></section>
+<section class="team-slide slide" id="team" aria-labelledby="team-heading">
+  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/strategy.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div>
+  <div class="wrap team-layout">
+    <div class="team-art"><img src="assets/editorial/outreach.webp" alt="" width="1536" height="1024" loading="lazy"><span>Creative and performance.</span></div>
+    <div><p class="section-label"><img class="site-icon icon-label" src="assets/icons/people.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">THE TEAM</p><h2 id="team-heading">The people behind<br><em class="brand-text">the campaigns.</em></h2>
+      <div class="team-cards">
+        <article class="team-card"><img class="team-portrait" src="assets/team/vivin-sharma.png" alt="Vivin Sharma" width="800" height="800" loading="lazy" decoding="async"><div><h3>Vivin Sharma</h3></div></article>
+        <article class="team-card"><img class="team-portrait" src="assets/team/vidit-khedekar.png" alt="Vidit Khedekar" width="800" height="800" loading="lazy" decoding="async"><div><h3>Vidit Khedekar</h3></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="pricing-slide slide" id="pricing" aria-labelledby="pricing-heading"><div class="slide-photo" aria-hidden="true"><img src="assets/editorial/conversation.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap pricing-layout"><div><p class="section-label"><img class="site-icon icon-label" src="assets/icons/chart.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">PRICING</p><h2 id="pricing-heading" class="pricing-statement">Engagements start at <em>£1,000 per month.</em></h2><a class="pricing-link" href="/book">Talk through your budget <span aria-hidden="true">↗</span></a></div><div><div class="price-lines"><article class="price-line"><span>01 / THE WORK</span><h3><img class="site-icon icon-title" src="assets/icons/calendar.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Campaign scope</h3><p>Agree which campaigns we manage and what creative you need.</p></article><article class="price-line"><span>02 / THE TEST</span><h3><img class="site-icon icon-title" src="assets/icons/message.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Media budget</h3><p>Set aside ad spend for the first round of tests.</p></article><article class="price-line"><span>03 / THE TARGET</span><h3><img class="site-icon icon-title" src="assets/icons/shield.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Success criteria</h3><p>Agree what counts as a conversion and what it can cost.</p></article></div><p class="price-note">We’ll talk through the scope, fees and ad spend before you commit.</p></div></div></section>
+<section class="faq restored-faq slide" id="faq">
+  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/call.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div>
+  <div class="wrap faq__grid">
+    <div class="faq__intro">
+      <h2 class="section-heading"><img class="site-icon icon-heading" src="assets/icons/message.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Questions before we start.</h2>
+      <p class="section-intro">The ones we get asked on almost every first call.</p>
+    </div>
+    <div class="faq__list">
+      <details class="qa">
+        <summary class="qa__q"><img class="site-icon icon-question" src="assets/icons/people.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">What does Growency actually do?</summary>
+        <div class="qa__a"><p>We create and run ads on Facebook and Instagram. We agree the cost target and spending limit for each test with you, then use the results to decide what to scale, pause, or try next.</p></div>
+      </details>
+      <details class="qa">
+        <summary class="qa__q"><img class="site-icon icon-question" src="assets/icons/briefcase.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">What do you test?</summary>
+        <div class="qa__a"><p>We start with the biggest open question. That might be which hook gets people to pay attention, which offer converts, or which creative format brings in customers at the right cost.</p></div>
+      </details>
+      <details class="qa">
+        <summary class="qa__q"><img class="site-icon icon-question" src="assets/icons/clock.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">How do we get started?</summary>
+        <div class="qa__a"><p>Tell us what you sell, who buys it, and what you want the campaign to achieve. If you already run ads, we’ll use what you’ve learned to plan the first tests.</p></div>
+      </details>
+      <details class="qa">
+        <summary class="qa__q"><img class="site-icon icon-question" src="assets/icons/chart.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">What does it cost?</summary>
+        <div class="qa__a"><p>Engagements start at £1,000 per month. We’ll agree the campaign scope and ad budget with you. <a href="#pricing">Explore pricing.</a></p></div>
+      </details>
+      <details class="qa">
+        <summary class="qa__q"><img class="site-icon icon-question" src="assets/icons/document.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">What do you report on?</summary>
+        <div class="qa__a"><p>For each test, you see what we tried, what it cost, whether it passed, and what we’re doing with the budget next.</p></div>
+      </details>
+      <details class="qa">
+        <summary class="qa__q"><img class="site-icon icon-question" src="assets/icons/shield.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">When do you scale an ad?</summary>
+        <div class="qa__a"><p>When it hits the cost target with enough conversions to pass the test. We check that it stays within target as spend goes up.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+<section class="closing-slide slide" id="contact">
+  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/handover.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap"><p class="section-label">THE NEXT TRADE</p><h2>What should your<br><em class="brand-text">next customer cost?</em></h2><a class="button-primary" href="/book">Let’s talk ads <span class="button-arrow" aria-hidden="true">↗</span></a></div></section>
+</main>
+<footer class="site-footer">
+  <div class="slide-photo" aria-hidden="true"><img src="assets/editorial/leads.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async"><span class="slide-photo-tint"></span></div><div class="wrap footer-layout"><div><a class="footer-brand" href="#top">Growency</a><p>The hedge fund for Meta ads.</p></div><nav aria-label="Outbound comparisons"><span>OUTBOUND ARCHIVE</span><a href="/compare/apollo">Growency vs Apollo</a><a href="/compare/clay">Growency vs Clay</a><a href="/compare/11x">Growency vs 11x</a><a href="/compare/artisan">Growency vs Artisan</a><a href="/compare/belkins">Growency vs Belkins</a><a href="/compare/cience">Growency vs CIENCE</a></nav><nav aria-label="Company"><span>COMPANY</span><a href="/careers"><img class="site-icon icon-nav" src="assets/icons/briefcase.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Careers</a><a href="/contact"><img class="site-icon icon-nav" src="assets/icons/message.svg" alt="" aria-hidden="true" width="68" height="68" decoding="async">Contact us</a><a href="#pricing">Pricing</a><a href="#team">The team</a><a href="#faq">Questions</a><a href="/privacy">Privacy policy</a><a href="https://www.linkedin.com/company/growency/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></nav></div><div class="wrap footer-fine">© 2026 Growency. Workflow demos show an illustrative campaign. Terms, pricing and scope are agreed in writing before work begins.</div></footer>
+<a class="meeting-shortcut" href="/book" aria-label="Book a meeting with Growency" data-info="Let’s talk about your Meta ads. Book a 30-minute call with Vidit."><span aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18m-13 5 3 3 5-5"/></svg></span><b>Book a meeting</b></a>
+<script src="ad-gallery.js?v=20261113-ad-stack" defer></script>
+<script src="demo-film.js?v=20261113-ad-stack" defer></script>
+<script src="landing.js?v=20261112-workflow" defer></script>
+<script src="rail.js?v=20261112-workflow" defer></script>
+<script src="interactions.js?v=20261005-atmosphere-v11" defer></script>
+<script src="fluid.js?v=20261112-workflow" defer></script>
+<script src="netting.js?v=20261005-atmosphere-v11" defer></script>
+<script src="navigation.js?v=20261005-navigation-v14" defer></script>
+<script src="assets/vendor/lenis/lenis.min.js?v=1.3.26" defer></script>
+<script src="smooth-scroll.js?v=20261006-mobile-scroll-v23" defer></script>
+</body>
+</html>

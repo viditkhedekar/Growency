@@ -7,7 +7,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent / "dist"
 PAGES = {
     "/" if path.name == "index.html" else "/" + path.relative_to(ROOT).with_suffix("").as_posix():
     "/" + path.relative_to(ROOT).as_posix()
@@ -54,6 +54,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("port", type=int, nargs="?", default=4341)
     args = parser.parse_args()
+    if not (ROOT / "index.html").is_file():
+        parser.error("Run npm ci and npm run build before previewing the site.")
     server = ThreadingHTTPServer(("127.0.0.1", args.port), partial(PreviewHandler, directory=str(ROOT)))
     print(f"Serving Growency at http://127.0.0.1:{args.port}", flush=True)
     try:
