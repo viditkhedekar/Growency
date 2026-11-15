@@ -2,7 +2,7 @@
 // All phase boundaries live here so timing can be tuned in one place.
 
 /** How long the hero stays pinned, in viewport heights of scrolling. */
-export const PIN_LENGTH_VH = 14;
+export const PIN_LENGTH_VH = 2.6;
 
 export const T = {
   // 1. Plain black wordmark erodes completely before the tagline appears.

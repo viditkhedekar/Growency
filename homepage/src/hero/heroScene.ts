@@ -219,11 +219,11 @@ export class HeroScene {
     const zoneTop = rect.y + rect.h + (small ? 12 : 8);
     const zoneBottom = h - (small ? 64 : 56);
     const zoneH = Math.max(120, zoneBottom - zoneTop);
-    const cardRatio = small ? 0.27 : 0.245; // card width relative to radius (lower = more space between cards)
+    const cardRatio = small ? 0.40 : 0.36; // card width relative to radius (lower = more space between cards)
     const frontMax = small ? 1.16 : 1.22;
     const tilt0 = small ? 0.42 : 0.3; // how much of the ring's face we see
     // Fit by width (ring diameter + a front card) and by height (tilted ellipse + card).
-    const rByW = (visW * (small ? 1.12 : 0.9)) / (2 + cardRatio * 0.7); // phones: ring spills past the edges
+    const rByW = (visW * (small ? 1.27 : 0.98)) / (2 + cardRatio * 0.7); // phones: ring spills past the edges
     const rByH = (zoneH * pxToW) / (2 * Math.sin(tilt0) + cardRatio * 1.25 * frontMax + 0.24);
     const ringR = Math.min(rByW, rByH, 7.8);
     const cardW = ringR * cardRatio;
@@ -287,7 +287,7 @@ export class HeroScene {
       this.lastT = performance.now();
       // Finished mark: grab to rotate.
       if (this.markActive && e.target === markHit) {
-        e.preventDefault();
+        if (e.pointerType !== "touch") e.preventDefault();
         markHit.setPointerCapture(e.pointerId);
         this.logoDragging = true;
         this.logoMoved = 0;

@@ -1,0 +1,17 @@
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; color: #111114; background: #fff; font: 16px/1.5 var(--growency-sans); }
+a { color: inherit; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid #111114; outline-offset: 4px; }
+.simple-nav, main, footer { width: min(100% - 32px, 1030px); margin-inline: auto; }
+.simple-nav { min-height: 70px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e5e6; }
+.simple-nav a { display: inline-flex; gap: 8px; align-items: center; text-decoration: none; font-weight: 700; }
+.simple-button { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #111114; color: #fff; text-decoration: none; }
+main { padding: clamp(45px, 8vw, 100px) 0; }
+h1 { margin: 0; font-size: clamp(48px, 8vw, 94px); line-height: 1; letter-spacing: -.06em; }
+main > p { margin: 16px 0 28px; color: #55555c; font-size: 18px; }
+#scheduler-stage { margin: 24px 0 16px; padding: 16px; border-radius: 22px; border: 1px solid #e5e5e6; }
+#scheduler-title { font-size: 19px; margin: 0 0 12px; }
+#calendly-embed iframe { width: 100%; min-height: 520px; border: 0; }
+#booking-retry { padding: 8px 12px; }
+.contact-actions, footer { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+footer { border-top: 1px solid #e5e5e6; padding: 24px 0; font-size: 14px; }

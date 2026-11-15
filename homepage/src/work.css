@@ -933,3 +933,37 @@
     width: var(--w);
   }
 }
+
+.hero.intro-only.is-gl + .work { margin-top: 0; }
+.hero.intro-only .hero__stage { background: #fff; }
+.reel { height: 145svh; }
+.reel__sticky { height: 100svh; }
+.reel-toggle:not([hidden]) { position: absolute; right: 76px; top: 80px; z-index: 3; border-radius: 999px; border: 1px solid #ddd; padding: 10px 15px; font: 650 14px var(--font); cursor: pointer; }
+.reel__title { text-wrap: balance; letter-spacing: -.045em; }
+.industries { margin: 8px 0 0; font-size: clamp(19px, 3vw, 35px); }
+.industries strong { display: inline-block; }
+.creative-ads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; margin-top: 12px; }
+.creative-ads img { width: 100%; aspect-ratio: 4/5; object-fit: contain; border-radius: 8px; }
+.metrics-ads > div { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 10px; padding: 6px 0; font-size: 12px; border-top: 1px solid #ddd; }
+.metrics-ads img { width: 30px; border-radius: 3px; }
+.quote-card { margin: 0; }
+.quote-card blockquote { margin: 0 0 16px; font-size: clamp(21px, 3vw, 45px); line-height: 1.16; letter-spacing: -.035em; }
+.quote-card figcaption { color: #dedee2; }
+.team-pictures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+.team-pictures a { display: grid; gap: 3px; font-size: 14px; text-decoration: none; }
+.team-pictures img { width: 100%; max-width: 155px; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .svc__icon { transition: transform .25s; }
+  .svc--strategy:hover .svc__icon { transform: rotate(35deg); }
+  .svc--creative:hover .svc__icon { transform: rotate(-12deg) translateX(4px); }
+  .svc--test:hover .svc__icon { transform: translateY(-4px) scale(1.12); }
+  .svc--budget:hover .svc__icon { transform: scale(1.16); }
+  .team-pictures a img { transition: transform .2s; }
+  .team-pictures a:hover img { transform: translateY(-4px); }
+}
+@media (max-width: 720px) {
+  .reel-toggle:not([hidden]) { right: 68px; top: 71px; }
+  .reel__note { left: auto; right: 12px; max-width: 51%; text-align: right; }
+  .reel__copy { bottom: 76px; }
+}
+@media (prefers-reduced-motion: reduce) { .reel { height: auto; } }

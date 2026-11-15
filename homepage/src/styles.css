@@ -1,3 +1,4 @@
+@import '../../assets/fonts/growency-fonts.css';
 @font-face {
   font-family: 'Geist';
   src: url('/fonts/Geist-Variable.woff2') format('woff2');
@@ -400,3 +401,40 @@ html.has-campaign-viewer, .has-campaign-viewer body { overflow: hidden; }
 .campaign-viewer__close { position: absolute; top: max(20px, env(safe-area-inset-top)); right: 24px; padding: 12px 20px; border: 1px solid rgb(255 255 255 / .3); border-radius: 999px; background: rgb(255 255 255 / .12); color: #fff; font: 500 14px var(--font); cursor: pointer; backdrop-filter: blur(10px); }
 .campaign-viewer__caption { position: absolute; bottom: max(22px, env(safe-area-inset-bottom)); left: 20px; right: 20px; margin: 0; font-size: 13px; text-align: center; pointer-events: none; }
 .campaign-viewer :focus-visible { outline-color: white; }
+
+:root { --font: var(--growency-sans); }
+.home-book { margin-left: auto; }
+.hero__wordmark { left: 12%; right: 12%; }
+.hero.intro-only .hero__stage { opacity: calc(1 - var(--intro-exit, 0)); }
+.intro-cue { position: absolute; z-index: 4; bottom: 18px; left: 50%; transform: translateX(-50%); display: grid; text-align: center; gap: 3px; border: 1px solid var(--line); border-radius: 15px; background: white; padding: 10px 16px; font-size: 13px; white-space: nowrap; }
+.intro-cue a { padding: 8px; }
+.hero:not(.is-gl) .intro-cue { position: relative; inset: auto; transform: none; width: fit-content; margin: 18px auto 0; }
+.milestones { position: fixed; z-index: 40; top: 50%; right: 12px; transform: translateY(-50%); display: grid; padding: 5px; border: 1px solid #ddd; border-radius: 14px; background: #fff; box-shadow: 0 5px 20px #0001; }
+.milestones a { display: block; padding: 7px 9px; border-radius: 9px; font-size: 12px; text-decoration: none; }
+.milestones a:hover, .milestones a[aria-current] { color: white; background: #171719; }
+.worked-ticker { position: fixed; z-index: 40; bottom: 14px; left: 14px; background: #fff; border: 1px solid #ddd; border-radius: 13px; padding: 5px 12px; font-size: 12px; box-shadow: 0 5px 20px #0001; }
+.worked-ticker > div { display: grid; }
+.worked-ticker span, .brand-row span { display: flex; align-items: center; gap: 6px; white-space: nowrap; font-weight: 650; }
+.worked-ticker span { grid-area: 1 / 1; height: 37px; animation: client-cycle 12s infinite; }
+.worked-ticker span:nth-child(2) { animation-delay: -8s; }
+.worked-ticker span:nth-child(3) { animation-delay: -4s; }
+.worked-ticker:hover span { animation-play-state: paused; }
+@keyframes client-cycle { 0%, 27%, 100% { opacity: 1; } 33%, 94% { opacity: 0; } }
+.brand-row { display: grid; gap: 12px; margin-top: 14px; }
+.footer-navigation { display: flex; flex-wrap: wrap; align-content: start; gap: 12px 22px; max-width: 380px; }
+.ad-fallback { display: flex; overflow: auto; gap: 12px; scroll-snap-type: x mandatory; padding: 8px 0; }
+.ad-fallback a { flex: 0 0 min(38vw, 225px); scroll-snap-align: start; }
+.ad-fallback img { width: 100%; aspect-ratio: 4/5; object-fit: contain; }
+#services,#team,#pricing { scroll-margin-top: 78px; }
+@media (max-width: 720px) {
+  .milestones { top: 67px; right: 8px; transform: none; }
+  .milestones a { font-size: 10px; padding: 8px 6px; }
+  .worked-ticker { bottom: 5px; left: 5px; padding: 3px 6px; font-size: 10px; }
+  .worked-ticker span { height: 23px; }
+  .worked-ticker img { max-width: 95px; max-height: 23px; object-fit: contain; }
+  .intro-cue { bottom: 62px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .worked-ticker span { animation: none; }
+  .worked-ticker span:not(:first-child) { visibility: hidden; }
+}

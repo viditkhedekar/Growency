@@ -84,7 +84,7 @@ export class RingText {
     const pad = SPREAD + 8;
     const lineH = FONT_PX * 1.12 * SS;
     const probe = document.createElement('canvas').getContext('2d')!;
-    const font = `500 ${FONT_PX * SS}px Geist, ui-sans-serif, system-ui, sans-serif`;
+    const font = `500 ${FONT_PX * SS}px 'Rethink Sans', ui-sans-serif, system-ui, sans-serif`;
     probe.font = font;
     probe.letterSpacing = `${-0.03 * FONT_PX * SS}px`;
     const widths = TAGLINE.map((l) => probe.measureText(l).width);

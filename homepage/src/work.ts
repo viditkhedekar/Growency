@@ -56,10 +56,30 @@ export function initWork(motion: boolean) {
   const reel = work.querySelector<HTMLElement>('[data-reel]');
   const video = work.querySelector<HTMLVideoElement>('[data-reel-video]');
   if (reel && video) {
-    new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) void video.play().catch(() => {});
-      else if (video.dataset.portal !== 'open') video.pause();
-    }).observe(reel);
+    const toggle = reel.querySelector<HTMLButtonElement>('.reel-toggle')!;
+    let wantsPlay = motion;
+    let visible = false;
+    video.defaultPlaybackRate = .6;
+    video.playbackRate = .6;
+
+    function sync() {
+      if (visible && wantsPlay && !document.hidden) void video!.play().catch(() => {});
+      else video!.pause();
+    }
+    function updateButton() {
+      const label = video!.paused ? 'Play' : 'Pause';
+      toggle.textContent = label;
+      toggle.setAttribute('aria-label', label + ' sample ads');
+    }
+    toggle.hidden = false;
+    toggle.addEventListener('click', () => { wantsPlay = video.paused; sync(); });
+    video.addEventListener('play', updateButton);
+    video.addEventListener('pause', updateButton);
+    document.addEventListener('visibilitychange', sync);
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      sync();
+    }, { threshold: .2 }).observe(reel);
   }
 
   if (!motion || !reel) return;
@@ -78,7 +98,7 @@ export function initWork(motion: boolean) {
         trigger: reel,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 0.6,
+        scrub: 0.25,
         refreshPriority: -1,
         onUpdate: (self) => reel.classList.toggle('is-framed', self.progress > 0.8),
       },
