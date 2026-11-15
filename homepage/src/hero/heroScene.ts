@@ -114,6 +114,9 @@ export class HeroScene {
 
   // grab-and-rotate for the finished mark
   private markActive = false;
+  /** How fully the rotating mark fits in the viewport. */
+  private markFit = 1;
+  private markBox = { x0: 0, y0: 0, x1: 0, y1: 0 };
   private logoDragging = false;
   private logoMoved = 0;
   private rotX = 0;
@@ -143,7 +146,7 @@ export class HeroScene {
     this.chrome = new ChromeMark(this.renderer, this.scene);
     this.logo.add(this.chrome.root);
     // Window in the middle facet that the final zoom flies through.
-    this.portal = new Portal();
+    this.portal = new Portal(document.querySelector<HTMLVideoElement>('[data-reel-video]'));
     this.logo.add(this.portal.mesh);
     this.scene.add(this.logo);
     this.ui.add(this.word.group);
@@ -163,7 +166,10 @@ export class HeroScene {
     new ResizeObserver(() => this.resize()).observe(els.stage);
     new IntersectionObserver(([e]) => {
       this.visible = e.isIntersecting;
-      if (!this.visible) this.videos.pauseAll();
+      if (!this.visible) {
+        this.videos.pauseAll();
+        this.portal.update(0);
+      }
     }).observe(els.hero);
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) this.videos.pauseAll();
@@ -193,6 +199,7 @@ export class HeroScene {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     this.renderer.setPixelRatio(dpr);
     this.renderer.setSize(w, h, false);
+    this.portal.setResolution(w * dpr, h * dpr);
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
     this.uiCam.right = w;
@@ -212,8 +219,8 @@ export class HeroScene {
 
     // Ring sits in the space under the wordmark.
     const navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 64;
-    const zoneTop = rect.y + rect.h + (small ? 12 : 8);
-    const zoneBottom = h - (small ? 110 : 104);
+    const zoneTop = rect.y + rect.h + (small ? 42 : 8);
+    const zoneBottom = h - (small ? 140 : 102);
     const zoneH = Math.max(120, zoneBottom - zoneTop);
     const cardRatio = small ? 0.46 : 0.365; // card width relative to radius (lower = more space between cards)
     const frontMax = small ? 1.16 : 1.22;
@@ -479,11 +486,15 @@ export class HeroScene {
     const settle = smooth(seg(this.p, T.turnEnd, T.settleEnd));
     // Settle along the shortest arc BEFORE scaling. Multiplying a multi-turn
     // drag angle by zoom progress would unwind it through the entire close-up.
-    const dragY = Math.atan2(Math.sin(this.rotY), Math.cos(this.rotY));
-    const inputY = settle > 0 ? dragY : this.rotY;
     const restTilt = Math.sin(turn * Math.PI) * 0.12;
-    this.logo.rotation.set((restTilt + this.rotX) * (1 - settle), TAU * turn + inputY * (1 - settle), 0);
-    if (this.p >= T.settleEnd) {
+    // The visitor's rotation is free while the whole mark is on screen
+    // (markFit = 1, from last frame's measurement). As the zoom starts to crop
+    // it, the rotation unwinds along the shortest arc so the push-in faces front.
+    const fit = this.markFit;
+    const dragY = Math.atan2(Math.sin(this.rotY), Math.cos(this.rotY));
+    const inputY = fit < 1 ? dragY : this.rotY;
+    this.logo.rotation.set(restTilt * (1 - settle) + this.rotX * fit, TAU * turn + inputY * fit, 0);
+    if (fit <= 0.001 && (this.rotX || this.rotY || this.logoDragging)) {
       this.rotX = this.rotY = this.rotVelX = this.rotVelY = 0;
       this.logoDragging = false;
     }
@@ -493,6 +504,7 @@ export class HeroScene {
     this.logo.position.copy(logoCenter).multiplyScalar(1 - zoom);
     this.logo.position.addScaledVector(focus, -scale * zoom);
     this.logo.updateMatrixWorld(true);
+    this.measureMark(scale);
 
     const sweep = lerp(-0.2, 1.2, smooth(c));
     const glint = lerp(-0.4, 1.5, smooth(seg(c, 0.30, 1)));
@@ -501,7 +513,7 @@ export class HeroScene {
     // As the push-in magnifies the reflections into blurry bands, flatten the
     // surface to one constant colour so the zoom lands cleanly.
     this.chrome.setFill(smooth(seg(ph.zoom, 0.28, 0.72)));
-    // The middle facet opens onto the background of the slideshow below.
+    // The middle facet opens onto the same reel rendered in the next section.
     this.portal.setFocus(-0.22, 0);
     this.portal.update(smooth(seg(ph.zoom, 0.04, 0.5)));
     this.els.hero.classList.toggle('is-through', this.p >= T.zoomEnd - 0.0015);
@@ -684,6 +696,19 @@ export class HeroScene {
     this.posters.request(this.cards.map((c) => c.index));
   }
 
+  /** Screen box of the (unrotated) mark, and how fully it fits in the viewport. */
+  private measureMark(scale: number) {
+    const hw = (MARK_ASPECT / 2) * scale;
+    const hh = scale / 2;
+    const c = this.logo.position;
+    const a = this.worldToPx(_v.set(c.x - hw, c.y + hh, 0));
+    const b = this.worldToPx(_v.set(c.x + hw, c.y - hh, 0));
+    this.markBox = { x0: a.x, y0: a.y, x1: b.x, y1: b.y };
+    const { w, h } = this.L;
+    const overflow = Math.max(0, -a.x, b.x - w, -a.y, b.y - h);
+    this.markFit = 1 - smooth(clamp01(overflow / (0.12 * h)));
+  }
+
   private updateUi(ph: Phases) {
     const { hint, markHit } = this.els;
     if (hint) {
@@ -691,8 +716,7 @@ export class HeroScene {
       hint.style.opacity = String(1 - fading);
       hint.inert = fading >= 0.99;
     }
-    // Interact as soon as the first chrome appears, including during the shine.
-    const active = ph.chrome > 0 && this.p < T.turnEnd;
+    const active = ph.chrome > 0 && this.markFit >= 0.999;
     this.markActive = active;
     if (active !== markHit.classList.contains('is-active')) {
       markHit.classList.toggle('is-active', active);
@@ -707,12 +731,9 @@ export class HeroScene {
       }
     }
     if (active) {
-      // Hit target covers the mark's resting on-screen bounds (stable while it spins).
-      const { logoCenter: lc, logoH } = this.L;
-      const hw = (MARK_ASPECT / 2) * logoH;
-      const a = this.worldToPx(_v.set(lc.x - hw, lc.y + logoH / 2, 0));
-      const b = this.worldToPx(_v.set(lc.x + hw, lc.y - logoH / 2, 0));
-      Object.assign(markHit.style, { left: `${a.x}px`, top: `${a.y}px`, width: `${b.x - a.x}px`, height: `${b.y - a.y}px` });
+      // Hit target covers the mark's unrotated on-screen box (stable while it spins).
+      const { x0, y0, x1, y1 } = this.markBox;
+      Object.assign(markHit.style, { left: `${x0}px`, top: `${y0}px`, width: `${x1 - x0}px`, height: `${y1 - y0}px` });
     }
   }
 

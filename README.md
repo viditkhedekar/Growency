@@ -8,7 +8,7 @@ npm run build
 python3 dev_server.py 4341
 ```
 
-Open http://localhost:4341 to preview the build with clean URLs. For live homepage edits, run `npm run dev`. The root homepage uses the scroll sequence from [the Growency reference](https://github.com/Abhiram-745/trygrowency/tree/42b36bd2eff191b9306f2977b7d852a9f6412f59). The previous homepage is preserved at `/landing-page-2026-11-15`.
+Open http://localhost:4341 to preview the build with clean URLs. For live homepage edits, run `npm run dev`. To test video seeking in a production build, use `npm run preview`, which serves byte-range requests. The root homepage uses the scroll sequence from [the Growency reference](https://github.com/Abhiram-745/trygrowency/tree/4f010d7). The previous homepage is preserved at `/landing-page-2026-11-15`.
 
 ## Page URLs
 

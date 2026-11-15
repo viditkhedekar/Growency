@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Rethink Sans';
+  src: url('./rethink-sans-latin.woff2') format('woff2');
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+:root {
+  --growency-sans: 'Rethink Sans', Arial, sans-serif;
+  --sans: var(--growency-sans);
+}

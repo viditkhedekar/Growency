@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Growency | The hedge fund for Meta ads</title>
-    <meta name="description" content="Growency runs Meta ads with a spending limit and a pass mark for every test. We increase budgets when ads meet the targets we agree with you." />
+    <meta name="description" content="Growency builds growth campaigns: strategy, creative and performance, under one roof." />
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="preload" href="/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/rethink-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon-v2.png">
     <script>
       document.documentElement.classList.replace('no-js', 'js');
@@ -21,15 +21,6 @@
         <svg class="site-nav__mark" data-mark-icon aria-hidden="true" focusable="false"></svg>
         <span class="site-nav__name">growency</span>
       </a>
-      <div class="hero__clients" data-hero-clients>
-        <span class="hero__clients-label">Worked with</span>
-        <span class="visually-hidden">Posting Machine, Kairos Health (YC F26), and Infratex</span>
-        <div class="hero__clients-names" aria-hidden="true">
-          <span>Posting Machine</span>
-          <span>Kairos Health <small>YC F26</small></span>
-          <span>Infratex</span>
-        </div>
-      </div>
       <a class="button button--primary site-nav__cta" href="/book">Book a call <span aria-hidden="true">↗</span></a>
     </header>
 
@@ -59,79 +50,189 @@
             <svg class="hero__static-mark" data-static-mark role="img" aria-label="The Growency mark, filled with campaign work"></svg>
           </div>
 
-          <div class="hero__hint" data-hero-hint>
-            <div class="hero__hint-main">
-              <span>Scroll at your own pace <span aria-hidden="true">↓</span></span>
-              <progress class="hero__progress" data-hero-progress max="1" value="0" aria-label="Intro scroll progress"></progress>
+          <div class="hero__clients" data-hero-clients>
+            <p>Worked with</p>
+            <span class="visually-hidden">Posting Machine, Kairos Health (YC F26), and Infratex</span>
+            <div class="hero__clients-names" aria-hidden="true">
+              <span class="client-logo client-logo--posting"><img src="/media/clients/posting-machine-logo.png" alt="" width="52" height="52" /><b>Posting Machine</b></span>
+              <span class="client-logo client-logo--kairos"><img src="/media/clients/kairos-logo.png" alt="" width="52" height="52" /><b>Kairos Health</b><small>YC F26</small></span>
+              <span class="client-logo client-logo--infratex"><img src="/media/clients/infratex-logo.svg" alt="Infratex" width="224" height="56" /></span>
             </div>
-            <a href="#sample-ads">Skip to sample ads <span aria-hidden="true">↓</span></a>
+          </div>
+
+          <div class="hero__hint" data-hero-hint>
+            <div class="hero__hint-inner">
+              <p data-hero-instruction>Scroll down to reveal the logo</p>
+              <progress class="hero__progress" data-hero-progress max="1" value="0" aria-label="Intro scroll progress"></progress>
+              <div class="hero__hint-actions">
+                <button type="button" data-hero-next>Reveal the logo <span aria-hidden="true">↓</span></button>
+                <a href="#sample-ads" data-hero-skip>Skip intro</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="work" aria-labelledby="work-title">
-        <div class="reel" id="sample-ads">
-          <div class="reel__inner">
-            <div class="reel__copy">
-              <h2 id="work-title" class="reel__title">We are the hedge fund for <em>Meta ads.</em></h2>
-              <p class="reel__lede">We run Facebook and Instagram ads. Before each test, we agree how much it can spend and what a sale or qualified lead can cost.</p>
-              <a class="pill pill--light" href="#work">Worked with <span aria-hidden="true">↓</span></a>
+      <section class="work" aria-labelledby="work-title" data-work>
+        <!-- The hero's final zoom flies through the mark into this reel. -->
+        <div class="reel" id="sample-ads" data-reel>
+          <div class="reel__sticky">
+            <div class="reel__frame" data-reel-frame>
+              <video class="reel__video" data-reel-video muted loop playsinline preload="none" poster="/media/reel/spec-reel.jpg" aria-hidden="true">
+                <source src="/media/reel/spec-reel.mp4" type="video/mp4" />
+              </video>
+              <div class="reel__shade" data-reel-shade></div>
             </div>
-
-            <section class="slideshow" aria-labelledby="ads-title" data-slideshow>
-              <div class="slideshow__header">
-                <h3 id="ads-title">Sample ads</h3>
-                <div class="slideshow__controls" data-slideshow-controls hidden>
-                  <button type="button" data-ad-previous aria-label="Previous ad">←</button>
-                  <button type="button" data-ad-toggle>Pause</button>
-                  <button type="button" data-ad-next aria-label="Next ad">→</button>
-                </div>
+            <div class="reel__copy" data-reel-copy>
+              <p class="eyebrow">Paid social</p>
+              <h2 id="work-title" class="reel__title">
+                <span class="reel__line"><span>We are the hedge fund</span></span>
+                <span class="reel__line"><span>for <span class="mute">Meta ads.</span></span></span>
+              </h2>
+              <p class="reel__lede">We run Facebook and Instagram ads. Before each test, we agree how much it can spend and what a sale or qualified lead can cost.</p>
+              <div class="reel__actions">
+                <a class="pill pill--light" href="/book">Let’s talk ads <span aria-hidden="true">↗</span></a>
               </div>
-              <figure class="slideshow__figure">
-                <img data-ad-image src="/assets/spec-ads/aside-invoice-matching.png" width="1080" height="1350" alt="Aside spec ad showing an AI browser assistant matching invoices against a spreadsheet." loading="lazy" decoding="async" />
-                <figcaption>
-                  <span data-ad-note>Growency Spec · Not commissioned by Aside</span>
-                  <span data-ad-position aria-hidden="true"></span>
-                </figcaption>
-              </figure>
-              <span class="visually-hidden" role="status" data-ad-announcement></span>
-            </section>
+            </div>
+            <a class="pill pill--light reel__continue" href="#services">Scroll for services <span aria-hidden="true">↓</span></a>
+            <div class="reel__controls" data-reel-controls hidden>
+              <button type="button" data-reel-toggle aria-label="Play sample ads">Play</button>
+              <input type="range" data-reel-seek min="0" max="1" step="0.01" value="0" aria-label="Seek through the sample ads" disabled />
+              <span class="reel__time" data-reel-time aria-hidden="true">0:00</span>
+            </div>
+            <p class="reel__note">Growency spec work · Not commissioned by the brands shown</p>
           </div>
         </div>
 
-        <div class="bento">
-          <section class="tile tile--clients" id="work" aria-labelledby="client-title">
-            <h2 id="client-title">Worked with</h2>
+        <div class="services" id="services">
+          <header class="services__head">
+            <p class="eyebrow">What we do</p>
+            <h2 class="services__title">Strategy, creative and performance. <span class="mute">Under one roof.</span></h2>
+            <p class="services__lede">We create and run ads on Facebook and Instagram. Every test gets a spending limit and a cost target we agree with you, and the results decide what we scale, pause or try next.</p>
+          </header>
+
+          <section class="svc--clients" id="work" aria-labelledby="clients-title">
+            <h2 id="clients-title">Worked with</h2>
             <ul class="clients">
-              <li><a href="https://www.postingmachine.ai/" target="_blank" rel="noopener noreferrer"><span>Posting Machine</span><span class="clients__arrow" aria-hidden="true">↗</span></a></li>
-              <li><a href="https://kairoshealthai.com/" target="_blank" rel="noopener noreferrer"><span>Kairos Health</span><small>YC F26</small><span class="clients__arrow" aria-hidden="true">↗</span></a></li>
-              <li><a href="https://www.infratex.ai/" target="_blank" rel="noopener noreferrer"><span>Infratex</span><span class="clients__arrow" aria-hidden="true">↗</span></a></li>
+              <li><a href="https://www.postingmachine.ai/" target="_blank" rel="noopener noreferrer"><span class="client-logo client-logo--posting"><img src="/media/clients/posting-machine-logo.png" alt="" width="52" height="52" /><b>Posting Machine</b></span></a></li>
+              <li><a href="https://kairoshealthai.com/" target="_blank" rel="noopener noreferrer"><span class="client-logo client-logo--kairos"><img src="/media/clients/kairos-logo.png" alt="" width="52" height="52" /><b>Kairos Health</b><small>YC F26</small></span></a></li>
+              <li><a href="https://www.infratex.ai/" target="_blank" rel="noopener noreferrer"><span class="client-logo client-logo--infratex"><img src="/media/clients/infratex-logo.svg" alt="Infratex" width="224" height="56" /></span></a></li>
             </ul>
           </section>
 
-          <section class="tile tile--price" id="pricing" aria-labelledby="price-title">
-            <h2 id="price-title">Engagements start at <strong>$999</strong> per month.</h2>
-            <a class="pill pill--light" href="/book">Let’s talk ads <span aria-hidden="true">↗</span></a>
-          </section>
+          <h2 class="services__workflow" id="approach">Plan. Create. Test. Scale.</h2>
+          <div class="bento" data-bento>
+            <article class="tile svc svc--strategy" style="--i:0">
+              <div class="svc__top"><span class="svc__num">01</span><svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/></svg></div>
+              <h3>Campaign strategy</h3>
+              <p>Bring us a problem. We’ll turn it into an ad plan: who to reach, what to say and what a result is worth.</p>
+              <div class="ui ui--brief" aria-hidden="true">
+                <div class="ui__bar"><span>Growency</span><span>Year 7 admissions</span><em>Sample data</em></div>
+                <p class="ui__kicker">Brief created ✓</p>
+                <p class="ui__title">Year 7 admissions plan</p>
+                <dl>
+                  <div><dt>Open places</dt><dd>6</dd></div>
+                  <div><dt>Spend cap per ad</dt><dd>AED 2,400</dd></div>
+                  <div><dt>Success metric</dt><dd>Attended tours</dd></div>
+                </dl>
+              </div>
+            </article>
 
-          <section class="tile tile--workflow" id="approach" aria-labelledby="approach-title">
-            <h2 id="approach-title">Plan. Create. Test. <em>Scale.</em></h2>
-            <ol class="workflow-steps">
-              <li>Bring us a problem. We’ll turn it into an ad plan.</li>
-              <li>We build a portfolio of ads around different angles.</li>
-              <li>We run controlled tests and track what happens after the click.</li>
-              <li>We use the results to decide where your next pound goes.</li>
-            </ol>
-          </section>
+            <article class="tile svc svc--creative" style="--i:1">
+              <div class="svc__top"><span class="svc__num">02</span><svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h11v14H4zM15 8l5-2v12l-5-2"/></svg></div>
+              <h3>Creative development</h3>
+              <p>A portfolio of ads built around different angles: hooks, offers and formats, ready to test against each other.</p>
+              <div class="ui ui--variants" aria-hidden="true">
+                <div class="variant" style="--c:#e4dccf;--t:#2b2620"><div class="variant__art"><small>Hook A</small><span>Campus overview</span></div><b>A</b><p>Static</p></div>
+                <div class="variant" style="--c:#1d2a24;--t:#f3f1ea"><div class="variant__art"><small>Hook B</small><span>First week of Year 7</span><i class="variant__play"></i></div><b>B</b><p>Video · 15s</p></div>
+                <div class="variant" style="--c:#d6dfe3;--t:#1c2529"><div class="variant__art"><small>Hook C</small><span>New relocation hook</span></div><b>C</b><p>Carousel</p></div>
+              </div>
+            </article>
+
+            <article class="tile svc svc--test" data-test style="--i:2">
+              <div class="svc__top"><span class="svc__num">03</span><svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+              <h3>Testing &amp; measurement</h3>
+              <p>Controlled tests that track what happens after the click, not just the click.</p>
+              <div class="ui ui--test" aria-hidden="true">
+                <p class="ui__kicker">Test 01 · Cost per attended tour</p>
+                <div class="bars">
+                  <div class="bar" style="--v:1"><span class="bar__key">A</span><span class="bar__track"><span class="bar__fill"></span></span><b data-count="1200" data-prefix="AED ">AED 1,200</b></div>
+                  <div class="bar bar--win" style="--v:.25"><span class="bar__key">B</span><span class="bar__track"><span class="bar__fill"></span></span><b data-count="300" data-prefix="AED ">AED 300</b></div>
+                </div>
+                <p class="ui__result">Ad B costs 75% less per attended tour</p>
+              </div>
+            </article>
+
+            <article class="tile svc svc--budget" data-budget style="--i:3">
+              <div class="svc__top"><span class="svc__num">04</span><svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+              <h3>Budget allocation</h3>
+              <p>The results decide where your next pound goes. Winners get more, losers get cut.</p>
+              <div class="ui ui--alloc" aria-hidden="true">
+                <div class="alloc__bar"><span style="--w:75%">Scale 75%</span><span style="--w:25%">Test 25%</span></div>
+                <ul>
+                  <li><span>First week of Year 7</span><b class="tag tag--go">Scale</b><em>AED 1,800</em></li>
+                  <li><span>Campus overview</span><b class="tag tag--stop">Pause</b><em>AED 0</em></li>
+                  <li><span>New relocation hook</span><b class="tag">Test</b><em>AED 600</em></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="tile svc svc--report" style="--i:4">
+              <div class="svc__top"><span class="svc__num">05</span><svg class="svc__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM9 12h7M9 16h5"/></svg></div>
+              <h3>Reporting</h3>
+              <p>For every test you see what we tried, what it cost, whether it passed and what we’re doing with the budget next.</p>
+              <div class="ui ui--report" aria-hidden="true">
+                <div class="row"><span>Hook test · Week 2</span><b class="tag tag--go">Passed</b></div>
+                <div class="row"><span>Offer test · Week 3</span><b class="tag tag--stop">Missed target</b></div>
+                <div class="row"><span>Format test · Week 4</span><b class="tag">Running</b></div>
+              </div>
+            </article>
+
+            <article class="tile tile--ink svc--statement" style="--i:5">
+              <p class="tile__eyebrow">How every test starts</p>
+              <p class="statement">A limit for every test.<br /><span class="mute">A pass mark before launch.</span></p>
+            </article>
+
+            <article class="tile svc--price" id="pricing" style="--i:6">
+              <p class="tile__eyebrow">Pricing</p>
+              <p class="price">Engagements start at <strong>$999</strong> per month.</p>
+              <ol class="price__list">
+                <li><b>Campaign scope</b><span>Which campaigns we manage and what creative you need.</span></li>
+                <li><b>Media budget</b><span>Ad spend set aside for the first round of tests.</span></li>
+                <li><b>Success criteria</b><span>What counts as a conversion and what it can cost.</span></li>
+              </ol>
+              <a class="tile__link" href="/book">Talk through your budget <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="tile svc--faq" id="faq" style="--i:7">
+              <p class="tile__eyebrow">Questions</p>
+              <details open><summary>What do you test?</summary><p>We start with the biggest open question: which hook gets attention, which offer converts, or which format brings in customers at the right cost.</p></details>
+              <details><summary>When do you scale an ad?</summary><p>When it hits the cost target with enough conversions to pass the test, and it stays within target as spend goes up.</p></details>
+              <details><summary>How do we get started?</summary><p>Tell us what you sell, who buys it and what you want the campaign to achieve. If you already run ads, we’ll use what you’ve learned to plan the first tests.</p></details>
+              <div class="faq__more"><span>Still have questions?</span><a class="pill pill--ink" href="/book">Talk to us <span aria-hidden="true">↗</span></a></div>
+            </article>
+
+            <figure class="tile tile--ink svc--quote">
+              <figcaption class="tile__eyebrow">How we think</figcaption>
+              <blockquote>We are ruthless with our ads. We cut what doesn’t work and pump more into what <strong>the data says is working.</strong></blockquote>
+            </figure>
+
+            <article class="tile tile--ink svc--cta" style="--i:9">
+              <p class="tile__eyebrow">The next trade</p>
+              <h3 class="cta__title">What should your next customer <span class="mute">cost?</span></h3>
+              <a class="pill pill--light pill--large" href="/book">Let’s talk ads <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+          <p class="services__fine">Examples show an illustrative campaign for a fictional school. Terms, pricing and scope are agreed in writing before work begins.</p>
         </div>
       </section>
     </main>
 
     <footer class="world-footer" aria-label="Growency footer">
-      <div class="world-footer__media">
+      <div class="world-footer__media" data-footer-media>
         <picture>
-          <source media="(max-width: 800px)" srcset="/media/footer/footer-mobile-poster.webp" />
-          <img src="/media/footer/footer-desktop-poster.webp" alt="" width="1280" height="720" loading="lazy" decoding="async" />
+          <source media="(max-width: 800px)" srcset="/images/footer-mobile.webp" width="941" height="1672" />
+          <img src="/images/footer-desktop.webp" alt="" width="1672" height="941" loading="lazy" decoding="async" />
         </picture>
       </div>
       <div class="world-footer__top">

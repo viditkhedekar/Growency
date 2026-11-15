@@ -1,4 +1,8 @@
-// The middle facet opens onto the dark background of the slideshow.
+// The "window" in the middle facet of the mark. As the final zoom pushes into
+// the chrome, the facet opens (an iris from the zoom focus) onto the spec-ad
+// reel. The reel is sampled in SCREEN space with cover-fit, so when the facet
+// fills the viewport the frame is pixel-identical to the full-bleed reel that
+// opens the next section, and the hand-off is seamless.
 import * as THREE from 'three';
 import { MARK_FACETS_UNIT, type Pt } from '../brand/mark';
 
@@ -34,8 +38,9 @@ void main() {
 }`;
 
 const fragmentShader = /* glsl */ `
-uniform float uOpen;
-uniform vec2 uFocus;
+uniform sampler2D map;
+uniform float uHasMap, uTexAspect, uOpen;
+uniform vec2 uRes, uFocus;
 varying vec2 vMark;
 void main() {
   // iris opening from the zoom focus
@@ -45,7 +50,12 @@ void main() {
   float iris = 1.0 - smoothstep(r - aa, r + aa, d);
   if (iris <= 0.0) discard;
 
-  vec3 col = vec3(20.0, 20.0, 22.0) / 255.0;
+  // screen-space cover-fit, so the full-screen state matches the DOM reel exactly
+  vec2 uv = gl_FragCoord.xy / uRes;
+  float sa = uRes.x / uRes.y;
+  vec2 c = uv - 0.5;
+  if (sa > uTexAspect) c.y *= uTexAspect / sa; else c.x *= sa / uTexAspect;
+  vec3 col = uHasMap > 0.5 ? texture2D(map, c + 0.5).rgb : vec3(0.067, 0.067, 0.078);
 
   // bright lip on the opening edge while it widens
   float lip = smoothstep(0.035, 0.0, r - d) * (1.0 - smoothstep(0.85, 1.0, uOpen));
@@ -56,11 +66,17 @@ void main() {
 export class Portal {
   readonly mesh: THREE.Mesh<THREE.ShapeGeometry, THREE.ShaderMaterial>;
   readonly u = {
+    map: { value: null as THREE.Texture | null },
+    uHasMap: { value: 0 },
+    uTexAspect: { value: 16 / 9 },
     uOpen: { value: 0 },
+    uRes: { value: new THREE.Vector2(1, 1) },
     uFocus: { value: new THREE.Vector2(-0.22, 0) },
   };
+  private tex?: THREE.VideoTexture;
+  private poster?: THREE.Texture;
 
-  constructor() {
+  constructor(private video: HTMLVideoElement | null) {
     const pts = insetConvex(MARK_FACETS_UNIT[MIDDLE], RIM);
     const shape = new THREE.Shape(pts.map(([x, y]) => new THREE.Vector2(x, y)));
     this.mesh = new THREE.Mesh(
@@ -77,8 +93,41 @@ export class Portal {
     this.u.uFocus.value.set(x, y);
   }
 
+  setResolution(w: number, h: number) {
+    this.u.uRes.value.set(w, h);
+  }
+
   update(open: number) {
     this.u.uOpen.value = open;
     this.mesh.visible = open > 0.001;
+    const v = this.video;
+    if (!v) return;
+    const active = this.mesh.visible;
+    const wasActive = v.dataset.portal === 'open';
+    if (active !== wasActive) {
+      v.dataset.portal = active ? 'open' : '';
+      v.dispatchEvent(new Event('reel-portal-change'));
+    }
+    if (!active) return;
+
+    if (!this.tex) {
+      this.tex = new THREE.VideoTexture(v);
+      this.tex.colorSpace = THREE.NoColorSpace;
+      this.tex.minFilter = THREE.LinearFilter;
+      this.tex.generateMipmaps = false;
+      new THREE.TextureLoader().load(v.poster, (texture) => {
+        this.poster = texture;
+      });
+    }
+    if (v.readyState >= 2) {
+      this.u.map.value = this.tex;
+      this.u.uHasMap.value = 1;
+      this.u.uTexAspect.value = v.videoWidth / v.videoHeight || 16 / 9;
+    } else if (this.poster) {
+      this.u.map.value = this.poster;
+      this.u.uHasMap.value = 1;
+      const image = this.poster.image as HTMLImageElement;
+      this.u.uTexAspect.value = image.width / image.height;
+    }
   }
 }
