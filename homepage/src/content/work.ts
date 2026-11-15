@@ -1,7 +1,7 @@
 // Real Growency spec ads, from trygrowency.com (assets/spec-ads).
 // Each is Growency's own speculative work and was NOT commissioned by the
 // brand shown, so every place an ad appears must keep its `note`.
-// Files live in public/media/work/. Edit, reorder or add entries here.
+// This list contains the current homepage creative. Older versions stay in the asset archive.
 
 export interface SpecAd {
   id: string;
@@ -107,6 +107,33 @@ export const SPEC_ADS: SpecAd[] = [
     width: 880,
     height: 1100,
     alt: "Design a wardrobe around your clothes. Yes, all of them. A modular wardrobe has space for coats, folded clothes and shoes.",
+  },
+  {
+    id: "confetti",
+    title: "Confetti · Make the part you can’t find",
+    note: "Growency Spec · Not commissioned by Confetti",
+    src: "/assets/spec-ads/Confetti-Meta-Ad.png",
+    width: 1080,
+    height: 1350,
+    alt: "Make the part you can’t find. An orange 3D-printed cable clip grips the edge of a wooden desk.",
+  },
+  {
+    id: "vyra",
+    title: "Vyra · Cut the dead air",
+    note: "Growency Spec · Not commissioned by Vyra",
+    src: "/assets/spec-ads/Vyra-Meta-Ad.png",
+    width: 1080,
+    height: 1350,
+    alt: "Cut the dead air. Two frames of a speaker sit above a detached empty frame of film.",
+  },
+  {
+    id: "raven",
+    title: "Raven · Give it a task",
+    note: "Growency Spec · Not commissioned by Raven",
+    src: "/assets/spec-ads/Raven-Meta-Ad.png",
+    width: 1080,
+    height: 1350,
+    alt: "Give it a task. Put it down. A dark Raven phone lies face down on a black table.",
   },
 ];
 
