@@ -127,16 +127,16 @@ export function initWork(motion: boolean) {
         trigger: reel,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 0.25,
+        scrub: 0.48,
         refreshPriority: -1,
         onUpdate: (self) => reel.classList.toggle('is-framed', self.progress > 0.8),
       },
       defaults: { ease: 'none' },
     })
     // Breathe on the full-bleed reel for a beat, then darken and rise the headline.
-    .to(video, { scale: 1.06, duration: 1 }, 0)
-    .to(shade, { opacity: 1, duration: 0.3 }, 0.12)
-    .to(copy, { opacity: 1, duration: 0.01 }, 0.12)
+    .to(video, { scale: 1.035, duration: 1, ease: 'sine.inOut' }, 0)
+    .to(shade, { opacity: 1, duration: 0.46, ease: 'sine.inOut' }, 0.07)
+    .to(copy, { opacity: 1, duration: 0.24, ease: 'sine.out' }, 0.12)
     .to(lines, { yPercent: 0, duration: 0.28, stagger: 0.06, ease: 'power3.out' }, 0.14)
     .to(rest, { opacity: 1, y: 0, duration: 0.22, stagger: 0.04, ease: 'power2.out' }, 0.3)
     // Then the reel draws in to a framed panel before the bento.

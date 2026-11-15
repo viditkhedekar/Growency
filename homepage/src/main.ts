@@ -14,24 +14,29 @@ const $ = <T extends Element>(sel: string) => document.querySelector<T>(sel)!;
 fillMarkIcon($<SVGSVGElement>('[data-mark-icon]'));
 fillMarkIcon($<SVGSVGElement>('[data-footer-mark]'));
 
-const fallback = $<HTMLElement>('[data-hero-static]');
-const track = document.createElement('div');
-track.className = 'ad-fallback';
-track.tabIndex = 0;
-track.setAttribute('aria-label', 'Sample ads');
-for (const ad of CAMPAIGNS) {
-  const link = document.createElement('a');
-  link.href = ad.poster;
-  const image = new Image();
-  image.src = ad.poster;
-  image.alt = ad.alt;
-  image.loading = 'lazy';
-  link.append(image);
-  track.append(link);
-}
-fallback.replaceChildren(track);
+const hero = $<HTMLElement>('[data-hero]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const forceStatic = new URLSearchParams(location.search).has('static');
+
+function showStaticHero() {
+  const track = document.createElement('div');
+  track.className = 'ad-fallback';
+  track.tabIndex = 0;
+  track.setAttribute('aria-label', 'Sample ads');
+  for (const ad of CAMPAIGNS) {
+    const link = document.createElement('a');
+    link.href = ad.poster;
+    const image = new Image();
+    image.src = ad.poster;
+    image.alt = ad.alt;
+    image.loading = 'lazy';
+    link.append(image);
+    track.append(link);
+  }
+  $<HTMLElement>('[data-hero-static]').replaceChildren(track);
+  hero.classList.remove('is-gl', 'is-eroding');
+  hero.classList.add('is-static');
+}
 
 function webglAvailable() {
   try {
@@ -46,11 +51,12 @@ if (!reduceMotion && !forceStatic && webglAvailable()) {
   initMotion()
     .catch((err) => {
       console.error('Hero animation failed, using static layout', err);
-      $('[data-hero]').classList.remove('is-gl');
+      showStaticHero();
     })
     // The work section measures its scroll positions after the hero pin exists.
     .finally(() => initWork(!reduceMotion));
 } else {
+  showStaticHero();
   initWork(!reduceMotion);
 }
 
@@ -58,7 +64,6 @@ async function initMotion() {
   // three.js and the scene code load only when motion is allowed.
   const { HeroScene } = await import('./hero/heroScene');
   await document.fonts?.ready;
-  const hero = $<HTMLElement>('[data-hero]');
   const stage = $<HTMLElement>('[data-hero-stage]');
   const scene = new HeroScene(
     {

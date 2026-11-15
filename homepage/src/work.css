@@ -940,8 +940,22 @@
 .reel__sticky { height: 100svh; }
 .reel-toggle:not([hidden]) { position: absolute; right: 76px; top: 80px; z-index: 3; border-radius: 999px; border: 1px solid #ddd; padding: 10px 15px; font: 650 14px var(--font); cursor: pointer; }
 .reel__title { text-wrap: balance; letter-spacing: -.045em; }
-.industries { margin: 8px 0 0; font-size: clamp(19px, 3vw, 35px); }
-.industries strong { display: inline-block; }
+.industries {
+  display: grid;
+  gap: 3px;
+  width: min(100%, 600px);
+  margin: 8px 0 0;
+  padding: 15px clamp(14px, 3vw, 25px);
+  border: 1px solid var(--gold-edge);
+  border-radius: 16px;
+  background: #fffaf0;
+  font-size: clamp(18px, 2.2vw, 28px);
+  line-height: 1.25;
+}
+.industries strong {
+  min-height: 1.3em;
+  font-size: clamp(22px, 3vw, 35px);
+}
 .services__head .eyebrow,
 .svc__num,
 .industries strong,

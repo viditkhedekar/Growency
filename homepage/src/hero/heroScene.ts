@@ -20,7 +20,7 @@ const CAM_Z = 20;
 const BASE_DRIFT = 0.1; // rad/s at rest
 const TAU = Math.PI * 2;
 const INTRO_MS = 2600;
-const INTRO_POSTER_WAIT_MS = 950;
+const INTRO_POSTER_WAIT_MS = 450;
 
 interface Els {
   hero: HTMLElement;
@@ -108,7 +108,7 @@ export class HeroScene {
   private videoTick = 0;
   private startTime: number | null = null;
   private introDeadline = 0;
-  private frontPosters: number[] = [];
+  private leadPoster = 0;
   private time = 0;
 
   // pointer for the play blobs
@@ -164,7 +164,7 @@ export class HeroScene {
       .map((c) => ({ i: c.index, f: Math.cos(this.angleOf(c.index)) }))
       .sort((a, b) => b.f - a.f)
       .map((o) => o.i);
-    this.frontPosters = order.slice(0, 3);
+    this.leadPoster = order[0];
     this.introDeadline = performance.now() + INTRO_POSTER_WAIT_MS;
     this.posters.request(order);
 
@@ -445,8 +445,8 @@ export class HeroScene {
     this.p += (this.target - this.p) * k;
     if (Math.abs(this.target - this.p) < 1e-4) this.p = this.target;
     const ph = phases(this.p);
-    if (this.startTime === null && (now >= this.introDeadline
-      || this.frontPosters.every(index => this.posters.textures.has(index)))) {
+    if (this.startTime === null && (this.posters.textures.has(this.leadPoster)
+      || (now >= this.introDeadline && this.posters.textures.size > 0))) {
       this.startTime = now;
     }
     const intro = this.startTime === null ? 0 : clamp01((now - this.startTime) / INTRO_MS);
@@ -476,6 +476,8 @@ export class HeroScene {
       * (1 - smooth(seg(this.p, T.clickStart + 0.008, T.clickEnd)));
     this.tagline.update(reveal, 1 - smooth(seg(this.p, 0.49, 0.515)), seg(this.p, T.erodeStart, T.erodeEnd), click);
     this.word.update(ph.type);
+    this.word.group.visible = ph.type > 0 && ph.type < .999;
+    this.els.hero.classList.toggle('is-eroding', ph.type > 0);
     this.updateUi(ph);
 
     if (now - this.videoTick > 250) {

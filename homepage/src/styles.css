@@ -208,7 +208,7 @@ h3 {
 }
 /* When WebGL draws the wordmark, keep the SVG in place (stable layout,
    accessible heading) but invisible. */
-.hero.is-gl .wordmark-svg {
+.hero.is-eroding .wordmark-svg {
   visibility: hidden;
 }
 
@@ -290,16 +290,19 @@ h3 {
 .hero__static {
   display: none;
 }
-.hero:not(.is-gl) .hero__stage {
+.no-js .hero .hero__stage,
+.hero.is-static .hero__stage {
   height: auto;
   min-height: 0;
   padding: calc(var(--nav-h) + env(safe-area-inset-top) + clamp(4px, 1.6vw, 24px)) var(--gutter) clamp(40px, 8vw, 96px);
 }
-.hero:not(.is-gl) .hero__wordmark {
+.no-js .hero .hero__wordmark,
+.hero.is-static .hero__wordmark {
   position: relative;
   inset: auto;
 }
-.hero:not(.is-gl) .hero__static {
+.no-js .hero .hero__static,
+.hero.is-static .hero__static {
   display: block;
   margin-top: clamp(32px, 6vw, 72px);
 }
@@ -414,15 +417,17 @@ html.has-campaign-viewer, .has-campaign-viewer body { overflow: hidden; }
 .hero.intro-only .hero__stage { opacity: calc(1 - var(--intro-exit, 0)); }
 .intro-cue { position: absolute; z-index: 4; bottom: 18px; left: 50%; transform: translateX(-50%); display: grid; text-align: center; gap: 3px; border: 1px solid var(--line); border-radius: 15px; background: white; padding: 10px 16px; font-size: 13px; white-space: nowrap; }
 .intro-cue a { padding: 8px; }
-.hero:not(.is-gl) .intro-cue { position: relative; inset: auto; transform: none; width: fit-content; margin: 18px auto 0; }
+.no-js .hero .intro-cue,
+.hero.is-static .intro-cue { position: relative; inset: auto; transform: none; width: fit-content; margin: 18px auto 0; }
 .milestones { position: fixed; z-index: 40; top: 50%; right: 12px; transform: translateY(-50%); display: grid; padding: 5px; border: 1px solid #ddd; border-radius: 14px; background: #fff; box-shadow: 0 5px 20px #0001; }
 .milestones a { display: block; padding: 7px 9px; border-radius: 9px; font-size: 12px; text-decoration: none; }
 .milestones a:hover, .milestones a[aria-current] { color: var(--gold-ink); background: var(--gold-light); }
-.worked-ticker { position: fixed; z-index: 40; bottom: 14px; left: 14px; background: #fff; border: 1px solid #ddd; border-radius: 13px; padding: 5px 12px; font-size: 12px; box-shadow: 0 5px 20px #0001; }
+.worked-ticker { position: fixed; z-index: 40; bottom: 14px; left: 14px; background: #fff; border: 1px solid #ddd; border-radius: 13px; padding: 7px 14px; font-size: 13px; box-shadow: 0 5px 20px #0001; }
 .worked-ticker > b { color: var(--gold-ink); }
 .worked-ticker > div { display: grid; }
 .worked-ticker span, .brand-row span { display: flex; align-items: center; gap: 6px; white-space: nowrap; font-weight: 650; }
-.worked-ticker span { grid-area: 1 / 1; height: 37px; animation: client-cycle 12s infinite; }
+.worked-ticker span { grid-area: 1 / 1; height: 43px; animation: client-cycle 12s infinite; }
+.worked-ticker img { height: 41px; width: auto; object-fit: contain; }
 .worked-ticker span:nth-child(2) { animation-delay: -8s; }
 .worked-ticker span:nth-child(3) { animation-delay: -4s; }
 .worked-ticker:hover span { animation-play-state: paused; }
@@ -436,9 +441,9 @@ html.has-campaign-viewer, .has-campaign-viewer body { overflow: hidden; }
 @media (max-width: 720px) {
   .milestones { top: 67px; right: 8px; transform: none; }
   .milestones a { font-size: 10px; padding: 8px 6px; }
-  .worked-ticker { bottom: 5px; left: 5px; padding: 3px 6px; font-size: 10px; }
-  .worked-ticker span { height: 23px; }
-  .worked-ticker img { max-width: 95px; max-height: 23px; object-fit: contain; }
+  .worked-ticker { bottom: 5px; left: 5px; padding: 4px 8px; font-size: 11px; }
+  .worked-ticker span { height: 28px; }
+  .worked-ticker img { max-width: 112px; max-height: 28px; object-fit: contain; }
   .intro-cue { bottom: 62px; }
 }
 @media (prefers-reduced-motion: reduce) {
