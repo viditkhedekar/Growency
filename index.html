@@ -19,9 +19,24 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Growency",
-        "url": "https://www.trygrowency.com/"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.trygrowency.com/#website",
+            "name": "Growency",
+            "url": "https://www.trygrowency.com/",
+            "publisher": { "@id": "https://www.trygrowency.com/#organization" }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.trygrowency.com/#organization",
+            "name": "Growency",
+            "url": "https://www.trygrowency.com/",
+            "description": "Growency is a Meta ads agency that creates, tests and manages Facebook and Instagram ad campaigns.",
+            "logo": "https://www.trygrowency.com/images/growency-logo.png",
+            "sameAs": ["https://www.linkedin.com/company/growency/"]
+          }
+        ]
       }
     </script>
     <meta name="theme-color" content="#ffffff" />
